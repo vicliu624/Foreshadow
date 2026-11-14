@@ -7,6 +7,7 @@ Foreshadow is a plugin-driven signal research workbench. Receiver, detection, di
 Current documentation describes the source branch. Dated acceptance reports identify their own source, package and hardware; published releases can have a different baseline. Read failures, skips and external conditions with each recorded result.
 
 - [Licensing scope](../LICENSING.md), [third-party notices](../THIRD_PARTY_NOTICES.md), and [source/replacement instructions](../SOURCE_AND_REPLACEMENT.md).
+- [Copyright notice](../COPYRIGHT.md) and [brand usage guidelines](../BRANDING.md), with GPL rights preserved for independent distributions, forks and plugins.
 
 - [Distribution compliance material protocol](distribution-compliance.md).
 

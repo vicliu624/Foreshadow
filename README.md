@@ -412,6 +412,12 @@ Run `python tools/docs/check_docs.py` to check pairs and local links. [docs/docu
 
 ## Contributing and licensing
 
+Original first-party work: **Copyright (C) 2026 liu weikai**. Other contributions
+retain their respective copyrights. See the [copyright notice](COPYRIGHT.md) and
+[brand usage guidelines](BRANDING.md) for ownership, accurate attribution and
+identification of independent distributions, forks and plugins. These documents
+add no restrictions to the GPL grant.
+
 Read [AGENTS.md](AGENTS.md), identify owners/consumers/assembly points, and run applicable architecture, contract, and regression checks. Keep private recordings, device backups, credentials, and signing keys outside tracked source. Distinguish verified results, unverified results, and external blockers.
 
 The main application, CLI and first-party plugins are **GPL-3.0-or-later**; see [LICENSE](LICENSE) and the precise [licensing scope](LICENSING.md). Third-party libraries retain their original terms. [Third-party notices](THIRD_PARTY_NOTICES.md) cover Qt's LGPLv3 route, DSP/receiver/codec dependencies and Windows runtimes. [Corresponding source and replacement instructions](SOURCE_AND_REPLACEMENT.md) explain rebuilding and replacing libraries, including static receiver dependencies.

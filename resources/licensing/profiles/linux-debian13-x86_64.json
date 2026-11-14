@@ -31,6 +31,46 @@
           "file": "SOURCE_AND_REPLACEMENT.md",
           "role": "build",
           "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+        },
+        {
+          "file": "COPYRIGHT.md",
+          "role": "notice",
+          "sha256": "fdf49105abc7330ff26e26d38218af6038a089e5508d2b1462b9621c0611c4d9"
+        },
+        {
+          "file": "COPYRIGHT.zh-CN.md",
+          "role": "notice",
+          "sha256": "4e0cdf0cdd1b2b7b333e31df1219ca8c5ff77f41e3056ed0e966eb8c47944920"
+        },
+        {
+          "file": "BRANDING.md",
+          "role": "notice",
+          "sha256": "523aefbc504d6e9e71538f2cf2eddaca7a71a2c39451b87402e57fa0003c9f2f"
+        },
+        {
+          "file": "BRANDING.zh-CN.md",
+          "role": "notice",
+          "sha256": "cae99d738da99d352505394396b06123dcbc00df6059ab8d189e81bd81808977"
+        },
+        {
+          "file": "LICENSING.zh-CN.md",
+          "role": "notice",
+          "sha256": "6b3d7324d593c745699bdd26681f0eefdae4d6ce323b02f7cf976102c2c81923"
+        },
+        {
+          "file": "THIRD_PARTY_NOTICES.md",
+          "role": "notice",
+          "sha256": "7e7b1b1790e7269774fe9928171f759535ebe5b99418bce8c4ab8364cdf46654"
+        },
+        {
+          "file": "THIRD_PARTY_NOTICES.zh-CN.md",
+          "role": "notice",
+          "sha256": "63942fc0d8baefd8accc1fb45907bbf7c49592ea73852857ffc39805933519cb"
+        },
+        {
+          "file": "SOURCE_AND_REPLACEMENT.zh-CN.md",
+          "role": "build",
+          "sha256": "4b5b40681e1566e02d0479aa91db362dc3493d800c930af04dda8c7c16318e92"
         }
       ],
       "display_notice": "Foreshadow and its first-party plugins are free software under GNU GPL version 3 or, at your option, any later version. Imported code retains its original copyright and license."

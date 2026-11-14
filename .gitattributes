@@ -6,6 +6,8 @@ cmake/RemoteReceiver.cmake text eol=lf
 # Preserve verbatim upstream license text, including its original whitespace.
 /LICENSES/*.txt -whitespace
 /LICENSING*.md text eol=lf
+/COPYRIGHT*.md text eol=lf
+/BRANDING*.md text eol=lf
 /SOURCE_AND_REPLACEMENT*.md text eol=lf
 /THIRD_PARTY_NOTICES*.md text eol=lf
 /resources/licensing/**/*.json text eol=lf

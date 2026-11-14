@@ -7,6 +7,7 @@ Foreshadow 是以插件驱动的信号研究工作台。接收机、检测、显
 当前文档说明源码分支。有日期的验收报告绑定各自源码、包与硬件，正式发布可能具有不同基线；失败、跳过及外部条件须与结果一起阅读。
 
 - [许可范围](../LICENSING.zh-CN.md)、[第三方声明](../THIRD_PARTY_NOTICES.zh-CN.md)和[源码／替换说明](../SOURCE_AND_REPLACEMENT.zh-CN.md)。
+- [版权声明](../COPYRIGHT.zh-CN.md)与[品牌使用说明](../BRANDING.zh-CN.md)，保留独立分发、衍生版本及插件的 GPL 权利。
 
 - [分发许可材料协议](distribution-compliance.zh-CN.md)。
 

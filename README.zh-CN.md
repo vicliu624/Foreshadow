@@ -411,6 +411,10 @@ flowchart LR
 
 ## 贡献与许可证
 
+原创第一方作品：**Copyright (C) 2026 liu weikai**。其他贡献保留各自版权。
+权利归属、准确署名及独立分发、衍生版本和插件的身份说明，见[版权声明](COPYRIGHT.zh-CN.md)
+与[品牌使用说明](BRANDING.zh-CN.md)。这些文档不为 GPL 授权增加限制。
+
 先阅读 [AGENTS](AGENTS.zh-CN.md)，识别变化轴、所有者、稳定消费者和组装位置，运行适用架构、契约及回归。私人录制、设备备份、凭据和签名私钥不进入仓库；区分已验证、未验证和外部阻断。
 
 主程序、CLI 与自研插件采用 **GPL-3.0-or-later**，见 [LICENSE](LICENSE) 及明确的[许可范围](LICENSING.zh-CN.md)。第三方库保留原条款。[第三方许可声明](THIRD_PARTY_NOTICES.zh-CN.md)覆盖 Qt 的 LGPLv3 路径、DSP／接收机／编解码依赖与 Windows 运行时；[对应源码及替换说明](SOURCE_AND_REPLACEMENT.zh-CN.md)说明重新构建、替换动态库及静态接收机依赖的方式。

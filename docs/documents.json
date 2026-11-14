@@ -363,6 +363,16 @@
       "status": "current"
     },
     {
+      "en": "COPYRIGHT.md",
+      "zh-CN": "COPYRIGHT.zh-CN.md",
+      "status": "current"
+    },
+    {
+      "en": "BRANDING.md",
+      "zh-CN": "BRANDING.zh-CN.md",
+      "status": "current"
+    },
+    {
       "en": "THIRD_PARTY_NOTICES.md",
       "zh-CN": "THIRD_PARTY_NOTICES.zh-CN.md",
       "status": "current"
