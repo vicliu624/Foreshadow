@@ -1,0 +1,20 @@
+{
+  "label": "OFDM with known subcarriers",
+  "about": "Supply complex frequency bins for every known symbol. The reference uses a unitary inverse DFT, the input sampling clock and an explicit cyclic prefix; unspecified bins are explicitly zero. It performs no pilot acquisition, timing/carrier synchronization, channel equalization or subcarrier EVM measurement.",
+  "amplitude": "Reference amplitude",
+  "phase_rad": "Initial phase",
+  "carrier_hz": "Carrier offset",
+  "fft_size": "Useful symbol samples N",
+  "prefix_samples": "Cyclic prefix samples",
+  "subcarriers": "Known complex subcarriers",
+  "subcarriers.help": "Use bin:real,imaginary separated by spaces; separate symbols with |. Example: -1:1,0 1:0,1 | -1:-1,0 1:0,-1. Signed bins cover −floor(N/2)…floor((N−1)/2). Up to 16 symbols, 64 bins per symbol, 256 total, 4096 text bytes; each component is in −10…10.",
+  "sequence_mode": "Known sequence coverage",
+  "sequence.repeat": "Explicitly repeated sequence",
+  "sequence.finite": "Finite known sequence",
+  "issue.parameter": "Enter a value within the allowed range for this complete configuration.",
+  "issue.unknown": "This model does not declare the supplied parameter.",
+  "issue.nyquist": "A supplied subcarrier plus carrier offset lies outside the input Nyquist interval. Rectangular symbol boundaries do not prove occupied bandwidth.",
+  "issue.subcarriers": "Check bin:real,imaginary syntax, symbol separators, unique bins, component limits and declared reference budgets.",
+  "issue.support": "The finite known symbols do not cover the complete selected range and alignment search. Supply more known symbols or reduce the range/alignment.",
+  "issue.energy": "The supplied subcarriers contain no nonzero reference energy."
+}

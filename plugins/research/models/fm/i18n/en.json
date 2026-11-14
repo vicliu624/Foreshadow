@@ -1,0 +1,12 @@
+{
+  "amplitude": "Reference amplitude",
+  "phase_rad": "Initial phase",
+  "carrier_hz": "Carrier offset",
+  "issue.parameter": "Enter a value within the allowed range for this complete configuration.",
+  "issue.unknown": "This model does not declare the supplied parameter.",
+  "issue.nyquist": "The complete model and time alignment must remain within the input Nyquist interval.",
+  "label": "Sinusoidal FM",
+  "about": "A sinusoidal instantaneous-frequency deviation on a constant envelope. Bounding instantaneous frequency does not certify occupied bandwidth or adequate sampling of all sidebands.",
+  "modulation_hz": "Modulating frequency",
+  "deviation_hz": "Peak frequency deviation"
+}

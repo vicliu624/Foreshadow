@@ -1,0 +1,372 @@
+{
+  "schema": 1,
+  "date": "2026-11-13",
+  "software_source_commit": "d7cfd271c1ee19e022051676fac48c545dab7381",
+  "scope": "Foreshadow rebrand, English review UI and bilingual repository maintenance; no formal release",
+  "windows": {
+    "ctest": {
+      "total": 100,
+      "passed": 99,
+      "skipped": 1,
+      "failed": 0
+    },
+    "package": {
+      "source_commit": "d7cfd271c1ee19e022051676fac48c545dab7381",
+      "work": "C:\\Users\\vicliu\\.cache\\amc-waveform-01a1c9fc-windows\\release-qa\\package-1794555242584274300",
+      "steps": [
+        {
+          "name": "install-application",
+          "exit_code": 0,
+          "seconds": 1.944
+        },
+        {
+          "name": "install-research",
+          "exit_code": 0,
+          "seconds": 0.047
+        },
+        {
+          "name": "package",
+          "exit_code": 0,
+          "seconds": 12.629
+        },
+        {
+          "name": "real-package-transactions",
+          "exit_code": 0,
+          "seconds": 3.041
+        },
+        {
+          "name": "unicode-build-info",
+          "exit_code": 0,
+          "seconds": 0.51
+        },
+        {
+          "name": "unicode-modules",
+          "exit_code": 0,
+          "seconds": 0.165
+        },
+        {
+          "name": "unicode-gui-provider-start",
+          "exit_code": 0,
+          "seconds": 3.272
+        },
+        {
+          "name": "native-unicode-workspace",
+          "exit_code": 0,
+          "seconds": 3.799
+        },
+        {
+          "name": "extracted-desktop-regression",
+          "exit_code": 0,
+          "seconds": 102.006
+        }
+      ],
+      "formal_installation_modified": false,
+      "published": false,
+      "application_archive": "C:\\Users\\vicliu\\.cache\\amc-waveform-01a1c9fc-windows\\release-qa\\package-1794555242584274300\\packages\\org.amc.ams-0.2.11-windows-x86_64.amcpkg",
+      "unicode_installation": "C:\\Users\\vicliu\\.cache\\amc-waveform-01a1c9fc-windows\\release-qa\\package-1794555242584274300\\Foreshadow 发布验收 📡",
+      "packages": [
+        {
+          "id": "org.amc.ams",
+          "kind": "application",
+          "sha256": "27cd497d69f7f5b13e334114a04d55094eab6d251702bd82f38324889fdde91c",
+          "download_size": 65564395
+        },
+        {
+          "id": "org.amc.receiver.rtlsdr",
+          "kind": "receiver",
+          "sha256": "a8d51a26f97ed7d31c1f9b3d75d8b81fc0eed88370bd6863217095599e20d4ab",
+          "download_size": 217841
+        },
+        {
+          "id": "org.amc.receiver.sdrplay",
+          "kind": "receiver",
+          "sha256": "fef37cbf8a25c1cb9b2af05070c36d19a60a3bc51f298a9e75d6e8841fd8e4e1",
+          "download_size": 270836
+        },
+        {
+          "id": "org.amc.research.power-report",
+          "kind": "research",
+          "sha256": "73fc77b160945f2749cf52c0f11e11a127f38eb63dedd25d2a19a81a5402bc76",
+          "download_size": 357015
+        }
+      ],
+      "loaded_receiver_modules": [
+        "rtlsdr",
+        "sdrplay"
+      ],
+      "native_unicode_workspace_image": "C:\\Users\\vicliu\\.cache\\amc-waveform-01a1c9fc-windows\\release-qa\\package-1794555242584274300\\原生工作区 📡.png",
+      "full_stage_archive": "C:\\Users\\vicliu\\.cache\\amc-waveform-01a1c9fc-windows\\release-qa\\package-1794555242584274300\\Foreshadow-windows-full-stage.zip",
+      "full_stage_unicode_installation": "C:\\Users\\vicliu\\.cache\\amc-waveform-01a1c9fc-windows\\release-qa\\package-1794555242584274300\\Foreshadow 完整发布验收 📡",
+      "status": "passed"
+    },
+    "deployment": {
+      "state": "deployed",
+      "root": "C:\\Users\\vicliu\\Apps\\Foreshadow-Review-20261113-r1",
+      "source_commit": "d7cfd271c1ee19e022051676fac48c545dab7381",
+      "package_evidence": "C:\\Users\\vicliu\\.cache\\amc-waveform-01a1c9fc-windows\\release-qa\\package-1794555242584274300",
+      "archive_sha256": "3005874be468290bdc929d00d8ff8fad82f4c7b48d42df83007b50685c0f258d",
+      "ui_language": "en",
+      "published": false,
+      "verified_application_files": 178,
+      "launch_arguments": [
+        "--settings-dir",
+        "C:\\Users\\vicliu\\Apps\\Foreshadow-Review-20261113-r1\\profile",
+        "--output",
+        "C:\\Users\\vicliu\\Apps\\Foreshadow-Review-20261113-r1\\events",
+        "--research-plugin-dir",
+        "C:\\Users\\vicliu\\Apps\\Foreshadow-Review-20261113-r1\\research-plugins",
+        "--language",
+        "en",
+        "--receiver",
+        "rtlsdr",
+        "--frequency",
+        "478.5",
+        "--rate",
+        "2000000",
+        "--search-width",
+        "1000000",
+        "--gain",
+        "auto"
+      ],
+      "checks": [
+        {
+          "name": "build-info",
+          "exit_code": 0
+        },
+        {
+          "name": "modules",
+          "exit_code": 0
+        },
+        {
+          "name": "providers",
+          "exit_code": 0
+        }
+      ],
+      "receiver_modules": [
+        "rtlsdr",
+        "sdrplay"
+      ],
+      "pid": 7808
+    }
+  },
+  "linux": {
+    "ctest": {
+      "total": 102,
+      "passed": 99,
+      "skipped": 3,
+      "failed": 0
+    },
+    "package": {
+      "source_commit": "d7cfd27",
+      "work": "/home/vicliu/.cache/amc-waveform-01a1c9fc/release-qa/package-1794555091129772690",
+      "steps": [
+        {
+          "name": "install-application",
+          "exit_code": 0,
+          "seconds": 0.068
+        },
+        {
+          "name": "install-research",
+          "exit_code": 0,
+          "seconds": 0.014
+        },
+        {
+          "name": "package",
+          "exit_code": 0,
+          "seconds": 3.019
+        },
+        {
+          "name": "real-package-transactions",
+          "exit_code": 0,
+          "seconds": 0.208
+        },
+        {
+          "name": "unicode-build-info",
+          "exit_code": 0,
+          "seconds": 0.005
+        },
+        {
+          "name": "unicode-modules",
+          "exit_code": 0,
+          "seconds": 0.008
+        },
+        {
+          "name": "unicode-gui-provider-start",
+          "exit_code": 0,
+          "seconds": 0.383
+        },
+        {
+          "name": "native-unicode-workspace",
+          "exit_code": 0,
+          "seconds": 2.522
+        },
+        {
+          "name": "extracted-desktop-regression",
+          "exit_code": 0,
+          "seconds": 82.892
+        }
+      ],
+      "formal_installation_modified": false,
+      "application_archive": "/home/vicliu/.cache/amc-waveform-01a1c9fc/release-qa/package-1794555091129772690/packages/org.amc.ams-0.2.11-linux-debian13-x86_64.amcpkg",
+      "unicode_installation": "/home/vicliu/.cache/amc-waveform-01a1c9fc/release-qa/package-1794555091129772690/AMS 发布验收 📡",
+      "packages": [
+        {
+          "id": "org.amc.ams",
+          "kind": "application",
+          "sha256": "e0c593d0d69fb50c160669c23a000dff28e39ce86fb387487d003bd8aaaf2181",
+          "download_size": 28715836
+        },
+        {
+          "id": "org.amc.receiver.rtlsdr",
+          "kind": "receiver",
+          "sha256": "48bff0ac7b8a21e9f30eda5225502a9ec8b447e5bc6f0ac428548c35369f53c4",
+          "download_size": 291172
+        },
+        {
+          "id": "org.amc.receiver.sdrplay",
+          "kind": "receiver",
+          "sha256": "fccc25736588686cb8e79efe28eed607673888ef55cfb148bf0b4f8ca8e25043",
+          "download_size": 297556
+        },
+        {
+          "id": "org.amc.research.power-report",
+          "kind": "research",
+          "sha256": "cc7d841fa913d4ef48e3f960913f72af55d82f87fd22d165c645e089431960fd",
+          "download_size": 149766
+        }
+      ],
+      "loaded_receiver_modules": [
+        "rtlsdr",
+        "sdrplay"
+      ],
+      "native_unicode_workspace_image": "/home/vicliu/.cache/amc-waveform-01a1c9fc/release-qa/package-1794555091129772690/原生工作区 📡.png",
+      "full_stage_archive": "/home/vicliu/.cache/amc-waveform-01a1c9fc/release-qa/package-1794555091129772690/AMS-linux-full-stage.tar.gz",
+      "full_stage_unicode_installation": "/home/vicliu/.cache/amc-waveform-01a1c9fc/release-qa/package-1794555091129772690/AMS 完整发布验收 📡",
+      "status": "passed"
+    },
+    "deployment": {
+      "state": "deployed",
+      "root": "/home/vicliu/Applications/Foreshadow-Review-20261113-r1",
+      "source_commit": "d7cfd27",
+      "package_evidence": "/home/vicliu/.cache/amc-waveform-01a1c9fc/release-qa/package-1794555091129772690",
+      "archive_sha256": "ec46ee7846cbad759e0602db3088b41229d57f3d5899f91055f2696cb9feccc5",
+      "ui_language": "en",
+      "published": false,
+      "verified_application_files": 118,
+      "launch_arguments": [
+        "--settings-dir",
+        "/home/vicliu/Applications/Foreshadow-Review-20261113-r1/profile",
+        "--output",
+        "/home/vicliu/Applications/Foreshadow-Review-20261113-r1/events",
+        "--research-plugin-dir",
+        "/home/vicliu/Applications/Foreshadow-Review-20261113-r1/research-plugins",
+        "--language",
+        "en",
+        "--receiver",
+        "sdrplay",
+        "--frequency",
+        "478.5",
+        "--rate",
+        "2000000",
+        "--search-width",
+        "1000000",
+        "--gain",
+        "auto"
+      ],
+      "checks": [
+        {
+          "name": "build-info",
+          "exit_code": 0
+        },
+        {
+          "name": "modules",
+          "exit_code": 0
+        },
+        {
+          "name": "providers",
+          "exit_code": 0
+        }
+      ],
+      "receiver_modules": [
+        "rtlsdr",
+        "sdrplay"
+      ],
+      "menu": "/home/vicliu/.local/share/applications/ams-waveform-review.desktop",
+      "pid": 183177
+    }
+  },
+  "macos": {
+    "platform": "macOS 14.3.1 x86_64",
+    "build": "passed",
+    "initial_ctest": {
+      "total": 102,
+      "passed": 94,
+      "failed": 8
+    },
+    "focused_serial": {
+      "total": 8,
+      "passed": 3,
+      "failed": 5
+    },
+    "remaining_failures": [
+      "gui_replay_smoke",
+      "media_playback_contract",
+      "dtmb_tv_provider_contract",
+      "dtmb_tv_actual_media",
+      "fm_playback_recovery"
+    ],
+    "package_acceptance": "not run after failed prerequisite",
+    "new_deployment": false,
+    "cause": "not established; observed AudioOutputUnitStart error 35 and timed workflows",
+    "logs_root": "/Users/liuweikai/.cache/amc-waveform-01a1c9fc-macos/logs"
+  },
+  "screenshots": "../images/provenance.json",
+  "documentation": {
+    "pairs": 69,
+    "default_language": "en",
+    "ui_showcase_language": "en",
+    "checks": "tools/docs/check_docs.py",
+    "validation": {
+      "independent_checker_cases": [
+        "independent-valid-pair-and-image",
+        "missing-counterpart-rejected",
+        "broken-link-rejected"
+      ],
+      "markdown_render": [
+        {
+          "file": "README.md",
+          "images": 15,
+          "tables": 7
+        },
+        {
+          "file": "README.zh-CN.md",
+          "images": 15,
+          "tables": 7
+        },
+        {
+          "file": "docs/plugins.md",
+          "images": 0,
+          "tables": 3
+        },
+        {
+          "file": "docs/plugins.zh-CN.md",
+          "images": 0,
+          "tables": 3
+        },
+        {
+          "file": "docs/screenshots.md",
+          "images": 15,
+          "tables": 0
+        },
+        {
+          "file": "docs/screenshots.zh-CN.md",
+          "images": 15,
+          "tables": 0
+        }
+      ],
+      "ci": "existing self-hosted job; docs check registered"
+    },
+    "inventory_result": "passed",
+    "whitespace_result": "passed"
+  }
+}

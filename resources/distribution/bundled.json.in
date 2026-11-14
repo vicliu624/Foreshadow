@@ -1,0 +1,53 @@
+[
+  {
+    "schema": 1,
+    "id": "org.amc.ams",
+    "kind": "application",
+    "version": "@PROJECT_VERSION@",
+    "platform": "@AMC_DISTRIBUTION_PLATFORM@",
+    "name": {"en": "Foreshadow", "zh-CN": "Foreshadow"},
+    "description": {"en": "Signal monitoring and analysis platform.", "zh-CN": "信号监听与分析平台。"},
+    "components": [],
+    "actions": ["update"],
+    "dependencies": []
+  },
+  {
+    "schema": 1,
+    "id": "org.amc.receiver.rtlsdr",
+    "kind": "receiver",
+    "version": "@PROJECT_VERSION@",
+    "platform": "@AMC_DISTRIBUTION_PLATFORM@",
+    "name": {"en": "RTL-SDR / AIO2 Support", "zh-CN": "RTL-SDR / AIO2 接收机支持包"},
+    "description": {"en": "RTL-SDR receivers, including AIO2 tuning and HF direct-sampling rules.", "zh-CN": "RTL-SDR 接收机支持，包含 AIO2 调谐与 HF 直采规则。"},
+    "application": {"minimum": "0.2.0", "maximum": "0.3.0"},
+    "dependencies": [],
+    "actions": ["update", "enable", "disable"],
+    "components": [{"kind": "receiver", "id": "rtlsdr", "abi": 1, "path": "receiver/amc-receiver-rtlsdr@CMAKE_SHARED_MODULE_SUFFIX@"}]
+  },
+  {
+    "schema": 1,
+    "id": "org.amc.receiver.sdrplay",
+    "bundle_with_application": false,
+    "kind": "receiver",
+    "version": "@PROJECT_VERSION@",
+    "platform": "@AMC_DISTRIBUTION_PLATFORM@",
+    "name": {"en": "SDRplay Support", "zh-CN": "SDRplay 接收机支持包"},
+    "description": {"en": "SDRplay receiver service client. Connects to a separately installed SoapySDRServer; vendor drivers and API stay in the receiver service process.", "zh-CN": "SDRplay 接收机服务客户端。连接独立安装的 SoapySDRServer；厂商驱动与 API 只在接收机服务进程运行。"},
+    "application": {"minimum": "0.2.12", "maximum": "0.3.0"},
+    "dependencies": [],
+    "actions": ["update", "enable", "disable"],
+    "components": [{"kind": "receiver", "id": "sdrplay", "abi": 1, "path": "receiver/amc-receiver-sdrplay@CMAKE_SHARED_MODULE_SUFFIX@"}]
+  },
+  {
+    "schema": 1,
+    "id": "org.amc.analysis.builtin",
+    "kind": "builtin",
+    "version": "@PROJECT_VERSION@",
+    "platform": "@AMC_DISTRIBUTION_PLATFORM@",
+    "name": {"en": "Built-in Analysis and Displays", "zh-CN": "内置分析与显示模块"},
+    "description": {"en": "Compiled detection, display and research modules. Updated with Foreshadow; choose individual modules in module settings.", "zh-CN": "随 Foreshadow 编译发布的检测、显示与研究模块。跟随主体更新，可在模块设置中选择具体功能。"},
+    "dependencies": [],
+    "components": [],
+    "actions": ["configure"]
+  }
+]

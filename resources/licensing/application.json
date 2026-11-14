@@ -1,0 +1,5 @@
+{
+  "schema": 1,
+  "packages": {"org.amc.ams": ["foreshadow", "desktop-runtime", "distribution-runtime", "dsp-runtime", "television-runtime"]},
+  "application": ["foreshadow", "desktop-runtime", "distribution-runtime", "dsp-runtime", "television-runtime"]
+}

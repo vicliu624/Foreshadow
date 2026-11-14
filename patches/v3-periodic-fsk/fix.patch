@@ -1,0 +1,95 @@
+--- a/src/lora.cpp
++++ b/src/lora.cpp
+@@ -406,7 +406,14 @@
+         }catch(const FineBudgetExceeded&){++fine_budget_exhaustions_;}
+         projection_limit_=final_limit;
+         if(found) {
+-            try { found=transition_matches(selected.down_start,selected.offset); }
++            try {
++                // 相同反向投影在前导码与 SFD 间必须真实增强，排除持续周期调制。
++                double baseline=0;
++                for(unsigned i=0;i<c_.repeat_symbols;++i)
++                    baseline+=std::pow(10.,project(selected.down_start-prefix+i*n_,true,selected.offset,n_).ratio_db()/10);
++                const double direction_gain=selected.down_db-10*std::log10(baseline/c_.repeat_symbols);
++                found=direction_gain>=5 && transition_matches(selected.down_start,selected.offset);
++            }
+             catch(const FineBudgetExceeded&){++fine_budget_exhaustions_;found=false;}
+         }
+         if(found){pending=selected;quarter=selected_quarter;after=selected_after;++fine_matches_;}
+@@ -643,7 +650,7 @@
+ void LoRaDetector::reset() {for(auto& search:impl_->searches)search->reset();impl_->pairs=0;impl_->omitted_events=0;impl_->events=Json::array();impl_->raw_samples.clear();impl_->raw_energies.assign(1,0);impl_->raw_base=0;}
+ Json LoRaDetector::results() const {
+     Json work=Json::array();for(const auto& search:impl_->searches)work.push_back(search->work());
+-    return {{"algorithm","dechirp-fft-structure-v3"},{"source_pairs",impl_->pairs},{"events",impl_->events},
++    return {{"algorithm","dechirp-fft-structure-v3.1"},{"source_pairs",impl_->pairs},{"events",impl_->events},
+         {"search_work",std::move(work)},
+         {"search_scheduler","dynamic_largest_first"},
+         {"probe_reporting_interval_seconds",.25},{"probe_output_is_sampled",true},
+--- a/src/monitor.cpp
++++ b/src/monitor.cpp
+@@ -64,7 +64,7 @@
+                 {"elapsed_seconds",std::chrono::duration<double>(std::chrono::steady_clock::now()-started).count()},
+                 {"updated_utc",utc_now()},{"storage",storage},{"recent_lora_events",latest},{"recent_candidates",candidates},
+                 {"receiver_configuration",{{"frequency_hz",cfg.frequency},{"sample_rate_hz",cfg.rate},{"gain_tenths_db",cfg.gain_tenths},{"auto_gain",cfg.auto_gain},{"search_width_hz",lc.search_width}}},
+-                {"detector",{{"algorithm","dechirp-fft-structure-v3"},{"bandwidth_hz",lc.bandwidth},
++                {"detector",{{"algorithm","dechirp-fft-structure-v3.1"},{"bandwidth_hz",lc.bandwidth},
+                     {"preamble_threshold_db",lc.peak_to_mean_db},{"downchirp_threshold_db",lc.peak_to_mean_db-2},
+                     {"sf_min",lc.sf_min},{"sf_max",lc.sf_max},{"time_phases",lc.time_phases},{"workers",lc.workers},
+                     {"normal_iq",lc.normal_iq},{"inverted_iq",lc.inverted_iq},
+--- a/src/gui.cpp
++++ b/src/gui.cpp
+@@ -229,6 +229,7 @@
+         {std::lock_guard lock(shared_.mutex);shared_.error.clear();shared_.done=false;shared_.status=Json::object();shared_.spectrum={};}
+         running_=true;start_->setEnabled(false);stop_->setEnabled(true);pause_->setEnabled(!input_.isEmpty());frequency_->setEnabled(false);gain_->setEnabled(false);sf_->setEnabled(false);bw_->setEnabled(false);quota_->setEnabled(false);limit_->setEnabled(false);
+         spectrum_->reset();iq_->setFrame({});events_->setRowCount(0);display_events_=Json::array();
++        rendered_status_=Json::object();rendered_spectrum_sequence_=0;
+         power_->setText(QStringLiteral("等待当前来源的新 I/Q…"));
+         storage_->setText(input_.isEmpty()?QStringLiteral("预录制仅在内存，只有 LoRa 结构事件保存到磁盘"):QStringLiteral("研究重放：只分析原始录制，不重复保存 I/Q"));
+         evidence_->setPlainText(QStringLiteral("等待当前会话的 LoRa 结构事件。"));
+@@ -290,11 +291,13 @@
+     void poll() {
+         SpectrumFrame frame;Json status;QString error;bool done=false;
+         {std::lock_guard lock(shared_.mutex);frame=shared_.spectrum;status=shared_.status;error=shared_.error;done=shared_.done;}
+-        if(!frame.bins_dbfs.empty()){
++        if(!frame.bins_dbfs.empty() && frame.sequence!=rendered_spectrum_sequence_){
++            rendered_spectrum_sequence_=frame.sequence;
+             spectrum_->setFrame(frame);iq_->setFrame(frame);power_->setText(QStringLiteral("当前全带强度 %1 dBFS · 非校准 RF 功率 · 当前样本 %2").arg(frame.power_dbfs,0,'f',1).arg(qulonglong(frame.first_sample)));
+             coverage_->setText(QStringLiteral("采集 %1–%2 MHz · LoRa 中心搜索 %3–%4 MHz · 双 I/Q 极性").arg((frame.frequency-frame.rate/2.0)/1e6,0,'f',3).arg((frame.frequency+frame.rate/2.0)/1e6,0,'f',3).arg((frame.frequency-500000)/1e6,0,'f',3).arg((frame.frequency+500000)/1e6,0,'f',3));
+         }
+-        if(!status.empty()) {
++        if(!status.empty() && status!=rendered_status_) {
++            rendered_status_=status;
+             const auto dropped=status.value("analysis_dropped_pairs",std::uint64_t(0));
+             const auto state=status.value("state",std::string());
+             const QString label=state=="listening"?QStringLiteral("实时监听"):state=="replaying"?QStringLiteral("录制重放"):state=="replay_finished"?QStringLiteral("重放结束"):state=="stopped"?QStringLiteral("已停止"):state=="analysis_finished"?QStringLiteral("收尾中"):state=="starting"?QStringLiteral("初始化"):QString::fromStdString(state);
+@@ -304,6 +307,7 @@
+             state_->setStyleSheet(dropped?"color:#ffb06c":"color:#9ee0c8");
+             display_events_=status.value("recent_lora_events",Json::array());
+             for(const auto& candidate:status.value("recent_candidates",Json::array()))display_events_.push_back(candidate);
++            events_->setUpdatesEnabled(false);
+             events_->setRowCount(static_cast<int>(display_events_.size()));
+             for(std::size_t row=0;row<display_events_.size();++row) {
+                 const auto& e=display_events_[row];const bool confirmed=e.value("evidence_level",std::string())=="lora_structure_match";
+@@ -311,8 +315,13 @@
+                 QStringList cells={confirmed?QStringLiteral("LoRa 结构"):e.value("evidence_level",std::string())=="energy_transient"?QStringLiteral("能量待验证"):QStringLiteral("Chirp 待验证"),number(centre.is_number()?Json(centre.get<double>()/1e6):Json(nullptr),6),
+                     number(e.value("bandwidth_hz",Json(nullptr)).is_number()?Json(e["bandwidth_hz"].get<double>()/1000):Json(nullptr),0)+"k / SF"+number(e.value("sf_candidate",Json(nullptr)),0),
+                     number(e.value("matched_component_dbfs",Json(nullptr)),1),number(e.value("preamble_peak_to_mean_db",e.value("peak_to_mean_db",Json(nullptr))),1),number(e.value("first_observed_sample",Json(nullptr)),0)};
+-                for(int col=0;col<cells.size();++col)events_->setItem(static_cast<int>(row),col,new QTableWidgetItem(cells[col]));
++                for(int col=0;col<cells.size();++col) {
++                    auto* item=events_->item(static_cast<int>(row),col);
++                    if(!item)events_->setItem(static_cast<int>(row),col,new QTableWidgetItem(cells[col]));
++                    else if(item->text()!=cells[col])item->setText(cells[col]);
++                }
+             }
++            events_->setUpdatesEnabled(true);
+             if(status.contains("storage")) {
+                 const auto& s=status["storage"];storage_->setText(QStringLiteral("内存预留 %1 MiB · 本次保存 %2 段 · 已淘汰 %3 段 · 配额 %4 MiB · 仅保存 LoRa 结构事件").arg(s.value("ring_bytes",0ULL)/1048576.0,0,'f',1).arg(qulonglong(s.value("completed",0ULL))).arg(qulonglong(s.value("retention_deleted",0ULL))).arg(qulonglong(s.value("quota_bytes",0ULL)/1048576)));
+                 if(status.contains("rss_bytes"))storage_->setText(storage_->text()+QStringLiteral(" · 进程 %1 MiB · CPU %2%").arg(status["rss_bytes"].get<double>()/1048576,0,'f',0).arg(status.value("cpu_percent_of_machine",0.0),0,'f',0));
+@@ -329,6 +338,7 @@
+     SpectrumView* spectrum_;IqView* iq_;QTextEdit* evidence_;QTableWidget *events_,*files_;AnalysisPanel* analysis_;
+     QTimer timer_;Shared shared_;std::jthread worker_;std::atomic<bool> cancel_=false,paused_=false;
+     bool running_=false,diagnostics_=false;Json display_events_=Json::array();std::uint64_t last_completed_=0;
++    Json rendered_status_=Json::object();std::uint64_t rendered_spectrum_sequence_=0;
+ };
+ }
+ int main(int argc,char** argv) {

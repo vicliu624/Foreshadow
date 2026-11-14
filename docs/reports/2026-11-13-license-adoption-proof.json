@@ -1,0 +1,1090 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-11-13T15:51:16.461242+00:00",
+  "source_commit": "67a3f3f4439b73b529c648283dc4fd721b16e6e3",
+  "project_license": "GPL-3.0-or-later",
+  "published": false,
+  "release_status": "blocked-by-external-SDRplay-permission",
+  "windows": {
+    "package": {
+      "source_commit": "67a3f3f4439b73b529c648283dc4fd721b16e6e3",
+      "work": "C:\\Users\\vicliu\\.cache\\amc-waveform-01a1c9fc-windows\\release-qa\\package-1794583981201552100",
+      "steps": [
+        {
+          "name": "install-application",
+          "exit_code": 0,
+          "seconds": 3.317
+        },
+        {
+          "name": "install-research",
+          "exit_code": 0,
+          "seconds": 0.051
+        },
+        {
+          "name": "attach-compliance",
+          "exit_code": 0,
+          "seconds": 2.365
+        },
+        {
+          "name": "package",
+          "exit_code": 0,
+          "seconds": 22.949
+        },
+        {
+          "name": "real-package-transactions",
+          "exit_code": 0,
+          "seconds": 8.007
+        },
+        {
+          "name": "unicode-build-info",
+          "exit_code": 0,
+          "seconds": 0.553
+        },
+        {
+          "name": "unicode-modules",
+          "exit_code": 0,
+          "seconds": 0.183
+        },
+        {
+          "name": "unicode-gui-provider-start",
+          "exit_code": 0,
+          "seconds": 3.15
+        },
+        {
+          "name": "native-unicode-workspace",
+          "exit_code": 0,
+          "seconds": 4.653
+        },
+        {
+          "name": "extracted-desktop-regression",
+          "exit_code": 0,
+          "seconds": 110.875
+        }
+      ],
+      "formal_installation_modified": false,
+      "published": false,
+      "application_archive": "C:\\Users\\vicliu\\.cache\\amc-waveform-01a1c9fc-windows\\release-qa\\package-1794583981201552100\\packages\\org.amc.ams-0.2.11-windows-x86_64.amcpkg",
+      "unicode_installation": "C:\\Users\\vicliu\\.cache\\amc-waveform-01a1c9fc-windows\\release-qa\\package-1794583981201552100\\Foreshadow 发布验收 📡",
+      "packages": [
+        {
+          "id": "org.amc.ams",
+          "kind": "application",
+          "sha256": "50dacc0c30402159dfe6f52496514e6f250c5aa9b3a571dec3dd90cdabc3d5bc",
+          "download_size": 236099192
+        },
+        {
+          "id": "org.amc.receiver.rtlsdr",
+          "kind": "receiver",
+          "sha256": "14919080c5735193e8035b989e1c199ad51d2266428bea0064bc4ba6a4f3206d",
+          "download_size": 14205049
+        },
+        {
+          "id": "org.amc.receiver.sdrplay",
+          "kind": "receiver",
+          "sha256": "136bbd79c2a6bf920a821fe2d32ea9bc996f4a2b5f9ec8cf3c2d766b2c8f99c1",
+          "download_size": 13027152
+        },
+        {
+          "id": "org.amc.research.power-report",
+          "kind": "research",
+          "sha256": "3982d23f51cf264fc21674ddb996c053cd135c6989431078bdda9081e19bb5aa",
+          "download_size": 11378501
+        }
+      ],
+      "loaded_receiver_modules": [
+        "rtlsdr",
+        "sdrplay"
+      ],
+      "native_unicode_workspace_image": "C:\\Users\\vicliu\\.cache\\amc-waveform-01a1c9fc-windows\\release-qa\\package-1794583981201552100\\原生工作区 📡.png",
+      "full_stage_archive": "C:\\Users\\vicliu\\.cache\\amc-waveform-01a1c9fc-windows\\release-qa\\package-1794583981201552100\\Foreshadow-windows-full-stage.zip",
+      "full_stage_unicode_installation": "C:\\Users\\vicliu\\.cache\\amc-waveform-01a1c9fc-windows\\release-qa\\package-1794583981201552100\\Foreshadow 完整发布验收 📡",
+      "status": "passed"
+    },
+    "compliance": {
+      "source_commit": "67a3f3f4439b73b529c648283dc4fd721b16e6e3",
+      "package_work": "C:\\Users\\vicliu\\.cache\\amc-waveform-01a1c9fc-windows\\release-qa\\package-1794583981201552100",
+      "archive_gates": [
+        {
+          "id": "org.amc.ams",
+          "distribution": "review-only",
+          "issues": [
+            {
+              "component": "sdrplay-external",
+              "reason": "SDRplay API 3.15 installer-v2 EULA (effective 2021-01-12) has hardware-use and reverse-engineering restrictions and no established redistribution/GPL combined-work permission. The Linux installed API matches the inspected installer; Windows vendor runtime is not qualified. Proprietary binaries are excluded; private review only."
+            }
+          ],
+          "materials": 396,
+          "binaries": 49,
+          "formal_gate": "blocked-by-recorded-permission",
+          "formal_error": "Unresolved distribution conditions: [{\"component\": \"sdrplay-external\", \"reason\": \"SDRplay API 3.15 installer-v2 EULA (effective 2021-01-12) has hardware-use and reverse-engineering restrictions and no established redistribution/GPL combined-work permission. The Linux installed API matches the inspected installer; Windows vendor runtime is not qualified. Proprietary binaries are excluded; private review only.\"}]"
+        },
+        {
+          "id": "org.amc.receiver.rtlsdr",
+          "distribution": "evidence-complete",
+          "issues": [],
+          "materials": 63,
+          "binaries": 1,
+          "formal_gate": "passed"
+        },
+        {
+          "id": "org.amc.receiver.sdrplay",
+          "distribution": "review-only",
+          "issues": [
+            {
+              "component": "sdrplay-external",
+              "reason": "SDRplay API 3.15 installer-v2 EULA (effective 2021-01-12) has hardware-use and reverse-engineering restrictions and no established redistribution/GPL combined-work permission. The Linux installed API matches the inspected installer; Windows vendor runtime is not qualified. Proprietary binaries are excluded; private review only."
+            }
+          ],
+          "materials": 56,
+          "binaries": 2,
+          "formal_gate": "blocked-by-recorded-permission",
+          "formal_error": "Unresolved distribution conditions: [{\"component\": \"sdrplay-external\", \"reason\": \"SDRplay API 3.15 installer-v2 EULA (effective 2021-01-12) has hardware-use and reverse-engineering restrictions and no established redistribution/GPL combined-work permission. The Linux installed API matches the inspected installer; Windows vendor runtime is not qualified. Proprietary binaries are excluded; private review only.\"}]"
+        },
+        {
+          "id": "org.amc.research.power-report",
+          "distribution": "evidence-complete",
+          "issues": [],
+          "materials": 18,
+          "binaries": 4,
+          "formal_gate": "passed"
+        }
+      ],
+      "published": false,
+      "native_license_ui": {
+        "exit_code": 0,
+        "screenshot": "C:\\Users\\vicliu\\.cache\\amc-waveform-01a1c9fc-windows\\release-qa\\package-1794583981201552100\\licenses-and-source.png"
+      },
+      "qt_replacement": {
+        "method": "Compatible copied DLL with inert PE overlay; Qt source was not rebuilt",
+        "original_sha256": "0cc62e841959fb8f6d366ea116c6f6bbc273e30f0ef90d8aa2e4adeb81fd63f8",
+        "replacement_sha256": "140e383e5a7d03d57fbd85f5ae6649f1a036324c0cb985517ff4c8cff67bf945",
+        "loaded_path": "C:\\Users\\vicliu\\.cache\\amc-waveform-01a1c9fc-windows\\release-qa\\package-1794583981201552100\\许可证与替换验证 📡-1794584488088559700\\bin\\Qt6Core.dll",
+        "exit_code": 0,
+        "limits": "Exercises substitution/loading without a startup hash/signature lock; does not claim arbitrary ABI changes work or that a full Qt rebuild was tested."
+      },
+      "status": "passed"
+    },
+    "deployment": {
+      "state": "deployed",
+      "root": "C:\\Users\\vicliu\\Apps\\Foreshadow-Review-20261113-r3",
+      "source_commit": "67a3f3f4439b73b529c648283dc4fd721b16e6e3",
+      "package_evidence": "C:\\Users\\vicliu\\.cache\\amc-waveform-01a1c9fc-windows\\release-qa\\package-1794583981201552100",
+      "archive_sha256": "5f03d657af966d1136c7a73440b8d26839b10a35bb0bdf2c6dcd67972c192280",
+      "verified_application_files": 587,
+      "launch_arguments": [
+        "--settings-dir",
+        "C:\\Users\\vicliu\\Apps\\Foreshadow-Review-20261113-r3\\profile",
+        "--output",
+        "C:\\Users\\vicliu\\Apps\\Foreshadow-Review-20261113-r3\\events",
+        "--research-plugin-dir",
+        "C:\\Users\\vicliu\\Apps\\Foreshadow-Review-20261113-r3\\research-plugins",
+        "--language",
+        "en",
+        "--receiver",
+        "rtlsdr",
+        "--frequency",
+        "478.5",
+        "--rate",
+        "2000000",
+        "--search-width",
+        "1000000",
+        "--gain",
+        "auto"
+      ],
+      "ui_language": "en",
+      "published": false,
+      "license_clearance": "not-cleared",
+      "previous_review_preserved": "C:\\Users\\vicliu\\Apps\\Foreshadow-Review-20261113-r2",
+      "checks": [
+        {
+          "name": "build-info",
+          "exit_code": 0
+        },
+        {
+          "name": "modules",
+          "exit_code": 0
+        },
+        {
+          "name": "providers",
+          "exit_code": 0
+        }
+      ],
+      "receiver_modules": [
+        "rtlsdr",
+        "sdrplay"
+      ],
+      "pid": 27168,
+      "desktop_shortcut": {
+        "path": "C:/Users/vicliu/Desktop/Foreshadow Review.lnk",
+        "launch_script": "C:/Users/vicliu/Apps/Foreshadow-Review-20261113-r3/launch-review.pyw",
+        "verified": true
+      }
+    },
+    "source_rebuild": {
+      "source_archive": "C:\\Users\\vicliu\\.cache\\foreshadow-compliance\\foreshadow-source-review-r3.tar.gz",
+      "job": "C:\\Users\\vicliu\\.cache\\foreshadow-compliance\\source-rebuild-1794583872814436800",
+      "steps": [
+        {
+          "name": "configure-from-delivered-source",
+          "exit_code": 0,
+          "seconds": 19.68
+        },
+        {
+          "name": "build-from-delivered-source",
+          "exit_code": 0,
+          "seconds": 203.19
+        },
+        {
+          "name": "rebuilt-build-info",
+          "exit_code": 0,
+          "seconds": 0.48
+        },
+        {
+          "name": "rebuilt-modules",
+          "exit_code": 0,
+          "seconds": 0.14
+        },
+        {
+          "name": "rebuilt-providers",
+          "exit_code": 0,
+          "seconds": 1.34
+        }
+      ],
+      "dependency_libraries_rebuilt": false,
+      "scope": "Clean first-party application, providers and native helpers from delivered source; existing exact Qt/native dependency SDKs reused",
+      "source_commit": "67a3f3f4439b73b529c648283dc4fd721b16e6e3",
+      "status": "passed"
+    },
+    "regression": {
+      "total": 105,
+      "passed": 104,
+      "skipped": 1,
+      "failed": 0,
+      "log_sha256": "d1237284840e473751a9238e10e1dba2d77e87ab3d4501a3941ead41fd26f3fc",
+      "seconds": 272.73
+    },
+    "archive_sha256": "5f03d657af966d1136c7a73440b8d26839b10a35bb0bdf2c6dcd67972c192280"
+  },
+  "linux": {
+    "package": {
+      "source_commit": "67a3f3f4439b73b529c648283dc4fd721b16e6e3",
+      "work": "/home/vicliu/.cache/amc-waveform-01a1c9fc/release-qa/pcm-1794584278227820382",
+      "steps": [
+        {
+          "name": "install-application",
+          "exit_code": 0,
+          "seconds": 0.114
+        },
+        {
+          "name": "install-research",
+          "exit_code": 0,
+          "seconds": 0.016
+        },
+        {
+          "name": "attach-compliance",
+          "exit_code": 0,
+          "seconds": 0.515
+        },
+        {
+          "name": "package",
+          "exit_code": 0,
+          "seconds": 7.777
+        },
+        {
+          "name": "real-package-transactions",
+          "exit_code": 0,
+          "seconds": 0.615
+        },
+        {
+          "name": "unicode-build-info",
+          "exit_code": 0,
+          "seconds": 0.008
+        },
+        {
+          "name": "unicode-modules",
+          "exit_code": 0,
+          "seconds": 0.008
+        },
+        {
+          "name": "unicode-gui-provider-start",
+          "exit_code": 0,
+          "seconds": 0.364
+        },
+        {
+          "name": "native-unicode-workspace",
+          "exit_code": 0,
+          "seconds": 2.368
+        },
+        {
+          "name": "extracted-desktop-regression",
+          "exit_code": 0,
+          "seconds": 82.363
+        }
+      ],
+      "published": false,
+      "packages": [
+        {
+          "id": "org.amc.ams",
+          "kind": "application",
+          "sha256": "bd7d19267a5f5952af1512f3b7bad39dc0f895920ff3f030d60fc07aab5c71a8",
+          "download_size": 194438173
+        },
+        {
+          "id": "org.amc.receiver.rtlsdr",
+          "kind": "receiver",
+          "sha256": "3c65505e71d5ddfb1a954894834166051123983ebf3e907538bd01cd2a9b1576",
+          "download_size": 12040206
+        },
+        {
+          "id": "org.amc.receiver.sdrplay",
+          "kind": "receiver",
+          "sha256": "84fce8093fa27a4aceefebd1557684c7cee18bb22bcae2b7d8c7dc6a911fcc68",
+          "download_size": 11398391
+        },
+        {
+          "id": "org.amc.research.power-report",
+          "kind": "research",
+          "sha256": "b3d075146ca93777aa59c17333491e0947351c8b1e3a91f67504e9d2a4039132",
+          "download_size": 11057079
+        }
+      ],
+      "loaded_receiver_modules": [
+        "rtlsdr",
+        "sdrplay"
+      ],
+      "full_stage_archive": "/home/vicliu/.cache/amc-waveform-01a1c9fc/release-qa/pcm-1794584278227820382/Foreshadow-linux-full-stage.tar.gz",
+      "full_stage_unicode_installation": "/home/vicliu/.cache/amc-waveform-01a1c9fc/release-qa/pcm-1794584278227820382/Foreshadow 完整发布验收 📡",
+      "full_stage_sha256": "e78021eccf2e1083ec10dbaae0e54e78196cdfc14448942526643895d093da7a",
+      "status": "passed"
+    },
+    "compliance": {
+      "source_commit": "67a3f3f4439b73b529c648283dc4fd721b16e6e3",
+      "package_work": "/home/vicliu/.cache/amc-waveform-01a1c9fc/release-qa/pcm-1794584278227820382",
+      "archive_gates": [
+        {
+          "id": "org.amc.ams",
+          "distribution": "review-only",
+          "issues": [
+            {
+              "component": "sdrplay-external",
+              "reason": "SDRplay API 3.15 installer-v2 EULA (effective 2021-01-12) has hardware-use and reverse-engineering restrictions and no established redistribution/GPL combined-work permission. The Linux installed API matches the inspected installer; Windows vendor runtime is not qualified. Proprietary binaries are excluded; private review only."
+            }
+          ],
+          "materials": 349,
+          "binaries": 21,
+          "formal_gate": "blocked-by-recorded-permission",
+          "formal_error": "Unresolved distribution conditions: [{\"component\": \"sdrplay-external\", \"reason\": \"SDRplay API 3.15 installer-v2 EULA (effective 2021-01-12) has hardware-use and reverse-engineering restrictions and no established redistribution/GPL combined-work permission. The Linux installed API matches the inspected installer; Windows vendor runtime is not qualified. Proprietary binaries are excluded; private review only.\"}]"
+        },
+        {
+          "id": "org.amc.receiver.rtlsdr",
+          "distribution": "evidence-complete",
+          "issues": [],
+          "materials": 33,
+          "binaries": 1,
+          "formal_gate": "passed"
+        },
+        {
+          "id": "org.amc.receiver.sdrplay",
+          "distribution": "review-only",
+          "issues": [
+            {
+              "component": "sdrplay-external",
+              "reason": "SDRplay API 3.15 installer-v2 EULA (effective 2021-01-12) has hardware-use and reverse-engineering restrictions and no established redistribution/GPL combined-work permission. The Linux installed API matches the inspected installer; Windows vendor runtime is not qualified. Proprietary binaries are excluded; private review only."
+            }
+          ],
+          "materials": 30,
+          "binaries": 1,
+          "formal_gate": "blocked-by-recorded-permission",
+          "formal_error": "Unresolved distribution conditions: [{\"component\": \"sdrplay-external\", \"reason\": \"SDRplay API 3.15 installer-v2 EULA (effective 2021-01-12) has hardware-use and reverse-engineering restrictions and no established redistribution/GPL combined-work permission. The Linux installed API matches the inspected installer; Windows vendor runtime is not qualified. Proprietary binaries are excluded; private review only.\"}]"
+        },
+        {
+          "id": "org.amc.research.power-report",
+          "distribution": "evidence-complete",
+          "issues": [],
+          "materials": 13,
+          "binaries": 1,
+          "formal_gate": "passed"
+        }
+      ],
+      "published": false,
+      "native_license_ui": {
+        "exit_code": 0,
+        "screenshot": "/home/vicliu/.cache/amc-waveform-01a1c9fc/release-qa/pcm-1794584278227820382/licenses-and-source.png"
+      },
+      "qt_replacement": {
+        "method": "Compatible copied ELF with inert trailer loaded from an alternate prefix; Qt source was not rebuilt",
+        "original_sha256": "4b54b2e9d67a5fcf670b28e32144fd8c84d86d48f5f18e28e60bd91368d7a54a",
+        "replacement_sha256": "3900badd1df1cb4715c60f0bed1a514a6c304e9d28ff9dae147308ca4758f5f2",
+        "loaded_path": "/home/vicliu/.cache/amc-waveform-01a1c9fc/release-qa/pcm-1794584278227820382/许可证与替换验证 📡/replacement-qt/libQt6Core.so.6",
+        "exit_code": 0,
+        "limits": "Exercises substitution/loading without a startup hash/signature lock; does not claim arbitrary ABI changes work or that a full Qt rebuild was tested."
+      },
+      "status": "passed"
+    },
+    "deployment": {
+      "state": "deployed",
+      "root": "/home/vicliu/Applications/Foreshadow-Review-20261113-r3",
+      "source_commit": "67a3f3f4439b73b529c648283dc4fd721b16e6e3",
+      "package_evidence": "/home/vicliu/.cache/amc-waveform-01a1c9fc/release-qa/pcm-1794584278227820382",
+      "archive_sha256": "e78021eccf2e1083ec10dbaae0e54e78196cdfc14448942526643895d093da7a",
+      "verified_application_files": 489,
+      "launch_arguments": [
+        "--settings-dir",
+        "/home/vicliu/Applications/Foreshadow-Review-20261113-r3/profile",
+        "--output",
+        "/home/vicliu/Applications/Foreshadow-Review-20261113-r3/events",
+        "--research-plugin-dir",
+        "/home/vicliu/Applications/Foreshadow-Review-20261113-r3/research-plugins",
+        "--language",
+        "en",
+        "--receiver",
+        "sdrplay",
+        "--frequency",
+        "478.5",
+        "--rate",
+        "2000000",
+        "--search-width",
+        "1000000",
+        "--gain",
+        "auto"
+      ],
+      "ui_language": "en",
+      "published": false,
+      "license_clearance": "not-cleared",
+      "previous_review_preserved": "/home/vicliu/Applications/Foreshadow-Review-20261113-r2",
+      "checks": [
+        {
+          "name": "build-info",
+          "exit_code": 0
+        },
+        {
+          "name": "modules",
+          "exit_code": 0
+        },
+        {
+          "name": "providers",
+          "exit_code": 0
+        }
+      ],
+      "receiver_modules": [
+        "rtlsdr",
+        "sdrplay"
+      ],
+      "menu": "/home/vicliu/.local/share/applications/ams-waveform-review.desktop",
+      "pid": 242522
+    },
+    "source_rebuild": {
+      "source_archive": "/home/vicliu/.cache/foreshadow-compliance/foreshadow-source-review-r3.tar.gz",
+      "job": "/home/vicliu/.cache/foreshadow-compliance/source-rebuild-1794584278285826756",
+      "steps": [
+        {
+          "name": "configure-from-delivered-source",
+          "exit_code": 0,
+          "seconds": 3.07
+        },
+        {
+          "name": "build-from-delivered-source",
+          "exit_code": 0,
+          "seconds": 145.93
+        },
+        {
+          "name": "rebuilt-build-info",
+          "exit_code": 0,
+          "seconds": 0.01
+        },
+        {
+          "name": "rebuilt-modules",
+          "exit_code": 0,
+          "seconds": 0.01
+        },
+        {
+          "name": "rebuilt-providers",
+          "exit_code": 0,
+          "seconds": 0.31
+        }
+      ],
+      "dependency_libraries_rebuilt": false,
+      "scope": "Clean first-party application, providers and native helpers from delivered source; existing exact Qt/native dependency SDKs reused",
+      "source_commit": "67a3f3f4439b73b529c648283dc4fd721b16e6e3",
+      "status": "passed"
+    },
+    "regression": {
+      "total": 106,
+      "passed": 103,
+      "skipped": 3,
+      "failed": 0,
+      "log_sha256": "ef711a8a70b4faaf750596efa78f61bcb61b469629b9edc478761a653b7fa6c9"
+    },
+    "archive_sha256": "e78021eccf2e1083ec10dbaae0e54e78196cdfc14448942526643895d093da7a"
+  },
+  "licensing_contracts": 14,
+  "qt_source_correspondence": {
+    "qtbase": {
+      "sdk_source_sbom_sha256": "7e1c12136a67ee81dd22cda6bd557e22f5e9391414377170d56ad946afc60294",
+      "archive_sha256": "56001b905601bb9023d399f3ba780d7fa940f3e4861e496a7c490331f49e0b80",
+      "sbom_files": 22018,
+      "matched_files": 21617,
+      "crlf_checkout_matches": 14500,
+      "missing": [
+        ".gitattributes",
+        ".gitignore",
+        "config.tests/.gitignore",
+        "src/3rdparty/.gitattributes",
+        "src/3rdparty/tinycbor/.gitignore",
+        "src/3rdparty/tinycbor/tests/.gitignore",
+        "src/android/jar/.gitignore",
+        "src/android/templates/.gitignore",
+        "src/corelib/serialization/.gitignore",
+        "src/network/android/jar/.gitignore",
+        "src/plugins/networkinformation/android/jar/.gitignore",
+        "tests/auto/cmake/test_qt_extract_metatypes/test_qt_extract_metatypes_project/testdata/.gitattributes",
+        "tests/auto/concurrent/qtconcurrentfilter/.gitignore",
+        "tests/auto/concurrent/qtconcurrentfiltermapgenerated/.gitignore",
+        "tests/auto/concurrent/qtconcurrentiteratekernel/.gitignore",
+        "tests/auto/concurrent/qtconcurrentmap/.gitignore",
+        "tests/auto/concurrent/qtconcurrentrun/.gitignore",
+        "tests/auto/concurrent/qtconcurrentthreadengine/.gitignore",
+        "tests/auto/corelib/global/q_func_info/.gitignore",
+        "tests/auto/corelib/global/qflags/.gitignore",
+        "tests/auto/corelib/global/qgetputenv/.gitignore",
+        "tests/auto/corelib/global/qglobal/.gitignore",
+        "tests/auto/corelib/global/qkeycombination/.gitignore",
+        "tests/auto/corelib/global/qnumeric/.gitignore",
+        "tests/auto/corelib/global/qoperatingsystemversion/.gitignore",
+        "tests/auto/corelib/io/qbuffer/.gitignore",
+        "tests/auto/corelib/io/qdebug/.gitignore",
+        "tests/auto/corelib/io/qdir/.gitignore",
+        "tests/auto/corelib/io/qdiriterator/.gitignore",
+        "tests/auto/corelib/io/qdirlisting/.gitignore",
+        "tests/auto/corelib/io/qfile/.gitattributes",
+        "tests/auto/corelib/io/qfile/.gitignore",
+        "tests/auto/corelib/io/qfileinfo/.gitignore",
+        "tests/auto/corelib/io/qfilesystemwatcher/.gitignore",
+        "tests/auto/corelib/io/qiodevice/.gitignore",
+        "tests/auto/corelib/io/qprocess/.gitignore",
+        "tests/auto/corelib/io/qresourceengine/.gitattributes",
+        "tests/auto/corelib/io/qresourceengine/.gitignore",
+        "tests/auto/corelib/io/qsettings/.gitattributes",
+        "tests/auto/corelib/io/qsettings/.gitignore",
+        "tests/auto/corelib/io/qtemporaryfile/.gitignore",
+        "tests/auto/corelib/io/qurl/.gitignore",
+        "tests/auto/corelib/io/qzip/.gitignore",
+        "tests/auto/corelib/itemmodels/qabstractitemmodel/.gitignore",
+        "tests/auto/corelib/itemmodels/qabstractproxymodel/.gitignore",
+        "tests/auto/corelib/itemmodels/qitemmodel/.gitignore",
+        "tests/auto/corelib/itemmodels/qitemselectionmodel/.gitignore",
+        "tests/auto/corelib/itemmodels/qsortfilterproxymodel_recursive/.gitignore",
+        "tests/auto/corelib/itemmodels/qsortfilterproxymodel_regularexpression/.gitignore",
+        "tests/auto/corelib/itemmodels/qstringlistmodel/.gitignore",
+        "tests/auto/corelib/kernel/qchronotimer/.gitignore",
+        "tests/auto/corelib/kernel/qcoreapplication/.gitignore",
+        "tests/auto/corelib/kernel/qeventloop/.gitignore",
+        "tests/auto/corelib/kernel/qmetaobject/.gitignore",
+        "tests/auto/corelib/kernel/qmetatype/.gitignore",
+        "tests/auto/corelib/kernel/qobject/.gitignore",
+        "tests/auto/corelib/kernel/qpermission/.gitignore",
+        "tests/auto/corelib/kernel/qpointer/.gitignore",
+        "tests/auto/corelib/kernel/qsignalblocker/.gitignore",
+        "tests/auto/corelib/kernel/qsignalmapper/.gitignore",
+        "tests/auto/corelib/kernel/qsocketnotifier/.gitignore",
+        "tests/auto/corelib/kernel/qtimer/.gitignore",
+        "tests/auto/corelib/kernel/qtranslator/.gitignore",
+        "tests/auto/corelib/kernel/qvariant/.gitignore",
+        "tests/auto/corelib/kernel/qwineventnotifier/.gitignore",
+        "tests/auto/corelib/kernel/qwinregistrykey/.gitignore",
+        "tests/auto/corelib/plugin/qlibrary/.gitignore",
+        "tests/auto/corelib/plugin/qplugin/.gitignore",
+        "tests/auto/corelib/plugin/qpluginloader/.gitignore",
+        "tests/auto/corelib/plugin/qpluginloader/elftest/.gitattributes",
+        "tests/auto/corelib/plugin/qpluginloader/staticplugin/.gitignore",
+        "tests/auto/corelib/plugin/quuid/.gitignore",
+        "tests/auto/corelib/serialization/qdatastream/.gitignore",
+        "tests/auto/corelib/serialization/qtextstream/.gitattributes",
+        "tests/auto/corelib/serialization/qtextstream/.gitignore",
+        "tests/auto/corelib/serialization/qxmlstream/.gitattributes",
+        "tests/auto/corelib/serialization/qxmlstream/.gitignore",
+        "tests/auto/corelib/text/qanystringview/.gitignore",
+        "tests/auto/corelib/text/qbytearray/.gitignore",
+        "tests/auto/corelib/text/qbytearray_large/.gitattributes",
+        "tests/auto/corelib/text/qbytedatabuffer/.gitignore",
+        "tests/auto/corelib/text/qchar/.gitignore",
+        "tests/auto/corelib/text/qlatin1stringview/.gitignore",
+        "tests/auto/corelib/text/qlocale/.gitignore",
+        "tests/auto/corelib/text/qregularexpression/.gitignore",
+        "tests/auto/corelib/text/qstring/.gitignore",
+        "tests/auto/corelib/text/qstringapisymmetry/.gitignore",
+        "tests/auto/corelib/text/qstringlist/.gitignore",
+        "tests/auto/corelib/text/qstringmatcher/.gitignore",
+        "tests/auto/corelib/text/qstringtokenizer/.gitignore",
+        "tests/auto/corelib/text/qstringview/.gitignore",
+        "tests/auto/corelib/text/qtextboundaryfinder/.gitignore",
+        "tests/auto/corelib/thread/qatomicint/.gitignore",
+        "tests/auto/corelib/thread/qatomicpointer/.gitignore",
+        "tests/auto/corelib/thread/qfuture/.gitignore",
+        "tests/auto/corelib/thread/qfuturewatcher/.gitignore",
+        "tests/auto/corelib/thread/qmutex/.gitignore",
+        "tests/auto/corelib/thread/qmutexlocker/.gitignore",
+        "tests/auto/corelib/thread/qreadlocker/.gitignore",
+        "tests/auto/corelib/thread/qreadwritelock/.gitignore",
+        "tests/auto/corelib/thread/qsemaphore/.gitignore",
+        "tests/auto/corelib/thread/qthread/.gitignore",
+        "tests/auto/corelib/thread/qthreadonce/.gitignore",
+        "tests/auto/corelib/thread/qthreadpool/.gitignore",
+        "tests/auto/corelib/thread/qthreadstorage/.gitignore",
+        "tests/auto/corelib/thread/qwaitcondition/.gitignore",
+        "tests/auto/corelib/thread/qwritelocker/.gitignore",
+        "tests/auto/corelib/time/qdate/.gitignore",
+        "tests/auto/corelib/time/qdatetime/.gitignore",
+        "tests/auto/corelib/time/qdatetimeparser/.gitignore",
+        "tests/auto/corelib/time/qtime/.gitignore",
+        "tests/auto/corelib/tools/collections/.gitignore",
+        "tests/auto/corelib/tools/containerapisymmetry/.gitignore",
+        "tests/auto/corelib/tools/qalgorithms/.gitignore",
+        "tests/auto/corelib/tools/qbitarray/.gitignore",
+        "tests/auto/corelib/tools/qcache/.gitignore",
+        "tests/auto/corelib/tools/qcryptographichash/.gitignore",
+        "tests/auto/corelib/tools/qexplicitlyshareddatapointer/.gitignore",
+        "tests/auto/corelib/tools/qhash/.gitignore",
+        "tests/auto/corelib/tools/qhashfunctions/.gitignore",
+        "tests/auto/corelib/tools/qline/.gitignore",
+        "tests/auto/corelib/tools/qlist/.gitignore",
+        "tests/auto/corelib/tools/qmap/.gitignore",
+        "tests/auto/corelib/tools/qmessageauthenticationcode/.gitignore",
+        "tests/auto/corelib/tools/qpoint/.gitignore",
+        "tests/auto/corelib/tools/qqueue/.gitignore",
+        "tests/auto/corelib/tools/qrect/.gitignore",
+        "tests/auto/corelib/tools/qscopedpointer/.gitignore",
+        "tests/auto/corelib/tools/qset/.gitignore",
+        "tests/auto/corelib/tools/qsharedpointer/.gitignore",
+        "tests/auto/corelib/tools/qsize/.gitignore",
+        "tests/auto/corelib/tools/qsizef/.gitignore",
+        "tests/auto/corelib/tools/qstl/.gitignore",
+        "tests/auto/corelib/tools/qtaggedpointer/.gitignore",
+        "tests/auto/corelib/tools/qtimeline/.gitignore",
+        "tests/auto/corelib/tools/qvarlengtharray/.gitignore",
+        "tests/auto/dbus/qdbusabstractadaptor/.gitignore",
+        "tests/auto/dbus/qdbusconnection/.gitignore",
+        "tests/auto/dbus/qdbuscontext/.gitignore",
+        "tests/auto/dbus/qdbusinterface/.gitignore",
+        "tests/auto/dbus/qdbuslocalcalls/.gitignore",
+        "tests/auto/dbus/qdbusmarshall/.gitignore",
+        "tests/auto/dbus/qdbusmetaobject/.gitignore",
+        "tests/auto/dbus/qdbusmetatype/.gitignore",
+        "tests/auto/dbus/qdbuspendingcall/.gitignore",
+        "tests/auto/dbus/qdbuspendingreply/.gitignore",
+        "tests/auto/dbus/qdbusreply/.gitignore",
+        "tests/auto/dbus/qdbusthreading/.gitignore",
+        "tests/auto/dbus/qdbusxmlparser/.gitignore",
+        "tests/auto/gui/image/qicoimageformat/.gitignore",
+        "tests/auto/gui/image/qicon/.gitignore",
+        "tests/auto/gui/image/qimage/.gitignore",
+        "tests/auto/gui/image/qimageiohandler/.gitignore",
+        "tests/auto/gui/image/qimagereader/.gitignore",
+        "tests/auto/gui/image/qimagewriter/.gitignore",
+        "tests/auto/gui/image/qmovie/.gitignore",
+        "tests/auto/gui/image/qpicture/.gitignore",
+        "tests/auto/gui/image/qpixmap/.gitignore",
+        "tests/auto/gui/image/qpixmapcache/.gitignore",
+        "tests/auto/gui/itemmodels/qfilesystemmodel/.gitignore",
+        "tests/auto/gui/itemmodels/qstandarditem/.gitignore",
+        "tests/auto/gui/itemmodels/qstandarditemmodel/.gitignore",
+        "tests/auto/gui/kernel/qaction/.gitignore",
+        "tests/auto/gui/kernel/qactiongroup/.gitignore",
+        "tests/auto/gui/kernel/qclipboard/.gitignore",
+        "tests/auto/gui/kernel/qdrag/.gitignore",
+        "tests/auto/gui/kernel/qevent/.gitignore",
+        "tests/auto/gui/kernel/qguivariant/.gitignore",
+        "tests/auto/gui/kernel/qkeysequence/.gitignore",
+        "tests/auto/gui/kernel/qmouseevent/.gitignore",
+        "tests/auto/gui/kernel/qmouseevent_modal/.gitignore",
+        "tests/auto/gui/kernel/qpalette/.gitignore",
+        "tests/auto/gui/painting/qbrush/.gitignore",
+        "tests/auto/gui/painting/qcolor/.gitignore",
+        "tests/auto/gui/painting/qpagelayout/.gitignore",
+        "tests/auto/gui/painting/qpagesize/.gitignore",
+        "tests/auto/gui/painting/qpaintengine/.gitignore",
+        "tests/auto/gui/painting/qpainter/.gitignore",
+        "tests/auto/gui/painting/qpainterpath/.gitignore",
+        "tests/auto/gui/painting/qpainterpathstroker/.gitignore",
+        "tests/auto/gui/painting/qpathclipper/.gitignore",
+        "tests/auto/gui/painting/qpdfwriter/.gitignore",
+        "tests/auto/gui/painting/qpen/.gitignore",
+        "tests/auto/gui/painting/qpolygon/.gitignore",
+        "tests/auto/gui/painting/qregion/.gitignore",
+        "tests/auto/gui/painting/qtransform/.gitignore",
+        "tests/auto/gui/painting/qwmatrix/.gitignore",
+        "tests/auto/gui/text/qabstracttextdocumentlayout/.gitignore",
+        "tests/auto/gui/text/qcssparser/.gitignore",
+        "tests/auto/gui/text/qfont/.gitignore",
+        "tests/auto/gui/text/qfontcache/.gitignore",
+        "tests/auto/gui/text/qfontdatabase/.gitignore",
+        "tests/auto/gui/text/qfontmetrics/.gitignore",
+        "tests/auto/gui/text/qsyntaxhighlighter/.gitignore",
+        "tests/auto/gui/text/qtextblock/.gitignore",
+        "tests/auto/gui/text/qtextcursor/.gitignore",
+        "tests/auto/gui/text/qtextdocument/.gitignore",
+        "tests/auto/gui/text/qtextdocumentfragment/.gitignore",
+        "tests/auto/gui/text/qtextdocumentlayout/.gitignore",
+        "tests/auto/gui/text/qtextformat/.gitignore",
+        "tests/auto/gui/text/qtextlayout/.gitignore",
+        "tests/auto/gui/text/qtextlist/.gitignore",
+        "tests/auto/gui/text/qtextobject/.gitignore",
+        "tests/auto/gui/text/qtextodfwriter/.gitignore",
+        "tests/auto/gui/text/qtextpiecetable/.gitignore",
+        "tests/auto/gui/text/qtextscriptengine/.gitignore",
+        "tests/auto/gui/text/qtexttable/.gitignore",
+        "tests/auto/gui/util/qdesktopservices/.gitignore",
+        "tests/auto/gui/util/qdoublevalidator/.gitignore",
+        "tests/auto/gui/util/qintvalidator/.gitignore",
+        "tests/auto/gui/util/qregularexpressionvalidator/.gitignore",
+        "tests/auto/gui/util/qundogroup/.gitignore",
+        "tests/auto/gui/util/qundostack/.gitignore",
+        "tests/auto/network/access/qabstractnetworkcache/.gitignore",
+        "tests/auto/network/access/qhttpnetworkconnection/.gitignore",
+        "tests/auto/network/access/qhttpnetworkreply/.gitignore",
+        "tests/auto/network/access/qnetworkcachemetadata/.gitignore",
+        "tests/auto/network/access/qnetworkcookie/.gitignore",
+        "tests/auto/network/access/qnetworkcookiejar/.gitignore",
+        "tests/auto/network/access/qnetworkdiskcache/.gitignore",
+        "tests/auto/network/access/qnetworkreply/.gitattributes",
+        "tests/auto/network/access/qnetworkreply/.gitignore",
+        "tests/auto/network/access/qnetworkrequest/.gitignore",
+        "tests/auto/network/kernel/qhostaddress/.gitignore",
+        "tests/auto/network/kernel/qhostinfo/.gitignore",
+        "tests/auto/network/kernel/qnetworkaddressentry/.gitignore",
+        "tests/auto/network/kernel/qnetworkinterface/.gitignore",
+        "tests/auto/network/kernel/qnetworkproxy/.gitignore",
+        "tests/auto/network/socket/platformsocketengine/.gitignore",
+        "tests/auto/network/socket/qabstractsocket/.gitignore",
+        "tests/auto/network/socket/qhttpsocketengine/.gitignore",
+        "tests/auto/network/socket/qlocalsocket/.gitignore",
+        "tests/auto/network/socket/qsocks5socketengine/.gitignore",
+        "tests/auto/network/socket/qtcpserver/.gitignore",
+        "tests/auto/network/socket/qtcpsocket/.gitignore",
+        "tests/auto/network/socket/qudpsocket/.gitignore",
+        "tests/auto/network/ssl/qsslcertificate/.gitignore",
+        "tests/auto/network/ssl/qsslcipher/.gitignore",
+        "tests/auto/network/ssl/qsslellipticcurve/.gitignore",
+        "tests/auto/network/ssl/qsslerror/.gitignore",
+        "tests/auto/network/ssl/qsslkey/.gitignore",
+        "tests/auto/network/ssl/qsslsocket/.gitignore",
+        "tests/auto/other/languagechange/.gitignore",
+        "tests/auto/other/macgui/.gitignore",
+        "tests/auto/other/qaccessibility/.gitignore",
+        "tests/auto/other/qcomplextext/.gitignore",
+        "tests/auto/other/qfocusevent/.gitignore",
+        "tests/auto/other/qobjectrace/.gitignore",
+        "tests/auto/printsupport/dialogs/qabstractprintdialog/.gitignore",
+        "tests/auto/printsupport/kernel/qprintdevice/.gitignore",
+        "tests/auto/printsupport/kernel/qprinter/.gitignore",
+        "tests/auto/printsupport/kernel/qprinterinfo/.gitignore",
+        "tests/auto/sql/kernel/qsql/.gitignore",
+        "tests/auto/sql/kernel/qsqldatabase/.gitignore",
+        "tests/auto/sql/kernel/qsqlerror/.gitignore",
+        "tests/auto/sql/kernel/qsqlfield/.gitignore",
+        "tests/auto/sql/kernel/qsqlquery/.gitignore",
+        "tests/auto/sql/kernel/qsqlrecord/.gitignore",
+        "tests/auto/sql/kernel/qsqlthread/.gitignore",
+        "tests/auto/sql/models/qsqlquerymodel/.gitignore",
+        "tests/auto/sql/models/qsqlrelationaltablemodel/.gitignore",
+        "tests/auto/sql/models/qsqltablemodel/.gitignore",
+        "tests/auto/testlib/qabstractitemmodeltester/.gitignore",
+        "tests/auto/testlib/qsignalspy/.gitignore",
+        "tests/auto/testlib/selftests/.gitignore",
+        "tests/auto/tools/moc/.gitattributes",
+        "tests/auto/tools/moc/.gitignore",
+        "tests/auto/tools/qmake/.gitignore",
+        "tests/auto/tools/qmake/testdata/.gitignore",
+        "tests/auto/tools/qmakelib/.gitignore",
+        "tests/auto/tools/rcc/.gitignore",
+        "tests/auto/tools/rcc/data/.gitattributes",
+        "tests/auto/tools/uic/.gitignore",
+        "tests/auto/tools/uic/baseline/.gitattributes",
+        "tests/auto/widgets/dialogs/qcolordialog/.gitignore",
+        "tests/auto/widgets/dialogs/qdialog/.gitignore",
+        "tests/auto/widgets/dialogs/qerrormessage/.gitignore",
+        "tests/auto/widgets/dialogs/qfiledialog/.gitignore",
+        "tests/auto/widgets/dialogs/qfontdialog/.gitignore",
+        "tests/auto/widgets/dialogs/qinputdialog/.gitignore",
+        "tests/auto/widgets/dialogs/qmessagebox/.gitignore",
+        "tests/auto/widgets/dialogs/qprogressdialog/.gitignore",
+        "tests/auto/widgets/dialogs/qsidebar/.gitignore",
+        "tests/auto/widgets/dialogs/qwizard/.gitignore",
+        "tests/auto/widgets/graphicsview/qgraphicsgridlayout/.gitignore",
+        "tests/auto/widgets/graphicsview/qgraphicsitem/.gitignore",
+        "tests/auto/widgets/graphicsview/qgraphicsitemanimation/.gitignore",
+        "tests/auto/widgets/graphicsview/qgraphicslayout/.gitignore",
+        "tests/auto/widgets/graphicsview/qgraphicslayoutitem/.gitignore",
+        "tests/auto/widgets/graphicsview/qgraphicslinearlayout/.gitignore",
+        "tests/auto/widgets/graphicsview/qgraphicspixmapitem/.gitignore",
+        "tests/auto/widgets/graphicsview/qgraphicspolygonitem/.gitignore",
+        "tests/auto/widgets/graphicsview/qgraphicsproxywidget/.gitignore",
+        "tests/auto/widgets/graphicsview/qgraphicsscene/.gitignore",
+        "tests/auto/widgets/graphicsview/qgraphicsview/.gitignore",
+        "tests/auto/widgets/graphicsview/qgraphicswidget/.gitignore",
+        "tests/auto/widgets/itemviews/qabstractitemview/.gitignore",
+        "tests/auto/widgets/itemviews/qcolumnview/.gitignore",
+        "tests/auto/widgets/itemviews/qdatawidgetmapper/.gitignore",
+        "tests/auto/widgets/itemviews/qfileiconprovider/.gitignore",
+        "tests/auto/widgets/itemviews/qheaderview/.gitignore",
+        "tests/auto/widgets/itemviews/qitemdelegate/.gitignore",
+        "tests/auto/widgets/itemviews/qitemeditorfactory/.gitignore",
+        "tests/auto/widgets/itemviews/qitemview/.gitignore",
+        "tests/auto/widgets/itemviews/qlistview/.gitignore",
+        "tests/auto/widgets/itemviews/qlistwidget/.gitignore",
+        "tests/auto/widgets/itemviews/qtableview/.gitignore",
+        "tests/auto/widgets/itemviews/qtablewidget/.gitignore",
+        "tests/auto/widgets/itemviews/qtreeview/.gitignore",
+        "tests/auto/widgets/itemviews/qtreewidget/.gitignore",
+        "tests/auto/widgets/itemviews/qtreewidgetitemiterator/.gitignore",
+        "tests/auto/widgets/kernel/qactiongroup/.gitignore",
+        "tests/auto/widgets/kernel/qapplication/.gitignore",
+        "tests/auto/widgets/kernel/qboxlayout/.gitignore",
+        "tests/auto/widgets/kernel/qformlayout/.gitignore",
+        "tests/auto/widgets/kernel/qgridlayout/.gitignore",
+        "tests/auto/widgets/kernel/qlayout/.gitignore",
+        "tests/auto/widgets/kernel/qshortcut/.gitignore",
+        "tests/auto/widgets/kernel/qstackedlayout/.gitignore",
+        "tests/auto/widgets/kernel/qtooltip/.gitignore",
+        "tests/auto/widgets/kernel/qwidget/.gitignore",
+        "tests/auto/widgets/kernel/qwidget_window/.gitignore",
+        "tests/auto/widgets/kernel/qwidgetaction/.gitignore",
+        "tests/auto/widgets/kernel/qwindowcontainer/.gitignore",
+        "tests/auto/widgets/styles/qmacstyle/.gitignore",
+        "tests/auto/widgets/styles/qstyle/.gitignore",
+        "tests/auto/widgets/styles/qstyleoption/.gitignore",
+        "tests/auto/widgets/styles/qstylesheetstyle/.gitignore",
+        "tests/auto/widgets/util/qcompleter/.gitignore",
+        "tests/auto/widgets/util/qsystemtrayicon/.gitignore",
+        "tests/auto/widgets/widgets/qabstractbutton/.gitignore",
+        "tests/auto/widgets/widgets/qabstractscrollarea/.gitignore",
+        "tests/auto/widgets/widgets/qabstractslider/.gitignore",
+        "tests/auto/widgets/widgets/qabstractspinbox/.gitignore",
+        "tests/auto/widgets/widgets/qbuttongroup/.gitignore",
+        "tests/auto/widgets/widgets/qcalendarwidget/.gitignore",
+        "tests/auto/widgets/widgets/qcheckbox/.gitignore",
+        "tests/auto/widgets/widgets/qcombobox/.gitignore",
+        "tests/auto/widgets/widgets/qcommandlinkbutton/.gitignore",
+        "tests/auto/widgets/widgets/qdatetimeedit/.gitignore",
+        "tests/auto/widgets/widgets/qdial/.gitignore",
+        "tests/auto/widgets/widgets/qdialogbuttonbox/.gitignore",
+        "tests/auto/widgets/widgets/qdockwidget/.gitignore",
+        "tests/auto/widgets/widgets/qdoublespinbox/.gitignore",
+        "tests/auto/widgets/widgets/qfocusframe/.gitignore",
+        "tests/auto/widgets/widgets/qfontcombobox/.gitignore",
+        "tests/auto/widgets/widgets/qframe/.gitignore",
+        "tests/auto/widgets/widgets/qgroupbox/.gitignore",
+        "tests/auto/widgets/widgets/qkeysequenceedit/.gitignore",
+        "tests/auto/widgets/widgets/qlabel/.gitignore",
+        "tests/auto/widgets/widgets/qlcdnumber/.gitignore",
+        "tests/auto/widgets/widgets/qlineedit/.gitignore",
+        "tests/auto/widgets/widgets/qmainwindow/.gitignore",
+        "tests/auto/widgets/widgets/qmdiarea/.gitignore",
+        "tests/auto/widgets/widgets/qmdisubwindow/.gitignore",
+        "tests/auto/widgets/widgets/qmenu/.gitignore",
+        "tests/auto/widgets/widgets/qmenubar/.gitignore",
+        "tests/auto/widgets/widgets/qplaintextedit/.gitignore",
+        "tests/auto/widgets/widgets/qprogressbar/.gitignore",
+        "tests/auto/widgets/widgets/qpushbutton/.gitignore",
+        "tests/auto/widgets/widgets/qradiobutton/.gitignore",
+        "tests/auto/widgets/widgets/qscrollarea/.gitignore",
+        "tests/auto/widgets/widgets/qscrollbar/.gitignore",
+        "tests/auto/widgets/widgets/qsizegrip/.gitignore",
+        "tests/auto/widgets/widgets/qslider/.gitignore",
+        "tests/auto/widgets/widgets/qspinbox/.gitignore",
+        "tests/auto/widgets/widgets/qsplitter/.gitignore",
+        "tests/auto/widgets/widgets/qstackedwidget/.gitignore",
+        "tests/auto/widgets/widgets/qstatusbar/.gitignore",
+        "tests/auto/widgets/widgets/qtabbar/.gitignore",
+        "tests/auto/widgets/widgets/qtabwidget/.gitignore",
+        "tests/auto/widgets/widgets/qtextbrowser/.gitignore",
+        "tests/auto/widgets/widgets/qtextedit/.gitignore",
+        "tests/auto/widgets/widgets/qtoolbar/.gitignore",
+        "tests/auto/widgets/widgets/qtoolbox/.gitignore",
+        "tests/auto/widgets/widgets/qtoolbutton/.gitignore",
+        "tests/auto/xml/dom/qdom/.gitattributes",
+        "tests/auto/xml/dom/qdom/.gitignore",
+        "tests/baseline/painting/.gitignore",
+        "tests/benchmarks/corelib/io/qprocess/.gitignore",
+        "tests/benchmarks/corelib/text/qregularexpression/.gitignore",
+        "tests/benchmarks/corelib/text/qstringlist/.gitignore",
+        "tests/benchmarks/dbus/qdbusperformance/.gitignore",
+        "tests/benchmarks/network/access/qnetworkreply_from_cache/.gitignore",
+        "tests/global/.gitignore",
+        "tests/manual/mkspecs/.gitignore",
+        "tests/manual/network/ssl/client-auth/certs/.gitignore",
+        "tests/manual/permissions/.gitignore",
+        "tests/manual/wasm/shared/.gitignore",
+        "tests/testserver/apache2/.gitattributes",
+        "tests/testserver/apache2/testdata/www/htdocs/rfcs/.gitattributes",
+        "tests/testserver/common/.gitattributes",
+        "tests/testserver/danted/.gitattributes",
+        "tests/testserver/ftp-proxy/.gitattributes",
+        "tests/testserver/squid/.gitattributes",
+        "tests/testserver/vsftpd/.gitattributes",
+        "util/cmake/.gitignore",
+        "util/gradientgen/.gitignore",
+        "util/unicode/.gitattributes",
+        "util/x86simdgen/.gitignore"
+      ],
+      "different": [
+        ".tag"
+      ]
+    },
+    "qtmultimedia": {
+      "sdk_source_sbom_sha256": "353d16e08f0cec2bd90aa981162eb76b57144f230b0dd83afb9b21ed88fb302b",
+      "archive_sha256": "32e82307d783172a3b984cc3c47c5e4e8b819cee3cbfc702c7012c47f15f6b01",
+      "sbom_files": 2637,
+      "matched_files": 2637,
+      "crlf_checkout_matches": 2072,
+      "missing": [],
+      "different": []
+    },
+    "qtserialport": {
+      "sdk_source_sbom_sha256": "7ed2342361993af50056b1c00c2f5a0b4020f532e4ceffa361d1e48e042f077f",
+      "archive_sha256": "c164a0392dc7cab3d072fa8fdcacc8fc4f3e685234b021b3128020719cdf5fa5",
+      "sbom_files": 155,
+      "matched_files": 155,
+      "crlf_checkout_matches": 147,
+      "missing": [],
+      "different": []
+    },
+    "qttools": {
+      "sdk_source_sbom_sha256": "b20416c63fe0a17fd2a822395acb945684144115764351ee8d94815b698a60ec",
+      "archive_sha256": "02a4e219248b94f1333df843d25763f35251c1074cdc4fb5bda67d340f8c8b3a",
+      "sbom_files": 3410,
+      "matched_files": 3396,
+      "crlf_checkout_matches": 2808,
+      "missing": [
+        ".gitattributes",
+        ".gitignore",
+        "src/designer/.gitignore",
+        "tests/auto/bic/.gitignore",
+        "tests/auto/linguist/lconvert/.gitignore",
+        "tests/auto/linguist/lrelease/.gitignore",
+        "tests/auto/linguist/lupdate/.gitignore",
+        "tests/auto/qhelpcontentmodel/.gitignore",
+        "tests/auto/qhelpenginecore/.gitignore",
+        "tests/auto/qhelpgenerator/.gitignore",
+        "tests/auto/qhelpindexmodel/.gitignore",
+        "tests/auto/qhelpprojectdata/.gitignore",
+        "tests/global/.gitignore"
+      ],
+      "different": [
+        ".tag"
+      ]
+    }
+  },
+  "sdrplay_installer": {
+    "installer_sha256": "3a97ca764263bbe76fb0f2220e6408942357e8864c19e1408a6d6987af382fe3",
+    "payload_offset": 12758,
+    "installer_label": "SDRplay RSP API Install Package V3.15 (installer v2)",
+    "members": [
+      {
+        "name": "./armhf/libsdrplay_api.so.3.15",
+        "bytes": 46928,
+        "sha256": "e72b55593d8375bd8897c5be53c915a620377747e9d83e823126b2c21bed976b"
+      },
+      {
+        "name": "./armhf/sdrplay_apiService",
+        "bytes": 538140,
+        "sha256": "533f115a036ec84c9db8109f603d5da48d9de21c805c592b8dc526bc337c35ea"
+      },
+      {
+        "name": "./inc/sdrplay_api_rspDx.h",
+        "bytes": 1994,
+        "sha256": "81f34cca8c5cb4422d2cdf898ca3431f6ce3270480f6ecae80aae0ac5003e7b2"
+      },
+      {
+        "name": "./inc/sdrplay_api_rsp2.h",
+        "bytes": 990,
+        "sha256": "31fe3800ba3b2927ee95f85b6528474cf0f9639fe5c88061b20fb133e60904cf"
+      },
+      {
+        "name": "./inc/sdrplay_api_rsp1a.h",
+        "bytes": 594,
+        "sha256": "743a6de462682d4ac29021bca88d16af9f20abe0fee8752d7d832e4f5d47f49a"
+      },
+      {
+        "name": "./inc/sdrplay_api_tuner.h",
+        "bytes": 2784,
+        "sha256": "db7fbffdcd69c14f8b36e82a6de8bb18a3a3763823379e7c9bfc49d82f77fa45"
+      },
+      {
+        "name": "./inc/sdrplay_api_rspDuo.h",
+        "bytes": 1491,
+        "sha256": "f9f90fe3815fef90b4604faf982c1d3cea1debd2ff89c760e996071023e08f50"
+      },
+      {
+        "name": "./inc/sdrplay_api_rx_channel.h",
+        "bytes": 694,
+        "sha256": "099e3a02b79a63f112e1e04a5ced3baa77bad6a18259fc7284e641edbcdd6790"
+      },
+      {
+        "name": "./inc/sdrplay_api_callback.h",
+        "bytes": 2345,
+        "sha256": "1d88863ead0182339fc5a6d034a8e3f94d53f7ba337193a6dbc7973ec45a2f9d"
+      },
+      {
+        "name": "./inc/sdrplay_api_control.h",
+        "bytes": 1674,
+        "sha256": "1fd97427748d21cf6a3f43fda2f7eac3f7e0ebf9a2af84df24a12715f1621402"
+      },
+      {
+        "name": "./inc/sdrplay_api_dev.h",
+        "bytes": 1501,
+        "sha256": "bdd8686e19b6b1f513618bb729717f8df5e68eb5bb45fb471a50f31b8545c010"
+      },
+      {
+        "name": "./inc/sdrplay_api.h",
+        "bytes": 12219,
+        "sha256": "b4a4036041f51682cc75a7f7219afdb26af8596c277e1876b3b4010b20663d67"
+      },
+      {
+        "name": "./install_lib.sh",
+        "bytes": 14332,
+        "sha256": "2554173c18ff2c98b34fb6d7efd21800108c6a15a2f5342b6dda1f6491d142cd"
+      },
+      {
+        "name": "./sdrplay_license.txt",
+        "bytes": 7599,
+        "sha256": "7dcf421ca60a2fce63064eece569a15b128c1dd538d12daa8fcf5e8abea8312c"
+      },
+      {
+        "name": "./amd64/libsdrplay_api.so.3.15",
+        "bytes": 60304,
+        "sha256": "f77317e56b0b068672d888cc547dff019b9bd3bcca5fb328ebf5da60def056fd"
+      },
+      {
+        "name": "./amd64/sdrplay_apiService",
+        "bytes": 591568,
+        "sha256": "532fd2400db3ef22c88e32c1ad9e8538b00406d9455932464f76307d2e61bd1a"
+      },
+      {
+        "name": "./arm64/libsdrplay_api.so.3.15",
+        "bytes": 60224,
+        "sha256": "0ed3a5b3965d5c6fdfe49dbf6a05096b1bc6f188b3da073c2ca33a5dcd96bf5c"
+      },
+      {
+        "name": "./arm64/sdrplay_apiService",
+        "bytes": 575952,
+        "sha256": "6f66cea632d90bb3e39dbe8d042ed986ff9931bff7c36d4546c6806edaa46107"
+      }
+    ],
+    "cached_sdk_license_sha256": "7dcf421ca60a2fce63064eece569a15b128c1dd538d12daa8fcf5e8abea8312c"
+  },
+  "firmware_evidence": "2026-11-13-firmware-license-evidence.json",
+  "limits": [
+    "Complete Qt and all dependency SDKs were not freshly rebuilt; clean first-party builds reused the exact qualified dependency SDKs.",
+    "Qt replacement probes used compatible copies with inert PE/ELF trailers; this proves substitution/loading without an application signature lock, not arbitrary ABI compatibility.",
+    "Debian source files were obtained over HTTPS and checked against .dsc SHA256; uploader signatures were not independently verified.",
+    "Native macOS qualification, long-duration live RF acceptance, codec patents and external-media rights are outside this license review."
+  ],
+  "development_findings": [
+    "Separated build facts from provider declarations after an initial collection failure.",
+    "Flattened extracted upstream notice filenames while preserving original member paths and bytes after a Windows path-length failure.",
+    "Two native directory commit failures preceded the generic bounded Windows retry; temporary and persistent directory-reader tests verify success/failure atomicity and UTF-8 diagnostics. System protection was not disabled.",
+    "A PowerShell file-execution policy blocked one process-module probe; the successful probe used read-only native Win32 APIs without changing that policy."
+  ],
+  "release_workflow_yaml": "parsed successfully with isolated PyYAML 6.0.3"
+}

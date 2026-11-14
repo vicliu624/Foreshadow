@@ -1,0 +1,15 @@
+name: Release media deadline diagnostic
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  native-deadlines:
+    runs-on: macos-15
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compare native deadline waits for release qualification
+        run: |
+          clang++ -std=c++20 -O2 tools/validation/media_deadline_probe.cpp -o "$RUNNER_TEMP/media-deadline-probe"
+          "$RUNNER_TEMP/media-deadline-probe"

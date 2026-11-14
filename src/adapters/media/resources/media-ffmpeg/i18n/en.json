@@ -1,0 +1,7 @@
+{
+  "media.codec_unavailable": "This track has no available FFmpeg decoder.",
+  "media.codec_parameters": "The track's codec parameters are invalid.",
+  "media.codec_open": "The selected track's decoder could not be opened.",
+  "media.decode_packet": "A compressed packet could not be decoded; waiting for the next valid packet.",
+  "media.decode_frame": "A damaged frame could not be decoded."
+}

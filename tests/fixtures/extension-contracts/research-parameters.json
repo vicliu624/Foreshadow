@@ -1,0 +1,13 @@
+{
+  "api": 1,
+  "id": "external.parameter-fixture",
+  "executable": "parameter-tool",
+  "output": "text",
+  "sampleRange": true,
+  "title": {"en": "Independent parameter tool", "zh-CN": "独立参数工具"},
+  "catalogs": ["i18n"],
+  "parameters": [
+    {"key": "profile", "type": "enum", "choices": ["eco", "wide"], "default": "wide", "label_key": "research.profile.label"},
+    {"key": "boost", "type": "boolean", "default": false, "enabled_when": {"key": "profile", "equals": "wide"}, "label_key": "research.boost.label"}
+  ]
+}

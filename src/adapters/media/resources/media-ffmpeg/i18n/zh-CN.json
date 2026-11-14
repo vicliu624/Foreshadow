@@ -1,0 +1,7 @@
+{
+  "media.codec_unavailable": "此轨道没有可用的 FFmpeg 解码器。",
+  "media.codec_parameters": "轨道的编码参数无效。",
+  "media.codec_open": "无法打开所选轨道的解码器。",
+  "media.decode_packet": "无法解码一个压缩数据包，正在等待下一个有效包。",
+  "media.decode_frame": "无法解码一个损坏的帧。"
+}

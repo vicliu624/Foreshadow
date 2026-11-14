@@ -1,0 +1,57 @@
+{
+  "source_sha256": "2cfdb620b89bf688b77d3d3834879fa515b97875770ffda40cf2db7b56af1c0c",
+  "fixture_sha256": "193ce9d8f7f3cbab07ef34bbabe7acec219aea45dba2d59e4a48f57858936f5d",
+  "source_sample_interval": [
+    0,
+    458752
+  ],
+  "trial": {
+    "case": {
+      "name": "edge-high-bw500",
+      "frequency": 478994997,
+      "bandwidth": 500000,
+      "sf": 7,
+      "cr": 5,
+      "power": -9,
+      "preamble": 8,
+      "sync": 18,
+      "inverted": false,
+      "length": 8
+    },
+    "receiver_configuration": {
+      "auto_gain": false,
+      "frequency_hz": 478500000,
+      "gain_tenths_db": 386,
+      "sample_rate_hz": 2000000,
+      "search_width_hz": 1000000.0
+    },
+    "capture_rate_hz": 1750000,
+    "source": "controlled_tx_raw_capture_for_diagnosis",
+    "created_unix_seconds": 1793730432.6963377,
+    "tx": {
+      "host_request_unix_seconds": 1793730436.0198178,
+      "host_done_unix_seconds": 1793730436.0376282,
+      "host_request_utc": "2026-11-03T18:27:16.019818+00:00",
+      "started": {
+        "ok": true,
+        "kind": "tx_started",
+        "id": 2729073581,
+        "length": 8,
+        "airtime_us": 9024,
+        "payload_fnv1a32": 1025943643,
+        "start_us": 3561980434
+      },
+      "done": {
+        "ok": true,
+        "kind": "tx_done",
+        "id": 2729073581,
+        "elapsed_us": 15545,
+        "code": 0
+      },
+      "payload_hex": "414d4331ad5baaa2",
+      "note": "TX_DONE 为芯片状态；未代表接收端已解调这些字节"
+    },
+    "capture_returncode": 0,
+    "restored_receiver_pid": 849203
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "media.output_closed": "The player closed its media input.",
+  "media.output_budget": "A decoded media message exceeds the output queue's byte budget.",
+  "media.output_finished": "The media output has already stopped or finished.",
+  "media.output_timestamp": "A media timestamp is outside the output clock's range.",
+  "media.output_clock_reset": "The media clock changed; discarded {video} queued video frames and {audio} queued audio messages.",
+  "media.video_dimensions": "The decoded video dimensions exceed the media budget.",
+  "media.video_conversion": "The video frame could not be converted for display.",
+  "media.audio_format": "The decoded audio format is outside the supported output range.",
+  "media.audio_conversion": "The audio samples could not be converted for playback.",
+  "media.audio_budget": "The audio conversion exceeded its sample budget.",
+  "media.audio_drain_budget": "Audio conversion did not finish within its drain budget.",
+  "media.transport_open": "No readable MPEG transport stream was found.",
+  "media.no_streams": "The transport stream has no usable elementary streams yet.",
+  "media.transport_read": "Reading the transport stream failed.",
+  "media.decoder_opened": "Decoder {provider} opened track PID {pid}.",
+  "media.codec_unavailable": "No installed decoder can play track PID {pid}.",
+  "media.arguments": "The media decoder received an unsupported argument.",
+  "media.no_frames": "The stream ended without a decoded audio or video frame."
+}

@@ -1,0 +1,470 @@
+{
+  "schema": 1,
+  "date": "2026-11-13",
+  "source_commit": "a258670d92525c43e5dd6cf104b9965108c9198c",
+  "scope": "Finite research PCM playback, Qt audio-only runtime, license assessment and local Windows/Linux review refresh; no formal release",
+  "license_clearance": "not-cleared",
+  "windows": {
+    "ctest": {
+      "total": 103,
+      "passed": 102,
+      "skipped": 1,
+      "failed": 0
+    },
+    "regression": {
+      "source_commit": "a258670d92525c43e5dd6cf104b9965108c9198c",
+      "exit_code": 0,
+      "seconds": 237.626
+    },
+    "source_check": {
+      "source_commit": "a258670d92525c43e5dd6cf104b9965108c9198c",
+      "scope": "Tracked compiler/build/translation input files; text line endings normalized",
+      "checked": 432,
+      "missing": [],
+      "different": []
+    },
+    "package": {
+      "source_commit": "a258670d92525c43e5dd6cf104b9965108c9198c",
+      "work": "C:\\Users\\vicliu\\.cache\\amc-waveform-01a1c9fc-windows\\release-qa\\package-1794566635184695000",
+      "steps": [
+        {
+          "name": "install-application",
+          "exit_code": 0,
+          "seconds": 1.732
+        },
+        {
+          "name": "install-research",
+          "exit_code": 0,
+          "seconds": 0.051
+        },
+        {
+          "name": "package",
+          "exit_code": 0,
+          "seconds": 10.873
+        },
+        {
+          "name": "real-package-transactions",
+          "exit_code": 0,
+          "seconds": 2.17
+        },
+        {
+          "name": "unicode-build-info",
+          "exit_code": 0,
+          "seconds": 0.515
+        },
+        {
+          "name": "unicode-modules",
+          "exit_code": 0,
+          "seconds": 0.162
+        },
+        {
+          "name": "unicode-gui-provider-start",
+          "exit_code": 0,
+          "seconds": 2.322
+        },
+        {
+          "name": "native-unicode-workspace",
+          "exit_code": 0,
+          "seconds": 3.241
+        },
+        {
+          "name": "extracted-desktop-regression",
+          "exit_code": 0,
+          "seconds": 103.786
+        }
+      ],
+      "formal_installation_modified": false,
+      "published": false,
+      "application_archive": "C:\\Users\\vicliu\\.cache\\amc-waveform-01a1c9fc-windows\\release-qa\\package-1794566635184695000\\packages\\org.amc.ams-0.2.11-windows-x86_64.amcpkg",
+      "unicode_installation": "C:\\Users\\vicliu\\.cache\\amc-waveform-01a1c9fc-windows\\release-qa\\package-1794566635184695000\\Foreshadow 发布验收 📡",
+      "packages": [
+        {
+          "id": "org.amc.ams",
+          "kind": "application",
+          "sha256": "f4dcb8deb03d5a6d67d70d64141c7be8c20e6b46aeac0d9a87a6f741cb74b633",
+          "download_size": 57175790
+        },
+        {
+          "id": "org.amc.receiver.rtlsdr",
+          "kind": "receiver",
+          "sha256": "91703fbbe873205b560c6cc5160f61188ec1219d11bc4ae11b587e07e4cdaae4",
+          "download_size": 217842
+        },
+        {
+          "id": "org.amc.receiver.sdrplay",
+          "kind": "receiver",
+          "sha256": "0bbce8d8789b0361de74ed87e94dc058ab7f83b4569519ba706eb83eb83f2340",
+          "download_size": 270838
+        },
+        {
+          "id": "org.amc.research.power-report",
+          "kind": "research",
+          "sha256": "28a0ed31c03a191d2e6dbe0aca1065831870ead2cf501e5c0d55512446b9efab",
+          "download_size": 357016
+        }
+      ],
+      "loaded_receiver_modules": [
+        "rtlsdr",
+        "sdrplay"
+      ],
+      "native_unicode_workspace_image": "C:\\Users\\vicliu\\.cache\\amc-waveform-01a1c9fc-windows\\release-qa\\package-1794566635184695000\\原生工作区 📡.png",
+      "full_stage_archive": "C:\\Users\\vicliu\\.cache\\amc-waveform-01a1c9fc-windows\\release-qa\\package-1794566635184695000\\Foreshadow-windows-full-stage.zip",
+      "full_stage_unicode_installation": "C:\\Users\\vicliu\\.cache\\amc-waveform-01a1c9fc-windows\\release-qa\\package-1794566635184695000\\Foreshadow 完整发布验收 📡",
+      "status": "passed"
+    },
+    "deployment": {
+      "state": "deployed",
+      "root": "C:\\Users\\vicliu\\Apps\\Foreshadow-Review-20261113-r2",
+      "source_commit": "a258670d92525c43e5dd6cf104b9965108c9198c",
+      "package_evidence": "C:\\Users\\vicliu\\.cache\\amc-waveform-01a1c9fc-windows\\release-qa\\package-1794566635184695000",
+      "archive_sha256": "2e38c18d19b40ad6fa709ee3b38a176d0fdfa91d325acdde842dd501321f4351",
+      "verified_application_files": 173,
+      "launch_arguments": [
+        "--settings-dir",
+        "C:\\Users\\vicliu\\Apps\\Foreshadow-Review-20261113-r2\\profile",
+        "--output",
+        "C:\\Users\\vicliu\\Apps\\Foreshadow-Review-20261113-r2\\events",
+        "--research-plugin-dir",
+        "C:\\Users\\vicliu\\Apps\\Foreshadow-Review-20261113-r2\\research-plugins",
+        "--language",
+        "en",
+        "--receiver",
+        "rtlsdr",
+        "--frequency",
+        "478.5",
+        "--rate",
+        "2000000",
+        "--search-width",
+        "1000000",
+        "--gain",
+        "auto"
+      ],
+      "ui_language": "en",
+      "published": false,
+      "license_clearance": "not-cleared",
+      "previous_review_preserved": "C:\\Users\\vicliu\\Apps\\Foreshadow-Review-20261113-r1",
+      "checks": [
+        {
+          "name": "build-info",
+          "exit_code": 0
+        },
+        {
+          "name": "modules",
+          "exit_code": 0
+        },
+        {
+          "name": "providers",
+          "exit_code": 0
+        }
+      ],
+      "receiver_modules": [
+        "rtlsdr",
+        "sdrplay"
+      ],
+      "pid": 32920,
+      "shortcut": "C:\\Users\\vicliu\\Desktop\\Foreshadow Review.lnk",
+      "previous_package_evidence": "C:\\Users\\vicliu\\.cache\\amc-waveform-01a1c9fc-windows\\release-qa\\package-1794566154294466900",
+      "material_refresh": {
+        "license_tree_files": 17,
+        "non_material_payload_unchanged": true
+      }
+    },
+    "runtime_probe": {
+      "source_commit": "a258670d92525c43e5dd6cf104b9965108c9198c",
+      "exit_code": 0,
+      "loaded_qt_libraries": [
+        "C:\\Users\\vicliu\\.cache\\amc-waveform-01a1c9fc-windows\\release-qa\\package-1794566635184695000\\Foreshadow 完整发布验收 📡\\bin\\Qt6Multimedia.dll",
+        "C:\\Users\\vicliu\\.cache\\amc-waveform-01a1c9fc-windows\\release-qa\\package-1794566635184695000\\Foreshadow 完整发布验收 📡\\bin\\Qt6Network.dll",
+        "C:\\Users\\vicliu\\.cache\\amc-waveform-01a1c9fc-windows\\release-qa\\package-1794566635184695000\\Foreshadow 完整发布验收 📡\\bin\\Qt6Core.dll",
+        "C:\\Users\\vicliu\\.cache\\amc-waveform-01a1c9fc-windows\\release-qa\\package-1794566635184695000\\Foreshadow 完整发布验收 📡\\bin\\Qt6Widgets.dll",
+        "C:\\Users\\vicliu\\.cache\\amc-waveform-01a1c9fc-windows\\release-qa\\package-1794566635184695000\\Foreshadow 完整发布验收 📡\\bin\\Qt6Gui.dll"
+      ],
+      "ffmpeg_loaded": [],
+      "scope": "Muted finite PCM using only Qt from the extracted package; no audible-output qualification"
+    }
+  },
+  "linux": {
+    "ctest": {
+      "total": 105,
+      "passed": 102,
+      "skipped": 3,
+      "failed": 0
+    },
+    "regression": {
+      "source_commit": "a258670d92525c43e5dd6cf104b9965108c9198c",
+      "steps": [
+        {
+          "name": "build",
+          "exit_code": 0,
+          "seconds": 0.064
+        },
+        {
+          "name": "regression",
+          "exit_code": 0,
+          "seconds": 163.598
+        }
+      ]
+    },
+    "package": {
+      "source_commit": "a258670d92525c43e5dd6cf104b9965108c9198c",
+      "work": "/home/vicliu/.cache/amc-waveform-01a1c9fc/release-qa/pcm-1794566128812331037",
+      "steps": [
+        {
+          "name": "install-application",
+          "exit_code": 0,
+          "seconds": 0.114
+        },
+        {
+          "name": "install-research",
+          "exit_code": 0,
+          "seconds": 0.016
+        },
+        {
+          "name": "package",
+          "exit_code": 0,
+          "seconds": 3.119
+        },
+        {
+          "name": "real-package-transactions",
+          "exit_code": 0,
+          "seconds": 0.214
+        },
+        {
+          "name": "unicode-build-info",
+          "exit_code": 0,
+          "seconds": 0.008
+        },
+        {
+          "name": "unicode-modules",
+          "exit_code": 0,
+          "seconds": 0.007
+        },
+        {
+          "name": "unicode-gui-provider-start",
+          "exit_code": 0,
+          "seconds": 0.364
+        },
+        {
+          "name": "native-unicode-workspace",
+          "exit_code": 0,
+          "seconds": 2.567
+        },
+        {
+          "name": "extracted-desktop-regression",
+          "exit_code": 0,
+          "seconds": 82.035
+        }
+      ],
+      "published": false,
+      "packages": [
+        {
+          "id": "org.amc.ams",
+          "kind": "application",
+          "sha256": "5a7d545fa3df78e7d5236305b95b36be9f959932016ae7f9f3399dbab39929c6",
+          "download_size": 28725515
+        },
+        {
+          "id": "org.amc.receiver.rtlsdr",
+          "kind": "receiver",
+          "sha256": "8473e9bd8da00bd62435329b7ec877a9f9a55cc60ff7ded2901d9992dd3cc7eb",
+          "download_size": 291199
+        },
+        {
+          "id": "org.amc.receiver.sdrplay",
+          "kind": "receiver",
+          "sha256": "8fb2adc16fd47a4aa1d384e4c64a41545c0c078b008ff635a1223ec76fea3aa6",
+          "download_size": 297582
+        },
+        {
+          "id": "org.amc.research.power-report",
+          "kind": "research",
+          "sha256": "91a1a03063550f0490a75fc7d965caed417892af9216460418dc2998fec8bd2b",
+          "download_size": 149794
+        }
+      ],
+      "loaded_receiver_modules": [
+        "rtlsdr",
+        "sdrplay"
+      ],
+      "full_stage_archive": "/home/vicliu/.cache/amc-waveform-01a1c9fc/release-qa/pcm-1794566128812331037/Foreshadow-linux-full-stage.tar.gz",
+      "full_stage_unicode_installation": "/home/vicliu/.cache/amc-waveform-01a1c9fc/release-qa/pcm-1794566128812331037/Foreshadow 完整发布验收 📡",
+      "full_stage_sha256": "9ee4f296525f6aad6d6a1169275e4abcb3aab8bf179d12f2e22d524b8e193eb0",
+      "status": "passed"
+    },
+    "deployment": {
+      "state": "deployed",
+      "root": "/home/vicliu/Applications/Foreshadow-Review-20261113-r2",
+      "source_commit": "a258670d92525c43e5dd6cf104b9965108c9198c",
+      "package_evidence": "/home/vicliu/.cache/amc-waveform-01a1c9fc/release-qa/pcm-1794566128812331037",
+      "archive_sha256": "9ee4f296525f6aad6d6a1169275e4abcb3aab8bf179d12f2e22d524b8e193eb0",
+      "verified_application_files": 120,
+      "launch_arguments": [
+        "--settings-dir",
+        "/home/vicliu/Applications/Foreshadow-Review-20261113-r2/profile",
+        "--output",
+        "/home/vicliu/Applications/Foreshadow-Review-20261113-r2/events",
+        "--research-plugin-dir",
+        "/home/vicliu/Applications/Foreshadow-Review-20261113-r2/research-plugins",
+        "--language",
+        "en",
+        "--receiver",
+        "sdrplay",
+        "--frequency",
+        "478.5",
+        "--rate",
+        "2000000",
+        "--search-width",
+        "1000000",
+        "--gain",
+        "auto"
+      ],
+      "ui_language": "en",
+      "published": false,
+      "license_clearance": "not-cleared",
+      "previous_review_preserved": "/home/vicliu/Applications/Foreshadow-Review-20261113-r1",
+      "checks": [
+        {
+          "name": "build-info",
+          "exit_code": 0
+        },
+        {
+          "name": "modules",
+          "exit_code": 0
+        },
+        {
+          "name": "providers",
+          "exit_code": 0
+        }
+      ],
+      "receiver_modules": [
+        "rtlsdr",
+        "sdrplay"
+      ],
+      "menu": "/home/vicliu/.local/share/applications/ams-waveform-review.desktop",
+      "pid": 212453
+    },
+    "probe": {
+      "source_commit": "a258670d92525c43e5dd6cf104b9965108c9198c",
+      "exit_code": 0,
+      "seconds": 3.182,
+      "loaded_libraries": [
+        "/home/vicliu/.cache/amc-waveform-01a1c9fc/build/research_audio_playback_test",
+        "/memfd:pulseaudio",
+        "/usr/lib/locale/locale-archive",
+        "/usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache",
+        "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2",
+        "/usr/lib/x86_64-linux-gnu/libEGL.so.1.1.0",
+        "/usr/lib/x86_64-linux-gnu/libFLAC.so.14.0.0",
+        "/usr/lib/x86_64-linux-gnu/libGLX.so.0.0.0",
+        "/usr/lib/x86_64-linux-gnu/libGLdispatch.so.0.0.0",
+        "/usr/lib/x86_64-linux-gnu/libOpenGL.so.0.0.0",
+        "/usr/lib/x86_64-linux-gnu/libQt6Core.so.6.8.2",
+        "/usr/lib/x86_64-linux-gnu/libQt6DBus.so.6.8.2",
+        "/usr/lib/x86_64-linux-gnu/libQt6Gui.so.6.8.2",
+        "/usr/lib/x86_64-linux-gnu/libQt6Multimedia.so.6.8.2",
+        "/usr/lib/x86_64-linux-gnu/libQt6Network.so.6.8.2",
+        "/usr/lib/x86_64-linux-gnu/libQt6Widgets.so.6.8.2",
+        "/usr/lib/x86_64-linux-gnu/libX11-xcb.so.1.0.0",
+        "/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0",
+        "/usr/lib/x86_64-linux-gnu/libXau.so.6.0.0",
+        "/usr/lib/x86_64-linux-gnu/libXdmcp.so.6.0.0",
+        "/usr/lib/x86_64-linux-gnu/libasyncns.so.0.3.1",
+        "/usr/lib/x86_64-linux-gnu/libatomic.so.1.2.0",
+        "/usr/lib/x86_64-linux-gnu/libb2.so.1.0.4",
+        "/usr/lib/x86_64-linux-gnu/libblkid.so.1.1.0",
+        "/usr/lib/x86_64-linux-gnu/libbrotlicommon.so.1.1.0",
+        "/usr/lib/x86_64-linux-gnu/libbrotlidec.so.1.1.0",
+        "/usr/lib/x86_64-linux-gnu/libbz2.so.1.0.4",
+        "/usr/lib/x86_64-linux-gnu/libc.so.6",
+        "/usr/lib/x86_64-linux-gnu/libcap.so.2.75",
+        "/usr/lib/x86_64-linux-gnu/libcom_err.so.2.1",
+        "/usr/lib/x86_64-linux-gnu/libcrypto.so.3",
+        "/usr/lib/x86_64-linux-gnu/libcurl-gnutls.so.4.8.0",
+        "/usr/lib/x86_64-linux-gnu/libdbus-1.so.3.38.3",
+        "/usr/lib/x86_64-linux-gnu/libdouble-conversion.so.3.1",
+        "/usr/lib/x86_64-linux-gnu/libduktape.so.207",
+        "/usr/lib/x86_64-linux-gnu/libexpat.so.1.10.2",
+        "/usr/lib/x86_64-linux-gnu/libffi.so.8.1.4",
+        "/usr/lib/x86_64-linux-gnu/libfontconfig.so.1.12.1",
+        "/usr/lib/x86_64-linux-gnu/libfreetype.so.6.20.2",
+        "/usr/lib/x86_64-linux-gnu/libgcc_s.so.1",
+        "/usr/lib/x86_64-linux-gnu/libgio-2.0.so.0.8400.4",
+        "/usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.8400.4",
+        "/usr/lib/x86_64-linux-gnu/libgmodule-2.0.so.0.8400.4",
+        "/usr/lib/x86_64-linux-gnu/libgmp.so.10.5.0",
+        "/usr/lib/x86_64-linux-gnu/libgnutls.so.30.40.3",
+        "/usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.8400.4",
+        "/usr/lib/x86_64-linux-gnu/libgomp.so.1.0.0",
+        "/usr/lib/x86_64-linux-gnu/libgraphite2.so.3.2.1",
+        "/usr/lib/x86_64-linux-gnu/libgssapi_krb5.so.2.2",
+        "/usr/lib/x86_64-linux-gnu/libharfbuzz.so.0.61020.0",
+        "/usr/lib/x86_64-linux-gnu/libhogweed.so.6.10",
+        "/usr/lib/x86_64-linux-gnu/libicudata.so.76.1",
+        "/usr/lib/x86_64-linux-gnu/libicui18n.so.76.1",
+        "/usr/lib/x86_64-linux-gnu/libicuuc.so.76.1",
+        "/usr/lib/x86_64-linux-gnu/libidn2.so.0.4.0",
+        "/usr/lib/x86_64-linux-gnu/libk5crypto.so.3.1",
+        "/usr/lib/x86_64-linux-gnu/libkeyutils.so.1.10",
+        "/usr/lib/x86_64-linux-gnu/libkrb5.so.3.3",
+        "/usr/lib/x86_64-linux-gnu/libkrb5support.so.0.1",
+        "/usr/lib/x86_64-linux-gnu/liblber.so.2.0.200",
+        "/usr/lib/x86_64-linux-gnu/libldap.so.2.0.200",
+        "/usr/lib/x86_64-linux-gnu/libm.so.6",
+        "/usr/lib/x86_64-linux-gnu/libmd4c.so.0.5.2",
+        "/usr/lib/x86_64-linux-gnu/libmount.so.1.1.0",
+        "/usr/lib/x86_64-linux-gnu/libmp3lame.so.0.0.0",
+        "/usr/lib/x86_64-linux-gnu/libmpg123.so.0.48.3",
+        "/usr/lib/x86_64-linux-gnu/libnettle.so.8.10",
+        "/usr/lib/x86_64-linux-gnu/libnghttp2.so.14.28.3",
+        "/usr/lib/x86_64-linux-gnu/libnghttp3.so.9.2.6",
+        "/usr/lib/x86_64-linux-gnu/libngtcp2.so.16.2.9",
+        "/usr/lib/x86_64-linux-gnu/libngtcp2_crypto_gnutls.so.8.2.0",
+        "/usr/lib/x86_64-linux-gnu/libogg.so.0.8.5",
+        "/usr/lib/x86_64-linux-gnu/libopus.so.0.10.1",
+        "/usr/lib/x86_64-linux-gnu/libp11-kit.so.0.4.1",
+        "/usr/lib/x86_64-linux-gnu/libpcre2-16.so.0.14.0",
+        "/usr/lib/x86_64-linux-gnu/libpcre2-8.so.0.14.0",
+        "/usr/lib/x86_64-linux-gnu/libpipewire-0.3.so.0.1402.0",
+        "/usr/lib/x86_64-linux-gnu/libpng16.so.16.48.0",
+        "/usr/lib/x86_64-linux-gnu/libproxy.so.0.5.9",
+        "/usr/lib/x86_64-linux-gnu/libproxy/libpxbackend-1.0.so",
+        "/usr/lib/x86_64-linux-gnu/libpsl.so.5.3.4",
+        "/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.3",
+        "/usr/lib/x86_64-linux-gnu/libresolv.so.2",
+        "/usr/lib/x86_64-linux-gnu/librtmp.so.1",
+        "/usr/lib/x86_64-linux-gnu/libsasl2.so.2.0.25",
+        "/usr/lib/x86_64-linux-gnu/libselinux.so.1",
+        "/usr/lib/x86_64-linux-gnu/libsndfile.so.1.0.37",
+        "/usr/lib/x86_64-linux-gnu/libssh2.so.1.0.1",
+        "/usr/lib/x86_64-linux-gnu/libssl.so.3",
+        "/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33",
+        "/usr/lib/x86_64-linux-gnu/libsystemd.so.0.40.0",
+        "/usr/lib/x86_64-linux-gnu/libtasn1.so.6.6.4",
+        "/usr/lib/x86_64-linux-gnu/libunistring.so.5.2.0",
+        "/usr/lib/x86_64-linux-gnu/libvorbis.so.0.4.9",
+        "/usr/lib/x86_64-linux-gnu/libvorbisenc.so.2.0.12",
+        "/usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0",
+        "/usr/lib/x86_64-linux-gnu/libxkbcommon.so.0.0.0",
+        "/usr/lib/x86_64-linux-gnu/libz.so.1.3.1",
+        "/usr/lib/x86_64-linux-gnu/libzstd.so.1.5.7",
+        "/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-17.0.so",
+        "/usr/lib/x86_64-linux-gnu/qt6/plugins/platforms/libqoffscreen.so"
+      ],
+      "ffmpeg_loaded": [],
+      "scope": "muted finite PCM, sampled process mappings; not an audible-output or long-duration RF qualification"
+    }
+  },
+  "macos": {
+    "state": "not-requalified",
+    "scope": "Source/independent bundle-cleanup fixture only; previous native qualification state is unchanged"
+  },
+  "earlier_transaction_observation": {
+    "source_commit": "e44c8a7dd9a6ae41a5058b1640b4326dc3ba9650",
+    "step": "Windows package directory activation rename returned Access is denied once",
+    "same_archive_rerun": "passed",
+    "cause": "not established",
+    "final_fresh_archive": "passed",
+    "assertions_weakened": false,
+    "system_protection_disabled": false
+  }
+}

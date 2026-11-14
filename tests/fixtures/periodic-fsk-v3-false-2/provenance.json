@@ -1,0 +1,51 @@
+{
+  "source": "synthetic periodic FSK, not RF capture",
+  "truth": {
+    "kind": "periodic_fsk",
+    "seed": 817022,
+    "inband_snr_db": null,
+    "first_sample": 2542,
+    "frequency_offset_hz": -395744,
+    "amplitude": 0.18,
+    "noise_component_sigma": 0.04
+  },
+  "source_sha256": "3717e304a706e55afbe310fcdedea3accbc60c7105793dfef661f2d9ade5f586",
+  "fixture_sha256": "c10c93066a1600cc8c9772c8570ea13e9251859fa96b7d125f4b9cac1b253d44",
+  "source_sample_interval": [
+    655360,
+    900000
+  ],
+  "v3_false_event": {
+    "after_sfd_peak_to_mean_db": -3.680013717043655,
+    "bandwidth_hz": 250000.0,
+    "center_frequency_hz": 478106086.73296976,
+    "confirmed_at_sample": 876687,
+    "downchirp_peak_to_mean_db": 9.838794214782652,
+    "downchirp_threshold_db": 9.0,
+    "evidence": [
+      "重复上 Chirp",
+      "两个同步 Chirp 网格",
+      "两个完整下 Chirp",
+      "四分之一下 Chirp及结束"
+    ],
+    "evidence_level": "lora_structure_match",
+    "fine_synchronization": true,
+    "first_observed_sample": 663552,
+    "frequency_resolution_hz": 122.0703125,
+    "fullband_power_dbfs": -14.485849619254152,
+    "iq_inverted": true,
+    "matched_component_dbfs": -41.35426921202437,
+    "needs_lora_structure_validation": false,
+    "power_note": "Dechirp peak component estimate; timing/leakage may underestimate signal power; not calibrated RF dBm",
+    "preamble_direction": "down",
+    "preamble_peak_to_mean_db": 15.27971571063128,
+    "protocol": "unknown",
+    "quarter_down_peak_to_mean_db": 9.426211395633569,
+    "score_type": "uncalibrated_structure_score",
+    "sf_candidate": 11,
+    "sfd_end_method": "joint_down_to_unknown_up",
+    "sfd_end_sample": 848007,
+    "sfd_metric_frequency_window": "phase_refined_carrier_projection",
+    "sfd_start_sample": 811143
+  }
+}

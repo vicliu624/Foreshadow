@@ -1,0 +1,15 @@
+{
+  "connection.endpoint.label": "接收机服务",
+  "connection.endpoint.description": "SoapySDRServer 地址（tcp://主机:端口）。服务与厂商 API 在 Foreshadow 进程外运行。启动接收机服务后刷新设备。",
+  "connection.unavailable": "接收机服务未返回可用设备。请检查地址，在接收机电脑上启动 SoapySDRServer，并确认该电脑已安装 SDRplay API 和驱动，然后刷新设备。",
+  "setting.rfgain_sel.label": "射频 LNA 状态",
+  "setting.iqcorr_ctrl.label": "I/Q 校正",
+  "setting.agc_setpoint.label": "AGC 设定点",
+  "setting.biasT_ctrl.label": "偏置供电",
+  "setting.rfnotch_ctrl.label": "射频陷波器",
+  "setting.dabnotch_ctrl.label": "DAB 陷波器",
+  "setting.hdr_ctrl.label": "HDR 模式",
+  "setting.hdr_ctrl.description": "HDR 需要 RSPdx 射频频率不高于 2 MHz。",
+  "setting.rfgain_sel.description": "LNA 状态序号，不是 dB。选项由驱动报告，频率相关组合在接收机启动时确认。",
+  "information.hardware_api.label": "SDRplay 硬件 API"
+}

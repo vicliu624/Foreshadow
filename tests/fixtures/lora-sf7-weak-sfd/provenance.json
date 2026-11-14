@@ -1,0 +1,10 @@
+{
+  "source_sha256": "08add3cf4c711de3aed8520dc407fc2d062087ba4ef61efc31caaacf67feba6e",
+  "fixture_sha256": "06101c2c518a5533c7eb982a4d8c446aaa52b01417c8c23256a59dbc2ccd7fdd",
+  "source_first_sample": 229376,
+  "source_last_sample_exclusive": 458752,
+  "expected_frequency_hz": 478475172,
+  "expected_bandwidth_hz": 500000,
+  "expected_sf": 7,
+  "note": "参数仅供检测后的评分；检测命令不提供频率、BW 或 SF"
+}

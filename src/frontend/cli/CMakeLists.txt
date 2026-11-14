@@ -1,0 +1,8 @@
+add_executable(signalscope main.cpp)
+set_target_properties(signalscope PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}")
+target_link_libraries(signalscope PRIVATE signalscope_core signalscope_distribution)
+add_dependencies(signalscope amc_receiver_plugins)
+if(MINGW)
+  target_link_options(signalscope PRIVATE -municode)
+endif()
+install(TARGETS signalscope RUNTIME DESTINATION bin COMPONENT SignalScope)

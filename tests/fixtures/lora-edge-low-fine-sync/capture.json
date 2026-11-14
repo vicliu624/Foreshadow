@@ -1,0 +1,15 @@
+{
+  "global": {
+    "core:datatype": "cu8",
+    "core:sample_rate": 1750000,
+    "core:version": "1.2.6",
+    "core:description": "受控低侧边缘 LoRa 与环境背景，用于时频细化回归；不验证载荷或身份"
+  },
+  "captures": [
+    {
+      "core:sample_start": 0,
+      "core:frequency": 478500000
+    }
+  ],
+  "annotations": []
+}

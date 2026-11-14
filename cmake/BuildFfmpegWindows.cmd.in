@@ -1,0 +1,10 @@
+@echo off
+setlocal
+rem FFmpeg's compiler detection parses the compiler diagnostics.
+set "VSLANG=1033"
+call "@amc_vcvars@"
+if errorlevel 1 exit /b %errorlevel%
+set "MSYS2_PATH_TYPE=inherit"
+set "CHERE_INVOKING=1"
+"@SIGNALSCOPE_MEDIA_BASH@" --noprofile --norc "@amc_ffmpeg_script@" "@ffmpeg_native_SOURCE_DIR@" "@amc_ffmpeg_build@" "@amc_ffmpeg_prefix@" "@SIGNALSCOPE_MEDIA_BUILD_JOBS@" --toolchain=msvc --arch=x86_64 --target-os=win64 --cc=cl --cxx=cl
+exit /b %errorlevel%

@@ -1,0 +1,8 @@
+{
+  "tag": "zh-CN",
+  "native_name": "简体中文",
+  "source_language": false,
+  "catalog": ":/i18n/ams_zh_CN.qm",
+  "qt_catalog": "qtbase_zh_CN",
+  "aliases": ["zh-Hans"]
+}

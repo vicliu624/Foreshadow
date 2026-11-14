@@ -1,0 +1,15 @@
+{
+  "connection.endpoint.label": "Receiver service",
+  "connection.endpoint.description": "SoapySDRServer address (tcp://host:port). The service and vendor API run separately from Foreshadow. Start the receiver service, then refresh devices.",
+  "connection.unavailable": "No receiver is available from the receiver service. Check its address, start SoapySDRServer on the receiver computer, and verify that its SDRplay API and driver are installed. Then refresh devices.",
+  "setting.rfgain_sel.label": "RF LNA state",
+  "setting.iqcorr_ctrl.label": "I/Q correction",
+  "setting.agc_setpoint.label": "AGC setpoint",
+  "setting.biasT_ctrl.label": "Bias-T power",
+  "setting.rfnotch_ctrl.label": "RF notch filter",
+  "setting.dabnotch_ctrl.label": "DAB notch filter",
+  "setting.hdr_ctrl.label": "HDR mode",
+  "setting.hdr_ctrl.description": "HDR requires an RSPdx RF frequency at or below 2 MHz.",
+  "setting.rfgain_sel.description": "LNA state index, not dB. Options are driver-reported; frequency-dependent combinations are confirmed at receiver startup.",
+  "information.hardware_api.label": "SDRplay Hardware API"
+}

@@ -1,0 +1,7 @@
+{
+  "sha256": "cd8f883e660be604af6b80d16c5a3c5eb73535d703af3141e9df90257cc4eade",
+  "scope": "完整 v4 实验源快照，包含未通过的弱噪声回归；未部署",
+  "reference_advantage": 0.005,
+  "candidate_advantage": 0.001,
+  "shared_negative_seed": 914001
+}

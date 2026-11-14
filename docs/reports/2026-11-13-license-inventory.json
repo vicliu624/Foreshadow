@@ -1,0 +1,1172 @@
+{
+  "schema": 1,
+  "date": "2026-11-13",
+  "scope": "Evidence snapshot for an assessment, not a complete release SBOM or licensing grant",
+  "top_level_license": null,
+  "recommendation": "GPL-3.0-or-later for first-party application code, subject to ownership and unresolved vendor/combined-work permissions",
+  "baseline_source_commit": "d7cfd271c1ee19e022051676fac48c545dab7381",
+  "windows": {
+    "qt_version": "6.8.3",
+    "qt_modules": {
+      "Core": {
+        "version": "6.8.3",
+        "license_expression": "LicenseRef-Qt-Commercial OR LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only"
+      },
+      "Network": {
+        "version": "6.8.3",
+        "license_expression": "LicenseRef-Qt-Commercial OR LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only"
+      },
+      "Gui": {
+        "version": "6.8.3",
+        "license_expression": "LicenseRef-Qt-Commercial OR LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only"
+      },
+      "Widgets": {
+        "version": "6.8.3",
+        "license_expression": "LicenseRef-Qt-Commercial OR LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only"
+      },
+      "QWindowsIntegrationPlugin": {
+        "version": "6.8.3",
+        "license_expression": "LicenseRef-Qt-Commercial OR LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only"
+      },
+      "QICOPlugin": {
+        "version": "6.8.3",
+        "license_expression": "LicenseRef-Qt-Commercial OR LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only"
+      },
+      "QJpegPlugin": {
+        "version": "6.8.3",
+        "license_expression": "LicenseRef-Qt-Commercial OR LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only"
+      },
+      "QTlsBackendOpenSSLPlugin": {
+        "version": "6.8.3",
+        "license_expression": "LicenseRef-Qt-Commercial OR LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only"
+      },
+      "QSchannelBackendPlugin": {
+        "version": "6.8.3",
+        "license_expression": "LicenseRef-Qt-Commercial OR LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only"
+      },
+      "QTlsBackendCertOnlyPlugin": {
+        "version": "6.8.3",
+        "license_expression": "LicenseRef-Qt-Commercial OR LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only"
+      },
+      "Multimedia": {
+        "version": "6.8.3",
+        "license_expression": "LicenseRef-Qt-Commercial OR LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only"
+      },
+      "SerialPort": {
+        "version": "6.8.3",
+        "license_expression": "LicenseRef-Qt-Commercial OR LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only"
+      },
+      "Svg": {
+        "version": "6.8.3",
+        "license_expression": "LicenseRef-Qt-Commercial OR LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only"
+      },
+      "QSvgIconPlugin": {
+        "version": "6.8.3",
+        "license_expression": "LicenseRef-Qt-Commercial OR LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only"
+      },
+      "QSvgPlugin": {
+        "version": "6.8.3",
+        "license_expression": "LicenseRef-Qt-Commercial OR LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only"
+      },
+      "Translations": {
+        "version": "6.8.3",
+        "license_expression": "LicenseRef-Qt-Commercial OR BSD-3-Clause"
+      }
+    },
+    "sdk_component_attributions": [
+      {
+        "name": "Platform_Attribution_extra-cmake-modules",
+        "version": "5.84.0",
+        "license_expression": "BSD-3-Clause",
+        "status": "SDK metadata; applicability and choice must be filtered to shipped runtime closure"
+      },
+      {
+        "name": "Platform_Attribution_kwin",
+        "version": "5.13.4",
+        "license_expression": "BSD-3-Clause",
+        "status": "SDK metadata; applicability and choice must be filtered to shipped runtime closure"
+      },
+      {
+        "name": "BundledPcre2_Attribution_pcre2-sljit",
+        "version": "10.45",
+        "license_expression": "BSD-2-Clause",
+        "status": "SDK metadata; applicability and choice must be filtered to shipped runtime closure"
+      },
+      {
+        "name": "BundledPcre2",
+        "version": "10.45",
+        "license_expression": "LicenseRef-BSD-3-Clause-with-PCRE2-Binary-Like-Packages-Exception",
+        "status": "SDK metadata; applicability and choice must be filtered to shipped runtime closure"
+      },
+      {
+        "name": "BundledZLIB",
+        "version": "1.3.1",
+        "license_expression": "Zlib",
+        "status": "SDK metadata; applicability and choice must be filtered to shipped runtime closure"
+      },
+      {
+        "name": "Core_Attribution_unicode-character-database",
+        "version": "34",
+        "license_expression": "Unicode-3.0",
+        "status": "SDK metadata; applicability and choice must be filtered to shipped runtime closure"
+      },
+      {
+        "name": "Core_Attribution_unicode-cldr",
+        "version": "v46.1",
+        "license_expression": "Unicode-3.0",
+        "status": "SDK metadata; applicability and choice must be filtered to shipped runtime closure"
+      },
+      {
+        "name": "Core_Attribution_siphash",
+        "version": "unknown",
+        "license_expression": "CC0-1.0",
+        "status": "SDK metadata; applicability and choice must be filtered to shipped runtime closure"
+      },
+      {
+        "name": "Core_Attribution_blake2",
+        "version": "ed1974ea83433eba7b2d95c5dcd9ac33cb847913",
+        "license_expression": "CC0-1.0 OR Apache-2.0",
+        "status": "SDK metadata; applicability and choice must be filtered to shipped runtime closure"
+      },
+      {
+        "name": "Core_Attribution_md4",
+        "version": "unknown",
+        "license_expression": "CC0-1.0",
+        "status": "SDK metadata; applicability and choice must be filtered to shipped runtime closure"
+      },
+      {
+        "name": "Core_Attribution_md5",
+        "version": "unknown",
+        "license_expression": "CC0-1.0",
+        "status": "SDK metadata; applicability and choice must be filtered to shipped runtime closure"
+      },
+      {
+        "name": "Core_Attribution_sha1",
+        "version": "unknown",
+        "license_expression": "LicenseRef-SHA1-Public-Domain",
+        "status": "SDK metadata; applicability and choice must be filtered to shipped runtime closure"
+      },
+      {
+        "name": "Core_Attribution_sha3_endian",
+        "version": "4b9e13ead2c5b5e41ca27c65de4dd69ae0bac228",
+        "license_expression": "BSD-2-Clause",
+        "status": "SDK metadata; applicability and choice must be filtered to shipped runtime closure"
+      },
+      {
+        "name": "Core_Attribution_sha3_keccak",
+        "version": "3.2",
+        "license_expression": "CC0-1.0",
+        "status": "SDK metadata; applicability and choice must be filtered to shipped runtime closure"
+      },
+      {
+        "name": "Core_Attribution_rfc6234",
+        "version": "unknown",
+        "license_expression": "BSD-3-Clause",
+        "status": "SDK metadata; applicability and choice must be filtered to shipped runtime closure"
+      },
+      {
+        "name": "Core_Attribution_tinycbor",
+        "version": "0.6.1",
+        "license_expression": "MIT",
+        "status": "SDK metadata; applicability and choice must be filtered to shipped runtime closure"
+      },
+      {
+        "name": "Core_Attribution_doubleconversion",
+        "version": "3.3.0",
+        "license_expression": "BSD-3-Clause",
+        "status": "SDK metadata; applicability and choice must be filtered to shipped runtime closure"
+      },
+      {
+        "name": "Core_Attribution_easing",
+        "version": "unknown",
+        "license_expression": "BSD-3-Clause",
+        "status": "SDK metadata; applicability and choice must be filtered to shipped runtime closure"
+      },
+      {
+        "name": "Core_Attribution_tika-mimetypes",
+        "version": "5101bc7fb090ed7deffe56837d7633c9485a1e5d",
+        "license_expression": "Apache-2.0",
+        "status": "SDK metadata; applicability and choice must be filtered to shipped runtime closure"
+      },
+      {
+        "name": "BundledLibpng",
+        "version": "1.6.47",
+        "license_expression": "Libpng AND libpng-2.0",
+        "status": "SDK metadata; applicability and choice must be filtered to shipped runtime closure"
+      },
+      {
+        "name": "BundledLibjpeg16bits",
+        "version": "3.1.0",
+        "license_expression": "IJG AND BSD-3-Clause",
+        "status": "SDK metadata; applicability and choice must be filtered to shipped runtime closure"
+      },
+      {
+        "name": "BundledLibjpeg12bits",
+        "version": "3.1.0",
+        "license_expression": "IJG AND BSD-3-Clause",
+        "status": "SDK metadata; applicability and choice must be filtered to shipped runtime closure"
+      },
+      {
+        "name": "BundledLibjpeg",
+        "version": "3.1.0",
+        "license_expression": "IJG AND BSD-3-Clause",
+        "status": "SDK metadata; applicability and choice must be filtered to shipped runtime closure"
+      },
+      {
+        "name": "BundledFreetype_Attribution_freetype-zlib",
+        "version": "2.13.3",
+        "license_expression": "Zlib",
+        "status": "SDK metadata; applicability and choice must be filtered to shipped runtime closure"
+      },
+      {
+        "name": "BundledFreetype_Attribution_freetype-bdf",
+        "version": "2.13.3",
+        "license_expression": "MIT",
+        "status": "SDK metadata; applicability and choice must be filtered to shipped runtime closure"
+      },
+      {
+        "name": "BundledFreetype_Attribution_freetype-pcf",
+        "version": "2.13.3",
+        "license_expression": "MIT AND MIT-open-group",
+        "status": "SDK metadata; applicability and choice must be filtered to shipped runtime closure"
+      },
+      {
+        "name": "BundledFreetype",
+        "version": "2.13.3",
+        "license_expression": "FTL OR GPL-2.0-only",
+        "status": "SDK metadata; applicability and choice must be filtered to shipped runtime closure"
+      },
+      {
+        "name": "FreetypePrivate_Attribution_freetype-zlib",
+        "version": "2.13.3",
+        "license_expression": "Zlib",
+        "status": "SDK metadata; applicability and choice must be filtered to shipped runtime closure"
+      },
+      {
+        "name": "FreetypePrivate_Attribution_freetype-bdf",
+        "version": "2.13.3",
+        "license_expression": "MIT",
+        "status": "SDK metadata; applicability and choice must be filtered to shipped runtime closure"
+      },
+      {
+        "name": "FreetypePrivate_Attribution_freetype-pcf",
+        "version": "2.13.3",
+        "license_expression": "MIT AND MIT-open-group",
+        "status": "SDK metadata; applicability and choice must be filtered to shipped runtime closure"
+      },
+      {
+        "name": "BundledHarfbuzz",
+        "version": "10.4.0",
+        "license_expression": "MIT",
+        "status": "SDK metadata; applicability and choice must be filtered to shipped runtime closure"
+      },
+      {
+        "name": "Network_Attribution_zlib",
+        "version": "1.3.1",
+        "license_expression": "Zlib",
+        "status": "SDK metadata; applicability and choice must be filtered to shipped runtime closure"
+      },
+      {
+        "name": "Network_Attribution_psl-data",
+        "version": "47264b57765919188b9f4144de8d95cf77e1b6dc, fetched on 2025-01-22",
+        "license_expression": "MPL-2.0",
+        "status": "SDK metadata; applicability and choice must be filtered to shipped runtime closure"
+      },
+      {
+        "name": "Network_Attribution_libpsl",
+        "version": "664f3dc85259ec65e30248a61fa1c45b7b0e4c3f",
+        "license_expression": "BSD-3-Clause",
+        "status": "SDK metadata; applicability and choice must be filtered to shipped runtime closure"
+      },
+      {
+        "name": "DBus_Attribution_libdbus-1-headers",
+        "version": "dbus-1.13.12",
+        "license_expression": "AFL-2.1 OR GPL-2.0-or-later",
+        "status": "SDK metadata; applicability and choice must be filtered to shipped runtime closure"
+      },
+      {
+        "name": "Gui_Attribution_rhi-miniengine-d3d12-mipmap",
+        "version": "0aa79bad78992da0b6a8279ddb9002c1753cb849",
+        "license_expression": "MIT",
+        "status": "SDK metadata; applicability and choice must be filtered to shipped runtime closure"
+      },
+      {
+        "name": "Gui_Attribution_opengl-headers",
+        "version": "Revision 27684",
+        "license_expression": "MIT",
+        "status": "SDK metadata; applicability and choice must be filtered to shipped runtime closure"
+      },
+      {
+        "name": "Gui_Attribution_opengl-es2-headers",
+        "version": "Revision 27673",
+        "license_expression": "MIT",
+        "status": "SDK metadata; applicability and choice must be filtered to shipped runtime closure"
+      },
+      {
+        "name": "Gui_Attribution_grayraster",
+        "version": "unknown",
+        "license_expression": "FTL OR GPL-2.0-only",
+        "status": "SDK metadata; applicability and choice must be filtered to shipped runtime closure"
+      },
+      {
+        "name": "Gui_Attribution_smooth-scaling-algorithm",
+        "version": "unknown",
+        "license_expression": "BSD-2-Clause AND Imlib2",
+        "status": "SDK metadata; applicability and choice must be filtered to shipped runtime closure"
+      },
+      {
+        "name": "Gui_Attribution_xserverhelper",
+        "version": "unknown",
+        "license_expression": "X11 AND HPND",
+        "status": "SDK metadata; applicability and choice must be filtered to shipped runtime closure"
+      },
+      {
+        "name": "Gui_Attribution_aglfn",
+        "version": "1.7",
+        "license_expression": "BSD-3-Clause",
+        "status": "SDK metadata; applicability and choice must be filtered to shipped runtime closure"
+      },
+      {
+        "name": "Gui_Attribution_vulkanmemoryallocator",
+        "version": "3.0.1",
+        "license_expression": "MIT",
+        "status": "SDK metadata; applicability and choice must be filtered to shipped runtime closure"
+      },
+      {
+        "name": "Gui_Attribution_webgradients",
+        "version": "unknown",
+        "license_expression": "MIT",
+        "status": "SDK metadata; applicability and choice must be filtered to shipped runtime closure"
+      },
+      {
+        "name": "Gui_Attribution_icc-srgb-color-profile",
+        "version": "unknown",
+        "license_expression": "LicenseRef-ICC-License",
+        "status": "SDK metadata; applicability and choice must be filtered to shipped runtime closure"
+      },
+      {
+        "name": "Gui_Attribution_d3d12memoryallocator",
+        "version": "f128d39b7a95b4235bd228d231646278dc6c24b2",
+        "license_expression": "MIT",
+        "status": "SDK metadata; applicability and choice must be filtered to shipped runtime closure"
+      },
+      {
+        "name": "Gui_Attribution_md4c",
+        "version": "0.5.2",
+        "license_expression": "MIT",
+        "status": "SDK metadata; applicability and choice must be filtered to shipped runtime closure"
+      },
+      {
+        "name": "Gui_Attribution_zlib",
+        "version": "1.3.1",
+        "license_expression": "Zlib",
+        "status": "SDK metadata; applicability and choice must be filtered to shipped runtime closure"
+      },
+      {
+        "name": "Gui_Attribution_vulkan-xml-spec",
+        "version": "1.3.223",
+        "license_expression": "Apache-2.0 OR MIT",
+        "status": "SDK metadata; applicability and choice must be filtered to shipped runtime closure"
+      },
+      {
+        "name": "TestInternalsPrivate_Attribution_cmake-runcmake-test-modules",
+        "version": "3.31.5",
+        "license_expression": "BSD-3-Clause",
+        "status": "SDK metadata; applicability and choice must be filtered to shipped runtime closure"
+      },
+      {
+        "name": "QSQLiteDriverPlugin_Attribution_sqlite",
+        "version": "3.49.1",
+        "license_expression": "blessing",
+        "status": "SDK metadata; applicability and choice must be filtered to shipped runtime closure"
+      },
+      {
+        "name": "QWindowsIntegrationPlugin_Attribution_wintab",
+        "version": "unknown",
+        "license_expression": "LicenseRef-Lcs-Telegraphics",
+        "status": "SDK metadata; applicability and choice must be filtered to shipped runtime closure"
+      },
+      {
+        "name": "Svg_Attribution_xsvg",
+        "version": "unknown",
+        "license_expression": "HPND-sell-variant",
+        "status": "SDK metadata; applicability and choice must be filtered to shipped runtime closure"
+      }
+    ],
+    "vcpkg_copyright_evidence": [
+      {
+        "component": "rtlsdr",
+        "triplet": "x64-windows-static-md",
+        "exists": true,
+        "sha256": "ab15fd526bd8dd18a9e77ebc139656bf4d33e97fc7238cd11bf60e2b9b8666c6",
+        "installed_baseline_notice_present": false
+      },
+      {
+        "component": "libusb",
+        "triplet": "x64-windows-static-md",
+        "exists": true,
+        "sha256": "5df07007198989c622f5d41de8d703e7bef3d0e79d62e24332ee739a452af62a",
+        "installed_baseline_notice_present": false
+      },
+      {
+        "component": "pthreads",
+        "triplet": "x64-windows-static-md",
+        "exists": true,
+        "sha256": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd",
+        "installed_baseline_notice_present": false
+      },
+      {
+        "component": "openssl",
+        "triplet": "x64-windows-static-md",
+        "exists": true,
+        "sha256": "7d5450cb2d142651b8afa315b5f238efc805dad827d91ba367d8516bc9d49e7a",
+        "installed_baseline_notice_present": false
+      },
+      {
+        "component": "libarchive",
+        "triplet": "x64-windows-static-md",
+        "exists": true,
+        "sha256": "16964d644e47d0e8ded669a62863ef01abc9420c732d45bf52e9be2737525445",
+        "installed_baseline_notice_present": false
+      },
+      {
+        "component": "zlib",
+        "triplet": "x64-windows-static-md",
+        "exists": true,
+        "sha256": "e32ff4e00d9d94930537635291da39e7e612703334bf6fde8c7f1686fe8a45a2",
+        "installed_baseline_notice_present": false
+      },
+      {
+        "component": "bzip2",
+        "triplet": "x64-windows-static-md",
+        "exists": true,
+        "sha256": "c6dbbf828498be844a89eaa3b84adbab3199e342eb5cb2ed2f0d4ba7ec0f38a3",
+        "installed_baseline_notice_present": false
+      },
+      {
+        "component": "liblzma",
+        "triplet": "x64-windows-static-md",
+        "exists": true,
+        "sha256": "616a3ad264ce29b8f1cb97e53037b139d406899ca8d1f799651e17bfa09830b8",
+        "installed_baseline_notice_present": false
+      },
+      {
+        "component": "lz4",
+        "triplet": "x64-windows-static-md",
+        "exists": true,
+        "sha256": "8b58c446121a109ccf32edc094bba3010a3d85e4ee3702950db55e4d3e87736c",
+        "installed_baseline_notice_present": false
+      },
+      {
+        "component": "zstd",
+        "triplet": "x64-windows-static-md",
+        "exists": true,
+        "sha256": "434dca949c6da7c500413aef694539fe37f867dd1a94d83d4ed1d260194e2660",
+        "installed_baseline_notice_present": false
+      },
+      {
+        "component": "soapysdr",
+        "triplet": "x64-windows",
+        "exists": true,
+        "sha256": "c9bff75738922193e67fa726fa225535870d2aa1059f91452c411736284ad566",
+        "installed_baseline_notice_present": false
+      }
+    ],
+    "ffmpeg_binaries": [
+      {
+        "file": "avcodec-61.dll",
+        "sha256": "a689e471103715354102366d5b9db08ef05cca6786c730e93d6ccdab71b10318",
+        "avcodec_license": "LGPL version 2.1 or later",
+        "avcodec_configuration": "--prefix=installed --disable-programs --disable-doc --disable-debug --enable-network --disable-lzma --enable-pic --disable-vulkan --disable-v4l2-m2m --disable-decoder=truemotion1 --toolchain=msvc --enable-shared --disable-static"
+      },
+      {
+        "file": "avcodec-63.dll",
+        "sha256": "266f6c71f230e8ad908c0d7ceda83972e8ea488a5ccbf451c90f4def3daeb5df",
+        "avcodec_license": "LGPL version 2.1 or later",
+        "avcodec_configuration": "--windres=/c/Users/vicliu/.cache/amc-waveform-01a1c9fc-windows/build-native/_deps/amc-media-build/amc-mswindres --prefix=/c/Users/vicliu/.cache/amc-waveform-01a1c9fc-windows/build-native/_deps/amc-media-sdk --disable-autodetect --disable-everything --disable-gpl --disable-nonfree --enable-shared --disable-static --disable-programs --disable-doc --disable-debug --disable-network --disable-avdevice --disable-avfilter --enable-avcodec --enable-avformat --enable-avutil --enable-swscale --enable-swresample --enable-demuxer=mpegts --enable-protocol='pipe,file' --enable-parser='aac,aac_latm,ac3,cavs,h264,hevc,mpegvideo,mpegaudio' --enable-decoder='cavs,h264,hevc,mpeg2video,mpeg4,aac,aac_latm,ac3,eac3,mp2,mp3,pcm_s16le' --toolchain=msvc --arch=x86_64 --target-os=win64 --cc=cl --cxx=cl"
+      }
+    ]
+  },
+  "unresolved": [
+    "Complete deployed Qt attribution/source/replacement material",
+    "Receiver/toolbox source and notice closure",
+    "Exact SoapySDRPlay3 revision and SDRplay API version-specific grant/combined-work permission",
+    "Transitive compression, software renderer and platform runtime provenance/notices",
+    "PyMuPDF-linked extractor licensing",
+    "Rights in external data/media and codec patents",
+    "Native macOS runtime/replacement qualification",
+    "First-party ownership and adoption of a top-level license"
+  ],
+  "linux": {
+    "host": "vicliu-workstation",
+    "baseline": "Foreshadow-Review-20261113-r1",
+    "binary_dependencies": {
+      "bin/signalscope": {
+        "sha256": "c215e8918472cceb63b0b44bc38d01771fa135185bc058ca98527688b252f638",
+        "ldd": [
+          "\tlinux-vdso.so.1 (0x00007fe68ba15000)",
+          "\tlibcrypto.so.3 => /lib/x86_64-linux-gnu/libcrypto.so.3 (0x00007fe68b000000)",
+          "\tlibarchive.so.13 => /lib/x86_64-linux-gnu/libarchive.so.13 (0x00007fe68b71d000)",
+          "\tlibvolk.so.3.2 => /lib/x86_64-linux-gnu/libvolk.so.3.2 (0x00007fe68ac00000)",
+          "\tlibfftw3f.so.3 => /lib/x86_64-linux-gnu/libfftw3f.so.3 (0x00007fe68a800000)",
+          "\tlibstdc++.so.6 => /lib/x86_64-linux-gnu/libstdc++.so.6 (0x00007fe68a400000)",
+          "\tlibm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007fe68ab10000)",
+          "\tlibmvec.so.1 => /lib/x86_64-linux-gnu/libmvec.so.1 (0x00007fe68a707000)",
+          "\tlibgcc_s.so.1 => /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007fe68b6f0000)",
+          "\tlibc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007fe68a20c000)",
+          "\tlibz.so.1 => /lib/x86_64-linux-gnu/libz.so.1 (0x00007fe68b6d0000)",
+          "\tlibzstd.so.1 => /lib/x86_64-linux-gnu/libzstd.so.1 (0x00007fe68af36000)",
+          "\tlibnettle.so.8 => /lib/x86_64-linux-gnu/libnettle.so.8 (0x00007fe68b67a000)",
+          "\tlibacl.so.1 => /lib/x86_64-linux-gnu/libacl.so.1 (0x00007fe68b66f000)",
+          "\tliblzma.so.5 => /lib/x86_64-linux-gnu/liblzma.so.5 (0x00007fe68b63e000)",
+          "\tliblz4.so.1 => /lib/x86_64-linux-gnu/liblz4.so.1 (0x00007fe68aae9000)",
+          "\tlibbz2.so.1.0 => /lib/x86_64-linux-gnu/libbz2.so.1.0 (0x00007fe68af23000)",
+          "\tlibxml2.so.2 => /lib/x86_64-linux-gnu/libxml2.so.2 (0x00007fe68a054000)",
+          "\tliborc-0.4.so.0 => /lib/x86_64-linux-gnu/liborc-0.4.so.0 (0x00007fe689f9d000)",
+          "\t/lib64/ld-linux-x86-64.so.2 (0x00007fe68ba17000)",
+          "\tlibxxhash.so.0 => /lib/x86_64-linux-gnu/libxxhash.so.0 (0x00007fe68aad6000)"
+        ]
+      },
+      "bin/signalscope-gui": {
+        "sha256": "ba485c5495374c66ff4eea3f726231c5c6de2951a4ac0bedbe4a6ad218f482fc",
+        "ldd": [
+          "\tlinux-vdso.so.1 (0x00007f3895685000)",
+          "\tlibcrypto.so.3 => /lib/x86_64-linux-gnu/libcrypto.so.3 (0x00007f3894800000)",
+          "\tlibarchive.so.13 => /lib/x86_64-linux-gnu/libarchive.so.13 (0x00007f3894f34000)",
+          "\tlibQt6Multimedia.so.6 => /lib/x86_64-linux-gnu/libQt6Multimedia.so.6 (0x00007f38946d2000)",
+          "\tlibQt6Network.so.6 => /lib/x86_64-linux-gnu/libQt6Network.so.6 (0x00007f38944dc000)",
+          "\tlibQt6Widgets.so.6 => /lib/x86_64-linux-gnu/libQt6Widgets.so.6 (0x00007f3893c00000)",
+          "\tlibvolk.so.3.2 => /lib/x86_64-linux-gnu/libvolk.so.3.2 (0x00007f3893800000)",
+          "\tlibfftw3f.so.3 => /lib/x86_64-linux-gnu/libfftw3f.so.3 (0x00007f3893400000)",
+          "\tlibQt6Gui.so.6 => /lib/x86_64-linux-gnu/libQt6Gui.so.6 (0x00007f3892a00000)",
+          "\tlibQt6Core.so.6 => /lib/x86_64-linux-gnu/libQt6Core.so.6 (0x00007f3892400000)",
+          "\tlibstdc++.so.6 => /lib/x86_64-linux-gnu/libstdc++.so.6 (0x00007f3892000000)",
+          "\tlibm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007f3894e44000)",
+          "\tlibmvec.so.1 => /lib/x86_64-linux-gnu/libmvec.so.1 (0x00007f38943e3000)",
+          "\tlibgcc_s.so.1 => /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007f3893bd3000)",
+          "\tlibc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f3891e0c000)",
+          "\t/lib64/ld-linux-x86-64.so.2 (0x00007f3895687000)",
+          "\tlibz.so.1 => /lib/x86_64-linux-gnu/libz.so.1 (0x00007f3895644000)",
+          "\tlibzstd.so.1 => /lib/x86_64-linux-gnu/libzstd.so.1 (0x00007f3893736000)",
+          "\tlibnettle.so.8 => /lib/x86_64-linux-gnu/libnettle.so.8 (0x00007f3893b7d000)",
+          "\tlibacl.so.1 => /lib/x86_64-linux-gnu/libacl.so.1 (0x00007f38943d8000)",
+          "\tliblzma.so.5 => /lib/x86_64-linux-gnu/liblzma.so.5 (0x00007f3893b4c000)",
+          "\tliblz4.so.1 => /lib/x86_64-linux-gnu/liblz4.so.1 (0x00007f3893b25000)",
+          "\tlibbz2.so.1.0 => /lib/x86_64-linux-gnu/libbz2.so.1.0 (0x00007f3893b12000)",
+          "\tlibxml2.so.2 => /lib/x86_64-linux-gnu/libxml2.so.2 (0x00007f3893248000)",
+          "\tlibQt6DBus.so.6 => /lib/x86_64-linux-gnu/libQt6DBus.so.6 (0x00007f3893675000)",
+          "\tlibpulse.so.0 => /lib/x86_64-linux-gnu/libpulse.so.0 (0x00007f38923ab000)",
+          "\tlibgssapi_krb5.so.2 => /lib/x86_64-linux-gnu/libgssapi_krb5.so.2 (0x00007f3892355000)",
+          "\tlibbrotlidec.so.1 => /lib/x86_64-linux-gnu/libbrotlidec.so.1 (0x00007f3893667000)",
+          "\tlibproxy.so.1 => /lib/x86_64-linux-gnu/libproxy.so.1 (0x00007f389563b000)",
+          "\tliborc-0.4.so.0 => /lib/x86_64-linux-gnu/liborc-0.4.so.0 (0x00007f389229e000)",
+          "\tlibEGL.so.1 => /lib/x86_64-linux-gnu/libEGL.so.1 (0x00007f3893651000)",
+          "\tlibfontconfig.so.1 => /lib/x86_64-linux-gnu/libfontconfig.so.1 (0x00007f3891dbe000)",
+          "\tlibX11.so.6 => /lib/x86_64-linux-gnu/libX11.so.6 (0x00007f3891c76000)",
+          "\tlibglib-2.0.so.0 => /lib/x86_64-linux-gnu/libglib-2.0.so.0 (0x00007f3891b1d000)",
+          "\tlibxkbcommon.so.0 => /lib/x86_64-linux-gnu/libxkbcommon.so.0 (0x00007f3891ad2000)",
+          "\tlibGLX.so.0 => /lib/x86_64-linux-gnu/libGLX.so.0 (0x00007f389226a000)",
+          "\tlibOpenGL.so.0 => /lib/x86_64-linux-gnu/libOpenGL.so.0 (0x00007f3891aa7000)",
+          "\tlibpng16.so.16 => /lib/x86_64-linux-gnu/libpng16.so.16 (0x00007f3891a6e000)",
+          "\tlibharfbuzz.so.0 => /lib/x86_64-linux-gnu/libharfbuzz.so.0 (0x00007f389192d000)",
+          "\tlibmd4c.so.0 => /lib/x86_64-linux-gnu/libmd4c.so.0 (0x00007f389363f000)",
+          "\tlibfreetype.so.6 => /lib/x86_64-linux-gnu/libfreetype.so.6 (0x00007f389185d000)",
+          "\tlibicui18n.so.76 => /lib/x86_64-linux-gnu/libicui18n.so.76 (0x00007f3891400000)",
+          "\tlibicuuc.so.76 => /lib/x86_64-linux-gnu/libicuuc.so.76 (0x00007f3891000000)",
+          "\tlibdouble-conversion.so.3 => /lib/x86_64-linux-gnu/libdouble-conversion.so.3 (0x00007f3893232000)",
+          "\tlibb2.so.1 => /lib/x86_64-linux-gnu/libb2.so.1 (0x00007f38929e1000)",
+          "\tlibpcre2-16.so.0 => /lib/x86_64-linux-gnu/libpcre2-16.so.0 (0x00007f38917bd000)",
+          "\tlibxxhash.so.0 => /lib/x86_64-linux-gnu/libxxhash.so.0 (0x00007f38917aa000)",
+          "\tlibdbus-1.so.3 => /lib/x86_64-linux-gnu/libdbus-1.so.3 (0x00007f38913a9000)",
+          "\tlibpulsecommon-17.0.so => /usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-17.0.so (0x00007f3891321000)",
+          "\tlibkrb5.so.3 => /lib/x86_64-linux-gnu/libkrb5.so.3 (0x00007f3891249000)",
+          "\tlibk5crypto.so.3 => /lib/x86_64-linux-gnu/libk5crypto.so.3 (0x00007f3890fd2000)",
+          "\tlibcom_err.so.2 => /lib/x86_64-linux-gnu/libcom_err.so.2 (0x00007f38943d2000)",
+          "\tlibkrb5support.so.0 => /lib/x86_64-linux-gnu/libkrb5support.so.0 (0x00007f389179c000)",
+          "\tlibbrotlicommon.so.1 => /lib/x86_64-linux-gnu/libbrotlicommon.so.1 (0x00007f3891226000)",
+          "\tlibpxbackend-1.0.so => /usr/lib/x86_64-linux-gnu/libproxy/libpxbackend-1.0.so (0x00007f3890fc3000)",
+          "\tlibgobject-2.0.so.0 => /lib/x86_64-linux-gnu/libgobject-2.0.so.0 (0x00007f3890f60000)",
+          "\tlibGLdispatch.so.0 => /lib/x86_64-linux-gnu/libGLdispatch.so.0 (0x00007f3890ea7000)",
+          "\tlibexpat.so.1 => /lib/x86_64-linux-gnu/libexpat.so.1 (0x00007f3890e7b000)",
+          "\tlibxcb.so.1 => /lib/x86_64-linux-gnu/libxcb.so.1 (0x00007f3890e50000)",
+          "\tlibatomic.so.1 => /lib/x86_64-linux-gnu/libatomic.so.1 (0x00007f3890e46000)",
+          "\tlibpcre2-8.so.0 => /lib/x86_64-linux-gnu/libpcre2-8.so.0 (0x00007f3890d97000)",
+          "\tlibgraphite2.so.3 => /lib/x86_64-linux-gnu/libgraphite2.so.3 (0x00007f3890d6d000)",
+          "\tlibicudata.so.76 => /lib/x86_64-linux-gnu/libicudata.so.76 (0x00007f388ee00000)",
+          "\tlibgomp.so.1 => /lib/x86_64-linux-gnu/libgomp.so.1 (0x00007f3890d18000)",
+          "\tlibsystemd.so.0 => /lib/x86_64-linux-gnu/libsystemd.so.0 (0x00007f388ecea000)",
+          "\tlibsndfile.so.1 => /lib/x86_64-linux-gnu/libsndfile.so.1 (0x00007f3890c89000)",
+          "\tlibX11-xcb.so.1 => /lib/x86_64-linux-gnu/libX11-xcb.so.1 (0x00007f3890c84000)",
+          "\tlibasyncns.so.0 => /lib/x86_64-linux-gnu/libasyncns.so.0 (0x00007f3890c7d000)",
+          "\tlibkeyutils.so.1 => /lib/x86_64-linux-gnu/libkeyutils.so.1 (0x00007f3890c76000)",
+          "\tlibresolv.so.2 => /lib/x86_64-linux-gnu/libresolv.so.2 (0x00007f388ecd8000)",
+          "\tlibcurl-gnutls.so.4 => /lib/x86_64-linux-gnu/libcurl-gnutls.so.4 (0x00007f388ebec000)",
+          "\tlibgio-2.0.so.0 => /lib/x86_64-linux-gnu/libgio-2.0.so.0 (0x00007f388e9f4000)",
+          "\tlibduktape.so.207 => /lib/x86_64-linux-gnu/libduktape.so.207 (0x00007f388e9aa000)",
+          "\tlibffi.so.8 => /lib/x86_64-linux-gnu/libffi.so.8 (0x00007f3890c69000)",
+          "\tlibXau.so.6 => /lib/x86_64-linux-gnu/libXau.so.6 (0x00007f388e9a5000)",
+          "\tlibXdmcp.so.6 => /lib/x86_64-linux-gnu/libXdmcp.so.6 (0x00007f388e99d000)",
+          "\tlibcap.so.2 => /lib/x86_64-linux-gnu/libcap.so.2 (0x00007f388e991000)",
+          "\tlibFLAC.so.14 => /lib/x86_64-linux-gnu/libFLAC.so.14 (0x00007f388e927000)",
+          "\tlibvorbis.so.0 => /lib/x86_64-linux-gnu/libvorbis.so.0 (0x00007f388e8f9000)",
+          "\tlibvorbisenc.so.2 => /lib/x86_64-linux-gnu/libvorbisenc.so.2 (0x00007f388e84e000)",
+          "\tlibopus.so.0 => /lib/x86_64-linux-gnu/libopus.so.0 (0x00007f388e400000)",
+          "\tlibogg.so.0 => /lib/x86_64-linux-gnu/libogg.so.0 (0x00007f388e844000)",
+          "\tlibmpg123.so.0 => /lib/x86_64-linux-gnu/libmpg123.so.0 (0x00007f388e7e7000)",
+          "\tlibmp3lame.so.0 => /lib/x86_64-linux-gnu/libmp3lame.so.0 (0x00007f388e76e000)",
+          "\tlibnghttp3.so.9 => /lib/x86_64-linux-gnu/libnghttp3.so.9 (0x00007f388e3d6000)",
+          "\tlibngtcp2_crypto_gnutls.so.8 => /lib/x86_64-linux-gnu/libngtcp2_crypto_gnutls.so.8 (0x00007f388e3ca000)",
+          "\tlibngtcp2.so.16 => /lib/x86_64-linux-gnu/libngtcp2.so.16 (0x00007f388e37f000)",
+          "\tlibnghttp2.so.14 => /lib/x86_64-linux-gnu/libnghttp2.so.14 (0x00007f388e34d000)",
+          "\tlibidn2.so.0 => /lib/x86_64-linux-gnu/libidn2.so.0 (0x00007f388e31a000)",
+          "\tlibrtmp.so.1 => /lib/x86_64-linux-gnu/librtmp.so.1 (0x00007f388e2fc000)",
+          "\tlibssh2.so.1 => /lib/x86_64-linux-gnu/libssh2.so.1 (0x00007f388e2b3000)",
+          "\tlibpsl.so.5 => /lib/x86_64-linux-gnu/libpsl.so.5 (0x00007f388e29f000)",
+          "\tlibgnutls.so.30 => /lib/x86_64-linux-gnu/libgnutls.so.30 (0x00007f388e000000)",
+          "\tlibldap.so.2 => /lib/x86_64-linux-gnu/libldap.so.2 (0x00007f388e23b000)",
+          "\tliblber.so.2 => /lib/x86_64-linux-gnu/liblber.so.2 (0x00007f388e22a000)",
+          "\tlibgmodule-2.0.so.0 => /lib/x86_64-linux-gnu/libgmodule-2.0.so.0 (0x00007f388e767000)",
+          "\tlibmount.so.1 => /lib/x86_64-linux-gnu/libmount.so.1 (0x00007f388df84000)",
+          "\tlibselinux.so.1 => /lib/x86_64-linux-gnu/libselinux.so.1 (0x00007f388df50000)",
+          "\tlibunistring.so.5 => /lib/x86_64-linux-gnu/libunistring.so.5 (0x00007f388dd68000)",
+          "\tlibhogweed.so.6 => /lib/x86_64-linux-gnu/libhogweed.so.6 (0x00007f388dd1d000)",
+          "\tlibgmp.so.10 => /lib/x86_64-linux-gnu/libgmp.so.10 (0x00007f388dc93000)",
+          "\tlibp11-kit.so.0 => /lib/x86_64-linux-gnu/libp11-kit.so.0 (0x00007f388daf2000)",
+          "\tlibtasn1.so.6 => /lib/x86_64-linux-gnu/libtasn1.so.6 (0x00007f388dadc000)",
+          "\tlibsasl2.so.2 => /lib/x86_64-linux-gnu/libsasl2.so.2 (0x00007f388dac0000)",
+          "\tlibssl.so.3 => /lib/x86_64-linux-gnu/libssl.so.3 (0x00007f388d9b2000)",
+          "\tlibblkid.so.1 => /lib/x86_64-linux-gnu/libblkid.so.1 (0x00007f388d951000)"
+        ]
+      },
+      "lib/signalscope/receivers/amc-receiver-rtlsdr.so": {
+        "sha256": "63ccaeb14d7155eccb0c6a091791beec9e3057e1fbc98587140f77829403668f",
+        "ldd": [
+          "\tlinux-vdso.so.1 (0x00007f37fcfc8000)",
+          "\tlibrtlsdr.so.0 => /lib/x86_64-linux-gnu/librtlsdr.so.0 (0x00007f37fcf05000)",
+          "\tlibstdc++.so.6 => /lib/x86_64-linux-gnu/libstdc++.so.6 (0x00007f37fcc00000)",
+          "\tlibm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007f37fcb10000)",
+          "\tlibgcc_s.so.1 => /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007f37fced8000)",
+          "\tlibc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f37fc91c000)",
+          "\tlibusb-1.0.so.0 => /lib/x86_64-linux-gnu/libusb-1.0.so.0 (0x00007f37fceb6000)",
+          "\t/lib64/ld-linux-x86-64.so.2 (0x00007f37fcfca000)",
+          "\tlibudev.so.1 => /lib/x86_64-linux-gnu/libudev.so.1 (0x00007f37fce71000)",
+          "\tlibcap.so.2 => /lib/x86_64-linux-gnu/libcap.so.2 (0x00007f37fc910000)"
+        ]
+      },
+      "lib/signalscope/receivers/amc-receiver-sdrplay.so": {
+        "sha256": "82568bc751b371bc461eecd35e1d6be05e942807d28b561f13abd5075b116415",
+        "ldd": [
+          "\tlinux-vdso.so.1 (0x00007fc23a2dd000)",
+          "\tlibSoapySDR.so.0.8 => /lib/x86_64-linux-gnu/libSoapySDR.so.0.8 (0x00007fc23a1c6000)",
+          "\tlibstdc++.so.6 => /lib/x86_64-linux-gnu/libstdc++.so.6 (0x00007fc239e00000)",
+          "\tlibm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007fc23a0d6000)",
+          "\tlibgcc_s.so.1 => /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007fc23a0a9000)",
+          "\tlibc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007fc239c0c000)",
+          "\t/lib64/ld-linux-x86-64.so.2 (0x00007fc23a2df000)"
+        ]
+      },
+      "libexec/signalscope/dtmb/amc-dtmb-frontend": {
+        "sha256": "a0ee84389ca6e309684843e02ac0aaf6793cd9db0c830eee5f858b304cc828f1",
+        "ldd": [
+          "\tlinux-vdso.so.1 (0x00007f6c0baa7000)",
+          "\tlibfftw3f.so.3 => /lib/x86_64-linux-gnu/libfftw3f.so.3 (0x00007f6c0b600000)",
+          "\tlibstdc++.so.6 => /lib/x86_64-linux-gnu/libstdc++.so.6 (0x00007f6c0b200000)",
+          "\tlibm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007f6c0b8b8000)",
+          "\tlibgcc_s.so.1 => /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007f6c0b88b000)",
+          "\tlibc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f6c0b00c000)",
+          "\t/lib64/ld-linux-x86-64.so.2 (0x00007f6c0baa9000)"
+        ]
+      }
+    },
+    "packages": [
+      {
+        "name": "libfftw3-single3",
+        "version": "3.3.10-2+b1",
+        "copyright_sha256": "8da846cb9e375187ccee28953159c233ba788ec1e74b2089a63c27e75f5795d3",
+        "license_headers": [
+          "License: GPL-2+",
+          "License: GPL-2+",
+          "License: GPL-2+"
+        ]
+      },
+      {
+        "name": "libvolk3.2",
+        "version": "3.2.0-2",
+        "copyright_sha256": "7f560fa9a6e19e07e7d8b544551ac8f7cd871ea270d85385a57e4fd72833696f",
+        "license_headers": [
+          "License: LGPL-3+",
+          "License: LGPL-3+",
+          "License: LGPL-3+",
+          "License: LGPL-3+",
+          "License: LGPL-3+",
+          "License: LGPL-3+",
+          "License: Kitware-BSD",
+          "License: LGPL-3+",
+          "License: BSD-2-clause",
+          "License: LGPL-3+",
+          "License: LGPL-3+",
+          "License: LGPL-3+",
+          "License: LGPL-3+",
+          "License: LGPL-3+",
+          "License: LGPL-3+",
+          "License: LGPL-3+",
+          "License: LGPL-3+"
+        ]
+      },
+      {
+        "name": "librtlsdr0",
+        "version": "2.0.2-2+b1",
+        "copyright_sha256": "299a987bfd65ca7ee984d701ac2096a7b49b7cd6bc35008af1bf008ac725ff7f",
+        "license_headers": [
+          "License: GPL-2.0+",
+          "License: GPL-3+",
+          "License: GPL-2.0+",
+          "License: MIT",
+          "License: GPL-3+",
+          "License: GPL-2.0+",
+          "License: GPL-2+",
+          "License: GPL-3+",
+          "License: GPL-2+",
+          "License: GPL-3+",
+          "License: GPL-2+",
+          "License: GPL-2+",
+          "License: GPL-2+",
+          "License: GPL-2.0+",
+          "License: GPL-2+",
+          "License: GPL-3+",
+          "License: GPL-2+",
+          "License: GPL-3+",
+          "License: GPL-2.0+",
+          "License: GPL-2+",
+          "License: LGPL-2.1+",
+          "License: LGPL-2.1+",
+          "License: GPL-2+",
+          "License: GPL-2+",
+          "License: GPL-2+",
+          "License: GPL-2+",
+          "License: GPL-2+",
+          "License: GPL-2+",
+          "License: GPL-2+",
+          "License: GPL-2+",
+          "License: GPL-2+",
+          "License: GPL-2.0+",
+          "License: GPL-2+",
+          "License: GPL-2+",
+          "License: GPL-2.0+",
+          "License: GPL-3+",
+          "License: LGPL-2.1+",
+          "License: MIT"
+        ]
+      },
+      {
+        "name": "libsoapysdr0.8",
+        "version": "0.8.1-5+b2",
+        "copyright_sha256": "74a01595c64dd66c3200d74b9b1ab1d303dc20be3b7d4548a62509b69dd24faa",
+        "license_headers": [
+          "License: BSL-1.0",
+          "License: BSD-3-clause"
+        ]
+      },
+      {
+        "name": "libssl3t64",
+        "version": "3.5.7-1~deb13u2",
+        "copyright_sha256": "6a7da622fe0637a334d2a8fc470852d2ffb77d9a2b2f930f854e32a41ad6ef35",
+        "license_headers": [
+          "License: Apache-2.0",
+          "License: Apache-2.0",
+          "License: Apache-2.0",
+          "License: Artistic or GPL-1+",
+          "License: Artistic",
+          "License: GPL-1+"
+        ]
+      },
+      {
+        "name": "libarchive13t64",
+        "version": "3.7.4-4+deb13u1",
+        "copyright_sha256": "4110a6408770289c577a09ed70cf732a4483f12a7187f4d838f8fdc5f92da7bf",
+        "license_headers": [
+          "License: BSD-2-clause",
+          "License: BSD-2-clause",
+          "License: BSD-2-clause",
+          "License: BSD-2-clause",
+          "License: BSD-2-clause",
+          "License: Apache-2.0",
+          "License: BSD-2-clause",
+          "License: BSD-4-clause-UCB",
+          "License: BSD-2-clause",
+          "License: BSD-2-clause and BSD-1-clause-UCB",
+          "License: BSD-2-clause",
+          "License: Expat",
+          "License: Apache-2.0 or CC0-1.0 or OpenSSL+SSLeay",
+          "License: BSD-2-clause and BSD-124-clause-UCB",
+          "License: PD",
+          "License: BSD-2-clause and Expat",
+          "License: BSD-2-clause",
+          "License: BSD-2-clause and BSD-1-clause-UCB",
+          "License: BSD-2-clause and BSD-3-clause-UCB",
+          "License: BSD-124-clause-UCB",
+          "License: BSD-2-clause",
+          "License: BSD-2-clause",
+          "License: BSD-2-clause",
+          "License: BSD-2-clause",
+          "License: BSD-2-clause",
+          "License: BSD-2-clause",
+          "License: BSD-2-clause",
+          "License: BSD-2-clause",
+          "License: BSD-2-clause and Expat",
+          "License: BSD-2-clause",
+          "License: BSD-2-clause",
+          "License: BSD-2-clause",
+          "License: BSD-2-clause",
+          "License: BSD-2-clause",
+          "License: BSD-2-clause",
+          "License: BSD-2-clause",
+          "License: BSD-2-clause",
+          "License: BSD-2-clause",
+          "License: BSD-2-clause",
+          "License: Apache-2.0",
+          "License: CC0-1.0",
+          "License: BSD-1-clause-UCB",
+          "License: BSD-124-clause-UCB",
+          "License: BSD-3-clause-UCB",
+          "License: BSD-4-clause-UCB",
+          "License: Expat",
+          "License: OpenSSL+SSLeay"
+        ]
+      },
+      {
+        "name": "libusb-1.0-0",
+        "version": "2:1.0.28-1",
+        "copyright_sha256": "a627862d217aed18b58086a8711ebf9a66b0e090fa16f64ef92b59e920921b15",
+        "license_headers": [
+          "License: LGPL-2.1+",
+          "License: GPL-2+",
+          "License: MIT",
+          "License: FSFAP"
+        ]
+      },
+      {
+        "name": "qt6-base-dev",
+        "version": "6.8.2+dfsg-9+deb13u2",
+        "copyright_sha256": "f3dcba89cb3374a12866b0adb0e3d5caf950416bf3a5230341549da3b229e47d",
+        "license_headers": [
+          "License: LGPL-3 or GPL-2",
+          "License: GFDL-NIV-1.3",
+          "License: GPL-3 with Qt-1.0 exception",
+          "License: BSD-3-clause",
+          "License: LGPL-3 or GPL-2",
+          "License: BSD-3-clause",
+          "License: BSD-3-clause",
+          "License: BSD-3-clause",
+          "License: BSD-3-clause",
+          "License: BSD-3-clause",
+          "License: BSD-3-clause",
+          "License: BSD-3-clause",
+          "License: BSD-3-clause",
+          "License: BSD-3-clause",
+          "License: BSD-3-clause",
+          "License: BSD-3-clause",
+          "License: BSD-3-clause",
+          "License: BSD-3-clause",
+          "License: BSD-3-clause",
+          "License: BSD-3-clause",
+          "License: BSD-3-clause",
+          "License: BSD-3-clause",
+          "License: BSD-3-clause",
+          "License: BSD-3-clause",
+          "License: BSD-3-clause",
+          "License: BSD-3-clause",
+          "License: Expat",
+          "License: GFDL-NIV-1.3",
+          "License: GFDL-NIV-1.3",
+          "License: GFDL-NIV-1.3",
+          "License: GFDL-NIV-1.3",
+          "License: GFDL-NIV-1.3",
+          "License: GPL-3",
+          "License: GPL-3 with Qt-1.0 exception",
+          "License: GPL-3 with Qt-1.0 exception",
+          "License: GPL-3 with Qt-1.0 exception",
+          "License: GPL-3 with Qt-1.0 exception",
+          "License: GPL-3 with Qt-1.0 exception",
+          "License: GPL-3 with Qt-1.0 exception",
+          "License: GPL-3 with Qt-1.0 exception",
+          "License: GPL-3 with Qt-1.0 exception",
+          "License: GPL-3 with Qt-1.0 exception",
+          "License: GPL-3 with Qt-1.0 exception",
+          "License: GPL-3 with Qt-1.0 exception",
+          "License: GPL-3 with Qt-1.0 exception",
+          "License: GPL-3 with Qt-1.0 exception",
+          "License: GPL-3 with Qt-1.0 exception",
+          "License: GPL-3 with Qt-1.0 exception",
+          "License: GPL-3 with Qt-1.0 exception",
+          "License: GPL-3 with Qt-1.0 exception",
+          "License: GPL-3 with Qt-1.0 exception",
+          "License: GPL-3 with Qt-1.0 exception",
+          "License: GPL-3 with Qt-1.0 exception",
+          "License: GPL-3 with Qt-1.0 exception",
+          "License: GPL-3 with Qt-1.0 exception",
+          "License: GPL-3 with Qt-1.0 exception",
+          "License: GPL-3 with Qt-1.0 exception",
+          "License: GPL-3 with Qt-1.0 exception",
+          "License: GPL-3 with Qt-1.0 exception",
+          "License: GPL-3 with Qt-1.0 exception",
+          "License: GPL-3 with Qt-1.0 exception",
+          "License: GPL-3 with Qt-1.0 exception",
+          "License: GPL-3 with Qt-1.0 exception",
+          "License: GPL-3 with Qt-1.0 exception",
+          "License: GPL-3 with Qt-1.0 exception",
+          "License: GPL-3 with Qt-1.0 exception",
+          "License: GPL-3 with Qt-1.0 exception",
+          "License: GPL-3 with Qt-1.0 exception",
+          "License: GPL-3 with Qt-1.0 exception",
+          "License: GPL-3 with Qt-1.0 exception",
+          "License: GPL-3 with Qt-1.0 exception",
+          "License: GPL-3 with Qt-1.0 exception",
+          "License: GPL-3 with Qt-1.0 exception",
+          "License: GPL-3 with Qt-1.0 exception",
+          "License: GPL-3 with Qt-1.0 exception",
+          "License: GPL-3 with Qt-1.0 exception",
+          "License: GPL-3 with Qt-1.0 exception",
+          "License: GPL-3 with Qt-1.0 exception",
+          "License: GPL-3 with Qt-1.0 exception",
+          "License: GPL-3 with Qt-1.0 exception",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: BSD-3-clause",
+          "License: BSD-3-clause",
+          "License: Expat",
+          "License: Boost-1.0",
+          "License: Apache-2.0 or Expat",
+          "License: Apache-2.0",
+          "License: BSD-2-clause",
+          "License: W3C",
+          "License: Unicode",
+          "License: Hybrid-BSD",
+          "License: Expat",
+          "License: BSD-3-clause",
+          "License: BSD-3-clause",
+          "License: Expat",
+          "License: Apache-2.0",
+          "License: Harfbuzz",
+          "License: ISC",
+          "License: GPL-2+ or FTL",
+          "License: Expat",
+          "License: Expat",
+          "License: Expat",
+          "License: BSD-3-clause",
+          "License: ICC",
+          "License: libjpeg and BSD-3-clause and Zlib",
+          "License: libpng",
+          "License: public-domain",
+          "License: Apache-2.0",
+          "License: BSD-3-clause",
+          "License: BSD-2-clause",
+          "License: Expat",
+          "License: BSD-3-clause",
+          "License: LGPL-3 or GPL-2",
+          "License: CC0-1.0",
+          "License: brg-endian",
+          "License: Expat",
+          "License: Bitstream",
+          "License: Bitstream",
+          "License: Zlib",
+          "License: Expat",
+          "License: Expat",
+          "License: Expat",
+          "License: LGPL-3",
+          "License: GPL-2",
+          "License: GPL-2+",
+          "License: GPL-3",
+          "License: GPL-3 with Qt-1.0 exception",
+          "License: GFDL-NIV-1.3",
+          "License: BSD-2-clause",
+          "License: BSD-3-clause",
+          "License: Expat",
+          "License: Apache-2.0",
+          "License: Bitstream",
+          "License: CC0-1.0",
+          "License: FTL",
+          "License: Hybrid-BSD",
+          "License: libjpeg",
+          "License: Zlib",
+          "License: ISC",
+          "License: Boost-1.0",
+          "License: Harfbuzz",
+          "License: W3C",
+          "License: Unicode",
+          "License: libpng",
+          "License: brg-endian",
+          "License: ICC"
+        ]
+      },
+      {
+        "name": "libqt6multimedia6",
+        "version": "6.8.2-8",
+        "copyright_sha256": "62f74366044d68823f1aa93a43f7f17a1237a702278d8868fa270c323efff305",
+        "license_headers": [
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3 or GPL-2",
+          "License: LGPL-3",
+          "License: GPL-3 with Qt-1.0 exception",
+          "License: GPL-3 with Qt-1.0 exception",
+          "License: BSD-3-clause",
+          "License: LGPL-2.1",
+          "License: custom-fftreal",
+          "License: GFDL-NIV-1.3",
+          "License: MPL-2.0",
+          "License: Apache-2.0",
+          "License: MPL-2.0 or BSD-3-clause",
+          "License: BSD-3-clause",
+          "License: custom-PFFFT",
+          "License: Apache-2.0",
+          "License: LGPL-2.1",
+          "License: LGPL-3",
+          "License: GPL-2",
+          "License: GPL-3 with Qt-1.0 exception",
+          "License: BSD-3-clause",
+          "License: GFDL-NIV-1.3",
+          "License: MPL-2.0",
+          "License: Apache-2.0",
+          "License: custom-fftreal",
+          "License: custom-PFFFT"
+        ]
+      }
+    ],
+    "installed_sdrplay_driver": {
+      "path": "/usr/local/lib/SoapySDR/modules0.8/libsdrPlaySupport.so",
+      "sha256": "7d5ca437931658cc67dfb716f5c35526ceba3309ed19dab3589c073282929b18",
+      "ldd": [
+        "\tlinux-vdso.so.1 (0x00007ff769ded000)",
+        "\tlibsdrplay_api.so.3 => /usr/local/lib/libsdrplay_api.so.3 (0x00007ff769a00000)",
+        "\tlibSoapySDR.so.0.8 => /lib/x86_64-linux-gnu/libSoapySDR.so.0.8 (0x00007ff769d4b000)",
+        "\tlibstdc++.so.6 => /lib/x86_64-linux-gnu/libstdc++.so.6 (0x00007ff769600000)",
+        "\tlibgcc_s.so.1 => /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007ff769d1e000)",
+        "\tlibc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007ff76940c000)",
+        "\tlibpthread.so.0 => /lib/x86_64-linux-gnu/libpthread.so.0 (0x00007ff769d17000)",
+        "\tlibrt.so.1 => /lib/x86_64-linux-gnu/librt.so.1 (0x00007ff769d12000)",
+        "\tlibm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007ff769c22000)",
+        "\t/lib64/ld-linux-x86-64.so.2 (0x00007ff769def000)"
+      ],
+      "exact_source_revision": "unresolved",
+      "api_license_grant": "unresolved"
+    }
+  },
+  "pcm_final_source_commit": "a258670d92525c43e5dd6cf104b9965108c9198c",
+  "qualification_evidence": "2026-11-13-pcm-and-licensing-proof.json",
+  "firmware": {
+    "configuration": "firmware/pager_tx/platformio.ini",
+    "configured_platform": "espressif32@6.10.0",
+    "framework": "arduino",
+    "upstream_framework_range": "~3.20017.0",
+    "available_framework_cache": "3.20017.241212+sha.dcc1105b",
+    "framework_cache_license": "LGPL-2.1-or-later",
+    "radiolib": {
+      "version": "7.4.0",
+      "declared_license": "MIT",
+      "source": "https://github.com/jgromes/RadioLib/blob/7.4.0/library.json"
+    },
+    "actual_resolved_build_and_link_map": "not verified",
+    "license_clearance": "not-cleared"
+  },
+  "historical_source_archive": {
+    "path": "research/v4/source-before-buffering.tar",
+    "entries": 84,
+    "license_named_members": 0,
+    "scope": "Historical source inventory; preserve identity and review notice coverage"
+  }
+}

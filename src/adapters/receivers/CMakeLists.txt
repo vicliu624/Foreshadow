@@ -1,0 +1,2 @@
+add_library(signalscope_receivers receiver.cpp configuration.cpp configuration_wire.cpp)
+target_link_libraries(signalscope_receivers PUBLIC signalscope_iq PRIVATE signalscope_distribution ${CMAKE_DL_LIBS})

@@ -1,0 +1,10 @@
+{
+  "upstream_commit": "2cc94c012128d6fa3e8d6de456b3bb57e51990a9",
+  "reason": "GB 20600-2006 figure 12 sets D10=1 and D1..D9=0; output D10 precedes the first clock.",
+  "replacements": [
+    {
+      "before": "PnMode::pn595, 595, 595, 0, 0, 216, 1.0F, \"0000000001\", {0, 7, 0, 0}, 2};",
+      "after": "PnMode::pn595, 595, 595, 0, 0, 216, 1.0F, \"1000000000\", {0, 7, 0, 0}, 2};"
+    }
+  ]
+}

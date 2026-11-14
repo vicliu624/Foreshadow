@@ -1,0 +1,1130 @@
+{
+  "schema": 1,
+  "date": "2026-11-14",
+  "source_commit": "0c5fb5e42c61ccfa2605a248abc2b346fc92b7d3",
+  "version": "0.2.12",
+  "published": false,
+  "production_signature_created": false,
+  "source_archive_sha256": "ebae329693312951434e8af014ab3b7f18f402e297d45d4e5db752e2f0d40793",
+  "change_scope": "Fix bilingual offline build commands, repin reviewed repository materials and repackage; runtime/provider/transport implementations unchanged",
+  "licensing_contract_tests": {
+    "passed": 17,
+    "failed": 0
+  },
+  "full_native_regression": "Earlier cb6fedf suite retained as dated baseline, not rerun or relabelled at this documentation/material freeze",
+  "platforms": {
+    "windows": {
+      "package": {
+        "source_commit": "0c5fb5e42c61ccfa2605a248abc2b346fc92b7d3",
+        "work": "C:\\Users\\vicliu\\.cache\\amc-waveform-01a1c9fc-windows\\release-qa\\releaseprep-1794627007034051700",
+        "steps": [
+          {
+            "name": "install-SignalScope",
+            "exit_code": 0,
+            "seconds": 1.777
+          },
+          {
+            "name": "install-ResearchExamples",
+            "exit_code": 0,
+            "seconds": 0.06
+          },
+          {
+            "name": "attach-compliance",
+            "exit_code": 0,
+            "seconds": 1.667
+          },
+          {
+            "name": "compose-independent-packages",
+            "exit_code": 0,
+            "seconds": 19.023
+          },
+          {
+            "name": "real-package-transactions",
+            "exit_code": 0,
+            "seconds": 4.424
+          },
+          {
+            "name": "reopen-archives-and-qualify-base",
+            "exit_code": 0,
+            "seconds": 6.376
+          },
+          {
+            "name": "export-qualified-base",
+            "exit_code": 0,
+            "seconds": 11.337
+          },
+          {
+            "name": "unicode-base-receivers",
+            "exit_code": 0,
+            "seconds": 0.68
+          },
+          {
+            "name": "unicode-base-providers",
+            "exit_code": 0,
+            "seconds": 1.822
+          },
+          {
+            "name": "independent-client-native-contract",
+            "exit_code": 0,
+            "seconds": 5.647
+          },
+          {
+            "name": "extracted-base-desktop-workflows",
+            "exit_code": 0,
+            "seconds": 114.831
+          }
+        ],
+        "published": false,
+        "entries": "C:\\Users\\vicliu\\.cache\\amc-waveform-01a1c9fc-windows\\release-qa\\releaseprep-1794627007034051700\\packages\\entries-windows-x86_64.json",
+        "base_root": "C:\\Users\\vicliu\\.cache\\amc-waveform-01a1c9fc-windows\\release-qa\\releaseprep-1794627007034051700\\发布包验证 📡\\org.amc.ams",
+        "client_root": "C:\\Users\\vicliu\\.cache\\amc-waveform-01a1c9fc-windows\\release-qa\\releaseprep-1794627007034051700\\发布包验证 📡\\org.amc.receiver.sdrplay\\receiver",
+        "research_root": "C:\\Users\\vicliu\\.cache\\amc-waveform-01a1c9fc-windows\\release-qa\\releaseprep-1794627007034051700\\发布包验证 📡\\org.amc.research.power-report\\research",
+        "base_receivers": [
+          "rtlsdr"
+        ],
+        "packages": [
+          {
+            "id": "org.amc.ams",
+            "kind": "application",
+            "sha256": "7d76559c847a16d281a4dcc411edc736d05bb39335b789521304ec8022017087"
+          },
+          {
+            "id": "org.amc.receiver.rtlsdr",
+            "kind": "receiver",
+            "sha256": "3db643934a1c626df6f490b08a144497ca6437f2a5cf2607ce53931ccbe0113e"
+          },
+          {
+            "id": "org.amc.receiver.sdrplay",
+            "kind": "receiver",
+            "sha256": "7cbb26cd15ee8ddf269c4239783ecc75fda17ddea86b92a77b74f606232f5667"
+          },
+          {
+            "id": "org.amc.research.power-report",
+            "kind": "research",
+            "sha256": "cfda387fda0b5a97f571158bd7312876e8866d85f5b3dcecbd942210ef2b2ac5"
+          }
+        ],
+        "base_archive": "C:\\Users\\vicliu\\.cache\\amc-waveform-01a1c9fc-windows\\release-qa\\releaseprep-1794627007034051700\\Foreshadow-0.2.12-windows-base.zip",
+        "base_archive_sha256": "700e596131d7de786925ec05e27748616583c17c63fa04d8ba87d752a49b060f",
+        "unicode_base": "C:\\Users\\vicliu\\.cache\\amc-waveform-01a1c9fc-windows\\release-qa\\releaseprep-1794627007034051700\\Foreshadow 基础包验收 📡",
+        "status": "passed"
+      },
+      "compliance": {
+        "source_commit": "0c5fb5e42c61ccfa2605a248abc2b346fc92b7d3",
+        "package_work": "C:\\Users\\vicliu\\.cache\\amc-waveform-01a1c9fc-windows\\release-qa\\releaseprep-1794627007034051700",
+        "archive_gates": [
+          {
+            "id": "org.amc.ams",
+            "distribution": "evidence-complete",
+            "issues": [],
+            "materials": 382,
+            "binaries": 47,
+            "formal_gate": "passed"
+          },
+          {
+            "id": "org.amc.receiver.rtlsdr",
+            "distribution": "evidence-complete",
+            "issues": [],
+            "materials": 63,
+            "binaries": 1,
+            "formal_gate": "passed"
+          },
+          {
+            "id": "org.amc.receiver.sdrplay",
+            "distribution": "evidence-complete",
+            "issues": [],
+            "materials": 57,
+            "binaries": 2,
+            "formal_gate": "passed"
+          },
+          {
+            "id": "org.amc.research.power-report",
+            "distribution": "evidence-complete",
+            "issues": [],
+            "materials": 18,
+            "binaries": 4,
+            "formal_gate": "passed"
+          }
+        ],
+        "published": false,
+        "native_license_ui": {
+          "exit_code": 0,
+          "screenshot": "C:\\Users\\vicliu\\.cache\\amc-waveform-01a1c9fc-windows\\release-qa\\releaseprep-1794627007034051700\\licenses-and-source.png"
+        },
+        "qt_replacement": {
+          "method": "Compatible copied DLL with inert PE overlay; Qt source was not rebuilt",
+          "original_sha256": "0cc62e841959fb8f6d366ea116c6f6bbc273e30f0ef90d8aa2e4adeb81fd63f8",
+          "replacement_sha256": "140e383e5a7d03d57fbd85f5ae6649f1a036324c0cb985517ff4c8cff67bf945",
+          "loaded_path": "C:\\Users\\vicliu\\.cache\\amc-waveform-01a1c9fc-windows\\release-qa\\releaseprep-1794627007034051700\\许可证与替换验证 📡-1794627194797088600\\bin\\Qt6Core.dll",
+          "exit_code": 0,
+          "limits": "Exercises substitution/loading without a startup hash/signature lock; does not claim arbitrary ABI changes work or that a full Qt rebuild was tested."
+        },
+        "status": "passed"
+      },
+      "physical": {
+        "source_commit": "0c5fb5e42c61ccfa2605a248abc2b346fc92b7d3",
+        "package_work": "C:\\Users\\vicliu\\.cache\\amc-waveform-01a1c9fc-windows\\release-qa\\releaseprep-1794627007034051700",
+        "service_endpoint": "tcp://192.168.31.42:55132",
+        "steps": [
+          {
+            "name": "packaged-physical-capture",
+            "exit_code": 0,
+            "modules": [
+              "C:\\Users\\vicliu\\.cache\\amc-waveform-01a1c9fc-windows\\release-qa\\releaseprep-1794627007034051700\\Foreshadow 基础包验收 📡\\bin\\signalscope.exe",
+              "C:\\WINDOWS\\SYSTEM32\\ntdll.dll",
+              "C:\\WINDOWS\\System32\\KERNEL32.DLL",
+              "C:\\WINDOWS\\System32\\KERNELBASE.dll",
+              "C:\\WINDOWS\\System32\\CRYPT32.dll",
+              "C:\\WINDOWS\\System32\\ucrtbase.dll",
+              "C:\\WINDOWS\\System32\\WS2_32.dll",
+              "C:\\WINDOWS\\System32\\RPCRT4.dll",
+              "C:\\WINDOWS\\System32\\USER32.dll",
+              "C:\\WINDOWS\\System32\\win32u.dll",
+              "C:\\WINDOWS\\System32\\GDI32.dll",
+              "C:\\WINDOWS\\System32\\gdi32full.dll",
+              "C:\\WINDOWS\\System32\\msvcp_win.dll",
+              "C:\\WINDOWS\\System32\\ADVAPI32.dll",
+              "C:\\WINDOWS\\System32\\msvcrt.dll",
+              "C:\\WINDOWS\\System32\\sechost.dll",
+              "C:\\WINDOWS\\SYSTEM32\\bcrypt.dll",
+              "C:\\Users\\vicliu\\.cache\\amc-waveform-01a1c9fc-windows\\release-qa\\releaseprep-1794627007034051700\\Foreshadow 基础包验收 📡\\bin\\MSVCP140.dll",
+              "C:\\Users\\vicliu\\.cache\\amc-waveform-01a1c9fc-windows\\release-qa\\releaseprep-1794627007034051700\\Foreshadow 基础包验收 📡\\bin\\MSVCP140_ATOMIC_WAIT.dll",
+              "C:\\Users\\vicliu\\.cache\\amc-waveform-01a1c9fc-windows\\release-qa\\releaseprep-1794627007034051700\\Foreshadow 基础包验收 📡\\bin\\VCRUNTIME140.dll",
+              "C:\\Users\\vicliu\\.cache\\amc-waveform-01a1c9fc-windows\\release-qa\\releaseprep-1794627007034051700\\Foreshadow 基础包验收 📡\\bin\\VCRUNTIME140_1.dll",
+              "C:\\WINDOWS\\System32\\IMM32.DLL",
+              "C:\\Users\\vicliu\\.cache\\amc-waveform-01a1c9fc-windows\\release-qa\\releaseprep-1794627007034051700\\发布包验证 📡\\org.amc.receiver.sdrplay\\receiver\\amc-receiver-sdrplay.dll",
+              "C:\\Users\\vicliu\\.cache\\amc-waveform-01a1c9fc-windows\\release-qa\\releaseprep-1794627007034051700\\发布包验证 📡\\org.amc.receiver.sdrplay\\receiver\\SoapySDR.dll",
+              "C:\\WINDOWS\\SYSTEM32\\IPHLPAPI.DLL",
+              "C:\\WINDOWS\\system32\\mswsock.dll",
+              "C:\\WINDOWS\\SYSTEM32\\kernel.appcore.dll"
+            ],
+            "result": {
+              "accepted_pairs": 16000000,
+              "actual_bandwidth_hz": 1536000.0,
+              "actual_frequency_hz": 478500000.0,
+              "actual_if_gain_reduction_db": 32.0,
+              "actual_rate_hz": 2000000.0,
+              "antenna": "Antenna B",
+              "auto_gain": false,
+              "backend": "soapy-sdrplay",
+              "configuration": {
+                "activation_confirmed": true,
+                "actual": {
+                  "antenna": "Antenna B",
+                  "auto_gain": false,
+                  "filter_bandwidth_hz": 1536000.0,
+                  "frequency_hz": 478500000.0,
+                  "gain_tenths_db": 320.0,
+                  "sample_datatype": "ci16_le",
+                  "sample_rate_hz": 2000000.0,
+                  "settings": {
+                    "service_endpoint": "tcp://192.168.31.42:55132"
+                  }
+                },
+                "readback_source": "driver",
+                "requested": {
+                  "antenna": "Antenna B",
+                  "auto_gain": false,
+                  "device": 0,
+                  "frequency_hz": 478500000,
+                  "gain_tenths_db": 320,
+                  "if_bandwidth_hz": 0.0,
+                  "input_mode": "auto",
+                  "required_passband_hz": 0.0,
+                  "sample_rate_hz": 2000000,
+                  "serial": "",
+                  "settings": {
+                    "service_endpoint": "tcp://192.168.31.42:55132"
+                  }
+                }
+              },
+              "continuity": "SoapySDR discontinuity flags; no hardware sample counter exposed",
+              "device": 0,
+              "hardware": "RSPdx-R2",
+              "power": {
+                "clipped_pairs": 0,
+                "dc_i": -5.535501480102539e-06,
+                "dc_q": -2.836597442626953e-06,
+                "mean_power_dbfs": -14.964566631913453,
+                "pairs": 16000000,
+                "power_reference": "mean |(I+jQ)/32768|^2; full input band; not RF dBm"
+              },
+              "read_stats": {
+                "delivered_blocks": 977,
+                "max_read_pairs": 4096,
+                "min_read_pairs": 16,
+                "reads": 4881,
+                "scope": "client_transport_reads",
+                "short_reads": 3904,
+                "timeouts": 1
+              },
+              "rejected_pairs": 0,
+              "requested_rate_hz": 2000000,
+              "service_endpoint": "tcp://192.168.31.42:55132",
+              "startup_readback": {
+                "acquisition_conditions": {
+                  "adc_overload": {
+                    "capability": "unavailable",
+                    "evidence": {
+                      "reason_code": "not_exposed_by_provider"
+                    },
+                    "state": "unknown"
+                  },
+                  "amplitude_calibration": {
+                    "evidence": {},
+                    "state": "unknown"
+                  },
+                  "frequency_calibration": {
+                    "evidence": {},
+                    "state": "unknown"
+                  },
+                  "origin": "provider",
+                  "schema": "org.amc.acquisition-conditions",
+                  "scope": "before_first_samples",
+                  "version": 1
+                },
+                "configuration": {
+                  "activation_confirmed": true,
+                  "actual": {
+                    "antenna": "Antenna B",
+                    "auto_gain": false,
+                    "filter_bandwidth_hz": 1536000.0,
+                    "frequency_hz": 478500000.0,
+                    "gain_tenths_db": 320.0,
+                    "sample_datatype": "ci16_le",
+                    "sample_rate_hz": 2000000.0,
+                    "settings": {
+                      "service_endpoint": "tcp://192.168.31.42:55132"
+                    }
+                  },
+                  "readback_source": "driver",
+                  "requested": {
+                    "antenna": "Antenna B",
+                    "auto_gain": false,
+                    "device": 0,
+                    "frequency_hz": 478500000,
+                    "gain_tenths_db": 320,
+                    "if_bandwidth_hz": 0.0,
+                    "input_mode": "auto",
+                    "required_passband_hz": 0.0,
+                    "sample_rate_hz": 2000000,
+                    "serial": "",
+                    "settings": {
+                      "service_endpoint": "tcp://192.168.31.42:55132"
+                    }
+                  }
+                },
+                "filter_bandwidth_hz": 1536000.0,
+                "frequency_hz": 478500000.0,
+                "protocol_version": 2,
+                "sample_rate_hz": 2000000.0
+              },
+              "status": "complete",
+              "transport": "soapy-remote",
+              "transport_budget": {
+                "hardware_sample_loss_count": null,
+                "maximum_payload_bytes": 16384,
+                "requested_socket_window_bytes": 1600000,
+                "server_driver_read_counts": null
+              }
+            }
+          }
+        ],
+        "status": "passed"
+      },
+      "codec_build": {
+        "source_commit": "0c5fb5e42c61ccfa2605a248abc2b346fc92b7d3",
+        "status": "passed",
+        "library": "C:\\Users\\vicliu\\.cache\\amc-waveform-01a1c9fc-windows\\release-qa\\releaseprep-1794627007034051700\\Foreshadow 基础包验收 📡\\bin\\avcodec-63.dll",
+        "library_sha256": "266f6c71f230e8ad908c0d7ceda83972e8ea488a5ccbf451c90f4def3daeb5df",
+        "license": "LGPL version 2.1 or later",
+        "configuration": "--windres=/c/Users/vicliu/.cache/amc-waveform-01a1c9fc-windows/build-native/_deps/amc-media-build/amc-mswindres --prefix=/c/Users/vicliu/.cache/amc-waveform-01a1c9fc-windows/build-native/_deps/amc-media-sdk --disable-autodetect --disable-everything --disable-gpl --disable-nonfree --enable-shared --disable-static --disable-programs --disable-doc --disable-debug --disable-network --disable-avdevice --disable-avfilter --enable-avcodec --enable-avformat --enable-avutil --enable-swscale --enable-swresample --enable-demuxer=mpegts --enable-protocol='pipe,file' --enable-parser='aac,aac_latm,ac3,cavs,h264,hevc,mpegvideo,mpegaudio' --enable-decoder='cavs,h264,hevc,mpeg2video,mpeg4,aac,aac_latm,ac3,eac3,mp2,mp3,pcm_s16le' --toolchain=msvc --arch=x86_64 --target-os=win64 --cc=cl --cxx=cl",
+        "decoders": {
+          "cavs": true,
+          "h264": true,
+          "hevc": true,
+          "mpeg2video": true,
+          "mpeg4": true,
+          "aac": true,
+          "aac_latm": true,
+          "ac3": true,
+          "eac3": true,
+          "mp2": true,
+          "mp3": true,
+          "pcm_s16le": true
+        },
+        "dra": "Separate MIT source core statically compiled into the isolated media helper; not an FFmpeg registered decoder",
+        "scope": "Actual available decoder implementations; no patent-clearance conclusion"
+      },
+      "source_rebuild": {
+        "source_archive": "C:\\Users\\vicliu\\.cache\\foreshadow-compliance\\foreshadow-source-0c5fb5e.tar.gz",
+        "job": "C:\\Users\\vicliu\\.cache\\foreshadow-compliance\\releaseprep-source-1794627008752335800",
+        "steps": [
+          {
+            "name": "configure-from-delivered-source",
+            "exit_code": 0,
+            "seconds": 23.47
+          },
+          {
+            "name": "build-from-delivered-source",
+            "exit_code": 0,
+            "seconds": 207.13
+          },
+          {
+            "name": "rebuilt-build-info",
+            "exit_code": 0,
+            "seconds": 0.49
+          },
+          {
+            "name": "rebuilt-modules",
+            "exit_code": 0,
+            "seconds": 0.15
+          },
+          {
+            "name": "rebuilt-providers",
+            "exit_code": 0,
+            "seconds": 1.32
+          },
+          {
+            "name": "document-install-SignalScope",
+            "exit_code": 0,
+            "seconds": 1.58
+          },
+          {
+            "name": "document-install-ResearchExamples",
+            "exit_code": 0,
+            "seconds": 0.05
+          }
+        ],
+        "dependency_libraries_rebuilt": false,
+        "scope": "Clean first-party application, providers and native helpers from delivered source; existing exact Qt/native dependency SDKs reused",
+        "source_commit": "0c5fb5e42c61ccfa2605a248abc2b346fc92b7d3",
+        "document_commands_identical": true,
+        "configure_command_from_document": [
+          "cmake",
+          "-S",
+          "C:\\Users\\vicliu\\.cache\\foreshadow-compliance\\releaseprep-source-1794627008752335800\\source\\foreshadow",
+          "-B",
+          "C:\\Users\\vicliu\\.cache\\foreshadow-compliance\\releaseprep-source-1794627008752335800\\build",
+          "-DCMAKE_BUILD_TYPE=Release",
+          "-DBUILD_TESTING=OFF",
+          "-DSIGNALSCOPE_REQUIRE_GUI=ON",
+          "-DSIGNALSCOPE_REQUIRE_AUDIO=ON",
+          "-DFETCHCONTENT_SOURCE_DIR_JSON=C:\\Users\\vicliu\\.cache\\foreshadow-compliance\\releaseprep-source-1794627008752335800\\dependencies\\JSON\\json",
+          "-DFETCHCONTENT_SOURCE_DIR_KISSFFT=C:\\Users\\vicliu\\.cache\\foreshadow-compliance\\releaseprep-source-1794627008752335800\\dependencies\\KISSFFT\\kissfft-131.1.0",
+          "-DFETCHCONTENT_SOURCE_DIR_DTMB_DECODER=C:\\Users\\vicliu\\.cache\\foreshadow-compliance\\releaseprep-source-1794627008752335800\\dependencies\\DTMB_DECODER\\dtmb-sdr-2cc94c012128d6fa3e8d6de456b3bb57e51990a9",
+          "-DFETCHCONTENT_SOURCE_DIR_FFMPEG_NATIVE=C:\\Users\\vicliu\\.cache\\foreshadow-compliance\\releaseprep-source-1794627008752335800\\dependencies\\FFMPEG_NATIVE\\FFmpeg-cd4e96eb314630788b7ff2f9820c395788c023e2",
+          "-DFETCHCONTENT_SOURCE_DIR_SOAPYREMOTE=C:\\Users\\vicliu\\.cache\\foreshadow-compliance\\releaseprep-source-1794627008752335800\\dependencies\\SOAPYREMOTE\\SoapyRemote-bd10a2e4a916bf66f0faa36dca7f043d4268138c",
+          "-G",
+          "Ninja",
+          "-DSIGNALSCOPE_REQUIRE_RTLSDR=ON",
+          "-DSIGNALSCOPE_REQUIRE_SDRPLAY=ON",
+          "-DSIGNALSCOPE_FFMPEG_ROOT=C:\\Users\\vicliu\\.cache\\amc-waveform-01a1c9fc-windows\\build-native\\_deps\\amc-media-sdk"
+        ],
+        "status": "passed",
+        "all_four_document_commands_executed": true
+      },
+      "release_preparation": {
+        "schema": 1,
+        "source_commit": "0c5fb5e42c61ccfa2605a248abc2b346fc92b7d3",
+        "platform": "windows-x86_64",
+        "root": "C:\\Users\\vicliu\\Apps\\Foreshadow-0.2.12-Release-Preparation-20261114",
+        "published": false,
+        "signed": false,
+        "assets": [
+          {
+            "group": "base",
+            "file": "C:\\Users\\vicliu\\Apps\\Foreshadow-0.2.12-Release-Preparation-20261114\\base\\org.amc.ams-0.2.12-windows-x86_64.amcpkg",
+            "sha256": "7d76559c847a16d281a4dcc411edc736d05bb39335b789521304ec8022017087",
+            "bytes": 237279199,
+            "id": "org.amc.ams"
+          },
+          {
+            "group": "supporting-toolboxes",
+            "file": "C:\\Users\\vicliu\\Apps\\Foreshadow-0.2.12-Release-Preparation-20261114\\supporting-toolboxes\\org.amc.receiver.rtlsdr-0.2.12-windows-x86_64.amctbx",
+            "sha256": "3db643934a1c626df6f490b08a144497ca6437f2a5cf2607ce53931ccbe0113e",
+            "bytes": 15012521,
+            "id": "org.amc.receiver.rtlsdr"
+          },
+          {
+            "group": "sdrplay-client",
+            "file": "C:\\Users\\vicliu\\Apps\\Foreshadow-0.2.12-Release-Preparation-20261114\\sdrplay-client\\org.amc.receiver.sdrplay-0.2.12-windows-x86_64.amctbx",
+            "sha256": "7cbb26cd15ee8ddf269c4239783ecc75fda17ddea86b92a77b74f606232f5667",
+            "bytes": 14017354,
+            "id": "org.amc.receiver.sdrplay"
+          },
+          {
+            "group": "supporting-toolboxes",
+            "file": "C:\\Users\\vicliu\\Apps\\Foreshadow-0.2.12-Release-Preparation-20261114\\supporting-toolboxes\\org.amc.research.power-report-0.2.12-windows-x86_64.amctbx",
+            "sha256": "cfda387fda0b5a97f571158bd7312876e8866d85f5b3dcecbd942210ef2b2ac5",
+            "bytes": 12186280,
+            "id": "org.amc.research.power-report"
+          },
+          {
+            "group": "base",
+            "file": "C:\\Users\\vicliu\\Apps\\Foreshadow-0.2.12-Release-Preparation-20261114\\base\\Foreshadow-0.2.12-windows-base.zip",
+            "sha256": "700e596131d7de786925ec05e27748616583c17c63fa04d8ba87d752a49b060f",
+            "bytes": 237622230,
+            "type": "portable-application"
+          },
+          {
+            "group": "sources",
+            "file": "C:\\Users\\vicliu\\Apps\\Foreshadow-0.2.12-Release-Preparation-20261114\\sources\\foreshadow-source-0c5fb5e.tar.gz",
+            "sha256": "ebae329693312951434e8af014ab3b7f18f402e297d45d4e5db752e2f0d40793",
+            "bytes": 11521787
+          }
+        ],
+        "decisions": {
+          "base": {
+            "technical_and_copyright_material_gate": "passed",
+            "codec_patent_status": "unresolved-case-specific-free-distribution-assessment",
+            "public_publication": "pending-patent-decision-and-release-operations",
+            "full_functionality_retained": true
+          },
+          "sdrplay-client": {
+            "technical_and_copyright_material_gate": "passed",
+            "television_codecs": "absent",
+            "vendor_api_and_driver": "absent",
+            "public_publication": "prepared-unsigned",
+            "minimum_host": "0.2.12",
+            "external_service_required": true
+          }
+        },
+        "scope": "Qualified local artifacts for separate release preparation; no vendor API or firmware redistribution, no patent license granted",
+        "unchanged_native_base_binaries": {
+          "count": 47,
+          "reference_source_commit": "f763a3053db6e9edca4be23e50fb6c67ae42fab5",
+          "files": [
+            "bin\\avcodec-63.dll",
+            "bin\\avformat-63.dll",
+            "bin\\avutil-61.dll",
+            "bin\\concrt140.dll",
+            "bin\\msvcp140.dll",
+            "bin\\msvcp140_1.dll",
+            "bin\\msvcp140_2.dll",
+            "bin\\msvcp140_atomic_wait.dll",
+            "bin\\msvcp140_codecvt_ids.dll",
+            "bin\\Qt6Core.dll",
+            "bin\\Qt6Gui.dll",
+            "bin\\Qt6Multimedia.dll",
+            "bin\\Qt6Network.dll",
+            "bin\\Qt6SerialPort.dll",
+            "bin\\Qt6Svg.dll",
+            "bin\\Qt6Widgets.dll",
+            "bin\\signalscope-benchmark-lora.exe",
+            "bin\\signalscope-compare-lora-audit.exe",
+            "bin\\signalscope-generate-pluto-iq.exe",
+            "bin\\signalscope-gui.exe",
+            "bin\\signalscope-launcher-gui.exe",
+            "bin\\signalscope-launcher.exe",
+            "bin\\signalscope-media.exe",
+            "bin\\signalscope-pager-status.exe",
+            "bin\\signalscope-toolboxes.exe",
+            "bin\\signalscope-update.exe",
+            "bin\\signalscope.exe",
+            "bin\\swresample-7.dll",
+            "bin\\swscale-10.dll",
+            "bin\\vcruntime140.dll",
+            "bin\\vcruntime140_1.dll",
+            "plugins\\generic\\qtuiotouchplugin.dll",
+            "plugins\\iconengines\\qsvgicon.dll",
+            "plugins\\imageformats\\qgif.dll",
+            "plugins\\imageformats\\qico.dll",
+            "plugins\\imageformats\\qjpeg.dll",
+            "plugins\\imageformats\\qsvg.dll",
+            "plugins\\networkinformation\\qnetworklistmanager.dll",
+            "plugins\\platforms\\qwindows.dll",
+            "plugins\\styles\\qmodernwindowsstyle.dll",
+            "plugins\\tls\\qcertonlybackend.dll",
+            "plugins\\tls\\qschannelbackend.dll",
+            "libexec\\signalscope\\dtmb\\amc-dtmb-demap.exe",
+            "libexec\\signalscope\\dtmb\\amc-dtmb-fec.exe",
+            "libexec\\signalscope\\dtmb\\amc-dtmb-frontend.exe",
+            "libexec\\signalscope\\dtmb\\amc-dtmb-resample.exe",
+            "bin\\receiver-plugins\\amc-receiver-rtlsdr.dll"
+          ]
+        },
+        "nested_source_and_build_recipe_check": "passed"
+      }
+    },
+    "linux": {
+      "package": {
+        "source_commit": "0c5fb5e42c61ccfa2605a248abc2b346fc92b7d3",
+        "work": "/home/vicliu/.cache/amc-waveform-01a1c9fc/release-qa/releaseprep-1794627008112234888",
+        "steps": [
+          {
+            "name": "install-SignalScope",
+            "exit_code": 0,
+            "seconds": 0.114
+          },
+          {
+            "name": "install-ResearchExamples",
+            "exit_code": 0,
+            "seconds": 0.016
+          },
+          {
+            "name": "attach-compliance",
+            "exit_code": 0,
+            "seconds": 0.514
+          },
+          {
+            "name": "compose-independent-packages",
+            "exit_code": 0,
+            "seconds": 7.928
+          },
+          {
+            "name": "real-package-transactions",
+            "exit_code": 0,
+            "seconds": 0.615
+          },
+          {
+            "name": "reopen-archives-and-qualify-base",
+            "exit_code": 0,
+            "seconds": 1.567
+          },
+          {
+            "name": "export-qualified-base",
+            "exit_code": 0,
+            "seconds": 6.525
+          },
+          {
+            "name": "unicode-base-receivers",
+            "exit_code": 0,
+            "seconds": 0.064
+          },
+          {
+            "name": "unicode-base-providers",
+            "exit_code": 0,
+            "seconds": 0.365
+          },
+          {
+            "name": "independent-client-native-contract",
+            "exit_code": 0,
+            "seconds": 0.916
+          },
+          {
+            "name": "extracted-base-desktop-workflows",
+            "exit_code": 0,
+            "seconds": 82.541
+          }
+        ],
+        "published": false,
+        "entries": "/home/vicliu/.cache/amc-waveform-01a1c9fc/release-qa/releaseprep-1794627008112234888/packages/entries-linux-debian13-x86_64.json",
+        "base_root": "/home/vicliu/.cache/amc-waveform-01a1c9fc/release-qa/releaseprep-1794627008112234888/发布包验证 📡/org.amc.ams",
+        "client_root": "/home/vicliu/.cache/amc-waveform-01a1c9fc/release-qa/releaseprep-1794627008112234888/发布包验证 📡/org.amc.receiver.sdrplay/receiver",
+        "research_root": "/home/vicliu/.cache/amc-waveform-01a1c9fc/release-qa/releaseprep-1794627008112234888/发布包验证 📡/org.amc.research.power-report/research",
+        "base_receivers": [
+          "rtlsdr"
+        ],
+        "packages": [
+          {
+            "id": "org.amc.ams",
+            "kind": "application",
+            "sha256": "3511265ad5e65674eb0fd5f4fe43d009fbb468fc3b36445480613af0a8be145a"
+          },
+          {
+            "id": "org.amc.receiver.rtlsdr",
+            "kind": "receiver",
+            "sha256": "36f0a174e60c9084c29fcb9d1b0fffaccbbc6137e1d22e45bce6640ca254f49f"
+          },
+          {
+            "id": "org.amc.receiver.sdrplay",
+            "kind": "receiver",
+            "sha256": "74a1b0a6f8f692ccd32fa545bc017a60c02e65f3c683dc41b83f2587c56cf374"
+          },
+          {
+            "id": "org.amc.research.power-report",
+            "kind": "research",
+            "sha256": "2e19e6c92d9d1b791919a7e10dacadcb5ecdcad01a8c3c311484c0e71beec8df"
+          }
+        ],
+        "base_archive": "/home/vicliu/.cache/amc-waveform-01a1c9fc/release-qa/releaseprep-1794627008112234888/Foreshadow-0.2.12-linux-base.tar.gz",
+        "base_archive_sha256": "adc20cfb1982962b2c09ceedacc8ff369b705c99de2026ff77473978668d109c",
+        "unicode_base": "/home/vicliu/.cache/amc-waveform-01a1c9fc/release-qa/releaseprep-1794627008112234888/Foreshadow 基础包验收 📡",
+        "status": "passed"
+      },
+      "compliance": {
+        "source_commit": "0c5fb5e42c61ccfa2605a248abc2b346fc92b7d3",
+        "package_work": "/home/vicliu/.cache/amc-waveform-01a1c9fc/release-qa/releaseprep-1794627008112234888",
+        "archive_gates": [
+          {
+            "id": "org.amc.ams",
+            "distribution": "evidence-complete",
+            "issues": [],
+            "materials": 328,
+            "binaries": 20,
+            "formal_gate": "passed"
+          },
+          {
+            "id": "org.amc.receiver.rtlsdr",
+            "distribution": "evidence-complete",
+            "issues": [],
+            "materials": 33,
+            "binaries": 1,
+            "formal_gate": "passed"
+          },
+          {
+            "id": "org.amc.receiver.sdrplay",
+            "distribution": "evidence-complete",
+            "issues": [],
+            "materials": 27,
+            "binaries": 1,
+            "formal_gate": "passed"
+          },
+          {
+            "id": "org.amc.research.power-report",
+            "distribution": "evidence-complete",
+            "issues": [],
+            "materials": 13,
+            "binaries": 1,
+            "formal_gate": "passed"
+          }
+        ],
+        "published": false,
+        "native_license_ui": {
+          "exit_code": 0,
+          "screenshot": "/home/vicliu/.cache/amc-waveform-01a1c9fc/release-qa/releaseprep-1794627008112234888/licenses-and-source.png"
+        },
+        "qt_replacement": {
+          "method": "Compatible copied ELF with inert trailer loaded from an alternate prefix; Qt source was not rebuilt",
+          "original_sha256": "4b54b2e9d67a5fcf670b28e32144fd8c84d86d48f5f18e28e60bd91368d7a54a",
+          "replacement_sha256": "3900badd1df1cb4715c60f0bed1a514a6c304e9d28ff9dae147308ca4758f5f2",
+          "loaded_path": "/home/vicliu/.cache/amc-waveform-01a1c9fc/release-qa/releaseprep-1794627008112234888/许可证与替换验证 📡-1794627144555829436/replacement-qt/libQt6Core.so.6",
+          "exit_code": 0,
+          "limits": "Exercises substitution/loading without a startup hash/signature lock; does not claim arbitrary ABI changes work or that a full Qt rebuild was tested."
+        },
+        "status": "passed"
+      },
+      "physical": {
+        "source_commit": "0c5fb5e42c61ccfa2605a248abc2b346fc92b7d3",
+        "package_work": "/home/vicliu/.cache/amc-waveform-01a1c9fc/release-qa/releaseprep-1794627008112234888",
+        "service_endpoint": "tcp://192.168.31.42:55132",
+        "steps": [
+          {
+            "name": "packaged-physical-capture",
+            "exit_code": 0,
+            "modules": [
+              "/home/vicliu/.cache/amc-waveform-01a1c9fc/release-qa/releaseprep-1794627008112234888/Foreshadow 基础包验收 📡/bin/signalscope",
+              "/home/vicliu/.cache/amc-waveform-01a1c9fc/release-qa/releaseprep-1794627008112234888/发布包验证 📡/org.amc.receiver.sdrplay/receiver/amc-receiver-sdrplay.so",
+              "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2",
+              "/usr/lib/x86_64-linux-gnu/libSoapySDR.so.0.8.1",
+              "/usr/lib/x86_64-linux-gnu/libacl.so.1.1.2302",
+              "/usr/lib/x86_64-linux-gnu/libarchive.so.13.7.4",
+              "/usr/lib/x86_64-linux-gnu/libbz2.so.1.0.4",
+              "/usr/lib/x86_64-linux-gnu/libc.so.6",
+              "/usr/lib/x86_64-linux-gnu/libcrypto.so.3",
+              "/usr/lib/x86_64-linux-gnu/libfftw3f.so.3.6.10",
+              "/usr/lib/x86_64-linux-gnu/libgcc_s.so.1",
+              "/usr/lib/x86_64-linux-gnu/liblz4.so.1.10.0",
+              "/usr/lib/x86_64-linux-gnu/liblzma.so.5.8.1",
+              "/usr/lib/x86_64-linux-gnu/libm.so.6",
+              "/usr/lib/x86_64-linux-gnu/libmvec.so.1",
+              "/usr/lib/x86_64-linux-gnu/libnettle.so.8.10",
+              "/usr/lib/x86_64-linux-gnu/liborc-0.4.so.0.41.0",
+              "/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33",
+              "/usr/lib/x86_64-linux-gnu/libvolk.so.3.2.0",
+              "/usr/lib/x86_64-linux-gnu/libxml2.so.2.9.14",
+              "/usr/lib/x86_64-linux-gnu/libxxhash.so.0.8.3",
+              "/usr/lib/x86_64-linux-gnu/libz.so.1.3.1",
+              "/usr/lib/x86_64-linux-gnu/libzstd.so.1.5.7"
+            ],
+            "result": {
+              "accepted_pairs": 16000000,
+              "actual_bandwidth_hz": 1536000.0,
+              "actual_frequency_hz": 478500000.0,
+              "actual_if_gain_reduction_db": 32.0,
+              "actual_rate_hz": 2000000.0,
+              "antenna": "Antenna B",
+              "auto_gain": false,
+              "backend": "soapy-sdrplay",
+              "configuration": {
+                "activation_confirmed": true,
+                "actual": {
+                  "antenna": "Antenna B",
+                  "auto_gain": false,
+                  "filter_bandwidth_hz": 1536000.0,
+                  "frequency_hz": 478500000.0,
+                  "gain_tenths_db": 320.0,
+                  "sample_datatype": "ci16_le",
+                  "sample_rate_hz": 2000000.0,
+                  "settings": {
+                    "service_endpoint": "tcp://192.168.31.42:55132"
+                  }
+                },
+                "readback_source": "driver",
+                "requested": {
+                  "antenna": "Antenna B",
+                  "auto_gain": false,
+                  "device": 0,
+                  "frequency_hz": 478500000,
+                  "gain_tenths_db": 320,
+                  "if_bandwidth_hz": 0.0,
+                  "input_mode": "auto",
+                  "required_passband_hz": 0.0,
+                  "sample_rate_hz": 2000000,
+                  "serial": "",
+                  "settings": {
+                    "service_endpoint": "tcp://192.168.31.42:55132"
+                  }
+                }
+              },
+              "continuity": "SoapySDR discontinuity flags; no hardware sample counter exposed",
+              "device": 0,
+              "hardware": "RSPdx-R2",
+              "power": {
+                "clipped_pairs": 0,
+                "dc_i": 1.6458549499511718e-06,
+                "dc_q": 4.260555267333984e-06,
+                "mean_power_dbfs": -13.133590678543314,
+                "pairs": 16000000,
+                "power_reference": "mean |(I+jQ)/32768|^2; full input band; not RF dBm"
+              },
+              "read_stats": {
+                "delivered_blocks": 977,
+                "max_read_pairs": 4096,
+                "min_read_pairs": 16,
+                "reads": 4881,
+                "scope": "client_transport_reads",
+                "short_reads": 3904,
+                "timeouts": 1
+              },
+              "rejected_pairs": 0,
+              "requested_rate_hz": 2000000,
+              "service_endpoint": "tcp://192.168.31.42:55132",
+              "startup_readback": {
+                "acquisition_conditions": {
+                  "adc_overload": {
+                    "capability": "unavailable",
+                    "evidence": {
+                      "reason_code": "not_exposed_by_provider"
+                    },
+                    "state": "unknown"
+                  },
+                  "amplitude_calibration": {
+                    "evidence": {},
+                    "state": "unknown"
+                  },
+                  "frequency_calibration": {
+                    "evidence": {},
+                    "state": "unknown"
+                  },
+                  "origin": "provider",
+                  "schema": "org.amc.acquisition-conditions",
+                  "scope": "before_first_samples",
+                  "version": 1
+                },
+                "configuration": {
+                  "activation_confirmed": true,
+                  "actual": {
+                    "antenna": "Antenna B",
+                    "auto_gain": false,
+                    "filter_bandwidth_hz": 1536000.0,
+                    "frequency_hz": 478500000.0,
+                    "gain_tenths_db": 320.0,
+                    "sample_datatype": "ci16_le",
+                    "sample_rate_hz": 2000000.0,
+                    "settings": {
+                      "service_endpoint": "tcp://192.168.31.42:55132"
+                    }
+                  },
+                  "readback_source": "driver",
+                  "requested": {
+                    "antenna": "Antenna B",
+                    "auto_gain": false,
+                    "device": 0,
+                    "frequency_hz": 478500000,
+                    "gain_tenths_db": 320,
+                    "if_bandwidth_hz": 0.0,
+                    "input_mode": "auto",
+                    "required_passband_hz": 0.0,
+                    "sample_rate_hz": 2000000,
+                    "serial": "",
+                    "settings": {
+                      "service_endpoint": "tcp://192.168.31.42:55132"
+                    }
+                  }
+                },
+                "filter_bandwidth_hz": 1536000.0,
+                "frequency_hz": 478500000.0,
+                "protocol_version": 2,
+                "sample_rate_hz": 2000000.0
+              },
+              "status": "complete",
+              "transport": "soapy-remote",
+              "transport_budget": {
+                "hardware_sample_loss_count": null,
+                "maximum_payload_bytes": 16384,
+                "requested_socket_window_bytes": 1600000,
+                "server_driver_read_counts": null
+              }
+            }
+          },
+          {
+            "name": "physical-native-receiver-dialog",
+            "exit_code": 0,
+            "screenshot": "/home/vicliu/.cache/amc-waveform-01a1c9fc/release-qa/releaseprep-1794627008112234888/receiver-service-settings.png"
+          }
+        ],
+        "service": {
+          "pid": 256034,
+          "modules": [
+            "/dev/shm/Glbl\\sdrSrvCmdSema",
+            "/dev/shm/Glbl\\sdrSrvComMtx",
+            "/dev/shm/Glbl\\sdrSrvComShMem",
+            "/dev/shm/Glbl\\sdrSrvDv00_mCmdMap (deleted)",
+            "/dev/shm/Glbl\\sdrSrvDv00_mDataMap (deleted)",
+            "/dev/shm/Glbl\\sdrSrvDv00_mEventMap (deleted)",
+            "/dev/shm/Glbl\\sdrSrvRespSema",
+            "/home/vicliu/Applications/SoapyRemote-0.5.4-bd10a2e4/bin/SoapySDRServer",
+            "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2",
+            "/usr/lib/x86_64-linux-gnu/libSoapySDR.so.0.8.1",
+            "/usr/lib/x86_64-linux-gnu/libc.so.6",
+            "/usr/lib/x86_64-linux-gnu/libgcc_s.so.1",
+            "/usr/lib/x86_64-linux-gnu/libm.so.6",
+            "/usr/lib/x86_64-linux-gnu/libpthread.so.0",
+            "/usr/lib/x86_64-linux-gnu/librt.so.1",
+            "/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33",
+            "/usr/local/lib/SoapySDR/modules0.8/libsdrPlaySupport.so",
+            "/usr/local/lib/libsdrplay_api.so.3.15"
+          ]
+        },
+        "status": "passed"
+      },
+      "codec_build": {
+        "source_commit": "0c5fb5e42c61ccfa2605a248abc2b346fc92b7d3",
+        "status": "passed",
+        "library": "/home/vicliu/.cache/amc-waveform-01a1c9fc/release-qa/releaseprep-1794627008112234888/Foreshadow 基础包验收 📡/lib/libavcodec.so.63",
+        "library_sha256": "8b6cd00dd4c382ddf497b3deb65f155eca2486bdfabb717edffd552fa9c3ead9",
+        "license": "LGPL version 2.1 or later",
+        "configuration": "--prefix=/home/vicliu/.cache/amc-waveform-01a1c9fc/build/_deps/amc-media-sdk --disable-autodetect --disable-everything --disable-gpl --disable-nonfree --enable-shared --disable-static --disable-programs --disable-doc --disable-debug --disable-network --disable-avdevice --disable-avfilter --enable-avcodec --enable-avformat --enable-avutil --enable-swscale --enable-swresample --enable-demuxer=mpegts --enable-protocol='pipe,file' --enable-parser='aac,aac_latm,ac3,cavs,h264,hevc,mpegvideo,mpegaudio' --enable-decoder='cavs,h264,hevc,mpeg2video,mpeg4,aac,aac_latm,ac3,eac3,mp2,mp3,pcm_s16le' --cc=/usr/bin/cc --cxx=/usr/bin/c++ --ar=/usr/bin/ar --ranlib=/usr/bin/ranlib",
+        "decoders": {
+          "cavs": true,
+          "h264": true,
+          "hevc": true,
+          "mpeg2video": true,
+          "mpeg4": true,
+          "aac": true,
+          "aac_latm": true,
+          "ac3": true,
+          "eac3": true,
+          "mp2": true,
+          "mp3": true,
+          "pcm_s16le": true
+        },
+        "dra": "Separate MIT source core statically compiled into the isolated media helper; not an FFmpeg registered decoder",
+        "scope": "Actual available decoder implementations; no patent-clearance conclusion"
+      },
+      "source_rebuild": {
+        "source_archive": "/home/vicliu/.cache/foreshadow-compliance/foreshadow-source-0c5fb5e.tar.gz",
+        "job": "/home/vicliu/.cache/foreshadow-compliance/releaseprep-source-1794627008108527267",
+        "steps": [
+          {
+            "name": "configure-from-delivered-source",
+            "exit_code": 0,
+            "seconds": 3.77
+          },
+          {
+            "name": "build-from-delivered-source",
+            "exit_code": 0,
+            "seconds": 151.8
+          },
+          {
+            "name": "rebuilt-build-info",
+            "exit_code": 0,
+            "seconds": 0.01
+          },
+          {
+            "name": "rebuilt-modules",
+            "exit_code": 0,
+            "seconds": 0.01
+          },
+          {
+            "name": "rebuilt-providers",
+            "exit_code": 0,
+            "seconds": 0.31
+          },
+          {
+            "name": "document-install-SignalScope",
+            "exit_code": 0,
+            "seconds": 0.11
+          },
+          {
+            "name": "document-install-ResearchExamples",
+            "exit_code": 0,
+            "seconds": 0.03
+          }
+        ],
+        "dependency_libraries_rebuilt": false,
+        "scope": "Clean first-party application, providers and native helpers from delivered source; existing exact Qt/native dependency SDKs reused",
+        "source_commit": "0c5fb5e42c61ccfa2605a248abc2b346fc92b7d3",
+        "document_commands_identical": true,
+        "configure_command_from_document": [
+          "cmake",
+          "-S",
+          "/home/vicliu/.cache/foreshadow-compliance/releaseprep-source-1794627008108527267/source/foreshadow",
+          "-B",
+          "/home/vicliu/.cache/foreshadow-compliance/releaseprep-source-1794627008108527267/build",
+          "-DCMAKE_BUILD_TYPE=Release",
+          "-DBUILD_TESTING=OFF",
+          "-DSIGNALSCOPE_REQUIRE_GUI=ON",
+          "-DSIGNALSCOPE_REQUIRE_AUDIO=ON",
+          "-DFETCHCONTENT_SOURCE_DIR_JSON=/home/vicliu/.cache/foreshadow-compliance/releaseprep-source-1794627008108527267/dependencies/JSON/json",
+          "-DFETCHCONTENT_SOURCE_DIR_KISSFFT=/home/vicliu/.cache/foreshadow-compliance/releaseprep-source-1794627008108527267/dependencies/KISSFFT/kissfft-131.1.0",
+          "-DFETCHCONTENT_SOURCE_DIR_DTMB_DECODER=/home/vicliu/.cache/foreshadow-compliance/releaseprep-source-1794627008108527267/dependencies/DTMB_DECODER/dtmb-sdr-2cc94c012128d6fa3e8d6de456b3bb57e51990a9",
+          "-DFETCHCONTENT_SOURCE_DIR_FFMPEG_NATIVE=/home/vicliu/.cache/foreshadow-compliance/releaseprep-source-1794627008108527267/dependencies/FFMPEG_NATIVE/FFmpeg-cd4e96eb314630788b7ff2f9820c395788c023e2",
+          "-DFETCHCONTENT_SOURCE_DIR_SOAPYREMOTE=/home/vicliu/.cache/foreshadow-compliance/releaseprep-source-1794627008108527267/dependencies/SOAPYREMOTE/SoapyRemote-bd10a2e4a916bf66f0faa36dca7f043d4268138c",
+          "-G",
+          "Ninja",
+          "-DSIGNALSCOPE_REQUIRE_RTLSDR=ON",
+          "-DSIGNALSCOPE_REQUIRE_SDRPLAY=ON",
+          "-DSIGNALSCOPE_FFMPEG_ROOT=/home/vicliu/.cache/amc-waveform-01a1c9fc/build/_deps/amc-media-sdk"
+        ],
+        "status": "passed",
+        "all_four_document_commands_executed": true
+      },
+      "release_preparation": {
+        "schema": 1,
+        "source_commit": "0c5fb5e42c61ccfa2605a248abc2b346fc92b7d3",
+        "platform": "linux-debian13-x86_64",
+        "root": "/home/vicliu/Applications/Foreshadow-0.2.12-Release-Preparation-20261114",
+        "published": false,
+        "signed": false,
+        "assets": [
+          {
+            "group": "base",
+            "file": "/home/vicliu/Applications/Foreshadow-0.2.12-Release-Preparation-20261114/base/org.amc.ams-0.2.12-linux-debian13-x86_64.amcpkg",
+            "sha256": "3511265ad5e65674eb0fd5f4fe43d009fbb468fc3b36445480613af0a8be145a",
+            "bytes": 195551936,
+            "id": "org.amc.ams"
+          },
+          {
+            "group": "supporting-toolboxes",
+            "file": "/home/vicliu/Applications/Foreshadow-0.2.12-Release-Preparation-20261114/supporting-toolboxes/org.amc.receiver.rtlsdr-0.2.12-linux-debian13-x86_64.amctbx",
+            "sha256": "36f0a174e60c9084c29fcb9d1b0fffaccbbc6137e1d22e45bce6640ca254f49f",
+            "bytes": 12846370,
+            "id": "org.amc.receiver.rtlsdr"
+          },
+          {
+            "group": "sdrplay-client",
+            "file": "/home/vicliu/Applications/Foreshadow-0.2.12-Release-Preparation-20261114/sdrplay-client/org.amc.receiver.sdrplay-0.2.12-linux-debian13-x86_64.amctbx",
+            "sha256": "74a1b0a6f8f692ccd32fa545bc017a60c02e65f3c683dc41b83f2587c56cf374",
+            "bytes": 12433418,
+            "id": "org.amc.receiver.sdrplay"
+          },
+          {
+            "group": "supporting-toolboxes",
+            "file": "/home/vicliu/Applications/Foreshadow-0.2.12-Release-Preparation-20261114/supporting-toolboxes/org.amc.research.power-report-0.2.12-linux-debian13-x86_64.amctbx",
+            "sha256": "2e19e6c92d9d1b791919a7e10dacadcb5ecdcad01a8c3c311484c0e71beec8df",
+            "bytes": 11864681,
+            "id": "org.amc.research.power-report"
+          },
+          {
+            "group": "base",
+            "file": "/home/vicliu/Applications/Foreshadow-0.2.12-Release-Preparation-20261114/base/Foreshadow-0.2.12-linux-base.tar.gz",
+            "sha256": "adc20cfb1982962b2c09ceedacc8ff369b705c99de2026ff77473978668d109c",
+            "bytes": 195555023,
+            "type": "portable-application"
+          },
+          {
+            "group": "sources",
+            "file": "/home/vicliu/Applications/Foreshadow-0.2.12-Release-Preparation-20261114/sources/foreshadow-source-0c5fb5e.tar.gz",
+            "sha256": "ebae329693312951434e8af014ab3b7f18f402e297d45d4e5db752e2f0d40793",
+            "bytes": 11521787
+          }
+        ],
+        "decisions": {
+          "base": {
+            "technical_and_copyright_material_gate": "passed",
+            "codec_patent_status": "unresolved-case-specific-free-distribution-assessment",
+            "public_publication": "pending-patent-decision-and-release-operations",
+            "full_functionality_retained": true
+          },
+          "sdrplay-client": {
+            "technical_and_copyright_material_gate": "passed",
+            "television_codecs": "absent",
+            "vendor_api_and_driver": "absent",
+            "public_publication": "prepared-unsigned",
+            "minimum_host": "0.2.12",
+            "external_service_required": true
+          }
+        },
+        "scope": "Qualified local artifacts for separate release preparation; no vendor API or firmware redistribution, no patent license granted",
+        "unchanged_native_base_binaries": {
+          "count": 20,
+          "reference_source_commit": "f763a3053db6e9edca4be23e50fb6c67ae42fab5",
+          "files": [
+            "bin/signalscope",
+            "bin/signalscope-gui",
+            "bin/signalscope-media",
+            "bin/signalscope-update",
+            "bin/signalscope-launcher",
+            "bin/signalscope-benchmark-lora",
+            "bin/signalscope-generate-pluto-iq",
+            "bin/signalscope-toolboxes",
+            "bin/signalscope-pager-status",
+            "bin/signalscope-compare-lora-audit",
+            "lib/libavcodec.so.63.28.100",
+            "lib/libavutil.so.61.20.100",
+            "lib/libswresample.so.7.7.100",
+            "lib/libswscale.so.10.6.100",
+            "lib/libavformat.so.63.18.100",
+            "lib/signalscope/receivers/amc-receiver-rtlsdr.so",
+            "libexec/signalscope/dtmb/amc-dtmb-frontend",
+            "libexec/signalscope/dtmb/amc-dtmb-resample",
+            "libexec/signalscope/dtmb/amc-dtmb-fec",
+            "libexec/signalscope/dtmb/amc-dtmb-demap"
+          ]
+        },
+        "nested_source_and_build_recipe_check": "passed"
+      }
+    }
+  },
+  "legal_assessment": "../codec-patent-assessment.md",
+  "legal_decisions": {
+    "base": "Prepared with full television functionality; specific codec-patent applicability/free-distribution decision unresolved",
+    "sdrplay_client": "Prepared separately, unsigned; no identified unresolved copyright/dependency condition, no television codecs/vendor API/driver; host >=0.2.12 and independent service required",
+    "vendor_api_and_firmware": "Separate excluded distribution boundaries; no new permission or release"
+  },
+  "external_queries": {
+    "vendor_messages_sent": false,
+    "contracts_accepted": false,
+    "fees_paid": false,
+    "cnipa_public_query": "HTTP 412",
+    "avs_licensing_portal": "timeout"
+  },
+  "linux_local_mirror": {
+    "root": "C:\\Users\\vicliu\\Apps\\Foreshadow-0.2.12-Release-Preparation-20261114\\linux-debian13-x86_64",
+    "verified_assets": [
+      {
+        "file": "C:\\Users\\vicliu\\Apps\\Foreshadow-0.2.12-Release-Preparation-20261114\\linux-debian13-x86_64\\base\\org.amc.ams-0.2.12-linux-debian13-x86_64.amcpkg",
+        "sha256": "3511265ad5e65674eb0fd5f4fe43d009fbb468fc3b36445480613af0a8be145a",
+        "bytes": 195551936
+      },
+      {
+        "file": "C:\\Users\\vicliu\\Apps\\Foreshadow-0.2.12-Release-Preparation-20261114\\linux-debian13-x86_64\\supporting-toolboxes\\org.amc.receiver.rtlsdr-0.2.12-linux-debian13-x86_64.amctbx",
+        "sha256": "36f0a174e60c9084c29fcb9d1b0fffaccbbc6137e1d22e45bce6640ca254f49f",
+        "bytes": 12846370
+      },
+      {
+        "file": "C:\\Users\\vicliu\\Apps\\Foreshadow-0.2.12-Release-Preparation-20261114\\linux-debian13-x86_64\\sdrplay-client\\org.amc.receiver.sdrplay-0.2.12-linux-debian13-x86_64.amctbx",
+        "sha256": "74a1b0a6f8f692ccd32fa545bc017a60c02e65f3c683dc41b83f2587c56cf374",
+        "bytes": 12433418
+      },
+      {
+        "file": "C:\\Users\\vicliu\\Apps\\Foreshadow-0.2.12-Release-Preparation-20261114\\linux-debian13-x86_64\\supporting-toolboxes\\org.amc.research.power-report-0.2.12-linux-debian13-x86_64.amctbx",
+        "sha256": "2e19e6c92d9d1b791919a7e10dacadcb5ecdcad01a8c3c311484c0e71beec8df",
+        "bytes": 11864681
+      },
+      {
+        "file": "C:\\Users\\vicliu\\Apps\\Foreshadow-0.2.12-Release-Preparation-20261114\\linux-debian13-x86_64\\base\\Foreshadow-0.2.12-linux-base.tar.gz",
+        "sha256": "adc20cfb1982962b2c09ceedacc8ff369b705c99de2026ff77473978668d109c",
+        "bytes": 195555023
+      },
+      {
+        "file": "C:\\Users\\vicliu\\Apps\\Foreshadow-0.2.12-Release-Preparation-20261114\\linux-debian13-x86_64\\sources\\foreshadow-source-0c5fb5e.tar.gz",
+        "sha256": "ebae329693312951434e8af014ab3b7f18f402e297d45d4e5db752e2f0d40793",
+        "bytes": 11521787
+      }
+    ]
+  }
+}

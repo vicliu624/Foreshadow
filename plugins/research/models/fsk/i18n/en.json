@@ -1,0 +1,14 @@
+{
+  "amplitude": "Reference amplitude",
+  "phase_rad": "Initial phase",
+  "carrier_hz": "Carrier offset",
+  "issue.parameter": "Enter a value within the allowed range for this complete configuration.",
+  "issue.unknown": "This model does not declare the supplied parameter.",
+  "issue.nyquist": "The complete model and time alignment must remain within the input Nyquist interval.",
+  "label": "Continuous-phase 2-FSK",
+  "about": "A repeated, explicitly supplied bit pattern drives rectangular frequency pulses with continuous phase. Zero uses carrier minus deviation; one uses carrier plus deviation. No framing or decoded payload is inferred.",
+  "symbol_rate_hz": "Symbol rate",
+  "deviation_hz": "Frequency deviation",
+  "bits": "Repeated bit pattern",
+  "issue.pattern": "Use a nonempty pattern of at most 256 zero/one characters."
+}

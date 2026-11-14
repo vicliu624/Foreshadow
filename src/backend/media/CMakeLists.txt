@@ -1,0 +1,2 @@
+add_library(signalscope_media_protocol STATIC protocol.cpp)
+target_link_libraries(signalscope_media_protocol PUBLIC signalscope_iq)

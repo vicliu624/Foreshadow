@@ -1,0 +1,16 @@
+{
+  "amplitude": "Reference amplitude",
+  "phase_rad": "Initial phase",
+  "carrier_hz": "Carrier offset",
+  "issue.parameter": "Enter a value within the allowed range for this complete configuration.",
+  "issue.unknown": "This model does not declare the supplied parameter.",
+  "issue.nyquist": "The complete model and time alignment must remain within the input Nyquist interval.",
+  "label": "LoRa symbol chirp",
+  "about": "A repeated, explicitly chosen LoRa symbol with phase-continuous frequency wrapping, based on Chiani and Elzanaty (2019). Direction mirrors the chirp. This model includes no packet, coding, CRC or LoRaWAN interpretation; sweep width is not certified occupied bandwidth.",
+  "bandwidth_hz": "Chirp sweep width",
+  "sf": "Spreading factor",
+  "symbol": "Repeated symbol",
+  "direction": "Chirp direction",
+  "direction.up": "Up",
+  "direction.down": "Down"
+}

@@ -1,0 +1,4885 @@
+{
+  "version": "0.2.10",
+  "source_commit": "3612f78392e2d3b43288770f82721bca7ccdac5a",
+  "recorded_utc": "2026-11-11T08:56:10.960484+00:00",
+  "release": {
+    "tag": "v0.2.10",
+    "url": "https://github.com/vicliu624/AMC/releases/tag/v0.2.10",
+    "catalog_sequence": 1794387016
+  },
+  "ci": {
+    "source_commit": "3612f78392e2d3b43288770f82721bca7ccdac5a",
+    "runs": [
+      {
+        "run": 42987202863,
+        "source_commit": "3612f78392e2d3b43288770f82721bca7ccdac5a",
+        "conclusion": "success"
+      }
+    ],
+    "jobs": [
+      {
+        "name": "Debian 13 (arm64)",
+        "id": 130412540954,
+        "conclusion": "success",
+        "ctest_summaries": [
+          [
+            "100",
+            "0",
+            "72"
+          ]
+        ],
+        "skipped_tests": [
+          "71/72 Test #71: fm_playback_recovery ..................***Skipped   0.07 sec"
+        ],
+        "media_timing_qualification": "raw_120ms_median_pass",
+        "media_fixed_three_observations": [
+          {
+            "largest_gap": {
+              "arrival_after_us": 783350,
+              "arrival_before_us": 756811,
+              "pts_after_us": 2425978,
+              "pts_before_us": 2401978
+            },
+            "maximum_continuous_audio_delivery_gap_us": 26539,
+            "output_scheduler": {
+              "ahead_us": 150000,
+              "audio": {
+                "budget_bytes": 1310744,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 2595,
+                "maximum_write_duration_us": 34,
+                "maximum_write_gap_us": 26552,
+                "peak_bytes": 164780,
+                "submitted_messages": 42,
+                "written_messages": 42
+              },
+              "cancelled_messages": 0,
+              "clock_discarded_audio_messages": 0,
+              "clock_discarded_video_frames": 0,
+              "clock_discarded_wire_bytes": 0,
+              "clock_resets": 0,
+              "control": {
+                "budget_bytes": 1048576,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 0,
+                "maximum_write_duration_us": 56,
+                "maximum_write_gap_us": 2890,
+                "peak_bytes": 3767,
+                "submitted_messages": 5,
+                "written_messages": 5
+              },
+              "interactive_qos_error": 0,
+              "interactive_qos_requested": false,
+              "producer_waits": 0,
+              "realtime": true,
+              "video": {
+                "budget_bytes": 67371032,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 425,
+                "maximum_write_duration_us": 231,
+                "maximum_write_gap_us": 100255,
+                "peak_bytes": 1385182,
+                "submitted_messages": 10,
+                "written_messages": 10
+              },
+              "writer_active": false
+            },
+            "platform_timer": {
+              "median_us": 24059,
+              "observations_us": [
+                24056,
+                24056,
+                24056,
+                24057,
+                24057,
+                24058,
+                24058,
+                24058,
+                24058,
+                24058,
+                24058,
+                24059,
+                24059,
+                24059,
+                24059,
+                24059,
+                24059,
+                24059,
+                24059,
+                24060,
+                24061,
+                24061,
+                24061,
+                24061,
+                24061,
+                24062,
+                24062,
+                24065,
+                24069,
+                24099,
+                24177,
+                24342,
+                24776,
+                25163
+              ],
+              "qos_error": 0,
+              "requested_us": 24000
+            },
+            "realtime_trial": 0
+          },
+          {
+            "largest_gap": {
+              "arrival_after_us": 253608,
+              "arrival_before_us": 228845,
+              "pts_after_us": 1897978,
+              "pts_before_us": 1873978
+            },
+            "maximum_continuous_audio_delivery_gap_us": 24763,
+            "output_scheduler": {
+              "ahead_us": 150000,
+              "audio": {
+                "budget_bytes": 1310744,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 920,
+                "maximum_write_duration_us": 26,
+                "maximum_write_gap_us": 24753,
+                "peak_bytes": 164780,
+                "submitted_messages": 42,
+                "written_messages": 42
+              },
+              "cancelled_messages": 0,
+              "clock_discarded_audio_messages": 0,
+              "clock_discarded_video_frames": 0,
+              "clock_discarded_wire_bytes": 0,
+              "clock_resets": 0,
+              "control": {
+                "budget_bytes": 1048576,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 0,
+                "maximum_write_duration_us": 58,
+                "maximum_write_gap_us": 2978,
+                "peak_bytes": 3768,
+                "submitted_messages": 5,
+                "written_messages": 5
+              },
+              "interactive_qos_error": 0,
+              "interactive_qos_requested": false,
+              "producer_waits": 0,
+              "realtime": true,
+              "video": {
+                "budget_bytes": 67371032,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 168,
+                "maximum_write_duration_us": 170,
+                "maximum_write_gap_us": 100137,
+                "peak_bytes": 1385182,
+                "submitted_messages": 10,
+                "written_messages": 10
+              },
+              "writer_active": false
+            },
+            "platform_timer": {
+              "median_us": 24061,
+              "observations_us": [
+                24056,
+                24057,
+                24057,
+                24058,
+                24058,
+                24058,
+                24058,
+                24058,
+                24059,
+                24060,
+                24060,
+                24060,
+                24060,
+                24061,
+                24061,
+                24061,
+                24061,
+                24061,
+                24066,
+                24067,
+                24068,
+                24069,
+                24073,
+                24112,
+                24115,
+                24166,
+                24168,
+                24174,
+                24179,
+                24365,
+                24518,
+                24547,
+                24769,
+                24974
+              ],
+              "qos_error": 0,
+              "requested_us": 24000
+            },
+            "realtime_trial": 1
+          },
+          {
+            "largest_gap": {
+              "arrival_after_us": 180905,
+              "arrival_before_us": 156791,
+              "pts_after_us": 1825978,
+              "pts_before_us": 1801978
+            },
+            "maximum_continuous_audio_delivery_gap_us": 24114,
+            "output_scheduler": {
+              "ahead_us": 150000,
+              "audio": {
+                "budget_bytes": 1310744,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 169,
+                "maximum_write_duration_us": 26,
+                "maximum_write_gap_us": 24119,
+                "peak_bytes": 164780,
+                "submitted_messages": 42,
+                "written_messages": 42
+              },
+              "cancelled_messages": 0,
+              "clock_discarded_audio_messages": 0,
+              "clock_discarded_video_frames": 0,
+              "clock_discarded_wire_bytes": 0,
+              "clock_resets": 0,
+              "control": {
+                "budget_bytes": 1048576,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 0,
+                "maximum_write_duration_us": 55,
+                "maximum_write_gap_us": 3081,
+                "peak_bytes": 3767,
+                "submitted_messages": 5,
+                "written_messages": 5
+              },
+              "interactive_qos_error": 0,
+              "interactive_qos_requested": false,
+              "producer_waits": 0,
+              "realtime": true,
+              "video": {
+                "budget_bytes": 67371032,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 434,
+                "maximum_write_duration_us": 186,
+                "maximum_write_gap_us": 100332,
+                "peak_bytes": 1385182,
+                "submitted_messages": 10,
+                "written_messages": 10
+              },
+              "writer_active": false
+            },
+            "platform_timer": {
+              "median_us": 24082,
+              "observations_us": [
+                24058,
+                24059,
+                24059,
+                24060,
+                24060,
+                24060,
+                24061,
+                24061,
+                24063,
+                24065,
+                24070,
+                24071,
+                24072,
+                24073,
+                24073,
+                24078,
+                24079,
+                24082,
+                24092,
+                24104,
+                24105,
+                24164,
+                24166,
+                24167,
+                24168,
+                24169,
+                24170,
+                24170,
+                24172,
+                24218,
+                24270,
+                24470,
+                24775,
+                25664
+              ],
+              "qos_error": 0,
+              "requested_us": 24000
+            },
+            "realtime_trial": 2
+          }
+        ],
+        "archive_media_timing_qualification": "raw_120ms_median_pass",
+        "archive_media_fixed_three_observations": [
+          {
+            "largest_gap": {
+              "arrival_after_us": 710521,
+              "arrival_before_us": 684533,
+              "pts_after_us": 2353978,
+              "pts_before_us": 2329978
+            },
+            "maximum_continuous_audio_delivery_gap_us": 25988,
+            "output_scheduler": {
+              "ahead_us": 150000,
+              "audio": {
+                "budget_bytes": 1310744,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 2011,
+                "maximum_write_duration_us": 27,
+                "maximum_write_gap_us": 25974,
+                "peak_bytes": 164780,
+                "submitted_messages": 42,
+                "written_messages": 42
+              },
+              "cancelled_messages": 0,
+              "clock_discarded_audio_messages": 0,
+              "clock_discarded_video_frames": 0,
+              "clock_discarded_wire_bytes": 0,
+              "clock_resets": 0,
+              "control": {
+                "budget_bytes": 1048576,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 0,
+                "maximum_write_duration_us": 50,
+                "maximum_write_gap_us": 3070,
+                "peak_bytes": 3767,
+                "submitted_messages": 5,
+                "written_messages": 5
+              },
+              "interactive_qos_error": 0,
+              "interactive_qos_requested": false,
+              "producer_waits": 0,
+              "realtime": true,
+              "video": {
+                "budget_bytes": 67371032,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 453,
+                "maximum_write_duration_us": 187,
+                "maximum_write_gap_us": 100436,
+                "peak_bytes": 1385182,
+                "submitted_messages": 10,
+                "written_messages": 10
+              },
+              "writer_active": false
+            },
+            "platform_timer": {
+              "median_us": 24061,
+              "observations_us": [
+                24056,
+                24057,
+                24058,
+                24058,
+                24058,
+                24058,
+                24059,
+                24059,
+                24059,
+                24059,
+                24059,
+                24060,
+                24060,
+                24060,
+                24060,
+                24061,
+                24061,
+                24061,
+                24062,
+                24062,
+                24067,
+                24070,
+                24070,
+                24080,
+                24084,
+                24111,
+                24165,
+                24168,
+                24171,
+                24261,
+                24286,
+                24397,
+                24518,
+                25376
+              ],
+              "qos_error": 0,
+              "requested_us": 24000
+            },
+            "realtime_trial": 0
+          },
+          {
+            "largest_gap": {
+              "arrival_after_us": 732901,
+              "arrival_before_us": 708653,
+              "pts_after_us": 2377978,
+              "pts_before_us": 2353978
+            },
+            "maximum_continuous_audio_delivery_gap_us": 24248,
+            "output_scheduler": {
+              "ahead_us": 150000,
+              "audio": {
+                "budget_bytes": 1310744,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 295,
+                "maximum_write_duration_us": 26,
+                "maximum_write_gap_us": 24248,
+                "peak_bytes": 164780,
+                "submitted_messages": 42,
+                "written_messages": 42
+              },
+              "cancelled_messages": 0,
+              "clock_discarded_audio_messages": 0,
+              "clock_discarded_video_frames": 0,
+              "clock_discarded_wire_bytes": 0,
+              "clock_resets": 0,
+              "control": {
+                "budget_bytes": 1048576,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 0,
+                "maximum_write_duration_us": 64,
+                "maximum_write_gap_us": 3078,
+                "peak_bytes": 3767,
+                "submitted_messages": 5,
+                "written_messages": 5
+              },
+              "interactive_qos_error": 0,
+              "interactive_qos_requested": false,
+              "producer_waits": 0,
+              "realtime": true,
+              "video": {
+                "budget_bytes": 67371032,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 595,
+                "maximum_write_duration_us": 151,
+                "maximum_write_gap_us": 100542,
+                "peak_bytes": 1385182,
+                "submitted_messages": 10,
+                "written_messages": 10
+              },
+              "writer_active": false
+            },
+            "platform_timer": {
+              "median_us": 24061,
+              "observations_us": [
+                24056,
+                24056,
+                24056,
+                24057,
+                24057,
+                24057,
+                24058,
+                24058,
+                24058,
+                24058,
+                24059,
+                24059,
+                24059,
+                24060,
+                24060,
+                24060,
+                24060,
+                24061,
+                24062,
+                24067,
+                24068,
+                24070,
+                24078,
+                24110,
+                24156,
+                24171,
+                24280,
+                24468,
+                24483,
+                24495,
+                24688,
+                24791,
+                24967,
+                25185
+              ],
+              "qos_error": 0,
+              "requested_us": 24000
+            },
+            "realtime_trial": 1
+          },
+          {
+            "largest_gap": {
+              "arrival_after_us": 254026,
+              "arrival_before_us": 228891,
+              "pts_after_us": 1897978,
+              "pts_before_us": 1873978
+            },
+            "maximum_continuous_audio_delivery_gap_us": 25135,
+            "output_scheduler": {
+              "ahead_us": 150000,
+              "audio": {
+                "budget_bytes": 1310744,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 1172,
+                "maximum_write_duration_us": 27,
+                "maximum_write_gap_us": 25135,
+                "peak_bytes": 164780,
+                "submitted_messages": 42,
+                "written_messages": 42
+              },
+              "cancelled_messages": 0,
+              "clock_discarded_audio_messages": 0,
+              "clock_discarded_video_frames": 0,
+              "clock_discarded_wire_bytes": 0,
+              "clock_resets": 0,
+              "control": {
+                "budget_bytes": 1048576,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 0,
+                "maximum_write_duration_us": 59,
+                "maximum_write_gap_us": 3029,
+                "peak_bytes": 3766,
+                "submitted_messages": 5,
+                "written_messages": 5
+              },
+              "interactive_qos_error": 0,
+              "interactive_qos_requested": false,
+              "producer_waits": 0,
+              "realtime": true,
+              "video": {
+                "budget_bytes": 67371032,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 166,
+                "maximum_write_duration_us": 262,
+                "maximum_write_gap_us": 100125,
+                "peak_bytes": 1385182,
+                "submitted_messages": 10,
+                "written_messages": 10
+              },
+              "writer_active": false
+            },
+            "platform_timer": {
+              "median_us": 24059,
+              "observations_us": [
+                24025,
+                24056,
+                24057,
+                24057,
+                24057,
+                24057,
+                24058,
+                24058,
+                24058,
+                24058,
+                24058,
+                24058,
+                24059,
+                24059,
+                24059,
+                24059,
+                24059,
+                24059,
+                24059,
+                24059,
+                24059,
+                24059,
+                24059,
+                24060,
+                24060,
+                24060,
+                24060,
+                24061,
+                24061,
+                24061,
+                24061,
+                24063,
+                24066,
+                24066
+              ],
+              "qos_error": 0,
+              "requested_us": 24000
+            },
+            "realtime_trial": 2
+          }
+        ],
+        "actual_archived_avsplus_dra": true,
+        "actual_archived_tv_provider": true,
+        "native_independent_package_install": true
+      },
+      {
+        "name": "Debian 13 (amd64)",
+        "id": 130412540989,
+        "conclusion": "success",
+        "ctest_summaries": [
+          [
+            "100",
+            "0",
+            "72"
+          ]
+        ],
+        "skipped_tests": [
+          "71/72 Test #71: fm_playback_recovery ..................***Skipped   0.06 sec"
+        ],
+        "media_timing_qualification": "raw_120ms_median_pass",
+        "media_fixed_three_observations": [
+          {
+            "largest_gap": {
+              "arrival_after_us": 780159,
+              "arrival_before_us": 756100,
+              "pts_after_us": 2425978,
+              "pts_before_us": 2401978
+            },
+            "maximum_continuous_audio_delivery_gap_us": 24059,
+            "output_scheduler": {
+              "ahead_us": 150000,
+              "audio": {
+                "budget_bytes": 1310744,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 94,
+                "maximum_write_duration_us": 14,
+                "maximum_write_gap_us": 24033,
+                "peak_bytes": 164780,
+                "submitted_messages": 42,
+                "written_messages": 42
+              },
+              "cancelled_messages": 0,
+              "clock_discarded_audio_messages": 0,
+              "clock_discarded_video_frames": 0,
+              "clock_discarded_wire_bytes": 0,
+              "clock_resets": 0,
+              "control": {
+                "budget_bytes": 1048576,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 0,
+                "maximum_write_duration_us": 32,
+                "maximum_write_gap_us": 3359,
+                "peak_bytes": 3767,
+                "submitted_messages": 5,
+                "written_messages": 5
+              },
+              "interactive_qos_error": 0,
+              "interactive_qos_requested": false,
+              "producer_waits": 0,
+              "realtime": true,
+              "video": {
+                "budget_bytes": 67371032,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 94,
+                "maximum_write_duration_us": 183,
+                "maximum_write_gap_us": 100022,
+                "peak_bytes": 1385183,
+                "submitted_messages": 10,
+                "written_messages": 10
+              },
+              "writer_active": false
+            },
+            "platform_timer": {
+              "median_us": 24082,
+              "observations_us": [
+                24061,
+                24062,
+                24062,
+                24062,
+                24063,
+                24063,
+                24063,
+                24064,
+                24065,
+                24065,
+                24066,
+                24068,
+                24069,
+                24069,
+                24080,
+                24081,
+                24082,
+                24082,
+                24082,
+                24082,
+                24082,
+                24082,
+                24083,
+                24083,
+                24083,
+                24083,
+                24084,
+                24084,
+                24084,
+                24085,
+                24086,
+                24087,
+                24087,
+                24088
+              ],
+              "qos_error": 0,
+              "requested_us": 24000
+            },
+            "realtime_trial": 0
+          },
+          {
+            "largest_gap": {
+              "arrival_after_us": 60855,
+              "arrival_before_us": 36804,
+              "pts_after_us": 1705978,
+              "pts_before_us": 1681978
+            },
+            "maximum_continuous_audio_delivery_gap_us": 24051,
+            "output_scheduler": {
+              "ahead_us": 150000,
+              "audio": {
+                "budget_bytes": 1310744,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 92,
+                "maximum_write_duration_us": 15,
+                "maximum_write_gap_us": 24025,
+                "peak_bytes": 164780,
+                "submitted_messages": 42,
+                "written_messages": 42
+              },
+              "cancelled_messages": 0,
+              "clock_discarded_audio_messages": 0,
+              "clock_discarded_video_frames": 0,
+              "clock_discarded_wire_bytes": 0,
+              "clock_resets": 0,
+              "control": {
+                "budget_bytes": 1048576,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 0,
+                "maximum_write_duration_us": 48,
+                "maximum_write_gap_us": 3046,
+                "peak_bytes": 3766,
+                "submitted_messages": 5,
+                "written_messages": 5
+              },
+              "interactive_qos_error": 0,
+              "interactive_qos_requested": false,
+              "producer_waits": 0,
+              "realtime": true,
+              "video": {
+                "budget_bytes": 67371032,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 87,
+                "maximum_write_duration_us": 121,
+                "maximum_write_gap_us": 100024,
+                "peak_bytes": 1385183,
+                "submitted_messages": 10,
+                "written_messages": 10
+              },
+              "writer_active": false
+            },
+            "platform_timer": {
+              "median_us": 24084,
+              "observations_us": [
+                24062,
+                24063,
+                24063,
+                24064,
+                24064,
+                24068,
+                24073,
+                24081,
+                24082,
+                24082,
+                24082,
+                24083,
+                24083,
+                24083,
+                24083,
+                24083,
+                24083,
+                24084,
+                24084,
+                24084,
+                24084,
+                24085,
+                24085,
+                24085,
+                24086,
+                24086,
+                24087,
+                24087,
+                24088,
+                24088,
+                24088,
+                24089,
+                24089,
+                24090
+              ],
+              "qos_error": 0,
+              "requested_us": 24000
+            },
+            "realtime_trial": 1
+          },
+          {
+            "largest_gap": {
+              "arrival_after_us": 84785,
+              "arrival_before_us": 60740,
+              "pts_after_us": 1729978,
+              "pts_before_us": 1705978
+            },
+            "maximum_continuous_audio_delivery_gap_us": 24045,
+            "output_scheduler": {
+              "ahead_us": 150000,
+              "audio": {
+                "budget_bytes": 1310744,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 91,
+                "maximum_write_duration_us": 21,
+                "maximum_write_gap_us": 24031,
+                "peak_bytes": 164780,
+                "submitted_messages": 42,
+                "written_messages": 42
+              },
+              "cancelled_messages": 0,
+              "clock_discarded_audio_messages": 0,
+              "clock_discarded_video_frames": 0,
+              "clock_discarded_wire_bytes": 0,
+              "clock_resets": 0,
+              "control": {
+                "budget_bytes": 1048576,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 0,
+                "maximum_write_duration_us": 41,
+                "maximum_write_gap_us": 3003,
+                "peak_bytes": 3767,
+                "submitted_messages": 5,
+                "written_messages": 5
+              },
+              "interactive_qos_error": 0,
+              "interactive_qos_requested": false,
+              "producer_waits": 0,
+              "realtime": true,
+              "video": {
+                "budget_bytes": 67371032,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 89,
+                "maximum_write_duration_us": 143,
+                "maximum_write_gap_us": 100042,
+                "peak_bytes": 1385183,
+                "submitted_messages": 10,
+                "written_messages": 10
+              },
+              "writer_active": false
+            },
+            "platform_timer": {
+              "median_us": 24082,
+              "observations_us": [
+                24059,
+                24059,
+                24060,
+                24061,
+                24064,
+                24065,
+                24079,
+                24080,
+                24080,
+                24081,
+                24081,
+                24081,
+                24081,
+                24081,
+                24081,
+                24082,
+                24082,
+                24082,
+                24082,
+                24082,
+                24082,
+                24082,
+                24083,
+                24083,
+                24083,
+                24083,
+                24083,
+                24083,
+                24083,
+                24084,
+                24084,
+                24084,
+                24084,
+                24084
+              ],
+              "qos_error": 0,
+              "requested_us": 24000
+            },
+            "realtime_trial": 2
+          }
+        ],
+        "archive_media_timing_qualification": "raw_120ms_median_pass",
+        "archive_media_fixed_three_observations": [
+          {
+            "largest_gap": {
+              "arrival_after_us": 180351,
+              "arrival_before_us": 156291,
+              "pts_after_us": 1825978,
+              "pts_before_us": 1801978
+            },
+            "maximum_continuous_audio_delivery_gap_us": 24060,
+            "output_scheduler": {
+              "ahead_us": 150000,
+              "audio": {
+                "budget_bytes": 1310744,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 93,
+                "maximum_write_duration_us": 22,
+                "maximum_write_gap_us": 24039,
+                "peak_bytes": 164780,
+                "submitted_messages": 42,
+                "written_messages": 42
+              },
+              "cancelled_messages": 0,
+              "clock_discarded_audio_messages": 0,
+              "clock_discarded_video_frames": 0,
+              "clock_discarded_wire_bytes": 0,
+              "clock_resets": 0,
+              "control": {
+                "budget_bytes": 1048576,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 0,
+                "maximum_write_duration_us": 34,
+                "maximum_write_gap_us": 2936,
+                "peak_bytes": 3766,
+                "submitted_messages": 5,
+                "written_messages": 5
+              },
+              "interactive_qos_error": 0,
+              "interactive_qos_requested": false,
+              "producer_waits": 0,
+              "realtime": true,
+              "video": {
+                "budget_bytes": 67371032,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 90,
+                "maximum_write_duration_us": 189,
+                "maximum_write_gap_us": 100051,
+                "peak_bytes": 1385183,
+                "submitted_messages": 10,
+                "written_messages": 10
+              },
+              "writer_active": false
+            },
+            "platform_timer": {
+              "median_us": 24085,
+              "observations_us": [
+                24062,
+                24063,
+                24064,
+                24064,
+                24066,
+                24066,
+                24071,
+                24082,
+                24083,
+                24083,
+                24084,
+                24084,
+                24084,
+                24084,
+                24084,
+                24084,
+                24085,
+                24085,
+                24085,
+                24085,
+                24085,
+                24086,
+                24086,
+                24086,
+                24086,
+                24087,
+                24087,
+                24087,
+                24087,
+                24088,
+                24088,
+                24089,
+                24090,
+                24091
+              ],
+              "qos_error": 0,
+              "requested_us": 24000
+            },
+            "realtime_trial": 0
+          },
+          {
+            "largest_gap": {
+              "arrival_after_us": 780793,
+              "arrival_before_us": 756740,
+              "pts_after_us": 2425978,
+              "pts_before_us": 2401978
+            },
+            "maximum_continuous_audio_delivery_gap_us": 24053,
+            "output_scheduler": {
+              "ahead_us": 150000,
+              "audio": {
+                "budget_bytes": 1310744,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 102,
+                "maximum_write_duration_us": 22,
+                "maximum_write_gap_us": 24041,
+                "peak_bytes": 164780,
+                "submitted_messages": 42,
+                "written_messages": 42
+              },
+              "cancelled_messages": 0,
+              "clock_discarded_audio_messages": 0,
+              "clock_discarded_video_frames": 0,
+              "clock_discarded_wire_bytes": 0,
+              "clock_resets": 0,
+              "control": {
+                "budget_bytes": 1048576,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 0,
+                "maximum_write_duration_us": 40,
+                "maximum_write_gap_us": 2896,
+                "peak_bytes": 3768,
+                "submitted_messages": 5,
+                "written_messages": 5
+              },
+              "interactive_qos_error": 0,
+              "interactive_qos_requested": false,
+              "producer_waits": 0,
+              "realtime": true,
+              "video": {
+                "budget_bytes": 67371032,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 89,
+                "maximum_write_duration_us": 168,
+                "maximum_write_gap_us": 100041,
+                "peak_bytes": 1385183,
+                "submitted_messages": 10,
+                "written_messages": 10
+              },
+              "writer_active": false
+            },
+            "platform_timer": {
+              "median_us": 24084,
+              "observations_us": [
+                24061,
+                24061,
+                24063,
+                24063,
+                24063,
+                24064,
+                24065,
+                24067,
+                24067,
+                24071,
+                24072,
+                24074,
+                24077,
+                24081,
+                24083,
+                24083,
+                24083,
+                24084,
+                24084,
+                24085,
+                24085,
+                24085,
+                24085,
+                24085,
+                24085,
+                24085,
+                24086,
+                24087,
+                24087,
+                24087,
+                24088,
+                24089,
+                24089,
+                24093
+              ],
+              "qos_error": 0,
+              "requested_us": 24000
+            },
+            "realtime_trial": 1
+          },
+          {
+            "largest_gap": {
+              "arrival_after_us": 276915,
+              "arrival_before_us": 252867,
+              "pts_after_us": 1921978,
+              "pts_before_us": 1897978
+            },
+            "maximum_continuous_audio_delivery_gap_us": 24048,
+            "output_scheduler": {
+              "ahead_us": 150000,
+              "audio": {
+                "budget_bytes": 1310744,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 92,
+                "maximum_write_duration_us": 17,
+                "maximum_write_gap_us": 24026,
+                "peak_bytes": 164780,
+                "submitted_messages": 42,
+                "written_messages": 42
+              },
+              "cancelled_messages": 0,
+              "clock_discarded_audio_messages": 0,
+              "clock_discarded_video_frames": 0,
+              "clock_discarded_wire_bytes": 0,
+              "clock_resets": 0,
+              "control": {
+                "budget_bytes": 1048576,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 0,
+                "maximum_write_duration_us": 35,
+                "maximum_write_gap_us": 3159,
+                "peak_bytes": 3766,
+                "submitted_messages": 5,
+                "written_messages": 5
+              },
+              "interactive_qos_error": 0,
+              "interactive_qos_requested": false,
+              "producer_waits": 0,
+              "realtime": true,
+              "video": {
+                "budget_bytes": 67371032,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 87,
+                "maximum_write_duration_us": 109,
+                "maximum_write_gap_us": 100031,
+                "peak_bytes": 1385183,
+                "submitted_messages": 10,
+                "written_messages": 10
+              },
+              "writer_active": false
+            },
+            "platform_timer": {
+              "median_us": 24084,
+              "observations_us": [
+                24024,
+                24062,
+                24063,
+                24064,
+                24067,
+                24070,
+                24080,
+                24081,
+                24081,
+                24082,
+                24082,
+                24083,
+                24083,
+                24083,
+                24083,
+                24083,
+                24084,
+                24084,
+                24084,
+                24084,
+                24085,
+                24085,
+                24085,
+                24085,
+                24085,
+                24086,
+                24086,
+                24086,
+                24086,
+                24086,
+                24088,
+                24088,
+                24088,
+                24090
+              ],
+              "qos_error": 0,
+              "requested_us": 24000
+            },
+            "realtime_trial": 2
+          }
+        ],
+        "actual_archived_avsplus_dra": true,
+        "actual_archived_tv_provider": true,
+        "native_independent_package_install": true
+      },
+      {
+        "name": "desktop (windows-2022)",
+        "id": 130412541065,
+        "conclusion": "success",
+        "ctest_summaries": [
+          [
+            "100",
+            "0",
+            "70"
+          ]
+        ],
+        "skipped_tests": [
+          "69/70 Test #69: fm_playback_recovery ..................***Skipped   0.03 sec"
+        ],
+        "media_timing_qualification": "raw_120ms_median_pass",
+        "media_fixed_three_observations": [
+          {
+            "largest_gap": {
+              "arrival_after_us": 181397,
+              "arrival_before_us": 149701,
+              "pts_after_us": 1801978,
+              "pts_before_us": 1777978
+            },
+            "maximum_continuous_audio_delivery_gap_us": 31696,
+            "output_scheduler": {
+              "ahead_us": 150000,
+              "audio": {
+                "budget_bytes": 1310744,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 15184,
+                "maximum_write_duration_us": 124,
+                "maximum_write_gap_us": 31674,
+                "peak_bytes": 164780,
+                "submitted_messages": 42,
+                "written_messages": 42
+              },
+              "cancelled_messages": 0,
+              "clock_discarded_audio_messages": 0,
+              "clock_discarded_video_frames": 0,
+              "clock_discarded_wire_bytes": 0,
+              "clock_resets": 0,
+              "control": {
+                "budget_bytes": 1048576,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 0,
+                "maximum_write_duration_us": 19,
+                "maximum_write_gap_us": 2849,
+                "peak_bytes": 3767,
+                "submitted_messages": 5,
+                "written_messages": 5
+              },
+              "interactive_qos_error": 0,
+              "interactive_qos_requested": false,
+              "producer_waits": 0,
+              "realtime": true,
+              "video": {
+                "budget_bytes": 67371032,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 14931,
+                "maximum_write_duration_us": 163,
+                "maximum_write_gap_us": 109490,
+                "peak_bytes": 1385183,
+                "submitted_messages": 10,
+                "written_messages": 10
+              },
+              "writer_active": false
+            },
+            "platform_timer": {
+              "median_us": 31256,
+              "observations_us": [
+                24311,
+                31095,
+                31190,
+                31198,
+                31201,
+                31211,
+                31212,
+                31214,
+                31218,
+                31222,
+                31244,
+                31250,
+                31253,
+                31256,
+                31257,
+                31267,
+                31271,
+                31280,
+                31291,
+                31291,
+                31294,
+                31298,
+                31299,
+                31324,
+                31373,
+                31776,
+                31810
+              ],
+              "qos_error": 0,
+              "requested_us": 24000
+            },
+            "realtime_trial": 0
+          },
+          {
+            "largest_gap": {
+              "arrival_after_us": 684621,
+              "arrival_before_us": 652917,
+              "pts_after_us": 2305978,
+              "pts_before_us": 2281978
+            },
+            "maximum_continuous_audio_delivery_gap_us": 31704,
+            "output_scheduler": {
+              "ahead_us": 150000,
+              "audio": {
+                "budget_bytes": 1310744,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 16099,
+                "maximum_write_duration_us": 85,
+                "maximum_write_gap_us": 31699,
+                "peak_bytes": 164780,
+                "submitted_messages": 42,
+                "written_messages": 42
+              },
+              "cancelled_messages": 0,
+              "clock_discarded_audio_messages": 0,
+              "clock_discarded_video_frames": 0,
+              "clock_discarded_wire_bytes": 0,
+              "clock_resets": 0,
+              "control": {
+                "budget_bytes": 1048576,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 0,
+                "maximum_write_duration_us": 20,
+                "maximum_write_gap_us": 3271,
+                "peak_bytes": 3767,
+                "submitted_messages": 5,
+                "written_messages": 5
+              },
+              "interactive_qos_error": 0,
+              "interactive_qos_requested": false,
+              "producer_waits": 0,
+              "realtime": true,
+              "video": {
+                "budget_bytes": 67371032,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 13301,
+                "maximum_write_duration_us": 82,
+                "maximum_write_gap_us": 110002,
+                "peak_bytes": 1385183,
+                "submitted_messages": 10,
+                "written_messages": 10
+              },
+              "writer_active": false
+            },
+            "platform_timer": {
+              "median_us": 31257,
+              "observations_us": [
+                27508,
+                31161,
+                31190,
+                31211,
+                31226,
+                31227,
+                31232,
+                31232,
+                31234,
+                31235,
+                31241,
+                31249,
+                31255,
+                31257,
+                31265,
+                31270,
+                31274,
+                31276,
+                31281,
+                31287,
+                31289,
+                31289,
+                31297,
+                31299,
+                31338,
+                31451,
+                31674
+              ],
+              "qos_error": 0,
+              "requested_us": 24000
+            },
+            "realtime_trial": 1
+          },
+          {
+            "largest_gap": {
+              "arrival_after_us": 278081,
+              "arrival_before_us": 246499,
+              "pts_after_us": 1897978,
+              "pts_before_us": 1873978
+            },
+            "maximum_continuous_audio_delivery_gap_us": 31582,
+            "output_scheduler": {
+              "ahead_us": 150000,
+              "audio": {
+                "budget_bytes": 1310744,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 16137,
+                "maximum_write_duration_us": 86,
+                "maximum_write_gap_us": 31467,
+                "peak_bytes": 164780,
+                "submitted_messages": 42,
+                "written_messages": 42
+              },
+              "cancelled_messages": 0,
+              "clock_discarded_audio_messages": 0,
+              "clock_discarded_video_frames": 0,
+              "clock_discarded_wire_bytes": 0,
+              "clock_resets": 0,
+              "control": {
+                "budget_bytes": 1048576,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 0,
+                "maximum_write_duration_us": 33,
+                "maximum_write_gap_us": 3002,
+                "peak_bytes": 3767,
+                "submitted_messages": 5,
+                "written_messages": 5
+              },
+              "interactive_qos_error": 0,
+              "interactive_qos_requested": false,
+              "producer_waits": 0,
+              "realtime": true,
+              "video": {
+                "budget_bytes": 67371032,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 13397,
+                "maximum_write_duration_us": 127,
+                "maximum_write_gap_us": 109470,
+                "peak_bytes": 1385183,
+                "submitted_messages": 10,
+                "written_messages": 10
+              },
+              "writer_active": false
+            },
+            "platform_timer": {
+              "median_us": 31252,
+              "observations_us": [
+                27441,
+                30904,
+                31190,
+                31203,
+                31209,
+                31210,
+                31217,
+                31220,
+                31220,
+                31228,
+                31230,
+                31231,
+                31248,
+                31252,
+                31254,
+                31259,
+                31263,
+                31264,
+                31269,
+                31281,
+                31294,
+                31303,
+                31325,
+                31334,
+                31412,
+                31566,
+                31863
+              ],
+              "qos_error": 0,
+              "requested_us": 24000
+            },
+            "realtime_trial": 2
+          }
+        ],
+        "archive_media_timing_qualification": "raw_120ms_median_pass",
+        "archive_media_fixed_three_observations": [
+          {
+            "largest_gap": {
+              "arrival_after_us": 282075,
+              "arrival_before_us": 250092,
+              "pts_after_us": 1897978,
+              "pts_before_us": 1873978
+            },
+            "maximum_continuous_audio_delivery_gap_us": 31983,
+            "output_scheduler": {
+              "ahead_us": 150000,
+              "audio": {
+                "budget_bytes": 1310744,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 15174,
+                "maximum_write_duration_us": 145,
+                "maximum_write_gap_us": 31752,
+                "peak_bytes": 164780,
+                "submitted_messages": 42,
+                "written_messages": 42
+              },
+              "cancelled_messages": 0,
+              "clock_discarded_audio_messages": 0,
+              "clock_discarded_video_frames": 0,
+              "clock_discarded_wire_bytes": 0,
+              "clock_resets": 0,
+              "control": {
+                "budget_bytes": 1048576,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 0,
+                "maximum_write_duration_us": 19,
+                "maximum_write_gap_us": 3242,
+                "peak_bytes": 3767,
+                "submitted_messages": 5,
+                "written_messages": 5
+              },
+              "interactive_qos_error": 0,
+              "interactive_qos_requested": false,
+              "producer_waits": 0,
+              "realtime": true,
+              "video": {
+                "budget_bytes": 67371032,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 14339,
+                "maximum_write_duration_us": 243,
+                "maximum_write_gap_us": 110022,
+                "peak_bytes": 1385183,
+                "submitted_messages": 10,
+                "written_messages": 10
+              },
+              "writer_active": false
+            },
+            "platform_timer": {
+              "median_us": 31262,
+              "observations_us": [
+                28635,
+                30816,
+                31133,
+                31162,
+                31214,
+                31230,
+                31231,
+                31231,
+                31241,
+                31245,
+                31252,
+                31256,
+                31259,
+                31262,
+                31265,
+                31269,
+                31272,
+                31279,
+                31286,
+                31289,
+                31295,
+                31314,
+                31348,
+                31454,
+                31472,
+                31879,
+                34135
+              ],
+              "qos_error": 0,
+              "requested_us": 24000
+            },
+            "realtime_trial": 0
+          },
+          {
+            "largest_gap": {
+              "arrival_after_us": 65977,
+              "arrival_before_us": 27354,
+              "pts_after_us": 1681978,
+              "pts_before_us": 1657978
+            },
+            "maximum_continuous_audio_delivery_gap_us": 38623,
+            "output_scheduler": {
+              "ahead_us": 150000,
+              "audio": {
+                "budget_bytes": 1310744,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 16593,
+                "maximum_write_duration_us": 53,
+                "maximum_write_gap_us": 38628,
+                "peak_bytes": 164780,
+                "submitted_messages": 42,
+                "written_messages": 42
+              },
+              "cancelled_messages": 0,
+              "clock_discarded_audio_messages": 0,
+              "clock_discarded_video_frames": 0,
+              "clock_discarded_wire_bytes": 0,
+              "clock_resets": 0,
+              "control": {
+                "budget_bytes": 1048576,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 0,
+                "maximum_write_duration_us": 20,
+                "maximum_write_gap_us": 3097,
+                "peak_bytes": 3767,
+                "submitted_messages": 5,
+                "written_messages": 5
+              },
+              "interactive_qos_error": 0,
+              "interactive_qos_requested": false,
+              "producer_waits": 0,
+              "realtime": true,
+              "video": {
+                "budget_bytes": 67371032,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 13794,
+                "maximum_write_duration_us": 56,
+                "maximum_write_gap_us": 109842,
+                "peak_bytes": 1385183,
+                "submitted_messages": 10,
+                "written_messages": 10
+              },
+              "writer_active": false
+            },
+            "platform_timer": {
+              "median_us": 31245,
+              "observations_us": [
+                27177,
+                30814,
+                31174,
+                31180,
+                31191,
+                31195,
+                31212,
+                31224,
+                31228,
+                31230,
+                31236,
+                31237,
+                31242,
+                31245,
+                31246,
+                31261,
+                31263,
+                31272,
+                31273,
+                31286,
+                31293,
+                31302,
+                31332,
+                31364,
+                31698,
+                31856,
+                38597
+              ],
+              "qos_error": 0,
+              "requested_us": 24000
+            },
+            "realtime_trial": 1
+          },
+          {
+            "largest_gap": {
+              "arrival_after_us": 60068,
+              "arrival_before_us": 27873,
+              "pts_after_us": 1681978,
+              "pts_before_us": 1657978
+            },
+            "maximum_continuous_audio_delivery_gap_us": 32195,
+            "output_scheduler": {
+              "ahead_us": 150000,
+              "audio": {
+                "budget_bytes": 1310744,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 16090,
+                "maximum_write_duration_us": 71,
+                "maximum_write_gap_us": 32171,
+                "peak_bytes": 164780,
+                "submitted_messages": 42,
+                "written_messages": 42
+              },
+              "cancelled_messages": 0,
+              "clock_discarded_audio_messages": 0,
+              "clock_discarded_video_frames": 0,
+              "clock_discarded_wire_bytes": 0,
+              "clock_resets": 0,
+              "control": {
+                "budget_bytes": 1048576,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 0,
+                "maximum_write_duration_us": 31,
+                "maximum_write_gap_us": 3074,
+                "peak_bytes": 3766,
+                "submitted_messages": 5,
+                "written_messages": 5
+              },
+              "interactive_qos_error": 0,
+              "interactive_qos_requested": false,
+              "producer_waits": 0,
+              "realtime": true,
+              "video": {
+                "budget_bytes": 67371032,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 15521,
+                "maximum_write_duration_us": 62,
+                "maximum_write_gap_us": 109590,
+                "peak_bytes": 1385183,
+                "submitted_messages": 10,
+                "written_messages": 10
+              },
+              "writer_active": false
+            },
+            "platform_timer": {
+              "median_us": 31267,
+              "observations_us": [
+                27714,
+                31144,
+                31157,
+                31168,
+                31204,
+                31225,
+                31242,
+                31252,
+                31256,
+                31261,
+                31262,
+                31264,
+                31265,
+                31267,
+                31270,
+                31291,
+                31301,
+                31307,
+                31315,
+                31318,
+                31322,
+                31326,
+                31354,
+                31392,
+                31398,
+                32170,
+                32202
+              ],
+              "qos_error": 0,
+              "requested_us": 24000
+            },
+            "realtime_trial": 2
+          }
+        ],
+        "actual_archived_avsplus_dra": true,
+        "actual_archived_tv_provider": true,
+        "native_independent_package_install": true
+      },
+      {
+        "name": "desktop (macos-15)",
+        "id": 130412541068,
+        "conclusion": "success",
+        "ctest_summaries": [
+          [
+            "100",
+            "",
+            "72"
+          ]
+        ],
+        "skipped_tests": [
+          "59/72 Test #59: media_realtime_delivery ...............***Skipped   2.94 sec"
+        ],
+        "media_timing_qualification": "blocked_platform_timer",
+        "media_fixed_three_observations": [
+          {
+            "largest_gap": {
+              "arrival_after_us": 402078,
+              "arrival_before_us": 232164,
+              "pts_after_us": 1897978,
+              "pts_before_us": 1873978
+            },
+            "maximum_continuous_audio_delivery_gap_us": 169914,
+            "output_scheduler": {
+              "ahead_us": 150000,
+              "audio": {
+                "budget_bytes": 1310744,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 147055,
+                "maximum_write_duration_us": 40,
+                "maximum_write_gap_us": 169973,
+                "peak_bytes": 164780,
+                "submitted_messages": 42,
+                "written_messages": 42
+              },
+              "cancelled_messages": 0,
+              "clock_discarded_audio_messages": 0,
+              "clock_discarded_video_frames": 0,
+              "clock_discarded_wire_bytes": 0,
+              "clock_resets": 0,
+              "control": {
+                "budget_bytes": 1048576,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 0,
+                "maximum_write_duration_us": 46,
+                "maximum_write_gap_us": 4407,
+                "peak_bytes": 3767,
+                "submitted_messages": 5,
+                "written_messages": 5
+              },
+              "interactive_qos_error": 0,
+              "interactive_qos_requested": true,
+              "producer_waits": 0,
+              "realtime": true,
+              "video": {
+                "budget_bytes": 67371032,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 145060,
+                "maximum_write_duration_us": 221,
+                "maximum_write_gap_us": 204076,
+                "peak_bytes": 1385182,
+                "submitted_messages": 10,
+                "written_messages": 10
+              },
+              "writer_active": false
+            },
+            "platform_timer": {
+              "median_us": 144132,
+              "observations_us": [
+                35828,
+                36033,
+                60087,
+                108096,
+                144132,
+                170651,
+                173606,
+                187393
+              ],
+              "qos_error": 0,
+              "requested_us": 24000
+            },
+            "realtime_trial": 0
+          },
+          {
+            "largest_gap": {
+              "arrival_after_us": 932382,
+              "arrival_before_us": 811166,
+              "pts_after_us": 2473978,
+              "pts_before_us": 2449978
+            },
+            "maximum_continuous_audio_delivery_gap_us": 121216,
+            "output_scheduler": {
+              "ahead_us": 150000,
+              "audio": {
+                "budget_bytes": 1310744,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 101920,
+                "maximum_write_duration_us": 68,
+                "maximum_write_gap_us": 121130,
+                "peak_bytes": 164780,
+                "submitted_messages": 42,
+                "written_messages": 42
+              },
+              "cancelled_messages": 0,
+              "clock_discarded_audio_messages": 0,
+              "clock_discarded_video_frames": 0,
+              "clock_discarded_wire_bytes": 0,
+              "clock_resets": 0,
+              "control": {
+                "budget_bytes": 1048576,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 0,
+                "maximum_write_duration_us": 26,
+                "maximum_write_gap_us": 2079,
+                "peak_bytes": 3763,
+                "submitted_messages": 5,
+                "written_messages": 5
+              },
+              "interactive_qos_error": 0,
+              "interactive_qos_requested": true,
+              "producer_waits": 0,
+              "realtime": true,
+              "video": {
+                "budget_bytes": 67371032,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 95899,
+                "maximum_write_duration_us": 243,
+                "maximum_write_gap_us": 188912,
+                "peak_bytes": 1385182,
+                "submitted_messages": 10,
+                "written_messages": 10
+              },
+              "writer_active": false
+            },
+            "platform_timer": {
+              "median_us": 36111,
+              "observations_us": [
+                24059,
+                28445,
+                29409,
+                32935,
+                33265,
+                35914,
+                35994,
+                36038,
+                36111,
+                36613,
+                36819,
+                44373,
+                96019,
+                108141,
+                156100,
+                161924
+              ],
+              "qos_error": 0,
+              "requested_us": 24000
+            },
+            "realtime_trial": 1
+          },
+          {
+            "largest_gap": {
+              "arrival_after_us": 948247,
+              "arrival_before_us": 813535,
+              "pts_after_us": 2473978,
+              "pts_before_us": 2449978
+            },
+            "maximum_continuous_audio_delivery_gap_us": 134712,
+            "output_scheduler": {
+              "ahead_us": 150000,
+              "audio": {
+                "budget_bytes": 1310744,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 118774,
+                "maximum_write_duration_us": 520,
+                "maximum_write_gap_us": 134744,
+                "peak_bytes": 174196,
+                "submitted_messages": 42,
+                "written_messages": 42
+              },
+              "cancelled_messages": 0,
+              "clock_discarded_audio_messages": 0,
+              "clock_discarded_video_frames": 0,
+              "clock_discarded_wire_bytes": 0,
+              "clock_resets": 0,
+              "control": {
+                "budget_bytes": 1048576,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 0,
+                "maximum_write_duration_us": 40,
+                "maximum_write_gap_us": 2446,
+                "peak_bytes": 3771,
+                "submitted_messages": 5,
+                "written_messages": 5
+              },
+              "interactive_qos_error": 0,
+              "interactive_qos_requested": true,
+              "producer_waits": 0,
+              "realtime": true,
+              "video": {
+                "budget_bytes": 67371032,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 60445,
+                "maximum_write_duration_us": 2076,
+                "maximum_write_gap_us": 155412,
+                "peak_bytes": 1558330,
+                "submitted_messages": 10,
+                "written_messages": 10
+              },
+              "writer_active": false
+            },
+            "platform_timer": {
+              "median_us": 155507,
+              "observations_us": [
+                76596,
+                108216,
+                110974,
+                118636,
+                155507,
+                157597,
+                163537,
+                171988
+              ],
+              "qos_error": 0,
+              "requested_us": 24000
+            },
+            "realtime_trial": 2
+          }
+        ],
+        "archive_media_timing_qualification": "blocked_platform_timer",
+        "archive_media_fixed_three_observations": [
+          {
+            "largest_gap": {
+              "arrival_after_us": 250354,
+              "arrival_before_us": 90293,
+              "pts_after_us": 1753978,
+              "pts_before_us": 1729978
+            },
+            "maximum_continuous_audio_delivery_gap_us": 160061,
+            "output_scheduler": {
+              "ahead_us": 150000,
+              "audio": {
+                "budget_bytes": 1310744,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 137438,
+                "maximum_write_duration_us": 137,
+                "maximum_write_gap_us": 159801,
+                "peak_bytes": 164780,
+                "submitted_messages": 42,
+                "written_messages": 42
+              },
+              "cancelled_messages": 0,
+              "clock_discarded_audio_messages": 0,
+              "clock_discarded_video_frames": 0,
+              "clock_discarded_wire_bytes": 0,
+              "clock_resets": 0,
+              "control": {
+                "budget_bytes": 1048576,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 0,
+                "maximum_write_duration_us": 68,
+                "maximum_write_gap_us": 3684,
+                "peak_bytes": 3768,
+                "submitted_messages": 5,
+                "written_messages": 5
+              },
+              "interactive_qos_error": 0,
+              "interactive_qos_requested": true,
+              "producer_waits": 0,
+              "realtime": true,
+              "video": {
+                "budget_bytes": 67371032,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 99175,
+                "maximum_write_duration_us": 467,
+                "maximum_write_gap_us": 162189,
+                "peak_bytes": 1385182,
+                "submitted_messages": 10,
+                "written_messages": 10
+              },
+              "writer_active": false
+            },
+            "platform_timer": {
+              "median_us": 114168,
+              "observations_us": [
+                45078,
+                83661,
+                92540,
+                102399,
+                114168,
+                133048,
+                143380,
+                157468
+              ],
+              "qos_error": 0,
+              "requested_us": 24000
+            },
+            "realtime_trial": 0
+          },
+          {
+            "largest_gap": {
+              "arrival_after_us": 175633,
+              "arrival_before_us": 23674,
+              "pts_after_us": 1681978,
+              "pts_before_us": 1657978
+            },
+            "maximum_continuous_audio_delivery_gap_us": 151959,
+            "output_scheduler": {
+              "ahead_us": 150000,
+              "audio": {
+                "budget_bytes": 1310744,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 132877,
+                "maximum_write_duration_us": 175,
+                "maximum_write_gap_us": 151929,
+                "peak_bytes": 164780,
+                "submitted_messages": 42,
+                "written_messages": 42
+              },
+              "cancelled_messages": 0,
+              "clock_discarded_audio_messages": 0,
+              "clock_discarded_video_frames": 0,
+              "clock_discarded_wire_bytes": 0,
+              "clock_resets": 0,
+              "control": {
+                "budget_bytes": 1048576,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 0,
+                "maximum_write_duration_us": 27,
+                "maximum_write_gap_us": 7052,
+                "peak_bytes": 3766,
+                "submitted_messages": 5,
+                "written_messages": 5
+              },
+              "interactive_qos_error": 0,
+              "interactive_qos_requested": true,
+              "producer_waits": 0,
+              "realtime": true,
+              "video": {
+                "budget_bytes": 67371032,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 114908,
+                "maximum_write_duration_us": 621,
+                "maximum_write_gap_us": 164530,
+                "peak_bytes": 1385182,
+                "submitted_messages": 10,
+                "written_messages": 10
+              },
+              "writer_active": false
+            },
+            "platform_timer": {
+              "median_us": 73838,
+              "observations_us": [
+                24058,
+                28433,
+                29191,
+                48837,
+                59783,
+                73838,
+                112213,
+                127873,
+                171599,
+                172405
+              ],
+              "qos_error": 0,
+              "requested_us": 24000
+            },
+            "realtime_trial": 1
+          },
+          {
+            "largest_gap": {
+              "arrival_after_us": 483081,
+              "arrival_before_us": 340627,
+              "pts_after_us": 1993978,
+              "pts_before_us": 1969978
+            },
+            "maximum_continuous_audio_delivery_gap_us": 142454,
+            "output_scheduler": {
+              "ahead_us": 150000,
+              "audio": {
+                "budget_bytes": 1310744,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 123834,
+                "maximum_write_duration_us": 776,
+                "maximum_write_gap_us": 141630,
+                "peak_bytes": 164780,
+                "submitted_messages": 42,
+                "written_messages": 42
+              },
+              "cancelled_messages": 0,
+              "clock_discarded_audio_messages": 0,
+              "clock_discarded_video_frames": 0,
+              "clock_discarded_wire_bytes": 0,
+              "clock_resets": 0,
+              "control": {
+                "budget_bytes": 1048576,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 0,
+                "maximum_write_duration_us": 66,
+                "maximum_write_gap_us": 6233,
+                "peak_bytes": 3768,
+                "submitted_messages": 5,
+                "written_messages": 5
+              },
+              "interactive_qos_error": 0,
+              "interactive_qos_requested": true,
+              "producer_waits": 0,
+              "realtime": true,
+              "video": {
+                "budget_bytes": 67371032,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 118207,
+                "maximum_write_duration_us": 1430,
+                "maximum_write_gap_us": 216515,
+                "peak_bytes": 1385182,
+                "submitted_messages": 10,
+                "written_messages": 10
+              },
+              "writer_active": false
+            },
+            "platform_timer": {
+              "median_us": 105846,
+              "observations_us": [
+                33940,
+                49402,
+                54100,
+                71610,
+                105846,
+                113950,
+                129086,
+                142902,
+                172012
+              ],
+              "qos_error": 0,
+              "requested_us": 24000
+            },
+            "realtime_trial": 2
+          }
+        ],
+        "actual_archived_avsplus_dra": true,
+        "actual_archived_tv_provider": true,
+        "native_independent_package_install": true
+      },
+      {
+        "name": "desktop (ubuntu-24.04-arm)",
+        "id": 130412541271,
+        "conclusion": "success",
+        "ctest_summaries": [
+          [
+            "100",
+            "0",
+            "72"
+          ]
+        ],
+        "skipped_tests": [
+          "71/72 Test #71: fm_playback_recovery ..................***Skipped   0.01 sec"
+        ],
+        "media_timing_qualification": "raw_120ms_median_pass",
+        "media_fixed_three_observations": [
+          {
+            "largest_gap": {
+              "arrival_after_us": 180479,
+              "arrival_before_us": 156345,
+              "pts_after_us": 1825978,
+              "pts_before_us": 1801978
+            },
+            "maximum_continuous_audio_delivery_gap_us": 24134,
+            "output_scheduler": {
+              "ahead_us": 150000,
+              "audio": {
+                "budget_bytes": 1310744,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 176,
+                "maximum_write_duration_us": 29,
+                "maximum_write_gap_us": 24140,
+                "peak_bytes": 164780,
+                "submitted_messages": 42,
+                "written_messages": 42
+              },
+              "cancelled_messages": 0,
+              "clock_discarded_audio_messages": 0,
+              "clock_discarded_video_frames": 0,
+              "clock_discarded_wire_bytes": 0,
+              "clock_resets": 0,
+              "control": {
+                "budget_bytes": 1048576,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 0,
+                "maximum_write_duration_us": 69,
+                "maximum_write_gap_us": 3141,
+                "peak_bytes": 3767,
+                "submitted_messages": 5,
+                "written_messages": 5
+              },
+              "interactive_qos_error": 0,
+              "interactive_qos_requested": false,
+              "producer_waits": 0,
+              "realtime": true,
+              "video": {
+                "budget_bytes": 67371032,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 168,
+                "maximum_write_duration_us": 197,
+                "maximum_write_gap_us": 100137,
+                "peak_bytes": 1385182,
+                "submitted_messages": 10,
+                "written_messages": 10
+              },
+              "writer_active": false
+            },
+            "platform_timer": {
+              "median_us": 24060,
+              "observations_us": [
+                24046,
+                24057,
+                24057,
+                24057,
+                24058,
+                24059,
+                24059,
+                24059,
+                24059,
+                24059,
+                24060,
+                24060,
+                24060,
+                24060,
+                24060,
+                24060,
+                24060,
+                24060,
+                24061,
+                24061,
+                24061,
+                24061,
+                24061,
+                24061,
+                24061,
+                24061,
+                24061,
+                24062,
+                24062,
+                24062,
+                24065,
+                24065,
+                24066,
+                24169
+              ],
+              "qos_error": 0,
+              "requested_us": 24000
+            },
+            "realtime_trial": 0
+          },
+          {
+            "largest_gap": {
+              "arrival_after_us": 564997,
+              "arrival_before_us": 540633,
+              "pts_after_us": 2209978,
+              "pts_before_us": 2185978
+            },
+            "maximum_continuous_audio_delivery_gap_us": 24364,
+            "output_scheduler": {
+              "ahead_us": 150000,
+              "audio": {
+                "budget_bytes": 1310744,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 525,
+                "maximum_write_duration_us": 22,
+                "maximum_write_gap_us": 24361,
+                "peak_bytes": 164780,
+                "submitted_messages": 42,
+                "written_messages": 42
+              },
+              "cancelled_messages": 0,
+              "clock_discarded_audio_messages": 0,
+              "clock_discarded_video_frames": 0,
+              "clock_discarded_wire_bytes": 0,
+              "clock_resets": 0,
+              "control": {
+                "budget_bytes": 1048576,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 0,
+                "maximum_write_duration_us": 48,
+                "maximum_write_gap_us": 3134,
+                "peak_bytes": 3767,
+                "submitted_messages": 5,
+                "written_messages": 5
+              },
+              "interactive_qos_error": 0,
+              "interactive_qos_requested": false,
+              "producer_waits": 0,
+              "realtime": true,
+              "video": {
+                "budget_bytes": 67371032,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 233,
+                "maximum_write_duration_us": 143,
+                "maximum_write_gap_us": 100203,
+                "peak_bytes": 1385182,
+                "submitted_messages": 10,
+                "written_messages": 10
+              },
+              "writer_active": false
+            },
+            "platform_timer": {
+              "median_us": 24063,
+              "observations_us": [
+                24056,
+                24057,
+                24057,
+                24057,
+                24057,
+                24058,
+                24058,
+                24059,
+                24059,
+                24059,
+                24060,
+                24061,
+                24062,
+                24062,
+                24062,
+                24063,
+                24063,
+                24063,
+                24068,
+                24069,
+                24070,
+                24080,
+                24097,
+                24102,
+                24103,
+                24154,
+                24164,
+                24165,
+                24165,
+                24166,
+                24173,
+                24176,
+                24182,
+                24654
+              ],
+              "qos_error": 0,
+              "requested_us": 24000
+            },
+            "realtime_trial": 1
+          },
+          {
+            "largest_gap": {
+              "arrival_after_us": 300756,
+              "arrival_before_us": 276640,
+              "pts_after_us": 1945978,
+              "pts_before_us": 1921978
+            },
+            "maximum_continuous_audio_delivery_gap_us": 24116,
+            "output_scheduler": {
+              "ahead_us": 150000,
+              "audio": {
+                "budget_bytes": 1310744,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 163,
+                "maximum_write_duration_us": 22,
+                "maximum_write_gap_us": 24120,
+                "peak_bytes": 164780,
+                "submitted_messages": 42,
+                "written_messages": 42
+              },
+              "cancelled_messages": 0,
+              "clock_discarded_audio_messages": 0,
+              "clock_discarded_video_frames": 0,
+              "clock_discarded_wire_bytes": 0,
+              "clock_resets": 0,
+              "control": {
+                "budget_bytes": 1048576,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 0,
+                "maximum_write_duration_us": 56,
+                "maximum_write_gap_us": 3103,
+                "peak_bytes": 3767,
+                "submitted_messages": 5,
+                "written_messages": 5
+              },
+              "interactive_qos_error": 0,
+              "interactive_qos_requested": false,
+              "producer_waits": 0,
+              "realtime": true,
+              "video": {
+                "budget_bytes": 67371032,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 389,
+                "maximum_write_duration_us": 158,
+                "maximum_write_gap_us": 100347,
+                "peak_bytes": 1385182,
+                "submitted_messages": 10,
+                "written_messages": 10
+              },
+              "writer_active": false
+            },
+            "platform_timer": {
+              "median_us": 24060,
+              "observations_us": [
+                24055,
+                24056,
+                24057,
+                24058,
+                24058,
+                24058,
+                24058,
+                24058,
+                24058,
+                24058,
+                24058,
+                24058,
+                24059,
+                24059,
+                24059,
+                24060,
+                24060,
+                24060,
+                24061,
+                24061,
+                24061,
+                24061,
+                24061,
+                24061,
+                24061,
+                24061,
+                24062,
+                24062,
+                24063,
+                24063,
+                24065,
+                24067,
+                24068,
+                24078
+              ],
+              "qos_error": 0,
+              "requested_us": 24000
+            },
+            "realtime_trial": 2
+          }
+        ],
+        "archive_media_timing_qualification": "raw_120ms_median_pass",
+        "archive_media_fixed_three_observations": [
+          {
+            "largest_gap": {
+              "arrival_after_us": 732251,
+              "arrival_before_us": 708133,
+              "pts_after_us": 2377978,
+              "pts_before_us": 2353978
+            },
+            "maximum_continuous_audio_delivery_gap_us": 24118,
+            "output_scheduler": {
+              "ahead_us": 150000,
+              "audio": {
+                "budget_bytes": 1310744,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 157,
+                "maximum_write_duration_us": 24,
+                "maximum_write_gap_us": 24112,
+                "peak_bytes": 164780,
+                "submitted_messages": 42,
+                "written_messages": 42
+              },
+              "cancelled_messages": 0,
+              "clock_discarded_audio_messages": 0,
+              "clock_discarded_video_frames": 0,
+              "clock_discarded_wire_bytes": 0,
+              "clock_resets": 0,
+              "control": {
+                "budget_bytes": 1048576,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 0,
+                "maximum_write_duration_us": 70,
+                "maximum_write_gap_us": 3052,
+                "peak_bytes": 3768,
+                "submitted_messages": 5,
+                "written_messages": 5
+              },
+              "interactive_qos_error": 0,
+              "interactive_qos_requested": false,
+              "producer_waits": 0,
+              "realtime": true,
+              "video": {
+                "budget_bytes": 67371032,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 152,
+                "maximum_write_duration_us": 245,
+                "maximum_write_gap_us": 100248,
+                "peak_bytes": 1385182,
+                "submitted_messages": 10,
+                "written_messages": 10
+              },
+              "writer_active": false
+            },
+            "platform_timer": {
+              "median_us": 24073,
+              "observations_us": [
+                24041,
+                24056,
+                24057,
+                24057,
+                24057,
+                24057,
+                24058,
+                24058,
+                24059,
+                24059,
+                24060,
+                24060,
+                24060,
+                24061,
+                24061,
+                24062,
+                24065,
+                24073,
+                24086,
+                24100,
+                24151,
+                24154,
+                24155,
+                24157,
+                24157,
+                24159,
+                24160,
+                24160,
+                24160,
+                24161,
+                24162,
+                24198,
+                24249,
+                24450
+              ],
+              "qos_error": 0,
+              "requested_us": 24000
+            },
+            "realtime_trial": 0
+          },
+          {
+            "largest_gap": {
+              "arrival_after_us": 133129,
+              "arrival_before_us": 108510,
+              "pts_after_us": 1777978,
+              "pts_before_us": 1753978
+            },
+            "maximum_continuous_audio_delivery_gap_us": 24619,
+            "output_scheduler": {
+              "ahead_us": 150000,
+              "audio": {
+                "budget_bytes": 1310744,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 658,
+                "maximum_write_duration_us": 25,
+                "maximum_write_gap_us": 24619,
+                "peak_bytes": 164780,
+                "submitted_messages": 42,
+                "written_messages": 42
+              },
+              "cancelled_messages": 0,
+              "clock_discarded_audio_messages": 0,
+              "clock_discarded_video_frames": 0,
+              "clock_discarded_wire_bytes": 0,
+              "clock_resets": 0,
+              "control": {
+                "budget_bytes": 1048576,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 0,
+                "maximum_write_duration_us": 52,
+                "maximum_write_gap_us": 3053,
+                "peak_bytes": 3767,
+                "submitted_messages": 5,
+                "written_messages": 5
+              },
+              "interactive_qos_error": 0,
+              "interactive_qos_requested": false,
+              "producer_waits": 0,
+              "realtime": true,
+              "video": {
+                "budget_bytes": 67371032,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 512,
+                "maximum_write_duration_us": 132,
+                "maximum_write_gap_us": 100476,
+                "peak_bytes": 1385182,
+                "submitted_messages": 10,
+                "written_messages": 10
+              },
+              "writer_active": false
+            },
+            "platform_timer": {
+              "median_us": 24152,
+              "observations_us": [
+                24058,
+                24059,
+                24059,
+                24059,
+                24059,
+                24060,
+                24060,
+                24060,
+                24060,
+                24062,
+                24062,
+                24063,
+                24063,
+                24064,
+                24069,
+                24072,
+                24152,
+                24152,
+                24152,
+                24155,
+                24156,
+                24156,
+                24157,
+                24157,
+                24157,
+                24157,
+                24160,
+                24161,
+                24161,
+                24168,
+                24176,
+                24457,
+                24503,
+                24520
+              ],
+              "qos_error": 0,
+              "requested_us": 24000
+            },
+            "realtime_trial": 1
+          },
+          {
+            "largest_gap": {
+              "arrival_after_us": 132700,
+              "arrival_before_us": 108674,
+              "pts_after_us": 1777978,
+              "pts_before_us": 1753978
+            },
+            "maximum_continuous_audio_delivery_gap_us": 24026,
+            "output_scheduler": {
+              "ahead_us": 150000,
+              "audio": {
+                "budget_bytes": 1310744,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 70,
+                "maximum_write_duration_us": 15,
+                "maximum_write_gap_us": 24023,
+                "peak_bytes": 164780,
+                "submitted_messages": 42,
+                "written_messages": 42
+              },
+              "cancelled_messages": 0,
+              "clock_discarded_audio_messages": 0,
+              "clock_discarded_video_frames": 0,
+              "clock_discarded_wire_bytes": 0,
+              "clock_resets": 0,
+              "control": {
+                "budget_bytes": 1048576,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 0,
+                "maximum_write_duration_us": 55,
+                "maximum_write_gap_us": 3082,
+                "peak_bytes": 3767,
+                "submitted_messages": 5,
+                "written_messages": 5
+              },
+              "interactive_qos_error": 0,
+              "interactive_qos_requested": false,
+              "producer_waits": 0,
+              "realtime": true,
+              "video": {
+                "budget_bytes": 67371032,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 61,
+                "maximum_write_duration_us": 105,
+                "maximum_write_gap_us": 100007,
+                "peak_bytes": 1385182,
+                "submitted_messages": 10,
+                "written_messages": 10
+              },
+              "writer_active": false
+            },
+            "platform_timer": {
+              "median_us": 24060,
+              "observations_us": [
+                24010,
+                24057,
+                24057,
+                24057,
+                24058,
+                24058,
+                24059,
+                24059,
+                24059,
+                24059,
+                24059,
+                24059,
+                24060,
+                24060,
+                24060,
+                24060,
+                24060,
+                24060,
+                24060,
+                24061,
+                24061,
+                24061,
+                24061,
+                24061,
+                24061,
+                24062,
+                24062,
+                24062,
+                24063,
+                24064,
+                24064,
+                24064,
+                24065,
+                24065
+              ],
+              "qos_error": 0,
+              "requested_us": 24000
+            },
+            "realtime_trial": 2
+          }
+        ],
+        "actual_archived_avsplus_dra": true,
+        "actual_archived_tv_provider": true,
+        "native_independent_package_install": true
+      },
+      {
+        "name": "desktop (ubuntu-24.04)",
+        "id": 130412541343,
+        "conclusion": "success",
+        "ctest_summaries": [
+          [
+            "100",
+            "0",
+            "72"
+          ],
+          [
+            "100",
+            "0",
+            "7"
+          ]
+        ],
+        "skipped_tests": [
+          "71/72 Test #71: fm_playback_recovery ..................***Skipped   0.01 sec"
+        ],
+        "media_timing_qualification": "raw_120ms_median_pass",
+        "media_fixed_three_observations": [
+          {
+            "largest_gap": {
+              "arrival_after_us": 180623,
+              "arrival_before_us": 156555,
+              "pts_after_us": 1825978,
+              "pts_before_us": 1801978
+            },
+            "maximum_continuous_audio_delivery_gap_us": 24068,
+            "output_scheduler": {
+              "ahead_us": 150000,
+              "audio": {
+                "budget_bytes": 1310744,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 213,
+                "maximum_write_duration_us": 14,
+                "maximum_write_gap_us": 24038,
+                "peak_bytes": 164780,
+                "submitted_messages": 42,
+                "written_messages": 42
+              },
+              "cancelled_messages": 0,
+              "clock_discarded_audio_messages": 0,
+              "clock_discarded_video_frames": 0,
+              "clock_discarded_wire_bytes": 0,
+              "clock_resets": 0,
+              "control": {
+                "budget_bytes": 1048576,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 0,
+                "maximum_write_duration_us": 28,
+                "maximum_write_gap_us": 2972,
+                "peak_bytes": 3766,
+                "submitted_messages": 5,
+                "written_messages": 5
+              },
+              "interactive_qos_error": 0,
+              "interactive_qos_requested": false,
+              "producer_waits": 0,
+              "realtime": true,
+              "video": {
+                "budget_bytes": 67371032,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 88,
+                "maximum_write_duration_us": 297,
+                "maximum_write_gap_us": 100031,
+                "peak_bytes": 1385183,
+                "submitted_messages": 10,
+                "written_messages": 10
+              },
+              "writer_active": false
+            },
+            "platform_timer": {
+              "median_us": 24085,
+              "observations_us": [
+                24063,
+                24063,
+                24067,
+                24069,
+                24070,
+                24081,
+                24083,
+                24083,
+                24083,
+                24084,
+                24084,
+                24084,
+                24085,
+                24085,
+                24085,
+                24085,
+                24085,
+                24085,
+                24086,
+                24086,
+                24086,
+                24086,
+                24086,
+                24087,
+                24087,
+                24087,
+                24087,
+                24088,
+                24088,
+                24088,
+                24089,
+                24090,
+                24092,
+                24100
+              ],
+              "qos_error": 0,
+              "requested_us": 24000
+            },
+            "realtime_trial": 0
+          },
+          {
+            "largest_gap": {
+              "arrival_after_us": 109066,
+              "arrival_before_us": 85042,
+              "pts_after_us": 1753978,
+              "pts_before_us": 1729978
+            },
+            "maximum_continuous_audio_delivery_gap_us": 24024,
+            "output_scheduler": {
+              "ahead_us": 150000,
+              "audio": {
+                "budget_bytes": 1310744,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 95,
+                "maximum_write_duration_us": 13,
+                "maximum_write_gap_us": 24024,
+                "peak_bytes": 164780,
+                "submitted_messages": 42,
+                "written_messages": 42
+              },
+              "cancelled_messages": 0,
+              "clock_discarded_audio_messages": 0,
+              "clock_discarded_video_frames": 0,
+              "clock_discarded_wire_bytes": 0,
+              "clock_resets": 0,
+              "control": {
+                "budget_bytes": 1048576,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 0,
+                "maximum_write_duration_us": 34,
+                "maximum_write_gap_us": 3368,
+                "peak_bytes": 3766,
+                "submitted_messages": 5,
+                "written_messages": 5
+              },
+              "interactive_qos_error": 0,
+              "interactive_qos_requested": false,
+              "producer_waits": 0,
+              "realtime": true,
+              "video": {
+                "budget_bytes": 67371032,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 106,
+                "maximum_write_duration_us": 176,
+                "maximum_write_gap_us": 100040,
+                "peak_bytes": 1385183,
+                "submitted_messages": 10,
+                "written_messages": 10
+              },
+              "writer_active": false
+            },
+            "platform_timer": {
+              "median_us": 24084,
+              "observations_us": [
+                24038,
+                24060,
+                24062,
+                24062,
+                24062,
+                24063,
+                24063,
+                24063,
+                24065,
+                24065,
+                24065,
+                24067,
+                24068,
+                24069,
+                24071,
+                24072,
+                24078,
+                24084,
+                24085,
+                24085,
+                24085,
+                24085,
+                24086,
+                24086,
+                24086,
+                24086,
+                24086,
+                24087,
+                24087,
+                24087,
+                24088,
+                24088,
+                24088,
+                24089
+              ],
+              "qos_error": 0,
+              "requested_us": 24000
+            },
+            "realtime_trial": 1
+          },
+          {
+            "largest_gap": {
+              "arrival_after_us": 229021,
+              "arrival_before_us": 204955,
+              "pts_after_us": 1873978,
+              "pts_before_us": 1849978
+            },
+            "maximum_continuous_audio_delivery_gap_us": 24066,
+            "output_scheduler": {
+              "ahead_us": 150000,
+              "audio": {
+                "budget_bytes": 1310744,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 94,
+                "maximum_write_duration_us": 14,
+                "maximum_write_gap_us": 24035,
+                "peak_bytes": 164780,
+                "submitted_messages": 42,
+                "written_messages": 42
+              },
+              "cancelled_messages": 0,
+              "clock_discarded_audio_messages": 0,
+              "clock_discarded_video_frames": 0,
+              "clock_discarded_wire_bytes": 0,
+              "clock_resets": 0,
+              "control": {
+                "budget_bytes": 1048576,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 0,
+                "maximum_write_duration_us": 29,
+                "maximum_write_gap_us": 3333,
+                "peak_bytes": 3764,
+                "submitted_messages": 5,
+                "written_messages": 5
+              },
+              "interactive_qos_error": 0,
+              "interactive_qos_requested": false,
+              "producer_waits": 0,
+              "realtime": true,
+              "video": {
+                "budget_bytes": 67371032,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 90,
+                "maximum_write_duration_us": 106,
+                "maximum_write_gap_us": 100034,
+                "peak_bytes": 1385183,
+                "submitted_messages": 10,
+                "written_messages": 10
+              },
+              "writer_active": false
+            },
+            "platform_timer": {
+              "median_us": 24085,
+              "observations_us": [
+                24063,
+                24064,
+                24065,
+                24065,
+                24067,
+                24068,
+                24070,
+                24071,
+                24071,
+                24081,
+                24084,
+                24084,
+                24084,
+                24084,
+                24084,
+                24085,
+                24085,
+                24085,
+                24085,
+                24086,
+                24087,
+                24087,
+                24087,
+                24087,
+                24087,
+                24088,
+                24088,
+                24088,
+                24088,
+                24089,
+                24089,
+                24090,
+                24100,
+                24105
+              ],
+              "qos_error": 0,
+              "requested_us": 24000
+            },
+            "realtime_trial": 2
+          }
+        ],
+        "archive_media_timing_qualification": "raw_120ms_median_pass",
+        "archive_media_fixed_three_observations": [
+          {
+            "largest_gap": {
+              "arrival_after_us": 180450,
+              "arrival_before_us": 156398,
+              "pts_after_us": 1825978,
+              "pts_before_us": 1801978
+            },
+            "maximum_continuous_audio_delivery_gap_us": 24052,
+            "output_scheduler": {
+              "ahead_us": 150000,
+              "audio": {
+                "budget_bytes": 1310744,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 238,
+                "maximum_write_duration_us": 21,
+                "maximum_write_gap_us": 24039,
+                "peak_bytes": 164780,
+                "submitted_messages": 42,
+                "written_messages": 42
+              },
+              "cancelled_messages": 0,
+              "clock_discarded_audio_messages": 0,
+              "clock_discarded_video_frames": 0,
+              "clock_discarded_wire_bytes": 0,
+              "clock_resets": 0,
+              "control": {
+                "budget_bytes": 1048576,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 0,
+                "maximum_write_duration_us": 30,
+                "maximum_write_gap_us": 2842,
+                "peak_bytes": 3767,
+                "submitted_messages": 5,
+                "written_messages": 5
+              },
+              "interactive_qos_error": 0,
+              "interactive_qos_requested": false,
+              "producer_waits": 0,
+              "realtime": true,
+              "video": {
+                "budget_bytes": 67371032,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 89,
+                "maximum_write_duration_us": 293,
+                "maximum_write_gap_us": 100028,
+                "peak_bytes": 1385183,
+                "submitted_messages": 10,
+                "written_messages": 10
+              },
+              "writer_active": false
+            },
+            "platform_timer": {
+              "median_us": 24087,
+              "observations_us": [
+                24064,
+                24064,
+                24065,
+                24065,
+                24065,
+                24066,
+                24066,
+                24068,
+                24070,
+                24072,
+                24085,
+                24085,
+                24085,
+                24086,
+                24086,
+                24086,
+                24086,
+                24087,
+                24087,
+                24087,
+                24087,
+                24087,
+                24087,
+                24087,
+                24087,
+                24087,
+                24088,
+                24088,
+                24089,
+                24089,
+                24089,
+                24089,
+                24095,
+                24106
+              ],
+              "qos_error": 0,
+              "requested_us": 24000
+            },
+            "realtime_trial": 0
+          },
+          {
+            "largest_gap": {
+              "arrival_after_us": 781038,
+              "arrival_before_us": 756975,
+              "pts_after_us": 2425978,
+              "pts_before_us": 2401978
+            },
+            "maximum_continuous_audio_delivery_gap_us": 24063,
+            "output_scheduler": {
+              "ahead_us": 150000,
+              "audio": {
+                "budget_bytes": 1310744,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 92,
+                "maximum_write_duration_us": 13,
+                "maximum_write_gap_us": 24037,
+                "peak_bytes": 164780,
+                "submitted_messages": 42,
+                "written_messages": 42
+              },
+              "cancelled_messages": 0,
+              "clock_discarded_audio_messages": 0,
+              "clock_discarded_video_frames": 0,
+              "clock_discarded_wire_bytes": 0,
+              "clock_resets": 0,
+              "control": {
+                "budget_bytes": 1048576,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 0,
+                "maximum_write_duration_us": 28,
+                "maximum_write_gap_us": 3154,
+                "peak_bytes": 3766,
+                "submitted_messages": 5,
+                "written_messages": 5
+              },
+              "interactive_qos_error": 0,
+              "interactive_qos_requested": false,
+              "producer_waits": 0,
+              "realtime": true,
+              "video": {
+                "budget_bytes": 67371032,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 300,
+                "maximum_write_duration_us": 612,
+                "maximum_write_gap_us": 100745,
+                "peak_bytes": 1385183,
+                "submitted_messages": 10,
+                "written_messages": 10
+              },
+              "writer_active": false
+            },
+            "platform_timer": {
+              "median_us": 24086,
+              "observations_us": [
+                24063,
+                24065,
+                24067,
+                24069,
+                24083,
+                24084,
+                24084,
+                24085,
+                24085,
+                24085,
+                24086,
+                24086,
+                24086,
+                24086,
+                24086,
+                24086,
+                24086,
+                24086,
+                24087,
+                24087,
+                24087,
+                24087,
+                24087,
+                24087,
+                24087,
+                24088,
+                24088,
+                24088,
+                24089,
+                24089,
+                24089,
+                24090,
+                24092,
+                24109
+              ],
+              "qos_error": 0,
+              "requested_us": 24000
+            },
+            "realtime_trial": 1
+          },
+          {
+            "largest_gap": {
+              "arrival_after_us": 84976,
+              "arrival_before_us": 60940,
+              "pts_after_us": 1729978,
+              "pts_before_us": 1705978
+            },
+            "maximum_continuous_audio_delivery_gap_us": 24036,
+            "output_scheduler": {
+              "ahead_us": 150000,
+              "audio": {
+                "budget_bytes": 1310744,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 91,
+                "maximum_write_duration_us": 20,
+                "maximum_write_gap_us": 24024,
+                "peak_bytes": 164780,
+                "submitted_messages": 42,
+                "written_messages": 42
+              },
+              "cancelled_messages": 0,
+              "clock_discarded_audio_messages": 0,
+              "clock_discarded_video_frames": 0,
+              "clock_discarded_wire_bytes": 0,
+              "clock_resets": 0,
+              "control": {
+                "budget_bytes": 1048576,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 0,
+                "maximum_write_duration_us": 33,
+                "maximum_write_gap_us": 3151,
+                "peak_bytes": 3766,
+                "submitted_messages": 5,
+                "written_messages": 5
+              },
+              "interactive_qos_error": 0,
+              "interactive_qos_requested": false,
+              "producer_waits": 0,
+              "realtime": true,
+              "video": {
+                "budget_bytes": 67371032,
+                "held_bytes": 0,
+                "maximum_deadline_lateness_us": 89,
+                "maximum_write_duration_us": 119,
+                "maximum_write_gap_us": 100039,
+                "peak_bytes": 1385183,
+                "submitted_messages": 10,
+                "written_messages": 10
+              },
+              "writer_active": false
+            },
+            "platform_timer": {
+              "median_us": 24066,
+              "observations_us": [
+                24049,
+                24061,
+                24061,
+                24061,
+                24061,
+                24062,
+                24063,
+                24063,
+                24063,
+                24063,
+                24063,
+                24063,
+                24064,
+                24065,
+                24065,
+                24066,
+                24066,
+                24066,
+                24067,
+                24067,
+                24082,
+                24084,
+                24084,
+                24084,
+                24084,
+                24085,
+                24085,
+                24085,
+                24085,
+                24086,
+                24086,
+                24086,
+                24086,
+                24088
+              ],
+              "qos_error": 0,
+              "requested_us": 24000
+            },
+            "realtime_trial": 2
+          }
+        ],
+        "actual_archived_avsplus_dra": true,
+        "actual_archived_tv_provider": true,
+        "native_independent_package_install": true
+      }
+    ],
+    "preparations": [
+      {
+        "run": 42987202863,
+        "id": 130411105882,
+        "conclusion": "success"
+      }
+    ]
+  },
+  "native_package_audit": {
+    "scope": "Archive contents and hashes; native execution is proven by the separate six-platform CI logs",
+    "source_commit": "3612f78392e2d3b43288770f82721bca7ccdac5a",
+    "packages": 24,
+    "applications": [
+      {
+        "source_commit": "3612f78392e2d3b43288770f82721bca7ccdac5a",
+        "version": "0.2.10",
+        "platform": "linux-debian13-x86_64",
+        "gui_sha256": "5c7dff324406951bcd2c6d81462d7190abcacc0ed217b31061b7efff842b8688",
+        "media_helper_sha256": "169692213ba45d31fe530b084abdea3b37ab73bf2e7e73de5285182d66e0ad7f",
+        "package_sha256": "b0efe19613a4ad9969b7643df1e9856d97929672e1431293e5da98b52a28802a",
+        "package_filename": "org.amc.ams-0.2.10-linux-debian13-x86_64.amcpkg"
+      },
+      {
+        "source_commit": "3612f78392e2d3b43288770f82721bca7ccdac5a",
+        "version": "0.2.10",
+        "platform": "linux-debian13-arm64",
+        "gui_sha256": "36dfd8446f9a663d3c7b52b8d6ab9cb33fca0f558963a70b52bb4f6f5f35c032",
+        "media_helper_sha256": "e45af30ac46442eda9fb67046430b73689a3d47394e88cee6ee77f1c2a74b2c4",
+        "package_sha256": "6f9173d5da1682f8bfe4805448ec57ddc0ccf61722805f273e436ecf5f7ec3f4",
+        "package_filename": "org.amc.ams-0.2.10-linux-debian13-arm64.amcpkg"
+      },
+      {
+        "source_commit": "3612f78392e2d3b43288770f82721bca7ccdac5a",
+        "version": "0.2.10",
+        "platform": "linux-ubuntu24.04-arm64",
+        "gui_sha256": "1b6e59b2d7a998b3714d3299cd919a83fbbf5457dd68971da625746781d987d3",
+        "media_helper_sha256": "8e17b527eed155ec57f97e5c7fe402c0809130a2c63238c90c237d1e0af8aeb3",
+        "package_sha256": "a2b05d9173b4dd761b9046db994d9cd5adfebac76eb0cff47821776f5225d420",
+        "package_filename": "org.amc.ams-0.2.10-linux-ubuntu24.04-arm64.amcpkg"
+      },
+      {
+        "source_commit": "3612f78392e2d3b43288770f82721bca7ccdac5a",
+        "version": "0.2.10",
+        "platform": "linux-ubuntu24.04-x86_64",
+        "gui_sha256": "b0749886a0fdf6ab6ceeafafb60a476d9830b99ba6895a2ea795adbcb5235949",
+        "media_helper_sha256": "f4d1660b03e4e5eebd7424bf63e1fd0528fcefa2b26b594d3635b18fbb78816c",
+        "package_sha256": "8904423150cc34c630f49ef8dc85a630f1c3d6ee6fdb5c3df4c7c05daf725b27",
+        "package_filename": "org.amc.ams-0.2.10-linux-ubuntu24.04-x86_64.amcpkg"
+      },
+      {
+        "source_commit": "3612f78392e2d3b43288770f82721bca7ccdac5a",
+        "version": "0.2.10",
+        "platform": "macos-arm64",
+        "gui_sha256": "fd980269834d6f463f3cbff203b55950667a35251320484c8c96ebfbccb3d040",
+        "media_helper_sha256": "23f00728ec541acf751b2788d5c32fd8855de19d23553ee57bfb69821fde0536",
+        "package_sha256": "1afa726999271de7780c604f99bcc6e95576e1db8df46fc25bdf6b4f5206e165",
+        "package_filename": "org.amc.ams-0.2.10-macos-arm64.amcpkg"
+      },
+      {
+        "source_commit": "3612f78392e2d3b43288770f82721bca7ccdac5a",
+        "version": "0.2.10",
+        "platform": "windows-x86_64",
+        "gui_sha256": "0c4f3e473c3aed2d9325068513c7a518a8155547cff1b245ad679c797d9f1578",
+        "media_helper_sha256": "a3e93f44301482b499141764aef257c4721f2e7343e9838df18684ed0eee03bd",
+        "package_sha256": "53856356051ba011d24d3e1e6dd2f8ae4a884ea50d420c5a243bcfa5b20aef19",
+        "package_filename": "org.amc.ams-0.2.10-windows-x86_64.amcpkg"
+      }
+    ],
+    "mac_receiver_runtime_notices": true
+  },
+  "deployments": {
+    "31.42": {
+      "version": "0.2.10",
+      "platform": "linux-debian13-x86_64",
+      "source_commit": "3612f78392e2d3b43288770f82721bca7ccdac5a",
+      "pid": 1252198,
+      "gui_sha256": "5c7dff324406951bcd2c6d81462d7190abcacc0ed217b31061b7efff842b8688",
+      "installed": {
+        "org.amc.ams": "0.2.10",
+        "org.amc.receiver.rtlsdr": "0.2.10",
+        "org.amc.receiver.sdrplay": "0.2.10",
+        "org.amc.research.power-report": "0.2.10"
+      },
+      "stable_launcher_version": "0.2.10",
+      "activation_state": "applied",
+      "receiver_plugins": [
+        {
+          "id": "rtlsdr",
+          "status": "loaded",
+          "toolbox": {
+            "id": "org.amc.receiver.rtlsdr",
+            "version": "0.2.10"
+          }
+        },
+        {
+          "id": "sdrplay",
+          "status": "loaded",
+          "toolbox": {
+            "id": "org.amc.receiver.sdrplay",
+            "version": "0.2.10"
+          }
+        },
+        {
+          "id": "rtlsdr",
+          "status": "superseded",
+          "toolbox": null
+        },
+        {
+          "id": "sdrplay",
+          "status": "superseded",
+          "toolbox": null
+        }
+      ]
+    },
+    "uConsole": {
+      "version": "0.2.10",
+      "platform": "linux-debian13-arm64",
+      "source_commit": "3612f78392e2d3b43288770f82721bca7ccdac5a",
+      "pid": 26108,
+      "gui_sha256": "36dfd8446f9a663d3c7b52b8d6ab9cb33fca0f558963a70b52bb4f6f5f35c032",
+      "installed": {
+        "org.amc.ams": "0.2.10",
+        "org.amc.receiver.rtlsdr": "0.2.10",
+        "org.amc.receiver.sdrplay": "0.2.10",
+        "org.amc.research.power-report": "0.2.10"
+      },
+      "stable_launcher_version": "0.2.10",
+      "activation_state": "applied",
+      "receiver_plugins": [
+        {
+          "id": "rtlsdr",
+          "status": "loaded",
+          "toolbox": {
+            "id": "org.amc.receiver.rtlsdr",
+            "version": "0.2.10"
+          }
+        },
+        {
+          "id": "sdrplay",
+          "status": "loaded",
+          "toolbox": {
+            "id": "org.amc.receiver.sdrplay",
+            "version": "0.2.10"
+          }
+        },
+        {
+          "id": "rtlsdr",
+          "status": "superseded",
+          "toolbox": null
+        },
+        {
+          "id": "sdrplay",
+          "status": "superseded",
+          "toolbox": null
+        }
+      ]
+    }
+  },
+  "native_installed_media": {
+    "scope": "Native muted Qt/Pulse validation driver using installed signed application helpers, runtime and resources; short inputs, no human listening or long-duration guarantee",
+    "version": "0.2.10",
+    "helper": "/home/vicliu/.local/share/SignalScope/distribution/packages/org.amc.ams/0.2.10/bin/signalscope-media",
+    "helper_sha256": "169692213ba45d31fe530b084abdea3b37ab73bf2e7e73de5285182d66e0ad7f",
+    "driver_sha256": "b254343fd171efdaf8c918045706ebfbd3772ebfbb7f309bf2924940df342c5a",
+    "checks": {
+      "normative": {
+        "exit": 0,
+        "playback": {
+          "decoded_video_frames": 10,
+          "presented_video_frames": 8,
+          "written_audio_frames": 48384,
+          "unavailable_audio_frames": 0,
+          "audio_underruns": 0,
+          "audio_eof_drains": 1,
+          "audio_clock_video_samples": 7,
+          "maximum_audio_video_offset_us": 13148,
+          "decode_errors": 0
+        },
+        "mode": {
+          "fec_rate": 2,
+          "frame_body": "c3780",
+          "interleaver": "mode2",
+          "origin": "detected",
+          "pn_symbols": 945,
+          "qam": "64qam",
+          "system_info": 22
+        },
+        "transport": {
+          "continuity_errors": 0,
+          "discarded_bytes": 0,
+          "duplicate_packets": 0,
+          "input_bytes": 2180988,
+          "input_discontinuities": 0,
+          "malformed_packets_or_sections": 0,
+          "packets": 11601,
+          "pat_version": 0,
+          "programs": [
+            {
+              "conditional_access": false,
+              "descriptors": [],
+              "name_raw": [
+                65,
+                77,
+                67,
+                45,
+                52,
+                52,
+                48
+              ],
+              "pcr_pid": 256,
+              "pmt_pid": 4096,
+              "pmt_version": 0,
+              "program_id": 101,
+              "provider_raw": [
+                70,
+                70,
+                109,
+                112,
+                101,
+                103
+              ],
+              "ready": true,
+              "streams": [
+                {
+                  "conditional_access": false,
+                  "descriptors": [],
+                  "pid": 256,
+                  "scrambled_packets": 0,
+                  "stream_type": 2
+                },
+                {
+                  "conditional_access": false,
+                  "descriptors": [],
+                  "pid": 257,
+                  "scrambled_packets": 0,
+                  "stream_type": 3
+                },
+                {
+                  "conditional_access": false,
+                  "descriptors": [],
+                  "pid": 258,
+                  "scrambled_packets": 0,
+                  "stream_type": 3
+                }
+              ]
+            },
+            {
+              "conditional_access": false,
+              "descriptors": [],
+              "name_raw": [
+                65,
+                77,
+                67,
+                45,
+                56,
+                56,
+                48
+              ],
+              "pcr_pid": 256,
+              "pmt_pid": 4097,
+              "pmt_version": 0,
+              "program_id": 202,
+              "provider_raw": [
+                70,
+                70,
+                109,
+                112,
+                101,
+                103
+              ],
+              "ready": true,
+              "streams": [
+                {
+                  "conditional_access": false,
+                  "descriptors": [],
+                  "pid": 256,
+                  "scrambled_packets": 0,
+                  "stream_type": 2
+                },
+                {
+                  "conditional_access": false,
+                  "descriptors": [],
+                  "pid": 258,
+                  "scrambled_packets": 0,
+                  "stream_type": 3
+                }
+              ]
+            }
+          ],
+          "revision": 4,
+          "scrambled_packets": 0,
+          "sdt_version": 0,
+          "section_crc_errors": 0,
+          "sync_losses": 0,
+          "transport_error_packets": 0,
+          "transport_stream_id": 1
+        },
+        "selections": [
+          {
+            "interaction": "audio-track",
+            "program": 101,
+            "selected_audio_pid": 257,
+            "playback": {
+              "decoded_video_frames": 10,
+              "presented_video_frames": 10,
+              "written_audio_frames": 48384,
+              "unavailable_audio_frames": 0,
+              "audio_underruns": 0,
+              "audio_eof_drains": 0,
+              "audio_clock_video_samples": 10,
+              "maximum_audio_video_offset_us": 14434,
+              "decode_errors": 0
+            }
+          },
+          {
+            "interaction": "audio-track",
+            "program": 101,
+            "selected_audio_pid": 258,
+            "playback": {
+              "decoded_video_frames": 10,
+              "presented_video_frames": 10,
+              "written_audio_frames": 48384,
+              "unavailable_audio_frames": 0,
+              "audio_underruns": 0,
+              "audio_eof_drains": 0,
+              "audio_clock_video_samples": 10,
+              "maximum_audio_video_offset_us": 14808,
+              "decode_errors": 0
+            }
+          },
+          {
+            "interaction": "program",
+            "program": 202,
+            "selected_audio_pid": 258,
+            "playback": {
+              "decoded_video_frames": 10,
+              "presented_video_frames": 10,
+              "written_audio_frames": 48384,
+              "unavailable_audio_frames": 0,
+              "audio_underruns": 0,
+              "audio_eof_drains": 0,
+              "audio_clock_video_samples": 10,
+              "maximum_audio_video_offset_us": 14406,
+              "decode_errors": 0
+            }
+          }
+        ]
+      },
+      "avsplus": {
+        "exit": 0,
+        "playback": {
+          "decoded_video_frames": 5,
+          "presented_video_frames": 5,
+          "written_audio_frames": 0,
+          "unavailable_audio_frames": 0,
+          "audio_underruns": 0,
+          "audio_eof_drains": 0,
+          "audio_clock_video_samples": 0,
+          "maximum_audio_video_offset_us": 0,
+          "decode_errors": 0
+        }
+      },
+      "dra": {
+        "exit": 0,
+        "playback": {
+          "decoded_video_frames": 291,
+          "presented_video_frames": 290,
+          "written_audio_frames": 599040,
+          "unavailable_audio_frames": 0,
+          "audio_underruns": 0,
+          "audio_eof_drains": 1,
+          "audio_clock_video_samples": 286,
+          "maximum_audio_video_offset_us": 14999,
+          "decode_errors": 2
+        }
+      }
+    }
+  },
+  "historical_failed_macos_observations": [
+    {
+      "run": 42975327453,
+      "conclusion": "failure",
+      "scope": "Historical raw timing failure; includes unsuccessful QoS-only experiment. No frame or budget failure was excused.",
+      "observations": [
+        {
+          "largest_gap": {
+            "arrival_after_us": 195560,
+            "arrival_before_us": 68842,
+            "pts_after_us": 1729978,
+            "pts_before_us": 1705978
+          },
+          "maximum_continuous_audio_delivery_gap_us": 126718,
+          "output_scheduler": {
+            "ahead_us": 150000,
+            "audio": {
+              "budget_bytes": 1310744,
+              "held_bytes": 0,
+              "peak_bytes": 164780,
+              "submitted_messages": 42,
+              "written_messages": 42
+            },
+            "cancelled_messages": 0,
+            "clock_discarded_audio_messages": 0,
+            "clock_discarded_video_frames": 0,
+            "clock_discarded_wire_bytes": 0,
+            "clock_resets": 0,
+            "control": {
+              "budget_bytes": 1048576,
+              "held_bytes": 0,
+              "peak_bytes": 3432,
+              "submitted_messages": 5,
+              "written_messages": 5
+            },
+            "producer_waits": 0,
+            "realtime": true,
+            "video": {
+              "budget_bytes": 67371032,
+              "held_bytes": 0,
+              "peak_bytes": 1385182,
+              "submitted_messages": 10,
+              "written_messages": 10
+            },
+            "writer_active": false
+          },
+          "realtime_trial": 0
+        },
+        {
+          "largest_gap": {
+            "arrival_after_us": 849470,
+            "arrival_before_us": 719237,
+            "pts_after_us": 2377978,
+            "pts_before_us": 2353978
+          },
+          "maximum_continuous_audio_delivery_gap_us": 130233,
+          "output_scheduler": {
+            "ahead_us": 150000,
+            "audio": {
+              "budget_bytes": 1310744,
+              "held_bytes": 0,
+              "peak_bytes": 164780,
+              "submitted_messages": 42,
+              "written_messages": 42
+            },
+            "cancelled_messages": 0,
+            "clock_discarded_audio_messages": 0,
+            "clock_discarded_video_frames": 0,
+            "clock_discarded_wire_bytes": 0,
+            "clock_resets": 0,
+            "control": {
+              "budget_bytes": 1048576,
+              "held_bytes": 0,
+              "peak_bytes": 3432,
+              "submitted_messages": 5,
+              "written_messages": 5
+            },
+            "producer_waits": 0,
+            "realtime": true,
+            "video": {
+              "budget_bytes": 67371032,
+              "held_bytes": 0,
+              "peak_bytes": 1385182,
+              "submitted_messages": 10,
+              "written_messages": 10
+            },
+            "writer_active": false
+          },
+          "realtime_trial": 1
+        },
+        {
+          "largest_gap": {
+            "arrival_after_us": 365744,
+            "arrival_before_us": 210799,
+            "pts_after_us": 1873978,
+            "pts_before_us": 1849978
+          },
+          "maximum_continuous_audio_delivery_gap_us": 154945,
+          "output_scheduler": {
+            "ahead_us": 150000,
+            "audio": {
+              "budget_bytes": 1310744,
+              "held_bytes": 0,
+              "peak_bytes": 164780,
+              "submitted_messages": 42,
+              "written_messages": 42
+            },
+            "cancelled_messages": 0,
+            "clock_discarded_audio_messages": 0,
+            "clock_discarded_video_frames": 0,
+            "clock_discarded_wire_bytes": 0,
+            "clock_resets": 0,
+            "control": {
+              "budget_bytes": 1048576,
+              "held_bytes": 0,
+              "peak_bytes": 3432,
+              "submitted_messages": 5,
+              "written_messages": 5
+            },
+            "producer_waits": 0,
+            "realtime": true,
+            "video": {
+              "budget_bytes": 67371032,
+              "held_bytes": 0,
+              "peak_bytes": 1385182,
+              "submitted_messages": 10,
+              "written_messages": 10
+            },
+            "writer_active": false
+          },
+          "realtime_trial": 2
+        }
+      ]
+    },
+    {
+      "run": 42975933462,
+      "conclusion": "failure",
+      "scope": "Historical raw timing failure; includes unsuccessful QoS-only experiment. No frame or budget failure was excused.",
+      "observations": [
+        {
+          "largest_gap": {
+            "arrival_after_us": 669564,
+            "arrival_before_us": 530322,
+            "pts_after_us": 2185978,
+            "pts_before_us": 2161978
+          },
+          "maximum_continuous_audio_delivery_gap_us": 139242,
+          "output_scheduler": {
+            "ahead_us": 150000,
+            "audio": {
+              "budget_bytes": 1310744,
+              "held_bytes": 0,
+              "peak_bytes": 164780,
+              "submitted_messages": 42,
+              "written_messages": 42
+            },
+            "cancelled_messages": 0,
+            "clock_discarded_audio_messages": 0,
+            "clock_discarded_video_frames": 0,
+            "clock_discarded_wire_bytes": 0,
+            "clock_resets": 0,
+            "control": {
+              "budget_bytes": 1048576,
+              "held_bytes": 0,
+              "peak_bytes": 4235,
+              "submitted_messages": 5,
+              "written_messages": 5
+            },
+            "producer_waits": 0,
+            "realtime": true,
+            "video": {
+              "budget_bytes": 67371032,
+              "held_bytes": 0,
+              "peak_bytes": 1385182,
+              "submitted_messages": 10,
+              "written_messages": 10
+            },
+            "writer_active": false
+          },
+          "realtime_trial": 0
+        },
+        {
+          "largest_gap": {
+            "arrival_after_us": 925910,
+            "arrival_before_us": 764747,
+            "pts_after_us": 2425978,
+            "pts_before_us": 2401978
+          },
+          "maximum_continuous_audio_delivery_gap_us": 161163,
+          "output_scheduler": {
+            "ahead_us": 150000,
+            "audio": {
+              "budget_bytes": 1310744,
+              "held_bytes": 0,
+              "peak_bytes": 164780,
+              "submitted_messages": 42,
+              "written_messages": 42
+            },
+            "cancelled_messages": 0,
+            "clock_discarded_audio_messages": 0,
+            "clock_discarded_video_frames": 0,
+            "clock_discarded_wire_bytes": 0,
+            "clock_resets": 0,
+            "control": {
+              "budget_bytes": 1048576,
+              "held_bytes": 0,
+              "peak_bytes": 3432,
+              "submitted_messages": 5,
+              "written_messages": 5
+            },
+            "producer_waits": 0,
+            "realtime": true,
+            "video": {
+              "budget_bytes": 67371032,
+              "held_bytes": 0,
+              "peak_bytes": 1385182,
+              "submitted_messages": 10,
+              "written_messages": 10
+            },
+            "writer_active": false
+          },
+          "realtime_trial": 1
+        },
+        {
+          "largest_gap": {
+            "arrival_after_us": 962860,
+            "arrival_before_us": 814506,
+            "pts_after_us": 2473978,
+            "pts_before_us": 2449978
+          },
+          "maximum_continuous_audio_delivery_gap_us": 148354,
+          "output_scheduler": {
+            "ahead_us": 150000,
+            "audio": {
+              "budget_bytes": 1310744,
+              "held_bytes": 0,
+              "peak_bytes": 164780,
+              "submitted_messages": 42,
+              "written_messages": 42
+            },
+            "cancelled_messages": 0,
+            "clock_discarded_audio_messages": 0,
+            "clock_discarded_video_frames": 0,
+            "clock_discarded_wire_bytes": 0,
+            "clock_resets": 0,
+            "control": {
+              "budget_bytes": 1048576,
+              "held_bytes": 0,
+              "peak_bytes": 3432,
+              "submitted_messages": 5,
+              "written_messages": 5
+            },
+            "producer_waits": 0,
+            "realtime": true,
+            "video": {
+              "budget_bytes": 67371032,
+              "held_bytes": 0,
+              "peak_bytes": 1385182,
+              "submitted_messages": 10,
+              "written_messages": 10
+            },
+            "writer_active": false
+          },
+          "realtime_trial": 2
+        }
+      ]
+    },
+    {
+      "run": 42978533967,
+      "conclusion": "failure",
+      "scope": "Historical raw timing failure; includes unsuccessful QoS-only experiment. No frame or budget failure was excused.",
+      "observations": [
+        {
+          "largest_gap": {
+            "arrival_after_us": 283849,
+            "arrival_before_us": 111235,
+            "pts_after_us": 1777978,
+            "pts_before_us": 1753978
+          },
+          "maximum_continuous_audio_delivery_gap_us": 172614,
+          "output_scheduler": {
+            "ahead_us": 150000,
+            "audio": {
+              "budget_bytes": 1310744,
+              "held_bytes": 0,
+              "maximum_deadline_lateness_us": 150085,
+              "maximum_write_duration_us": 26,
+              "maximum_write_gap_us": 172581,
+              "peak_bytes": 164780,
+              "submitted_messages": 42,
+              "written_messages": 42
+            },
+            "cancelled_messages": 0,
+            "clock_discarded_audio_messages": 0,
+            "clock_discarded_video_frames": 0,
+            "clock_discarded_wire_bytes": 0,
+            "clock_resets": 0,
+            "control": {
+              "budget_bytes": 1048576,
+              "held_bytes": 0,
+              "maximum_deadline_lateness_us": 0,
+              "maximum_write_duration_us": 20,
+              "maximum_write_gap_us": 2291,
+              "peak_bytes": 3765,
+              "submitted_messages": 5,
+              "written_messages": 5
+            },
+            "interactive_qos_error": 0,
+            "interactive_qos_requested": true,
+            "producer_waits": 0,
+            "realtime": true,
+            "video": {
+              "budget_bytes": 67371032,
+              "held_bytes": 0,
+              "maximum_deadline_lateness_us": 128106,
+              "maximum_write_duration_us": 374,
+              "maximum_write_gap_us": 228078,
+              "peak_bytes": 1385182,
+              "submitted_messages": 10,
+              "written_messages": 10
+            },
+            "writer_active": false
+          },
+          "realtime_trial": 0
+        },
+        {
+          "largest_gap": {
+            "arrival_after_us": 408870,
+            "arrival_before_us": 240959,
+            "pts_after_us": 1897978,
+            "pts_before_us": 1873978
+          },
+          "maximum_continuous_audio_delivery_gap_us": 167911,
+          "output_scheduler": {
+            "ahead_us": 150000,
+            "audio": {
+              "budget_bytes": 1310744,
+              "held_bytes": 0,
+              "maximum_deadline_lateness_us": 144461,
+              "maximum_write_duration_us": 113,
+              "maximum_write_gap_us": 167879,
+              "peak_bytes": 164780,
+              "submitted_messages": 42,
+              "written_messages": 42
+            },
+            "cancelled_messages": 0,
+            "clock_discarded_audio_messages": 0,
+            "clock_discarded_video_frames": 0,
+            "clock_discarded_wire_bytes": 0,
+            "clock_resets": 0,
+            "control": {
+              "budget_bytes": 1048576,
+              "held_bytes": 0,
+              "maximum_deadline_lateness_us": 0,
+              "maximum_write_duration_us": 9,
+              "maximum_write_gap_us": 2186,
+              "peak_bytes": 4560,
+              "submitted_messages": 5,
+              "written_messages": 5
+            },
+            "interactive_qos_error": 0,
+            "interactive_qos_requested": true,
+            "producer_waits": 0,
+            "realtime": true,
+            "video": {
+              "budget_bytes": 67371032,
+              "held_bytes": 0,
+              "maximum_deadline_lateness_us": 142458,
+              "maximum_write_duration_us": 444,
+              "maximum_write_gap_us": 217251,
+              "peak_bytes": 1385182,
+              "submitted_messages": 10,
+              "written_messages": 10
+            },
+            "writer_active": false
+          },
+          "realtime_trial": 1
+        },
+        {
+          "largest_gap": {
+            "arrival_after_us": 169511,
+            "arrival_before_us": 17258,
+            "pts_after_us": 1681978,
+            "pts_before_us": 1657978
+          },
+          "maximum_continuous_audio_delivery_gap_us": 152253,
+          "output_scheduler": {
+            "ahead_us": 150000,
+            "audio": {
+              "budget_bytes": 1310744,
+              "held_bytes": 0,
+              "maximum_deadline_lateness_us": 132830,
+              "maximum_write_duration_us": 75,
+              "maximum_write_gap_us": 152227,
+              "peak_bytes": 164780,
+              "submitted_messages": 42,
+              "written_messages": 42
+            },
+            "cancelled_messages": 0,
+            "clock_discarded_audio_messages": 0,
+            "clock_discarded_video_frames": 0,
+            "clock_discarded_wire_bytes": 0,
+            "clock_resets": 0,
+            "control": {
+              "budget_bytes": 1048576,
+              "held_bytes": 0,
+              "maximum_deadline_lateness_us": 0,
+              "maximum_write_duration_us": 17,
+              "maximum_write_gap_us": 2072,
+              "peak_bytes": 3765,
+              "submitted_messages": 5,
+              "written_messages": 5
+            },
+            "interactive_qos_error": 0,
+            "interactive_qos_requested": true,
+            "producer_waits": 0,
+            "realtime": true,
+            "video": {
+              "budget_bytes": 67371032,
+              "held_bytes": 0,
+              "maximum_deadline_lateness_us": 113436,
+              "maximum_write_duration_us": 415,
+              "maximum_write_gap_us": 163290,
+              "peak_bytes": 1385182,
+              "submitted_messages": 10,
+              "written_messages": 10
+            },
+            "writer_active": false
+          },
+          "realtime_trial": 2
+        }
+      ]
+    },
+    {
+      "run": 42981537068,
+      "conclusion": "failure",
+      "scope": "Historical raw timing failure; includes unsuccessful QoS-only experiment. No frame or budget failure was excused.",
+      "observations": [
+        {
+          "largest_gap": {
+            "arrival_after_us": 908023,
+            "arrival_before_us": 736741,
+            "pts_after_us": 2401978,
+            "pts_before_us": 2377978
+          },
+          "maximum_continuous_audio_delivery_gap_us": 171282,
+          "output_scheduler": {
+            "ahead_us": 150000,
+            "audio": {
+              "budget_bytes": 1310744,
+              "held_bytes": 0,
+              "maximum_deadline_lateness_us": 148277,
+              "maximum_write_duration_us": 26,
+              "maximum_write_gap_us": 171257,
+              "peak_bytes": 164780,
+              "submitted_messages": 42,
+              "written_messages": 42
+            },
+            "cancelled_messages": 0,
+            "clock_discarded_audio_messages": 0,
+            "clock_discarded_video_frames": 0,
+            "clock_discarded_wire_bytes": 0,
+            "clock_resets": 0,
+            "control": {
+              "budget_bytes": 1048576,
+              "held_bytes": 0,
+              "maximum_deadline_lateness_us": 0,
+              "maximum_write_duration_us": 47,
+              "maximum_write_gap_us": 3724,
+              "peak_bytes": 3767,
+              "submitted_messages": 5,
+              "written_messages": 5
+            },
+            "interactive_qos_error": 0,
+            "interactive_qos_requested": true,
+            "producer_waits": 0,
+            "realtime": true,
+            "video": {
+              "budget_bytes": 67371032,
+              "held_bytes": 0,
+              "maximum_deadline_lateness_us": 150042,
+              "maximum_write_duration_us": 315,
+              "maximum_write_gap_us": 217678,
+              "peak_bytes": 1385182,
+              "submitted_messages": 10,
+              "written_messages": 10
+            },
+            "writer_active": false
+          },
+          "platform_timer": {
+            "median_us": 94113,
+            "observations_us": [
+              24096,
+              29831,
+              51516,
+              66827,
+              67044,
+              94113,
+              95095,
+              134236,
+              172226,
+              172632
+            ],
+            "qos_error": 0,
+            "requested_us": 24000
+          },
+          "realtime_trial": 0
+        },
+        {
+          "largest_gap": {
+            "arrival_after_us": 706601,
+            "arrival_before_us": 605005,
+            "pts_after_us": 2257978,
+            "pts_before_us": 2233978
+          },
+          "maximum_continuous_audio_delivery_gap_us": 101596,
+          "output_scheduler": {
+            "ahead_us": 150000,
+            "audio": {
+              "budget_bytes": 1310744,
+              "held_bytes": 0,
+              "maximum_deadline_lateness_us": 90300,
+              "maximum_write_duration_us": 145,
+              "maximum_write_gap_us": 101599,
+              "peak_bytes": 164780,
+              "submitted_messages": 42,
+              "written_messages": 42
+            },
+            "cancelled_messages": 0,
+            "clock_discarded_audio_messages": 0,
+            "clock_discarded_video_frames": 0,
+            "clock_discarded_wire_bytes": 0,
+            "clock_resets": 0,
+            "control": {
+              "budget_bytes": 1048576,
+              "held_bytes": 0,
+              "maximum_deadline_lateness_us": 0,
+              "maximum_write_duration_us": 31,
+              "maximum_write_gap_us": 4474,
+              "peak_bytes": 3766,
+              "submitted_messages": 5,
+              "written_messages": 5
+            },
+            "interactive_qos_error": 0,
+            "interactive_qos_requested": true,
+            "producer_waits": 0,
+            "realtime": true,
+            "video": {
+              "budget_bytes": 67371032,
+              "held_bytes": 0,
+              "maximum_deadline_lateness_us": 64800,
+              "maximum_write_duration_us": 1234,
+              "maximum_write_gap_us": 128391,
+              "peak_bytes": 1385182,
+              "submitted_messages": 10,
+              "written_messages": 10
+            },
+            "writer_active": false
+          },
+          "platform_timer": {
+            "median_us": 144322,
+            "observations_us": [
+              94243,
+              122140,
+              128685,
+              144322,
+              148796,
+              162560
+            ],
+            "qos_error": 0,
+            "requested_us": 24000
+          },
+          "realtime_trial": 1
+        },
+        {
+          "largest_gap": {
+            "arrival_after_us": 184110,
+            "arrival_before_us": 15610,
+            "pts_after_us": 1681978,
+            "pts_before_us": 1657978
+          },
+          "maximum_continuous_audio_delivery_gap_us": 168500,
+          "output_scheduler": {
+            "ahead_us": 150000,
+            "audio": {
+              "budget_bytes": 1310744,
+              "held_bytes": 0,
+              "maximum_deadline_lateness_us": 145049,
+              "maximum_write_duration_us": 25,
+              "maximum_write_gap_us": 168485,
+              "peak_bytes": 164780,
+              "submitted_messages": 42,
+              "written_messages": 42
+            },
+            "cancelled_messages": 0,
+            "clock_discarded_audio_messages": 0,
+            "clock_discarded_video_frames": 0,
+            "clock_discarded_wire_bytes": 0,
+            "clock_resets": 0,
+            "control": {
+              "budget_bytes": 1048576,
+              "held_bytes": 0,
+              "maximum_deadline_lateness_us": 0,
+              "maximum_write_duration_us": 23,
+              "maximum_write_gap_us": 5116,
+              "peak_bytes": 3766,
+              "submitted_messages": 5,
+              "written_messages": 5
+            },
+            "interactive_qos_error": 0,
+            "interactive_qos_requested": true,
+            "producer_waits": 0,
+            "realtime": true,
+            "video": {
+              "budget_bytes": 67371032,
+              "held_bytes": 0,
+              "maximum_deadline_lateness_us": 127048,
+              "maximum_write_duration_us": 266,
+              "maximum_write_gap_us": 185436,
+              "peak_bytes": 1385182,
+              "submitted_messages": 10,
+              "written_messages": 10
+            },
+            "writer_active": false
+          },
+          "platform_timer": {
+            "median_us": 87564,
+            "observations_us": [
+              29770,
+              36071,
+              36179,
+              54089,
+              72006,
+              87564,
+              96385,
+              111429,
+              147511,
+              173624
+            ],
+            "qos_error": 0,
+            "requested_us": 24000
+          },
+          "realtime_trial": 2
+        }
+      ]
+    }
+  ],
+  "local_fixed_three_observations": [
+    {
+      "largest_gap": {
+        "arrival_after_us": 246222,
+        "arrival_before_us": 222118,
+        "pts_after_us": 1849978,
+        "pts_before_us": 1825978
+      },
+      "maximum_continuous_audio_delivery_gap_us": 24104,
+      "output_scheduler": {
+        "ahead_us": 150000,
+        "audio": {
+          "budget_bytes": 1310744,
+          "held_bytes": 0,
+          "maximum_deadline_lateness_us": 461,
+          "maximum_write_duration_us": 48,
+          "maximum_write_gap_us": 24070,
+          "peak_bytes": 164780,
+          "submitted_messages": 42,
+          "written_messages": 42
+        },
+        "cancelled_messages": 0,
+        "clock_discarded_audio_messages": 0,
+        "clock_discarded_video_frames": 0,
+        "clock_discarded_wire_bytes": 0,
+        "clock_resets": 0,
+        "control": {
+          "budget_bytes": 1048576,
+          "held_bytes": 0,
+          "maximum_deadline_lateness_us": 0,
+          "maximum_write_duration_us": 91,
+          "maximum_write_gap_us": 12863,
+          "peak_bytes": 3768,
+          "submitted_messages": 5,
+          "written_messages": 5
+        },
+        "interactive_qos_error": 0,
+        "interactive_qos_requested": false,
+        "producer_waits": 0,
+        "realtime": true,
+        "video": {
+          "budget_bytes": 67371032,
+          "held_bytes": 0,
+          "maximum_deadline_lateness_us": 97,
+          "maximum_write_duration_us": 546,
+          "maximum_write_gap_us": 100098,
+          "peak_bytes": 1385183,
+          "submitted_messages": 10,
+          "written_messages": 10
+        },
+        "writer_active": false
+      },
+      "realtime_trial": 0
+    },
+    {
+      "largest_gap": {
+        "arrival_after_us": 37453,
+        "arrival_before_us": 13385,
+        "pts_after_us": 1681978,
+        "pts_before_us": 1657978
+      },
+      "maximum_continuous_audio_delivery_gap_us": 24068,
+      "output_scheduler": {
+        "ahead_us": 150000,
+        "audio": {
+          "budget_bytes": 1310744,
+          "held_bytes": 0,
+          "maximum_deadline_lateness_us": 157,
+          "maximum_write_duration_us": 46,
+          "maximum_write_gap_us": 24055,
+          "peak_bytes": 164780,
+          "submitted_messages": 42,
+          "written_messages": 42
+        },
+        "cancelled_messages": 0,
+        "clock_discarded_audio_messages": 0,
+        "clock_discarded_video_frames": 0,
+        "clock_discarded_wire_bytes": 0,
+        "clock_resets": 0,
+        "control": {
+          "budget_bytes": 1048576,
+          "held_bytes": 0,
+          "maximum_deadline_lateness_us": 0,
+          "maximum_write_duration_us": 53,
+          "maximum_write_gap_us": 4772,
+          "peak_bytes": 3769,
+          "submitted_messages": 5,
+          "written_messages": 5
+        },
+        "interactive_qos_error": 0,
+        "interactive_qos_requested": false,
+        "producer_waits": 0,
+        "realtime": true,
+        "video": {
+          "budget_bytes": 67371032,
+          "held_bytes": 0,
+          "maximum_deadline_lateness_us": 134,
+          "maximum_write_duration_us": 311,
+          "maximum_write_gap_us": 100117,
+          "peak_bytes": 1385183,
+          "submitted_messages": 10,
+          "written_messages": 10
+        },
+        "writer_active": false
+      },
+      "realtime_trial": 1
+    },
+    {
+      "largest_gap": {
+        "arrival_after_us": 180474,
+        "arrival_before_us": 156400,
+        "pts_after_us": 1825978,
+        "pts_before_us": 1801978
+      },
+      "maximum_continuous_audio_delivery_gap_us": 24074,
+      "output_scheduler": {
+        "ahead_us": 150000,
+        "audio": {
+          "budget_bytes": 1310744,
+          "held_bytes": 0,
+          "maximum_deadline_lateness_us": 236,
+          "maximum_write_duration_us": 47,
+          "maximum_write_gap_us": 24059,
+          "peak_bytes": 164780,
+          "submitted_messages": 42,
+          "written_messages": 42
+        },
+        "cancelled_messages": 0,
+        "clock_discarded_audio_messages": 0,
+        "clock_discarded_video_frames": 0,
+        "clock_discarded_wire_bytes": 0,
+        "clock_resets": 0,
+        "control": {
+          "budget_bytes": 1048576,
+          "held_bytes": 0,
+          "maximum_deadline_lateness_us": 0,
+          "maximum_write_duration_us": 51,
+          "maximum_write_gap_us": 4485,
+          "peak_bytes": 3769,
+          "submitted_messages": 5,
+          "written_messages": 5
+        },
+        "interactive_qos_error": 0,
+        "interactive_qos_requested": false,
+        "producer_waits": 0,
+        "realtime": true,
+        "video": {
+          "budget_bytes": 67371032,
+          "held_bytes": 0,
+          "maximum_deadline_lateness_us": 88,
+          "maximum_write_duration_us": 298,
+          "maximum_write_gap_us": 100089,
+          "peak_bytes": 1385183,
+          "submitted_messages": 10,
+          "written_messages": 10
+        },
+        "writer_active": false
+      },
+      "realtime_trial": 2
+    }
+  ],
+  "independent_macos_timer_probe": {
+    "run": 42980961157,
+    "scope": "Independent of media, four native wait implementations, three fixed batches of 32 requests each",
+    "observations": [
+      {
+        "wait": "std_condition_variable",
+        "trial": 0,
+        "requested_us": 24000,
+        "minimum_us": 24254,
+        "median_us": 70228,
+        "maximum_us": 102678
+      },
+      {
+        "wait": "std_condition_variable",
+        "trial": 1,
+        "requested_us": 24000,
+        "minimum_us": 24076,
+        "median_us": 79291,
+        "maximum_us": 99035
+      },
+      {
+        "wait": "std_condition_variable",
+        "trial": 2,
+        "requested_us": 24000,
+        "minimum_us": 28190,
+        "median_us": 71533,
+        "maximum_us": 97889
+      },
+      {
+        "wait": "pthread_relative",
+        "trial": 0,
+        "requested_us": 24000,
+        "minimum_us": 24901,
+        "median_us": 75497,
+        "maximum_us": 100935
+      },
+      {
+        "wait": "pthread_relative",
+        "trial": 1,
+        "requested_us": 24000,
+        "minimum_us": 25307,
+        "median_us": 53615,
+        "maximum_us": 98523
+      },
+      {
+        "wait": "pthread_relative",
+        "trial": 2,
+        "requested_us": 24000,
+        "minimum_us": 32426,
+        "median_us": 70339,
+        "maximum_us": 99124
+      },
+      {
+        "wait": "mach_semaphore",
+        "trial": 0,
+        "requested_us": 24000,
+        "minimum_us": 27276,
+        "median_us": 84684,
+        "maximum_us": 103242
+      },
+      {
+        "wait": "mach_semaphore",
+        "trial": 1,
+        "requested_us": 24000,
+        "minimum_us": 24117,
+        "median_us": 61999,
+        "maximum_us": 99814
+      },
+      {
+        "wait": "mach_semaphore",
+        "trial": 2,
+        "requested_us": 24000,
+        "minimum_us": 26492,
+        "median_us": 73656,
+        "maximum_us": 102609
+      },
+      {
+        "wait": "mach_absolute",
+        "trial": 0,
+        "requested_us": 24000,
+        "minimum_us": 25159,
+        "median_us": 73904,
+        "maximum_us": 98495
+      },
+      {
+        "wait": "mach_absolute",
+        "trial": 1,
+        "requested_us": 24000,
+        "minimum_us": 26073,
+        "median_us": 82865,
+        "maximum_us": 107849
+      },
+      {
+        "wait": "mach_absolute",
+        "trial": 2,
+        "requested_us": 24000,
+        "minimum_us": 25079,
+        "median_us": 80482,
+        "maximum_us": 100716
+      }
+    ]
+  },
+  "historical_archive_skip_handler_failure": {
+    "run": 42983950861,
+    "scope": "Archive wrapper did not yet honor the explicitly declared qualification skip code77; raw timing was not claimed as passing",
+    "observations": [
+      {
+        "largest_gap": {
+          "arrival_after_us": 882501,
+          "arrival_before_us": 741002,
+          "pts_after_us": 2401978,
+          "pts_before_us": 2377978
+        },
+        "maximum_continuous_audio_delivery_gap_us": 141499,
+        "output_scheduler": {
+          "ahead_us": 150000,
+          "audio": {
+            "budget_bytes": 1310744,
+            "held_bytes": 0,
+            "maximum_deadline_lateness_us": 123476,
+            "maximum_write_duration_us": 274,
+            "maximum_write_gap_us": 141639,
+            "peak_bytes": 164780,
+            "submitted_messages": 42,
+            "written_messages": 42
+          },
+          "cancelled_messages": 0,
+          "clock_discarded_audio_messages": 0,
+          "clock_discarded_video_frames": 0,
+          "clock_discarded_wire_bytes": 0,
+          "clock_resets": 0,
+          "control": {
+            "budget_bytes": 1048576,
+            "held_bytes": 0,
+            "maximum_deadline_lateness_us": 0,
+            "maximum_write_duration_us": 46,
+            "maximum_write_gap_us": 3858,
+            "peak_bytes": 3769,
+            "submitted_messages": 5,
+            "written_messages": 5
+          },
+          "interactive_qos_error": 0,
+          "interactive_qos_requested": true,
+          "producer_waits": 0,
+          "realtime": true,
+          "video": {
+            "budget_bytes": 67371032,
+            "held_bytes": 0,
+            "maximum_deadline_lateness_us": 125097,
+            "maximum_write_duration_us": 1162,
+            "maximum_write_gap_us": 198495,
+            "peak_bytes": 1385182,
+            "submitted_messages": 10,
+            "written_messages": 10
+          },
+          "writer_active": false
+        },
+        "platform_timer": {
+          "median_us": 151284,
+          "observations_us": [
+            52242,
+            96812,
+            112112,
+            115316,
+            151284,
+            153072,
+            166460,
+            172421
+          ],
+          "qos_error": 0,
+          "requested_us": 24000
+        },
+        "realtime_trial": 0
+      },
+      {
+        "largest_gap": {
+          "arrival_after_us": 325253,
+          "arrival_before_us": 205172,
+          "pts_after_us": 1849978,
+          "pts_before_us": 1825978
+        },
+        "maximum_continuous_audio_delivery_gap_us": 120081,
+        "output_scheduler": {
+          "ahead_us": 150000,
+          "audio": {
+            "budget_bytes": 1310744,
+            "held_bytes": 0,
+            "maximum_deadline_lateness_us": 103328,
+            "maximum_write_duration_us": 76,
+            "maximum_write_gap_us": 120069,
+            "peak_bytes": 164780,
+            "submitted_messages": 42,
+            "written_messages": 42
+          },
+          "cancelled_messages": 0,
+          "clock_discarded_audio_messages": 0,
+          "clock_discarded_video_frames": 0,
+          "clock_discarded_wire_bytes": 0,
+          "clock_resets": 0,
+          "control": {
+            "budget_bytes": 1048576,
+            "held_bytes": 0,
+            "maximum_deadline_lateness_us": 0,
+            "maximum_write_duration_us": 76,
+            "maximum_write_gap_us": 3541,
+            "peak_bytes": 3768,
+            "submitted_messages": 5,
+            "written_messages": 5
+          },
+          "interactive_qos_error": 0,
+          "interactive_qos_requested": true,
+          "producer_waits": 0,
+          "realtime": true,
+          "video": {
+            "budget_bytes": 67371032,
+            "held_bytes": 0,
+            "maximum_deadline_lateness_us": 92709,
+            "maximum_write_duration_us": 384,
+            "maximum_write_gap_us": 142325,
+            "peak_bytes": 1385182,
+            "submitted_messages": 10,
+            "written_messages": 10
+          },
+          "writer_active": false
+        },
+        "platform_timer": {
+          "median_us": 97236,
+          "observations_us": [
+            42113,
+            83305,
+            84529,
+            91660,
+            97236,
+            97898,
+            124542,
+            133479,
+            149395
+          ],
+          "qos_error": 0,
+          "requested_us": 24000
+        },
+        "realtime_trial": 1
+      },
+      {
+        "largest_gap": {
+          "arrival_after_us": 630608,
+          "arrival_before_us": 517326,
+          "pts_after_us": 2161978,
+          "pts_before_us": 2137978
+        },
+        "maximum_continuous_audio_delivery_gap_us": 113282,
+        "output_scheduler": {
+          "ahead_us": 150000,
+          "audio": {
+            "budget_bytes": 1310744,
+            "held_bytes": 0,
+            "maximum_deadline_lateness_us": 101747,
+            "maximum_write_duration_us": 38,
+            "maximum_write_gap_us": 113237,
+            "peak_bytes": 164780,
+            "submitted_messages": 42,
+            "written_messages": 42
+          },
+          "cancelled_messages": 0,
+          "clock_discarded_audio_messages": 0,
+          "clock_discarded_video_frames": 0,
+          "clock_discarded_wire_bytes": 0,
+          "clock_resets": 0,
+          "control": {
+            "budget_bytes": 1048576,
+            "held_bytes": 0,
+            "maximum_deadline_lateness_us": 0,
+            "maximum_write_duration_us": 68,
+            "maximum_write_gap_us": 5071,
+            "peak_bytes": 3767,
+            "submitted_messages": 5,
+            "written_messages": 5
+          },
+          "interactive_qos_error": 0,
+          "interactive_qos_requested": true,
+          "producer_waits": 0,
+          "realtime": true,
+          "video": {
+            "budget_bytes": 67371032,
+            "held_bytes": 0,
+            "maximum_deadline_lateness_us": 70887,
+            "maximum_write_duration_us": 301,
+            "maximum_write_gap_us": 128780,
+            "peak_bytes": 1385182,
+            "submitted_messages": 10,
+            "written_messages": 10
+          },
+          "writer_active": false
+        },
+        "platform_timer": {
+          "median_us": 70266,
+          "observations_us": [
+            38484,
+            46329,
+            48645,
+            49772,
+            70266,
+            111443,
+            134202,
+            168013,
+            170408
+          ],
+          "qos_error": 0,
+          "requested_us": 24000
+        },
+        "realtime_trial": 2
+      }
+    ]
+  },
+  "earlier_qualification": {
+    "2026-11-11-dtmb-output-qualification.json": {
+      "sha256": "e6de12342c5fafcf41e9f15eeaddb02d6174f26ef8c94dded73ff292f537e8be",
+      "scope": "Historical input and development qualification; not a signature or binary identity of the final release"
+    },
+    "2026-11-11-dtmb-waveform-matrix.json": {
+      "sha256": "74b612d077700cd496a56c8d139538fa7298d452669b611635bf2d4732366895",
+      "scope": "Historical input and development qualification; not a signature or binary identity of the final release"
+    }
+  },
+  "limits": [
+    "No valid on-air transport recovered at 31.42",
+    "Short normative and independent inputs; no long-duration lossless guarantee",
+    "uConsole has no antenna; user requested only ARM64 build, installation, startup, version and module-loading checks. No uConsole RF or performance qualification.",
+    "Eight-second live subscription uses looped short IQ and an overload burst; analysis rejections are retained",
+    "Native audio checks are muted PCM/device-clock checks without human listening",
+    "Skipped hardware-dependent tests are retained in the six-platform CI proof"
+  ]
+}

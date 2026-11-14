@@ -1,0 +1,22 @@
+{
+  "parameter.sample_rate_hz.label": "Sample rate",
+  "parameter.frequency_hz.label": "Center frequency",
+  "parameter.gain_tenths_db.label": "Gain",
+  "parameter.if_gain_reduction.label": "IF gain reduction (dB)",
+  "parameter.auto_gain.label": "Automatic gain",
+  "parameter.input_mode.label": "RF input mode",
+  "parameter.if_bandwidth_hz.label": "IF filter (3 dB)",
+  "parameter.antenna.label": "Antenna port",
+  "issue.receiver_rate": "This sample rate is outside the device capability.",
+  "issue.receiver_frequency": "This frequency is outside the selected input ranges.",
+  "issue.receiver_antenna": "This antenna port is not available on the device.",
+  "issue.antenna_frequency": "This antenna port supports frequencies up to {maximum_hz} Hz.",
+  "issue.receiver_gain": "The device does not support this manual gain.",
+  "issue.receiver_input_mode": "This input mode is unavailable on the device.",
+  "issue.receiver_if_bandwidth": "This IF filter is not reported by the device. Select an automatic or listed filter.",
+  "issue.frequency_unknown": "RF limits are unknown; the driver checks them when applied.",
+  "issue.filter_above_sample_span": "The IF filter is wider than the sampled span; out-of-band signals may alias. Automatic follows the driver selection.",
+  "issue.receiver_passband": "The required span exceeds the sampled span.",
+  "issue.plugin_setting": "Unsupported value or conflicting plugin setting: {key}",
+  "issue.plugin_settings": "Plugin settings must be an object."
+}

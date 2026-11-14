@@ -1,0 +1,20 @@
+{
+  "media.output_closed": "播放器已关闭媒体输入。",
+  "media.output_budget": "解码后的媒体消息超过输出队列的字节预算。",
+  "media.output_finished": "媒体输出已经停止或结束。",
+  "media.output_timestamp": "媒体时间戳超出输出时钟的范围。",
+  "media.output_clock_reset": "媒体时钟发生变化；已丢弃队列中的 {video} 帧视频和 {audio} 条音频消息。",
+  "media.video_dimensions": "解码后的视频尺寸超过媒体内存预算。",
+  "media.video_conversion": "无法将视频帧转换为显示格式。",
+  "media.audio_format": "解码后的音频格式超出当前输出支持范围。",
+  "media.audio_conversion": "无法将音频样本转换为播放格式。",
+  "media.audio_budget": "音频转换超过样本预算。",
+  "media.audio_drain_budget": "音频转换未在排空预算内结束。",
+  "media.transport_open": "没有找到可读取的 MPEG 节目流。",
+  "media.no_streams": "节目流尚未提供可用的音视频轨道。",
+  "media.transport_read": "读取节目流失败。",
+  "media.decoder_opened": "解码器 {provider} 已打开 PID {pid} 轨道。",
+  "media.codec_unavailable": "已安装的解码器无法播放 PID {pid} 轨道。",
+  "media.arguments": "媒体解码器收到不支持的参数。",
+  "media.no_frames": "节目流已结束，但没有解码出音频或视频帧。"
+}

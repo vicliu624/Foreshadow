@@ -1,0 +1,259 @@
+"""独立连续时间公式生成 Chirp，测试非零频偏、未知时间和跨块输入；非 RF 验证。"""
+import cmath
+import hashlib
+import json
+import math
+import pathlib
+import random
+import subprocess
+import sys
+import tempfile
+
+exe = sys.argv[1]
+rate = 2000000
+bw = 125000
+sf = 7
+symbol_samples = rate * 2**sf // bw
+rng = random.Random(2147)
+
+def write(root, kind, offset=173333, suffix='', first=571, amplitude=.18, noise=.006, inverted=False, duration=0, preamble=8, sfd_symbols=2.25):
+    directory = root/(kind+suffix)
+    directory.mkdir()
+    count = max(20*symbol_samples,int(duration*rate))
+    raw = bytearray()
+    fsk_phase=0.0
+    for n in range(count):
+        z = complex(rng.gauss(0, noise), rng.gauss(0, noise))
+        relative = n-first
+        if kind == 'chirp' and 0 <= relative < 10*symbol_samples:
+            t = (relative % symbol_samples)/rate
+            period = symbol_samples/rate
+            phase = math.tau*(-bw*t/2 + bw*t*t/(2*period) + offset*n/rate)
+            z += .18*cmath.exp(1j*phase)
+        if kind in ('lora', 'long_down', 'truncated', 'wrong_sync') and 0 <= relative:
+            position = relative/symbol_samples
+            direction, shift, active = 1, 0, True
+            if position < preamble:
+                pass
+            elif position < preamble+1:
+                shift = 3 if kind=='wrong_sync' else 24
+            elif position < preamble+2:
+                shift = 5 if kind=='wrong_sync' else 32
+            elif position < preamble+(5 if kind == 'long_down' else 2+sfd_symbols):
+                direction = -1
+                if kind == 'truncated' and position >= preamble+4:
+                    active = False
+            elif position < preamble+7.25 and kind in ('lora','wrong_sync'):
+                shift = 56
+                position -= sfd_symbols%1
+            else:
+                active = False
+            if active:
+                fraction = (position + shift/(2**sf)) % 1
+                t = fraction*symbol_samples/rate
+                period = symbol_samples/rate
+                phase = math.tau*((-1 if inverted else 1)*direction*(-bw*t/2 + bw*t*t/(2*period)) + offset*n/rate)
+                z += amplitude*cmath.exp(1j*phase)
+        if kind == 'tone':
+            z += .18*cmath.exp(1j*math.tau*offset*n/rate)
+        if kind in ('fsk','fsk_periodic'):
+            bit=((n//max(1,symbol_samples//2))%2 if kind=='fsk_periodic'
+                 else (((n//500)*1103515245+12345)>>12)&1)
+            fsk_phase+=math.tau*(offset+(bw/4 if bit else -bw/4))/rate
+            z+=.18*cmath.exp(1j*fsk_phase)
+        for component in (z.real, z.imag):
+            raw.append(max(0, min(255, round(127.5+128*component))))
+    (directory/'capture.sigmf-data').write_bytes(raw)
+    meta = {'global': {'core:datatype': 'cu8', 'core:sample_rate': rate, 'core:version': '1.2.6'},
+            'captures': [{'core:sample_start': 0, 'core:frequency': 470500000}], 'annotations': []}
+    path = directory/'capture.sigmf-meta'
+    path.write_text(json.dumps(meta), encoding='utf-8')
+    return path
+
+with tempfile.TemporaryDirectory(prefix='signalscope-lora-') as d:
+    root = pathlib.Path(d)
+    # 自有发射器实测回归：前导码明显，但下 Chirp 约 9.9 dB。
+    # 旧版统一 11 dB 门限漏检；保留所有 BW/SF 搜索，不提供真值。
+    fixture = pathlib.Path(__file__).parent/'fixtures/lora-sf7-weak-sfd'
+    rf = root/'rf-weak-sfd';rf.mkdir()
+    fixture_bytes=(fixture/'capture.cu8').read_bytes()
+    provenance=json.loads((fixture/'provenance.json').read_text(encoding='utf-8'))
+    assert hashlib.sha256(fixture_bytes).hexdigest()==provenance['fixture_sha256'],'RF fixture hash mismatch'
+    (rf/'capture.sigmf-data').write_bytes(fixture_bytes)
+    (rf/'capture.sigmf-meta').write_bytes((fixture/'capture.json').read_bytes())
+    p = subprocess.run([exe,'detect','--input',str(rf/'capture.sigmf-meta'),'--threshold-db','11'],
+                       capture_output=True,encoding='utf-8')
+    assert p.returncode == 0,p.stderr
+    matches = [e for e in json.loads(p.stdout)['events'] if e['evidence_level']=='lora_structure_match']
+    assert any(e['bandwidth_hz']==500000 and e['sf_candidate']==7
+               and abs(e['center_frequency_hz']-478475172)<5000 for e in matches),('real weak SFD',matches)
+    edge_fixture=pathlib.Path(__file__).parent/'fixtures/lora-edge-low-fine-sync'
+    edge=root/'rf-edge-low';edge.mkdir()
+    edge_bytes=(edge_fixture/'capture.cu8').read_bytes()
+    edge_truth=json.loads((edge_fixture/'provenance.json').read_text(encoding='utf-8'))
+    assert hashlib.sha256(edge_bytes).hexdigest()==edge_truth['fixture_sha256'],'edge fixture hash mismatch'
+    (edge/'capture.sigmf-data').write_bytes(edge_bytes)
+    (edge/'capture.sigmf-meta').write_bytes((edge_fixture/'capture.json').read_bytes())
+    p=subprocess.run([exe,'detect','--input',str(edge/'capture.sigmf-meta'),'--threshold-db','11'],capture_output=True,encoding='utf-8')
+    assert p.returncode==0,p.stderr
+    edge_matches=[e for e in json.loads(p.stdout)['events'] if e['evidence_level']=='lora_structure_match']
+    assert any(e['bandwidth_hz']==500000 and e['sf_candidate']==7 and abs(e['center_frequency_hz']-478005003)<5000 for e in edge_matches),('real edge synchronization',edge_matches)
+    high_fixture=pathlib.Path(__file__).parent/'fixtures/lora-edge-high-sfd-transition'
+    high=root/'rf-edge-high-transition';high.mkdir()
+    high_bytes=(high_fixture/'capture.cu8').read_bytes()
+    high_truth=json.loads((high_fixture/'provenance.json').read_text(encoding='utf-8'))
+    assert hashlib.sha256(high_bytes).hexdigest()==high_truth['fixture_sha256']
+    (high/'capture.sigmf-data').write_bytes(high_bytes)
+    (high/'capture.sigmf-meta').write_bytes((high_fixture/'capture.json').read_bytes())
+    p=subprocess.run([exe,'detect','--input',str(high/'capture.sigmf-meta'),'--threshold-db','11'],capture_output=True,encoding='utf-8')
+    assert p.returncode==0,p.stderr
+    high_matches=[e for e in json.loads(p.stdout)['events'] if e['evidence_level']=='lora_structure_match']
+    assert any(e['sf_candidate']==7 and e['bandwidth_hz']==500000 and abs(e['center_frequency_hz']-478994997)<5000 and e['sfd_end_method']=='joint_down_to_unknown_up' for e in high_matches),high_matches
+    edge_store=root/'rf-edge-low-store'
+    p=subprocess.run([exe,'monitor','--input',str(edge/'capture.sigmf-meta'),'--output',str(edge_store),'--threshold-db','11'],capture_output=True,encoding='utf-8')
+    assert p.returncode==0,p.stderr
+    saved_edge=list(edge_store.glob('event-*/capture.sigmf-meta'))
+    assert len(saved_edge)==1,('refined edge recording',saved_edge)
+    assert saved_edge[0].with_suffix('.sigmf-data').read_bytes()==edge_bytes,'refined event recording changed or lost original I/Q'
+    # I/Q 共轭的等价性回归；频率镜像不代表新增一次高侧射频实测。
+    mirror=root/'rf-edge-conjugated';mirror.mkdir();conjugated=bytearray(edge_bytes)
+    for i in range(1,len(conjugated),2):conjugated[i]=255-conjugated[i]
+    (mirror/'capture.sigmf-data').write_bytes(conjugated)
+    (mirror/'capture.sigmf-meta').write_bytes((edge_fixture/'capture.json').read_bytes())
+    p=subprocess.run([exe,'detect','--input',str(mirror/'capture.sigmf-meta'),'--threshold-db','11'],capture_output=True,encoding='utf-8')
+    assert p.returncode==0,p.stderr
+    mirror_matches=[e for e in json.loads(p.stdout)['events'] if e['evidence_level']=='lora_structure_match']
+    assert any(e['iq_inverted'] and e['bandwidth_hz']==500000 and e['sf_candidate']==7 and abs(e['center_frequency_hz']-478994997)<5000 for e in mirror_matches),('fine synchronization I/Q conjugation',mirror_matches)
+    for kind in ('chirp', 'noise', 'tone', 'lora', 'long_down', 'truncated', 'wrong_sync','fsk','fsk_periodic'):
+        path = write(root, kind,duration=.4 if kind.startswith('fsk') else 0)
+        p = subprocess.run([exe, 'detect', '--input', str(path), '--sf-min', '7', '--sf-max', '8'], capture_output=True, encoding='utf-8')
+        assert p.returncode == 0, p.stderr
+        result = json.loads(p.stdout)
+        assert result['source_pairs'] == path.with_suffix('.sigmf-data').stat().st_size//2
+        events = [e for e in result['events'] if e['evidence_level'] != 'chirp_probe']
+        if kind == 'chirp':
+            assert any(e['sf_candidate'] == sf for e in events), events
+            assert all(e['evidence_level'] == 'css_candidate' for e in events)
+            assert all(e['needs_lora_structure_validation'] for e in events)
+            assert any(e['center_frequency_interval_hz'][0] <= 470673333 <= e['center_frequency_interval_hz'][1] for e in events)
+        elif kind in ('noise', 'tone'):
+            assert not events, (kind, events)
+        elif kind == 'lora':
+            matches = [e for e in events if e['evidence_level'] == 'lora_structure_match']
+            assert matches, (kind, events)
+            assert all(abs(e['center_frequency_hz']-470673333) <= rate/symbol_samples*2 for e in matches), matches
+            assert all(abs(e['sfd_start_sample']-571-10*symbol_samples) < 32 for e in matches), matches
+        else:
+            assert not any(e['evidence_level'] == 'lora_structure_match' for e in events), (kind, events)
+        # 真实低功率短包需要更低门限；保持全部 BW/SF 搜索时的负样本约束。
+        # 不能仅用正确 SF 的高信噪比正样本证明放宽门限安全。
+        low = subprocess.run([exe, 'detect', '--input', str(path), '--threshold-db', '11'],
+                             capture_output=True, encoding='utf-8')
+        assert low.returncode == 0, low.stderr
+        low_matches = [e for e in json.loads(low.stdout)['events']
+                       if e['evidence_level'] == 'lora_structure_match']
+        assert bool(low_matches) == (kind == 'lora'), ('low threshold', kind, low_matches)
+        if kind == 'lora':
+            expected = {(e['sf_candidate'], e['bandwidth_hz'], e['iq_inverted'], e['sfd_start_sample'])
+                        for e in low_matches}
+            for workers in (1, 2, 4):
+                alternate = subprocess.run([exe, 'detect', '--input', str(path), '--threshold-db', '11',
+                                            '--workers', str(workers)], capture_output=True, encoding='utf-8')
+                assert alternate.returncode == 0, alternate.stderr
+                actual = {(e['sf_candidate'], e['bandwidth_hz'], e['iq_inverted'], e['sfd_start_sample'])
+                          for e in json.loads(alternate.stdout)['events']
+                          if e['evidence_level'] == 'lora_structure_match'}
+                assert actual == expected, ('scheduler consistency', workers, actual, expected)
+        if kind in ('lora', 'chirp', 'noise', 'long_down'):
+            store = root/(kind+'-store')
+            p = subprocess.run([exe, 'monitor', '--input', str(path), '--output', str(store),
+                                '--sf-min', '7', '--sf-max', '8', '--post-seconds', '0.001'],
+                               capture_output=True, encoding='utf-8')
+            assert p.returncode == 0, p.stderr
+            status = json.loads(p.stdout)
+            assert status['analysis_dropped_pairs'] == 0, status
+            assert status['processed_pairs'] == status['source_pairs'], status
+            saved = list(store.glob('event-*/capture.sigmf-meta'))
+            assert bool(saved) == (kind == 'lora'), (kind, saved)
+            assert status['storage']['ring_bytes'] <= status['storage']['ring_limit_bytes']
+            for meta in saved:
+                recording = json.loads(meta.read_text('utf-8'))
+                assert recording['global']['signalscope:source'] == 'automatic-lora-event:recorded'
+                assert 'core:datetime' not in recording['captures'][0]
+    for sf in range(8, 13):
+        symbol_samples = rate * 2**sf // bw
+        offset = (-410003, 113337, 0, 487001, -173333)[sf-8]
+        path = write(root, 'lora', offset, '-sf'+str(sf), int(symbol_samples*.37)+17)
+        p = subprocess.run([exe, 'detect', '--input', str(path), '--sf-min', str(sf), '--sf-max', str(sf)], capture_output=True, encoding='utf-8')
+        assert p.returncode == 0, p.stderr
+        matches = [e for e in json.loads(p.stdout)['events'] if e['evidence_level'] == 'lora_structure_match']
+        assert matches, ('SF matrix', sf)
+        assert all(abs(e['center_frequency_hz']-470500000-offset) <= rate/symbol_samples*2 for e in matches), matches
+    for sf in (7, 12):
+        symbol_samples = rate * 2**sf // bw
+        path = write(root, 'lora', 313337, '-inverted'+str(sf), int(symbol_samples*.31)+9, inverted=True)
+        p = subprocess.run([exe, 'detect', '--input', str(path), '--sf-min', str(sf), '--sf-max', str(sf)], capture_output=True, encoding='utf-8')
+        assert p.returncode == 0, p.stderr
+        matches = [e for e in json.loads(p.stdout)['events'] if e['evidence_level'] == 'lora_structure_match']
+        assert matches and all(e['iq_inverted'] for e in matches), ('inverted', sf, matches)
+        assert all(abs(e['center_frequency_hz']-470813337) <= rate/symbol_samples*2 for e in matches), matches
+    sf = 12
+    symbol_samples = rate * 2**sf // bw
+    path = write(root, 'lora', -217333, '-weak', int(symbol_samples*.23)+11,
+                 amplitude=math.sqrt(2*.04**2*bw/rate*.1), noise=.04)
+    p = subprocess.run([exe, 'detect', '--input', str(path), '--sf-min', '12', '--sf-max', '12'], capture_output=True, encoding='utf-8')
+    assert p.returncode == 0, p.stderr
+    assert any(e['evidence_level'] == 'lora_structure_match' for e in json.loads(p.stdout)['events']), 'weak SF12 preamble'
+    for bw,sf,inverted in ((250000,7,False),(250000,11,False),(500000,7,True),(500000,12,False)):
+        symbol_samples = rate*2**sf//bw
+        path = write(root,'lora',-231337,f'-auto-{bw}-{sf}',int(symbol_samples*.19)+7,inverted=inverted)
+        p = subprocess.run([exe,'detect','--input',str(path)],capture_output=True,encoding='utf-8')
+        assert p.returncode == 0,p.stderr
+        matches = [e for e in json.loads(p.stdout)['events'] if e['evidence_level'] == 'lora_structure_match']
+        assert matches,('unknown BW/SF',bw,sf,inverted)
+        assert all(e['bandwidth_hz']==bw and e['sf_candidate']==sf and e['iq_inverted']==inverted for e in matches),matches
+    for bw in (125000,250000,500000):
+        sf=7;symbol_samples=rate*2**sf//bw
+        for fraction in (.07,.31,.67):
+            path=write(root,'lora',-173333,f'-pre6-{bw}-{fraction}',
+                       int(symbol_samples*fraction),preamble=6)
+            p=subprocess.run([exe,'detect','--input',str(path),'--threshold-db','11'],
+                             capture_output=True,encoding='utf-8')
+            assert p.returncode==0,p.stderr
+            matches=[e for e in json.loads(p.stdout)['events'] if e['evidence_level']=='lora_structure_match']
+            assert any(e['sf_candidate']==sf and e['bandwidth_hz']==bw for e in matches),('short preamble',bw,fraction,matches)
+    sf=7;bw=125000;symbol_samples=rate*2**sf//bw
+    path=write(root,'lora',173333,'-long-prefix-first',first=571,preamble=24,duration=.1)
+    p=subprocess.run([exe,'detect','--input',str(path),'--bw','125000','--sf-min','7','--sf-max','7'],capture_output=True,encoding='utf-8')
+    assert p.returncode==0,p.stderr
+    long_matches=[e for e in json.loads(p.stdout)['events'] if e['evidence_level']=='lora_structure_match']
+    assert long_matches and min(e['first_observed_sample'] for e in long_matches)<=571+2*symbol_samples,'long preamble lost its earliest observation'
+    # 高能量历史跨越累计能量重置后，低幅包的时刻和功率仍应正确。
+    path=write(root,'lora',173333,'-energy-history',first=571)
+    data=path.with_suffix('.sigmf-data');prefix_samples=1300000
+    data.write_bytes(bytes((255,255))*prefix_samples+data.read_bytes())
+    p=subprocess.run([exe,'detect','--input',str(path),'--bw','125000','--sf-min','7','--sf-max','7'],capture_output=True,encoding='utf-8')
+    assert p.returncode==0,p.stderr
+    history_matches=[e for e in json.loads(p.stdout)['events'] if e['evidence_level']=='lora_structure_match']
+    assert len(history_matches)==1,('energy history',history_matches)
+    e=history_matches[0]
+    assert abs(e['sfd_start_sample']-(prefix_samples+571+10*symbol_samples))<32,e
+    assert -16<e['fullband_power_dbfs']<-14,('energy normalization after compaction',e)
+    for length in (1.875,2,2.125,2.375,2.5,3):
+        for fraction in (.07,.67):
+            path=write(root,'lora',173333,f'-wrong-end-{length}-{fraction}',int(symbol_samples*fraction),sfd_symbols=length)
+            p=subprocess.run([exe,'detect','--input',str(path),'--threshold-db','11'],capture_output=True,encoding='utf-8')
+            assert p.returncode==0,p.stderr
+            assert not any(e['evidence_level']=='lora_structure_match' for e in json.loads(p.stdout)['events']),('wrong SFD length',length,fraction)
+    for kind in ('truncated','wrong_sync'):
+        for fraction in (.07,.31,.67):
+            path=write(root,kind,173333,f'-offset-{fraction}',int(symbol_samples*fraction))
+            p=subprocess.run([exe,'detect','--input',str(path),'--threshold-db','11'],capture_output=True,encoding='utf-8')
+            assert p.returncode==0,p.stderr
+            assert not any(e['evidence_level']=='lora_structure_match' for e in json.loads(p.stdout)['events']),(kind,fraction,json.loads(p.stdout)['events'])
+    if len(sys.argv)>2:
+        sf=7;bw=125000;symbol_samples=rate*2**sf//bw
+        path=write(root,'lora',173333,'-backpressure',duration=.4)
+        test=subprocess.run([sys.argv[2],str(path),str(root/'capture-backpressure')],capture_output=True,encoding='utf-8')
+        assert test.returncode==0,(test.stdout,test.stderr)
+print('Chirp、LoRa 前导码结构、噪声/载波及错误下 Chirp 结构检查通过；非 RF 灵敏度验证')

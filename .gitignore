@@ -1,0 +1,7 @@
+/build*/
+/recordings/
+__pycache__/
+*.sigmf-data
+/firmware/pager_tx/.pio/
+/firmware/backups/
+/aqtinstall.log

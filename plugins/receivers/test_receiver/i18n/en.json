@@ -1,0 +1,15 @@
+{
+  "test.profile.eco": "Economy",
+  "test.profile.wide": "Wideband",
+  "test.gain.label": "Test gain",
+  "test.profile.label": "Receiver profile",
+  "test.preamp.label": "Preamplifier",
+  "test.calibration.label": "Clock correction",
+  "issue.test_rate": "Unsupported test sample rate",
+  "issue.test_frequency": "Frequency outside test range",
+  "issue.test_profile": "Unknown receiver profile",
+  "issue.test_profile_rate": "Eco profile requires 1 MS/s",
+  "issue.test_preamp": "Eco profile cannot enable the preamplifier",
+  "issue.test_ppm": "Clock correction exceeds 20 ppm",
+  "issue.test_unknown_setting": "Unknown test setting"
+}

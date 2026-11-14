@@ -1,0 +1,3 @@
+add_library(signalscope_distribution_network STATIC network.cpp)
+target_link_libraries(signalscope_distribution_network PUBLIC signalscope_distribution Qt6::Network)
+amc_check_module_links(signalscope_distribution_network TRUE FALSE signalscope_distribution)

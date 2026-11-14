@@ -1,0 +1,8 @@
+{
+  "media.dra_truncated_frame": "The DRA stream ended inside a compressed frame.",
+  "media.dra_input_budget": "DRA input exceeded its packet or buffering budget.",
+  "media.dra_timestamp_budget": "DRA input contains too many pending timestamp anchors.",
+  "media.dra_auxiliary_unsupported": "This DRA auxiliary profile is not supported by the installed decoder.",
+  "media.dra_input": "The DRA decoder rejected a compressed frame.",
+  "media.dra_output": "The DRA decoder returned an invalid PCM frame."
+}

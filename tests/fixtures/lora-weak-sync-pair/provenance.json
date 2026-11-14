@@ -1,0 +1,11 @@
+{
+  "generator": "tools/evaluate_weak_lora.py",
+  "seed": 26127008,
+  "sample_rate_hz": 1750000,
+  "inband_snr_db": -7,
+  "first_retained_sample": 0,
+  "retained_samples": 16384,
+  "frequency_hz": 478140592,
+  "sfd_start_sample": 6619,
+  "fixture_sha256": "9c48c8464166dc7e8741c35bbe6bb72e37c8c4b36aacc9a39cfa65a2adc5be55"
+}

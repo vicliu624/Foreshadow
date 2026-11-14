@@ -1,0 +1,9 @@
+{
+  "source_sha256": "5f4d605d21f3a782d2d5b598c7ea2555c75c8a59bfe48b346a51a5c5314f7658",
+  "fixture_sha256": "8e71f33cade30db31cf9031cf8b839299da5ac82724ccdc242db10f5305bc985",
+  "source_first_sample": 229376,
+  "source_last_sample_exclusive": 688128,
+  "expected_frequency_hz": 478005003,
+  "expected_bandwidth_hz": 500000,
+  "expected_sf": 7
+}

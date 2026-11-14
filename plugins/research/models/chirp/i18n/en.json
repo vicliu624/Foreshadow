@@ -1,0 +1,13 @@
+{
+  "amplitude": "Reference amplitude",
+  "phase_rad": "Initial phase",
+  "carrier_hz": "Carrier offset",
+  "issue.parameter": "Enter a value within the allowed range for this complete configuration.",
+  "issue.unknown": "This model does not declare the supplied parameter.",
+  "issue.nyquist": "The complete model and time alignment must remain within the input Nyquist interval.",
+  "label": "Linear chirp",
+  "about": "A continuous linear-frequency reference with no repetition. Duration defines its slope; alignment evaluates the same linear extension and must remain inside Nyquist.",
+  "start_hz": "Start offset from carrier",
+  "end_hz": "End offset from carrier",
+  "duration_seconds": "Sweep duration"
+}

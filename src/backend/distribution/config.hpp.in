@@ -1,0 +1,7 @@
+#pragma once
+#include <string_view>
+namespace signalscope::distribution::build {
+inline constexpr std::string_view version="@PROJECT_VERSION@";
+inline constexpr std::string_view platform="@AMC_DISTRIBUTION_PLATFORM@";
+inline constexpr std::string_view trust=R"trust(@AMC_DISTRIBUTION_TRUST@)trust";
+}

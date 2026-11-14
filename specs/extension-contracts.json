@@ -1,0 +1,178 @@
+{
+  "version": 1,
+  "normative_spec": "docs/16-扩展边界与开闭原则规格.md",
+  "changes": {
+    "receiver": {
+      "providers": "plugins/receivers",
+      "composition": "plugins/receivers/CMakeLists.txt",
+      "runtime": true
+    },
+    "detector": {
+      "providers": "src/adapters/modulation",
+      "composition": "src/adapters/modulation/registry",
+      "registration": true
+    },
+    "snapshot_observation": {
+      "providers": "SnapshotExtension::observation",
+      "composition": "src/adapters/modulation/registry",
+      "consumer": "src/backend/sessions/snapshot_analysis.cpp",
+      "protocol_version": 2,
+      "normative_spec": "docs/19-DTMB识别规格.md"
+    },
+    "research": {
+      "providers": "plugins/desktop/research",
+      "composition": "plugins/desktop/research/research_provider.cpp",
+      "registration": true
+    },
+    "live_research": {
+      "providers": "plugins/desktop/research/builtin",
+      "composition": "plugins/desktop/research/live_registry.cpp",
+      "consumer": "src/frontend/desktop/live_tools.cpp",
+      "protocol_version": 2,
+      "registration": true
+    },
+    "reception_session": {
+      "protocol": "include/signalscope/backend/iq/reception.hpp",
+      "consumer": "src/backend/sessions/reception.cpp",
+      "normative_spec": "docs/21-独立广播会话与状态栏规格.md"
+    },
+    "sample_codec": {
+      "providers": "include/signalscope/backend/iq/sample_format.hpp",
+      "composition": "sample_codecs"
+    },
+    "language": {
+      "providers": "i18n resource files",
+      "runtime": true
+    },
+    "distribution": {
+      "providers": "src/backend/distribution/package_types.cpp",
+      "composition": "src/frontend/desktop/toolbox_services.cpp",
+      "catalog": "resources/distribution/trust.json",
+      "normative_spec": "docs/17-受控工具箱与在线更新规格.md"
+    },
+    "desktop_panel": {
+      "providers": "plugins/desktop/display; ResearchProvider::controls",
+      "composition": "src/frontend/desktop/gui.cpp",
+      "consumer": "src/frontend/desktop/workspace.cpp",
+      "normative_spec": "docs/18-桌面工作区与模块界面规格.md"
+    }
+  },
+  "source_roots": [
+    "src",
+    "include/signalscope",
+    "plugins"
+  ],
+  "frozen_event_compatibility": [
+    "broadcast_fm_stereo",
+    "lora_structure_match",
+    "fsk_candidate",
+    "ook_candidate",
+    "ask_candidate",
+    "energy_transient",
+    "chirp_probe",
+    "css_candidate",
+    "extended_candidate"
+  ],
+  "rules": [
+    {
+      "id": "consumer-does-not-import-concrete-provider",
+      "paths": [
+        "src/frontend",
+        "src/backend/sessions"
+      ],
+      "pattern": "#[ \\t]*include[^\\n]*(plugins/receivers/|research/builtin/|rtl-sdr\\.h|SoapySDR/)",
+      "reason": "稳定消费者只能依赖提供者协议。"
+    },
+    {
+      "id": "generic-ui-does-not-route-by-implementation-id",
+      "paths": [
+        "src/frontend/desktop/modulation_assessment.cpp",
+        "src/frontend/desktop/desktop_menus.cpp",
+        "src/frontend/desktop/analysis_panel.cpp",
+        "src/frontend/desktop/live_tools.cpp"
+      ],
+      "pattern": "(?:\\bid|\\bbackend|row\\.id)[ \\t]*==[ \\t]*\"[^\"]+\"",
+      "reason": "参数、评估及研究宿主不能按具体实现 ID 增加分支。"
+    },
+    {
+      "id": "sample-decode-is-centralized",
+      "paths": [
+        "src",
+        "plugins/desktop"
+      ],
+      "pattern": "read_ci16_le[ \\t]*\\(|(?:format|format_)[ \\t]*==[ \\t]*SampleFormat::",
+      "reason": "消费者必须使用编解码契约，禁止非 CU8 就是 CI16 的假定。"
+    },
+    {
+      "id": "language-selection-is-data-driven",
+      "paths": [
+        "src/frontend/desktop/language_preference.cpp",
+        "src/frontend/desktop/desktop_language.cpp",
+        "plugins/desktop/research/external_research.cpp",
+        "plugins/external/power_report/main.cpp"
+      ],
+      "pattern": "(?:==|!=)[ \\t]*\"zh-CN\"|QLocale::(?:Chinese|SimplifiedHanScript)",
+      "reason": "语言发现及回退必须使用资源和通用语言标签。"
+    },
+    {
+      "id": "no-inline-parallel-language-text",
+      "paths": [
+        "plugins/receivers",
+        "plugins/desktop/research",
+        "src/adapters/media",
+        "src/adapters/television",
+        "src/backend/transport",
+        "src/adapters/modulation",
+        "src/frontend/desktop"
+      ],
+      "pattern": "\"(?:label|description|message)\"[ \\t]*,[ \\t]*\\{[ \\t]*\\{[ \\t]*\"en\"",
+      "reason": "本地化文案属于语言资源，C++ 只引用 key。"
+    },
+    {
+      "id": "distribution-consumers-do-not-route-by-toolbox-id",
+      "paths": [
+        "src/frontend/desktop/toolbox_center.cpp",
+        "src/backend/distribution/store.cpp",
+        "src/backend/distribution/service.cpp"
+      ],
+      "pattern": "(?:==|!=)[ \\t]*\"(?:org\\.amc\\.|rtlsdr|sdrplay)",
+      "reason": "目录身份属于资源与组装，通用事务和界面不得按具体工具箱 ID 分支。"
+    },
+    {
+      "id": "specialized-controls-belong-to-provider",
+      "paths": [
+        "src/frontend/desktop/gui.cpp"
+      ],
+      "pattern": "Advanced LoRa|sf_[ \\t]*=|bw_[ \\t]*=|lora_dialog|DesktopAudio|FmPlayback|Play FM audio|Playing FM at",
+      "reason": "主体不能创建某个调制的高级参数控件。"
+    },
+    {
+      "id": "workspace-does-not-route-by-provider",
+      "paths": [
+        "src/frontend/desktop/workspace.cpp"
+      ],
+      "pattern": "(?:==|!=)[ \\t]*\"(?:lora|spectrum|waterfall|sdrplay|rtlsdr)",
+      "reason": "通用工作区不得按显示或调制提供者标识分支。"
+    }
+  ],
+  "catalog_roots": [
+    "src/backend/iq/signal_sources/i18n",
+    "plugins/receivers/common/i18n",
+    "plugins/receivers/rtl_sdr/i18n",
+    "plugins/receivers/sdrplay/i18n",
+    "plugins/receivers/test_receiver/i18n",
+    "src/adapters/modulation/i18n",
+    "src/adapters/modulation/dtmb/i18n",
+    "resources/distribution/i18n",
+    "plugins/desktop/research/builtin/fm_live/i18n",
+    "plugins/desktop/research/waveform/i18n",
+    "plugins/desktop/research/builtin/dtmb_tv/i18n",
+    "plugins/desktop/research/media_playback/i18n",
+    "src/adapters/television/dtmb/i18n",
+    "src/backend/transport/i18n",
+    "src/adapters/media/resources/media-decoder/i18n",
+    "src/adapters/media/resources/media-ffmpeg/i18n",
+    "src/adapters/media/resources/media-dra/i18n",
+    "src/frontend/desktop/status/i18n"
+  ]
+}

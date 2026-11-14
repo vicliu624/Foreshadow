@@ -1,0 +1,411 @@
+{
+  "schema": 1,
+  "default_language": "en",
+  "documents": [
+    {
+      "en": "AGENTS.md",
+      "zh-CN": "AGENTS.zh-CN.md",
+      "status": "current"
+    },
+    {
+      "en": "README.md",
+      "zh-CN": "README.zh-CN.md",
+      "status": "current"
+    },
+    {
+      "en": "docs/01-product-requirements-and-acceptance.md",
+      "zh-CN": "docs/01-产品需求与验收.md",
+      "status": "current"
+    },
+    {
+      "en": "docs/02-hardware-and-environment.md",
+      "zh-CN": "docs/02-硬件与环境调查.md",
+      "status": "historical"
+    },
+    {
+      "en": "docs/03-architecture-and-interfaces.md",
+      "zh-CN": "docs/03-架构与接口设计.md",
+      "status": "current"
+    },
+    {
+      "en": "docs/04-algorithms-and-testing.md",
+      "zh-CN": "docs/04-算法与测试方案.md",
+      "status": "current"
+    },
+    {
+      "en": "docs/05-implementation-and-risks.md",
+      "zh-CN": "docs/05-实施计划与风险决策.md",
+      "status": "current"
+    },
+    {
+      "en": "docs/06-china-lora-presets.md",
+      "zh-CN": "docs/06-中国LoRa应用与监听预设.md",
+      "status": "historical"
+    },
+    {
+      "en": "docs/07-building-and-cli.md",
+      "zh-CN": "docs/07-构建与命令行操作.md",
+      "status": "current"
+    },
+    {
+      "en": "docs/08-continuous-monitoring-and-event-storage.md",
+      "zh-CN": "docs/08-长期监听与事件存储.md",
+      "status": "current"
+    },
+    {
+      "en": "docs/09-delivery-and-user-guide.md",
+      "zh-CN": "docs/09-交付与使用说明.md",
+      "status": "current"
+    },
+    {
+      "en": "docs/10-821mhz-reception-migration.md",
+      "zh-CN": "docs/10-821MHz接收迁移需求.md",
+      "status": "historical"
+    },
+    {
+      "en": "docs/11-subghz-modulation-research.md",
+      "zh-CN": "docs/11-Sub-GHz调制识别与物业信号调查.md",
+      "status": "historical"
+    },
+    {
+      "en": "docs/12-cross-platform-desktop-design.md",
+      "zh-CN": "docs/12-跨平台桌面与接收机设计.md",
+      "status": "historical"
+    },
+    {
+      "en": "docs/13-receiver-capabilities-and-configuration.md",
+      "zh-CN": "docs/13-接收机能力与配置联动.md",
+      "status": "current"
+    },
+    {
+      "en": "docs/14-wideband-and-multirate-analysis.md",
+      "zh-CN": "docs/14-宽带接收与多速率分析.md",
+      "status": "current"
+    },
+    {
+      "en": "docs/15-receiver-plugin-protocol.md",
+      "zh-CN": "docs/15-接收机插件协议与扩展.md",
+      "status": "current"
+    },
+    {
+      "en": "docs/16-extension-boundaries.md",
+      "zh-CN": "docs/16-扩展边界与开闭原则规格.md",
+      "status": "current"
+    },
+    {
+      "en": "docs/17-toolboxes-and-updates.md",
+      "zh-CN": "docs/17-受控工具箱与在线更新规格.md",
+      "status": "current"
+    },
+    {
+      "en": "docs/18-desktop-workspaces.md",
+      "zh-CN": "docs/18-桌面工作区与模块界面规格.md",
+      "status": "current"
+    },
+    {
+      "en": "docs/19-dtmb-detection.md",
+      "zh-CN": "docs/19-DTMB识别规格.md",
+      "status": "current"
+    },
+    {
+      "en": "docs/20-dtmb-television.md",
+      "zh-CN": "docs/20-DTMB节目流与电视播放规格.md",
+      "status": "current"
+    },
+    {
+      "en": "docs/21-independent-broadcast-sessions.md",
+      "zh-CN": "docs/21-独立广播会话与状态栏规格.md",
+      "status": "current"
+    },
+    {
+      "en": "docs/22-waveform-laboratory.md",
+      "zh-CN": "docs/22-波形实验室与可追溯分析实施规格.md",
+      "status": "current"
+    },
+    {
+      "en": "docs/23-reference-model-protocol.md",
+      "zh-CN": "docs/23-参考模型与对照协议规格.md",
+      "status": "current"
+    },
+    {
+      "en": "docs/24-recovery-and-evidence-protocol.md",
+      "zh-CN": "docs/24-信号恢复与证据协议规格.md",
+      "status": "current"
+    },
+    {
+      "en": "docs/25-psk-ofdm-and-evm.md",
+      "zh-CN": "docs/25-PSK与OFDM接收及EVM规格.md",
+      "status": "current"
+    },
+    {
+      "en": "docs/26-native-macos-acceptance.md",
+      "zh-CN": "docs/26-macOS原生构建与部署验收规格.md",
+      "status": "current"
+    },
+    {
+      "en": "docs/README.md",
+      "zh-CN": "docs/README.zh-CN.md",
+      "status": "current"
+    },
+    {
+      "en": "docs/adr/0001-conditional-sfd-and-weak-signals.md",
+      "zh-CN": "docs/adr/0001-条件SFD容差与弱信号候选.md",
+      "status": "decision"
+    },
+    {
+      "en": "docs/reports/2026-11-03-first-capture.md",
+      "zh-CN": "docs/reports/2026-11-03-首次采集与环境记录.md",
+      "status": "historical"
+    },
+    {
+      "en": "docs/reports/2026-11-04-low-power-burst-diagnostics.md",
+      "zh-CN": "docs/reports/2026-11-04-低功率短包漏检诊断.md",
+      "status": "historical"
+    },
+    {
+      "en": "docs/reports/2026-11-04-unverified-candidates.md",
+      "zh-CN": "docs/reports/2026-11-04-待验证候选调查.md",
+      "status": "historical"
+    },
+    {
+      "en": "docs/reports/2026-11-05-lora-recovery-and-weak-signals.md",
+      "zh-CN": "docs/reports/2026-11-05-LoRa恢复实测与弱信号基线.md",
+      "status": "historical"
+    },
+    {
+      "en": "docs/reports/2026-11-08-receiver-settings.md",
+      "zh-CN": "docs/reports/2026-11-08-接收机设置与调制评估验收.md",
+      "status": "historical"
+    },
+    {
+      "en": "docs/reports/2026-11-08-receiver-configuration.md",
+      "zh-CN": "docs/reports/2026-11-08-接收机配置第一批验收.md",
+      "status": "historical"
+    },
+    {
+      "en": "docs/reports/2026-11-09-fm-and-realtime-pipelines.md",
+      "zh-CN": "docs/reports/2026-11-09-FM检测与实时流水线验收.md",
+      "status": "historical"
+    },
+    {
+      "en": "docs/reports/2026-11-09-wideband-receivers.md",
+      "zh-CN": "docs/reports/2026-11-09-双接收机宽带验收.md",
+      "status": "historical"
+    },
+    {
+      "en": "docs/reports/2026-11-09-toolbox-distribution.md",
+      "zh-CN": "docs/reports/2026-11-09-在线更新与工具箱发布验收.md",
+      "status": "historical"
+    },
+    {
+      "en": "docs/reports/2026-11-09-receiver-extensions.md",
+      "zh-CN": "docs/reports/2026-11-09-接收机插件与开闭原则验收.md",
+      "status": "historical"
+    },
+    {
+      "en": "docs/reports/2026-11-10-fm-playback-recovery.md",
+      "zh-CN": "docs/reports/2026-11-10-FM播放恢复与模块控制验收.md",
+      "status": "historical"
+    },
+    {
+      "en": "docs/reports/2026-11-10-lora-scheduling.md",
+      "zh-CN": "docs/reports/2026-11-10-LoRa实时丢弃与共享调度验收.md",
+      "status": "historical"
+    },
+    {
+      "en": "docs/reports/2026-11-11-dtmb-television-release.md",
+      "zh-CN": "docs/reports/2026-11-11-DTMB电视播放与0.2.10发布验收.md",
+      "status": "historical"
+    },
+    {
+      "en": "docs/reports/2026-11-11-dtmb-daytime-rescan.md",
+      "zh-CN": "docs/reports/2026-11-11-DTMB白天复扫.md",
+      "status": "historical"
+    },
+    {
+      "en": "docs/reports/2026-11-11-dtmb-decoding.md",
+      "zh-CN": "docs/reports/2026-11-11-DTMB节目解码阶段验证.md",
+      "status": "historical"
+    },
+    {
+      "en": "docs/reports/2026-11-11-dtmb-detection.md",
+      "zh-CN": "docs/reports/2026-11-11-DTMB识别与实收扫描验收.md",
+      "status": "historical"
+    },
+    {
+      "en": "docs/reports/2026-11-11-waveform-implementation.md",
+      "zh-CN": "docs/reports/2026-11-11-波形实验室实施记录.md",
+      "status": "historical"
+    },
+    {
+      "en": "docs/reports/2026-11-12-psk-ofdm-acceptance.md",
+      "zh-CN": "docs/reports/2026-11-12-PSK与OFDM接收验收.md",
+      "status": "historical"
+    },
+    {
+      "en": "docs/reports/2026-11-12-native-macos-deployment.md",
+      "zh-CN": "docs/reports/2026-11-12-macOS原生部署与接收流程验收.md",
+      "status": "historical"
+    },
+    {
+      "en": "docs/reports/2026-11-12-waveform-completion-audit.md",
+      "zh-CN": "docs/reports/2026-11-12-波形实验室完成条件审计.md",
+      "status": "historical"
+    },
+    {
+      "en": "firmware/pager_tx/README.md",
+      "zh-CN": "firmware/pager_tx/README.zh-CN.md",
+      "status": "current"
+    },
+    {
+      "en": "patches/v3-periodic-fsk/README.md",
+      "zh-CN": "patches/v3-periodic-fsk/README.zh-CN.md",
+      "status": "historical"
+    },
+    {
+      "en": "research/v4/README.md",
+      "zh-CN": "research/v4/README.zh-CN.md",
+      "status": "historical"
+    },
+    {
+      "en": "src/README.md",
+      "zh-CN": "src/README.zh-CN.md",
+      "status": "current"
+    },
+    {
+      "en": "tests/fixtures/distribution-backslash.md",
+      "zh-CN": "tests/fixtures/distribution-backslash.zh-CN.md",
+      "status": "fixture"
+    },
+    {
+      "en": "tests/fixtures/dtmb-waveform/README.md",
+      "zh-CN": "tests/fixtures/dtmb-waveform/README.zh-CN.md",
+      "status": "fixture"
+    },
+    {
+      "en": "tests/fixtures/lora-edge-high-coherent-prefix/README.md",
+      "zh-CN": "tests/fixtures/lora-edge-high-coherent-prefix/说明.md",
+      "status": "fixture"
+    },
+    {
+      "en": "tests/fixtures/lora-edge-high-sfd-transition/README.md",
+      "zh-CN": "tests/fixtures/lora-edge-high-sfd-transition/说明.md",
+      "status": "fixture"
+    },
+    {
+      "en": "tests/fixtures/lora-edge-low-fine-sync/README.md",
+      "zh-CN": "tests/fixtures/lora-edge-low-fine-sync/说明.md",
+      "status": "fixture"
+    },
+    {
+      "en": "tests/fixtures/lora-sf7-weak-sfd/README.md",
+      "zh-CN": "tests/fixtures/lora-sf7-weak-sfd/说明.md",
+      "status": "fixture"
+    },
+    {
+      "en": "tests/fixtures/periodic-fsk-v3-false-1/README.md",
+      "zh-CN": "tests/fixtures/periodic-fsk-v3-false-1/说明.md",
+      "status": "fixture"
+    },
+    {
+      "en": "tests/fixtures/periodic-fsk-v3-false-2/README.md",
+      "zh-CN": "tests/fixtures/periodic-fsk-v3-false-2/说明.md",
+      "status": "fixture"
+    },
+    {
+      "en": "tests/fixtures/television-programs/README.md",
+      "zh-CN": "tests/fixtures/television-programs/README.zh-CN.md",
+      "status": "fixture"
+    },
+    {
+      "en": "third_party/README.md",
+      "zh-CN": "third_party/README.zh-CN.md",
+      "status": "current"
+    },
+    {
+      "en": "third_party/dra/UPSTREAM.md",
+      "zh-CN": "third_party/dra/UPSTREAM.zh-CN.md",
+      "status": "current"
+    },
+    {
+      "en": "third_party/dtmb-patches/README.md",
+      "zh-CN": "third_party/dtmb-patches/README.zh-CN.md",
+      "status": "current"
+    },
+    {
+      "en": "docs/screenshots.md",
+      "zh-CN": "docs/screenshots.zh-CN.md",
+      "status": "current"
+    },
+    {
+      "en": "docs/plugins.md",
+      "zh-CN": "docs/plugins.zh-CN.md",
+      "status": "current"
+    },
+    {
+      "en": "docs/reports/2026-11-13-foreshadow-maintenance.md",
+      "zh-CN": "docs/reports/2026-11-13-foreshadow-maintenance.zh-CN.md",
+      "status": "historical"
+    },
+    {
+      "en": "docs/licensing-assessment.md",
+      "zh-CN": "docs/licensing-assessment.zh-CN.md",
+      "status": "decision"
+    },
+    {
+      "en": "docs/reports/2026-11-13-pcm-and-licensing-review.md",
+      "zh-CN": "docs/reports/2026-11-13-pcm-and-licensing-review.zh-CN.md",
+      "status": "historical"
+    },
+    {
+      "en": "LICENSING.md",
+      "zh-CN": "LICENSING.zh-CN.md",
+      "status": "current"
+    },
+    {
+      "en": "THIRD_PARTY_NOTICES.md",
+      "zh-CN": "THIRD_PARTY_NOTICES.zh-CN.md",
+      "status": "current"
+    },
+    {
+      "en": "SOURCE_AND_REPLACEMENT.md",
+      "zh-CN": "SOURCE_AND_REPLACEMENT.zh-CN.md",
+      "status": "current"
+    },
+    {
+      "en": "docs/distribution-compliance.md",
+      "zh-CN": "docs/distribution-compliance.zh-CN.md",
+      "status": "current"
+    },
+    {
+      "en": "docs/reports/2026-11-13-license-adoption-review.md",
+      "zh-CN": "docs/reports/2026-11-13-license-adoption-review.zh-CN.md",
+      "status": "current"
+    },
+    {
+      "en": "docs/receiver-services.md",
+      "zh-CN": "docs/receiver-services.zh-CN.md",
+      "status": "current"
+    },
+    {
+      "en": "docs/reports/2026-11-14-receiver-service-review.md",
+      "zh-CN": "docs/reports/2026-11-14-receiver-service-review.zh-CN.md",
+      "status": "historical"
+    },
+    {
+      "en": "docs/codec-patent-assessment.md",
+      "zh-CN": "docs/codec-patent-assessment.zh-CN.md",
+      "status": "current"
+    },
+    {
+      "en": "docs/reports/2026-11-14-public-release-preparation.md",
+      "zh-CN": "docs/reports/2026-11-14-public-release-preparation.zh-CN.md",
+      "status": "historical"
+    },
+    {
+      "en": "docs/repository-transition.md",
+      "zh-CN": "docs/repository-transition.zh-CN.md",
+      "status": "current"
+    }
+  ]
+}

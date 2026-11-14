@@ -1,0 +1,2 @@
+#pragma once
+inline constexpr auto power_report_catalog=R"amc_catalog(@power_report_catalog@)amc_catalog";

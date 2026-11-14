@@ -1,0 +1,12 @@
+{
+  "amplitude": "Reference amplitude",
+  "phase_rad": "Initial phase",
+  "carrier_hz": "Carrier offset",
+  "issue.parameter": "Enter a value within the allowed range for this complete configuration.",
+  "issue.unknown": "This model does not declare the supplied parameter.",
+  "issue.nyquist": "The complete model and time alignment must remain within the input Nyquist interval.",
+  "label": "Sinusoidal AM",
+  "about": "A sinusoidal amplitude envelope on a complex carrier. Depth above one permits envelope reversal. This is a reference waveform, not an AM identification result.",
+  "modulation_hz": "Envelope frequency",
+  "depth": "Modulation depth"
+}

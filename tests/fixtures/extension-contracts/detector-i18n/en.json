@@ -1,0 +1,8 @@
+{
+  "test.detector.label": "Independent carrier detector",
+  "test.detector.parsing": "Independent feature evidence",
+  "test.detector.effect": "Configured by the extension provider",
+  "test.detector.summary": "Features; no payload decoder",
+  "test.detector.impact": "Whole snapshot",
+  "test.feature.label": "Independent feature"
+}

@@ -1,0 +1,43 @@
+name: Local build and regression
+
+on:
+  push:
+    branches: ['**']
+  pull_request_target:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: local-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  regression:
+    if: github.event_name != 'pull_request_target' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: [self-hosted, Linux, X64, amc-local]
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - name: Check bilingual documentation and links
+        run: python3 tools/docs/check_docs.py
+      - name: Configure cached local build
+        run: |
+          cmake -S . -B "$HOME/.cache/foreshadow-ci/build" -G Ninja -DCMAKE_BUILD_TYPE=Release \
+            -DFETCHCONTENT_BASE_DIR="$HOME/.cache/foreshadow-ci/deps" \
+            -DSIGNALSCOPE_REQUIRE_GUI=ON -DSIGNALSCOPE_REQUIRE_AUDIO=ON \
+            -DSIGNALSCOPE_REQUIRE_RTLSDR=ON -DSIGNALSCOPE_REQUIRE_SDRPLAY=ON
+      - name: Build
+        run: cmake --build "$HOME/.cache/foreshadow-ci/build" --parallel 4
+      - name: Regression
+        run: ctest --test-dir "$HOME/.cache/foreshadow-ci/build" --output-on-failure --parallel 2
+      - name: Verify installed package
+        run: |
+          stage="$HOME/.cache/foreshadow-ci/stage"
+          cmake --install "$HOME/.cache/foreshadow-ci/build" --prefix "$stage" --component SignalScope
+          cmake --install "$HOME/.cache/foreshadow-ci/build" --prefix "$stage" --component ResearchExamples
+          cmake "-DAMC_CLI=$stage/bin/signalscope" -P tests/check_packaged_receivers.cmake
+          cmake "-DAMC_STAGE=$stage" "-DAMC_TEST_BIN=$HOME/.cache/foreshadow-ci/build" -P tests/check_desktop_package.cmake

@@ -1,0 +1,8 @@
+{
+  "media.dra_truncated_frame": "DRA 数据流在一个压缩帧内部结束。",
+  "media.dra_input_budget": "DRA 输入超过数据包或缓冲预算。",
+  "media.dra_timestamp_budget": "DRA 输入中等待处理的时间戳过多。",
+  "media.dra_auxiliary_unsupported": "已安装的解码器不支持此 DRA 辅助档次。",
+  "media.dra_input": "DRA 解码器拒绝了一个压缩帧。",
+  "media.dra_output": "DRA 解码器返回了无效的 PCM 帧。"
+}

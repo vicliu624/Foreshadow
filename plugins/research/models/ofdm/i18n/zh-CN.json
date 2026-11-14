@@ -1,0 +1,20 @@
+{
+  "label": "已知子载波 OFDM",
+  "about": "逐个已知符号提供复数频率 bin。参考采用酉归一化逆 DFT、输入采样时钟及显式循环前缀；未指定的 bin 明确为零。不执行导频捕获、定时或载波同步、信道均衡及子载波 EVM 测量。",
+  "amplitude": "参考幅度",
+  "phase_rad": "初始相位",
+  "carrier_hz": "载波频偏",
+  "fft_size": "有效符号样本数 N",
+  "prefix_samples": "循环前缀样本数",
+  "subcarriers": "已知复数子载波",
+  "subcarriers.help": "以空格分隔 bin:实部,虚部，以 | 分隔符号。例如：-1:1,0 1:0,1 | -1:-1,0 1:0,-1。带符号 bin 范围为 −floor(N/2)…floor((N−1)/2)。最多 16 个符号、每符号 64 个 bin、合计 256 个、文本 4096 字节；各分量位于 −10…10。",
+  "sequence_mode": "已知序列覆盖",
+  "sequence.repeat": "明确重复的序列",
+  "sequence.finite": "有限已知序列",
+  "issue.parameter": "请输入符合整套配置范围的参数值。",
+  "issue.unknown": "此模型未声明该参数。",
+  "issue.nyquist": "指定子载波加上载波频偏后超出输入奈奎斯特范围。矩形符号边界不构成占用带宽保证。",
+  "issue.subcarriers": "请检查 bin:实部,虚部 语法、符号分隔符、bin 唯一性、分量范围及参考预算。",
+  "issue.support": "有限已知符号未覆盖全部选区和对齐搜索。请补充已知符号，或缩小选区和对齐范围。",
+  "issue.energy": "指定子载波没有非零参考能量。"
+}

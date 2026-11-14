@@ -1,0 +1,14 @@
+{
+  "amplitude": "参考幅度",
+  "phase_rad": "初始相位",
+  "carrier_hz": "载波频偏",
+  "issue.parameter": "请输入符合整套配置范围的参数值。",
+  "issue.unknown": "此模型未声明该参数。",
+  "issue.nyquist": "整套模型与时间对齐必须位于输入的奈奎斯特范围内。",
+  "label": "连续相位 2-FSK",
+  "about": "显式给定的比特图案循环驱动矩形频率脉冲，相位连续。零为载波减频偏，一为载波加频偏；不据此推断帧结构或已解码载荷。",
+  "symbol_rate_hz": "符号率",
+  "deviation_hz": "频偏",
+  "bits": "循环比特图案",
+  "issue.pattern": "请输入非空的零/一图案，最多 256 位。"
+}

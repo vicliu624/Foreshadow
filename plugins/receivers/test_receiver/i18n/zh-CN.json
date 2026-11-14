@@ -1,0 +1,15 @@
+{
+  "test.profile.eco": "节能",
+  "test.profile.wide": "宽带",
+  "test.gain.label": "测试增益",
+  "test.profile.label": "接收机档位",
+  "test.preamp.label": "前置放大器",
+  "test.calibration.label": "时钟校正",
+  "issue.test_rate": "测试采样率不受支持",
+  "issue.test_frequency": "频率超出测试范围",
+  "issue.test_profile": "未知接收机档位",
+  "issue.test_profile_rate": "节能档位需要 1 MS/s",
+  "issue.test_preamp": "节能档位不能启用前置放大器",
+  "issue.test_ppm": "时钟校正超出 20 ppm",
+  "issue.test_unknown_setting": "未知测试参数"
+}

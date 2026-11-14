@@ -1,0 +1,9 @@
+{
+  "api": 1,
+  "id": "external.amc-power-report",
+  "executable": "amc-power-report@CMAKE_EXECUTABLE_SUFFIX@",
+  "output": "text",
+  "sampleRange": true,
+  "resources": @power_report_resources@,
+  "title": {"en": "I/Q power report", "zh-CN": "I/Q 功率报告"}
+}

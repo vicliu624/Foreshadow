@@ -1,0 +1,17 @@
+{
+  "player.invalid_selection": "The requested program or track identifier is invalid.",
+  "player.helper_missing": "The installed media decoder is missing.",
+  "player.helper_start": "The media decoder process could not be started.",
+  "player.helper_failed": "The media decoder process stopped unexpectedly.",
+  "player.helper_input": "Sending transport data to the media decoder failed.",
+  "player.no_frames": "The stream ended without decoded audio or video.",
+  "player.video_format": "The decoder returned an unsupported video frame.",
+  "player.video_budget": "The video frame exceeds the display buffer budget.",
+  "player.audio_format": "The decoder returned an unsupported audio frame.",
+  "player.audio_unavailable": "No output device supports 48 kHz stereo PCM. Video can continue without sound.",
+  "player.audio_open": "The audio output device could not be opened. Video can continue without sound.",
+  "player.audio_output_failed": "The audio output device failed. Select another output device to resume sound.",
+  "player.decoder_error": "The media decoder reported an error.",
+  "player.protocol_error": "The media decoder returned an invalid or incompatible response.",
+  "player.volume": "Volume must be between 0 and 100 percent."
+}

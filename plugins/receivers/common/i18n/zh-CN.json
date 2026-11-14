@@ -1,0 +1,22 @@
+{
+  "parameter.sample_rate_hz.label": "采样率",
+  "parameter.frequency_hz.label": "接收中心频率",
+  "parameter.gain_tenths_db.label": "增益",
+  "parameter.if_gain_reduction.label": "中频增益衰减 (dB)",
+  "parameter.auto_gain.label": "自动增益",
+  "parameter.input_mode.label": "射频输入模式",
+  "parameter.if_bandwidth_hz.label": "中频滤波器（3 dB）",
+  "parameter.antenna.label": "天线端口",
+  "issue.receiver_rate": "采样率超出设备支持范围。",
+  "issue.receiver_frequency": "频率超出所选输入模式的支持范围。",
+  "issue.receiver_antenna": "设备不支持此天线端口。",
+  "issue.antenna_frequency": "此天线端口最高支持 {maximum_hz} Hz。",
+  "issue.receiver_gain": "设备不支持此手动增益。",
+  "issue.receiver_input_mode": "设备不支持此射频输入模式。",
+  "issue.receiver_if_bandwidth": "设备未报告此中频滤波器，请选择自动或列表中的带宽。",
+  "issue.frequency_unknown": "射频范围未知，应用时由驱动校验。",
+  "issue.filter_above_sample_span": "中频滤波器宽于采样频带，带外信号可能混叠。自动滤波跟随驱动选择。",
+  "issue.receiver_passband": "所需接收范围超出采样频带。",
+  "issue.plugin_setting": "插件参数不支持此值或存在联动冲突：{key}",
+  "issue.plugin_settings": "插件参数必须是对象。"
+}

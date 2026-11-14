@@ -1,0 +1,13 @@
+{
+  "amplitude": "参考幅度",
+  "phase_rad": "初始相位",
+  "carrier_hz": "载波频偏",
+  "issue.parameter": "请输入符合整套配置范围的参数值。",
+  "issue.unknown": "此模型未声明该参数。",
+  "issue.nyquist": "整套模型与时间对齐必须位于输入的奈奎斯特范围内。",
+  "label": "线性 Chirp",
+  "about": "不循环的连续线性扫频参考。时长定义斜率；时间对齐仍使用同一线性延伸，并须保持在奈奎斯特范围内。",
+  "start_hz": "相对载波的起始频偏",
+  "end_hz": "相对载波的结束频偏",
+  "duration_seconds": "扫频时长"
+}

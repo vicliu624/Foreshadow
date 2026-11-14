@@ -1,0 +1,15 @@
+{
+  "global": {
+    "core:datatype": "cu8",
+    "core:sample_rate": 1750000,
+    "core:version": "1.2.6",
+    "core:description": "真实高频边缘短包裁剪；SFD 转换回归"
+  },
+  "captures": [
+    {
+      "core:sample_start": 0,
+      "core:frequency": 478500000
+    }
+  ],
+  "annotations": []
+}

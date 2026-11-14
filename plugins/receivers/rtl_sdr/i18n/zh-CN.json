@@ -1,0 +1,3 @@
+{
+  "issue.rtl_usb_rate_risk": "RTL-SDR 高于 2.56 MS/s 时可能丢样。该档位仍可选，请在采集时检查连续性。"
+}

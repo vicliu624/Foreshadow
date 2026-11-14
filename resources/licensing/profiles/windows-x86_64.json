@@ -1,0 +1,1124 @@
+{
+  "schema": 1,
+  "application_id": "org.amc.ams",
+  "components": {
+    "foreshadow": {
+      "version": "0.2.12",
+      "license": "GPL-3.0-or-later",
+      "origin": "Frozen Foreshadow Git commit",
+      "source_required": true,
+      "dependencies": [
+        "json",
+        "msvc-runtime"
+      ],
+      "issues": [],
+      "artifacts": [
+        {
+          "first_party": true
+        }
+      ],
+      "repository_files": [
+        {
+          "file": "LICENSE",
+          "role": "notice",
+          "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903"
+        },
+        {
+          "file": "LICENSING.md",
+          "role": "notice",
+          "sha256": "35c78507ff117544de27a31d387b68c078ae49e9edf7ed32396ff3b3391365f1"
+        },
+        {
+          "file": "SOURCE_AND_REPLACEMENT.md",
+          "role": "build",
+          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+        }
+      ],
+      "display_notice": "Foreshadow and its first-party plugins are free software under GNU GPL version 3 or, at your option, any later version. Imported code retains its original copyright and license."
+    },
+    "json": {
+      "version": "3.12.0",
+      "license": "MIT",
+      "origin": "https://github.com/nlohmann/json/releases/download/v3.12.0/json.tar.xz",
+      "source_required": true,
+      "dependencies": [],
+      "issues": [],
+      "artifacts": [
+        {
+          "file": "json.tar.xz",
+          "sha256": "42f6e95cad6ec532fd372391373363b62a14af6d771056dbfc86160e6dfff7aa",
+          "origin": "https://github.com/nlohmann/json/releases/download/v3.12.0/json.tar.xz",
+          "role": "source",
+          "extract_notices": true
+        }
+      ],
+      "repository_files": [
+        {
+          "file": "SOURCE_AND_REPLACEMENT.md",
+          "role": "build",
+          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+        }
+      ]
+    },
+    "kissfft": {
+      "version": "131.1.0",
+      "license": "BSD-3-Clause",
+      "origin": "https://github.com/mborgerding/kissfft/archive/refs/tags/131.1.0.tar.gz",
+      "source_required": true,
+      "dependencies": [],
+      "issues": [],
+      "artifacts": [
+        {
+          "file": "kissfft.tar.gz",
+          "sha256": "76c1aac87ddb7258f34b08a13f0eebf9e53afa299857568346aa5c82bcafaf1a",
+          "origin": "https://github.com/mborgerding/kissfft/archive/refs/tags/131.1.0.tar.gz",
+          "role": "source",
+          "extract_notices": true
+        }
+      ],
+      "repository_files": [
+        {
+          "file": "SOURCE_AND_REPLACEMENT.md",
+          "role": "build",
+          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+        }
+      ]
+    },
+    "ffmpeg": {
+      "version": "cd4e96eb314630788b7ff2f9820c395788c023e2",
+      "license": "LGPL-2.1-or-later",
+      "origin": "https://codeload.github.com/FFmpeg/FFmpeg/tar.gz/cd4e96eb314630788b7ff2f9820c395788c023e2",
+      "source_required": true,
+      "dependencies": [],
+      "issues": [],
+      "artifacts": [
+        {
+          "file": "ffmpeg_native.tar.gz",
+          "sha256": "e3976ef0636e9c12d68c193abc4898ab50f05be3a4996026abc60c18be7447d4",
+          "origin": "https://codeload.github.com/FFmpeg/FFmpeg/tar.gz/cd4e96eb314630788b7ff2f9820c395788c023e2",
+          "role": "source",
+          "extract_notices": true
+        }
+      ],
+      "repository_files": [
+        {
+          "file": "SOURCE_AND_REPLACEMENT.md",
+          "role": "build",
+          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+        },
+        {
+          "file": "cmake/BuildFfmpeg.sh",
+          "role": "build",
+          "sha256": "157b68766cb7ec98a9c314e057da80800bdd6df7457cf825e4e4f641c32f0ed1"
+        },
+        {
+          "file": "cmake/MediaDecoder.cmake",
+          "role": "build",
+          "sha256": "586cfb20533acc7c8a498e596f390c05299d3120e3f8aabfa9f3c6ec279b69e8"
+        },
+        {
+          "file": "LICENSES/LGPL-2.1-or-later.txt",
+          "role": "notice",
+          "sha256": "5df07007198989c622f5d41de8d703e7bef3d0e79d62e24332ee739a452af62a"
+        }
+      ],
+      "display_notice": "This package uses FFmpeg under LGPL-2.1-or-later, configured without GPL or nonfree features. Original notices, source and build/replacement material accompany this copy."
+    },
+    "dtmb-sdr": {
+      "version": "2cc94c012128d6fa3e8d6de456b3bb57e51990a9",
+      "license": "MIT",
+      "origin": "https://github.com/ningzichun/dtmb-sdr/archive/2cc94c012128d6fa3e8d6de456b3bb57e51990a9.tar.gz",
+      "source_required": true,
+      "dependencies": [],
+      "issues": [],
+      "artifacts": [
+        {
+          "file": "dtmb_decoder.tar.gz",
+          "sha256": "87ecbf94ae4873bcc65c3a284ab4e2bfeecf26f2f8135a2f0ff2d98af8338c41",
+          "origin": "https://github.com/ningzichun/dtmb-sdr/archive/2cc94c012128d6fa3e8d6de456b3bb57e51990a9.tar.gz",
+          "role": "source",
+          "extract_notices": true
+        }
+      ],
+      "repository_files": [
+        {
+          "file": "SOURCE_AND_REPLACEMENT.md",
+          "role": "build",
+          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+        },
+        {
+          "file": "cmake/DtmbReceiver.cmake",
+          "role": "build",
+          "sha256": "a20d9a6286bc4e9bb336dfd9d7881a3bc9bfa80ec75494787b2738c262c3f9ce"
+        },
+        {
+          "file": "third_party/dtmb-patches/pn595.json",
+          "role": "build",
+          "sha256": "69288fe613df1f47d0ab353f2c3adff7f09a582bc088f3fe54efa784987a7cf5"
+        },
+        {
+          "file": "third_party/dtmb-patches/fec-eof.json",
+          "role": "build",
+          "sha256": "751df4e1238b3c42a7fa145483a8f0460934d6f6e1545f3410f9fc8baaadd3da"
+        },
+        {
+          "file": "third_party/dtmb-sampler-LICENSE",
+          "role": "notice",
+          "sha256": "2245ae0e78dda1d1475ae16d5f67702794bd2f28de68d9e5f149c3c78f60c90f"
+        }
+      ]
+    },
+    "dra": {
+      "version": "eb94ceb887b47b6ecfbda9da43273dd65246df1e",
+      "license": "MIT",
+      "origin": "https://github.com/maliwen2015/ffmpeg_cavs_dra",
+      "source_required": true,
+      "dependencies": [],
+      "issues": [],
+      "artifacts": [
+        {
+          "first_party": true
+        }
+      ],
+      "repository_files": [
+        {
+          "file": "third_party/dra/LICENSE",
+          "role": "notice",
+          "sha256": "cac0ae34bd88bc4347c3901c3d6e9715ee64ae9b2ec8e027b0892ecd67db98f4"
+        },
+        {
+          "file": "third_party/dra/UPSTREAM.md",
+          "role": "build",
+          "sha256": "969b20e93c020ffa08a6afdb81d129d280028f17c78fb8d4213d46746e8af115"
+        }
+      ]
+    },
+    "vcpkg-build": {
+      "version": "recorded baseline",
+      "license": "MIT",
+      "origin": "https://github.com/microsoft/vcpkg",
+      "source_required": true,
+      "dependencies": [],
+      "issues": [],
+      "artifacts": [
+        {
+          "file": "vcpkg-build-recipes.tar.gz",
+          "sha256": "ef9446ab15fbf9e44de28fb5cc74a66d31b2bae4f6ccb3bf6c8cdfb29ca8d81e",
+          "origin": "https://github.com/microsoft/vcpkg/tree/177e8175121536d414f405ed8b3099b325a42638",
+          "role": "source",
+          "extract_notices": true
+        }
+      ],
+      "repository_files": [
+        {
+          "file": "SOURCE_AND_REPLACEMENT.md",
+          "role": "build",
+          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+        }
+      ]
+    },
+    "qt": {
+      "version": "6.8.3",
+      "license": "LGPL-3.0-only AND BSD-3-Clause AND LicenseRef-Qt-ThirdParty",
+      "origin": "https://download.qt.io/archive/qt/6.8/6.8.3/",
+      "source_required": true,
+      "dependencies": [],
+      "issues": [],
+      "artifacts": [
+        {
+          "file": "qtbase-everywhere-src-6.8.3.tar.xz",
+          "sha256": "56001b905601bb9023d399f3ba780d7fa940f3e4861e496a7c490331f49e0b80",
+          "origin": "https://download.qt.io/archive/qt/6.8/6.8.3/submodules/qtbase-everywhere-src-6.8.3.tar.xz",
+          "role": "source",
+          "extract_notices": true
+        },
+        {
+          "file": "qtmultimedia-everywhere-src-6.8.3.tar.xz",
+          "sha256": "32e82307d783172a3b984cc3c47c5e4e8b819cee3cbfc702c7012c47f15f6b01",
+          "origin": "https://download.qt.io/archive/qt/6.8/6.8.3/submodules/qtmultimedia-everywhere-src-6.8.3.tar.xz",
+          "role": "source",
+          "extract_notices": true
+        },
+        {
+          "file": "qtserialport-everywhere-src-6.8.3.tar.xz",
+          "sha256": "c164a0392dc7cab3d072fa8fdcacc8fc4f3e685234b021b3128020719cdf5fa5",
+          "origin": "https://download.qt.io/archive/qt/6.8/6.8.3/submodules/qtserialport-everywhere-src-6.8.3.tar.xz",
+          "role": "source",
+          "extract_notices": true
+        },
+        {
+          "file": "qtsvg-everywhere-src-6.8.3.tar.xz",
+          "sha256": "35eb516460f00f264eb504baa253432384351cf23fb9980a5857190e8deef438",
+          "origin": "https://download.qt.io/archive/qt/6.8/6.8.3/submodules/qtsvg-everywhere-src-6.8.3.tar.xz",
+          "role": "source",
+          "extract_notices": true
+        },
+        {
+          "file": "qttranslations-everywhere-src-6.8.3.tar.xz",
+          "sha256": "c3c61d79c3d8fe316a20b3617c64673ce5b5519b2e45535f49bee313152fa531",
+          "origin": "https://download.qt.io/archive/qt/6.8/6.8.3/submodules/qttranslations-everywhere-src-6.8.3.tar.xz",
+          "role": "source",
+          "extract_notices": true
+        },
+        {
+          "file": "qttools-everywhere-src-6.8.3.tar.xz",
+          "sha256": "02a4e219248b94f1333df843d25763f35251c1074cdc4fb5bda67d340f8c8b3a",
+          "origin": "https://download.qt.io/archive/qt/6.8/6.8.3/submodules/qttools-everywhere-src-6.8.3.tar.xz",
+          "role": "source",
+          "extract_notices": true
+        },
+        {
+          "file": "qt-sdk-metadata.tar.gz",
+          "sha256": "e6047e2716b09ab7014bba571220270d6eacd4ab657ff644a64a17ecce8076cb",
+          "origin": "Qt 6.8.3 installed SDK SPDX metadata",
+          "role": "build",
+          "extract_notices": false
+        }
+      ],
+      "repository_files": [
+        {
+          "file": "LICENSES/LGPL-3.0-only.txt",
+          "role": "notice",
+          "sha256": "da7eabb7bafdf7d3ae5e9f223aa5bdc1eece45ac569dc21b3b037520b4464768"
+        },
+        {
+          "file": "LICENSES/GPL-3.0-or-later.txt",
+          "role": "notice",
+          "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903"
+        },
+        {
+          "file": "SOURCE_AND_REPLACEMENT.md",
+          "role": "build",
+          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+        }
+      ],
+      "selected_options": [
+        "Qt LGPLv3 route",
+        "FreeType FTL alternative",
+        "Source/notice superset includes tools and unused code; runtime files are listed separately",
+        "No Qt FFmpeg backend, software OpenGL or D3D compiler shipped"
+      ],
+      "display_notice": "This application uses Qt under LGPL-3.0-only. Qt copyright notices, the LGPL/GPL texts, corresponding source and instructions for replacing the shared libraries accompany this copy. Other Qt third-party code retains its applicable terms."
+    },
+    "msvc-runtime": {
+      "version": "MSVC 2022 release CRT",
+      "license": "LicenseRef-Microsoft-Visual-Cpp-Runtime",
+      "origin": "https://visualstudio.microsoft.com/license-terms/vs2022-cruntime/",
+      "source_required": false,
+      "dependencies": [],
+      "issues": [],
+      "artifacts": [
+        {
+          "file": "msvc-runtime.docx",
+          "sha256": "f1e3d56ceb2ad68aae0711b910375009e651ac5530fa0760f0dea6e81e54fae1",
+          "origin": "https://visualstudio.microsoft.com/license-terms/vs2022-cruntime/",
+          "role": "notice",
+          "extract_notices": false
+        },
+        {
+          "file": "vs-community.docx",
+          "sha256": "41a207b10c8ab91d0d2f10a854715f73dca54509581692d2fe179aa3ffcb8540",
+          "origin": "https://visualstudio.microsoft.com/license-terms/vs2022-ga-community/",
+          "role": "notice",
+          "extract_notices": false
+        },
+        {
+          "file": "msvc-redist.html",
+          "sha256": "2b0516d4fcaf62c4bb7b5f8e9e5d8ed98f956e8cffeecfaebe83927521b71c08",
+          "origin": "https://learn.microsoft.com/en-us/visualstudio/releases/2022/redistribution",
+          "role": "notice",
+          "extract_notices": false
+        }
+      ],
+      "repository_files": [
+        {
+          "file": "THIRD_PARTY_NOTICES.md",
+          "role": "notice",
+          "sha256": "7e7b1b1790e7269774fe9928171f759535ebe5b99418bce8c4ab8364cdf46654"
+        }
+      ]
+    },
+    "openssl": {
+      "version": "3.6.5",
+      "license": "Apache-2.0",
+      "origin": "https://github.com/openssl/openssl",
+      "source_required": true,
+      "dependencies": [
+        "vcpkg-build"
+      ],
+      "issues": [],
+      "artifacts": [
+        {
+          "file": "openssl-openssl-openssl-3.6.5.tar.gz",
+          "sha256": "f3091b7ccb41a11d877b7406b7afc9dd9c5003d299c6bb33cff882127bc06c91",
+          "origin": "https://github.com/openssl/openssl",
+          "role": "source",
+          "extract_notices": true
+        }
+      ],
+      "repository_files": [
+        {
+          "file": "SOURCE_AND_REPLACEMENT.md",
+          "role": "build",
+          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+        }
+      ]
+    },
+    "libarchive": {
+      "version": "3.8.9",
+      "license": "BSD-2-Clause AND BSD-3-Clause AND LicenseRef-libarchive-file-notices",
+      "origin": "https://github.com/libarchive/libarchive",
+      "source_required": true,
+      "dependencies": [
+        "vcpkg-build",
+        "zlib",
+        "bzip2",
+        "liblzma",
+        "lz4",
+        "zstd"
+      ],
+      "issues": [],
+      "artifacts": [
+        {
+          "file": "libarchive-libarchive-v3.8.9.tar.gz",
+          "sha256": "744346f6bca195c8f894f847bb32a16e9bcae6002624a58fadc81e80f595b3cb",
+          "origin": "https://github.com/libarchive/libarchive",
+          "role": "source",
+          "extract_notices": true
+        }
+      ],
+      "repository_files": [
+        {
+          "file": "SOURCE_AND_REPLACEMENT.md",
+          "role": "build",
+          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+        }
+      ]
+    },
+    "rtlsdr": {
+      "version": "2.0.2",
+      "license": "GPL-2.0-or-later",
+      "origin": "https://github.com/osmocom/rtl-sdr",
+      "source_required": true,
+      "dependencies": [
+        "vcpkg-build",
+        "libusb",
+        "pthreads"
+      ],
+      "issues": [],
+      "artifacts": [
+        {
+          "file": "osmocom-rtl-sdr-v2.0.2.tar.gz",
+          "sha256": "d69943eb32df742bc38a00ce6615e41250fd57851174e5ff916ec31e9e9e68e9",
+          "origin": "https://github.com/osmocom/rtl-sdr",
+          "role": "source",
+          "extract_notices": true
+        }
+      ],
+      "repository_files": [
+        {
+          "file": "SOURCE_AND_REPLACEMENT.md",
+          "role": "build",
+          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+        }
+      ]
+    },
+    "libusb": {
+      "version": "1.0.30",
+      "license": "LGPL-2.1-or-later",
+      "origin": "https://github.com/libusb/libusb",
+      "source_required": true,
+      "dependencies": [
+        "vcpkg-build"
+      ],
+      "issues": [],
+      "artifacts": [
+        {
+          "file": "libusb-libusb-v1.0.30.tar.gz",
+          "sha256": "2ae28adb0bb9558c86135c4e1c11b320b0805461e207a64a6e520a114094bf07",
+          "origin": "https://github.com/libusb/libusb",
+          "role": "source",
+          "extract_notices": true
+        }
+      ],
+      "repository_files": [
+        {
+          "file": "SOURCE_AND_REPLACEMENT.md",
+          "role": "build",
+          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+        }
+      ]
+    },
+    "pthreads": {
+      "version": "3.0.0",
+      "license": "Apache-2.0",
+      "origin": "https://sourceforge.net/projects/pthreads4w",
+      "source_required": true,
+      "dependencies": [
+        "vcpkg-build"
+      ],
+      "issues": [],
+      "artifacts": [
+        {
+          "file": "pthreads4w-code-v3.0.0.zip",
+          "sha256": "b81136effb7185c77601fe2e0e6ac19bd996912e4814cebdd3010b0fac9e259b",
+          "origin": "https://sourceforge.net/projects/pthreads4w",
+          "role": "source",
+          "extract_notices": true
+        }
+      ],
+      "repository_files": [
+        {
+          "file": "SOURCE_AND_REPLACEMENT.md",
+          "role": "build",
+          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+        }
+      ]
+    },
+    "soapysdr": {
+      "version": "0.8.1",
+      "license": "BSL-1.0",
+      "origin": "https://github.com/pothosware/SoapySDR",
+      "source_required": true,
+      "dependencies": [
+        "vcpkg-build"
+      ],
+      "issues": [],
+      "artifacts": [
+        {
+          "file": "pothosware-SoapySDR-soapy-sdr-0.8.1.tar.gz",
+          "sha256": "a508083875ed75d1090c24f88abef9895ad65f0f1b54e96d74094478f0c400e6",
+          "origin": "https://github.com/pothosware/SoapySDR",
+          "role": "source",
+          "extract_notices": true
+        }
+      ],
+      "repository_files": [
+        {
+          "file": "SOURCE_AND_REPLACEMENT.md",
+          "role": "build",
+          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+        }
+      ]
+    },
+    "zlib": {
+      "version": "1.3.2",
+      "license": "Zlib",
+      "origin": "https://github.com/madler/zlib",
+      "source_required": true,
+      "dependencies": [
+        "vcpkg-build"
+      ],
+      "issues": [],
+      "artifacts": [
+        {
+          "file": "madler-zlib-v1.3.2.tar.gz",
+          "sha256": "b99a0b86c0ba9360ec7e78c4f1e43b1cbdf1e6936c8fa0f6835c0cd694a495a1",
+          "origin": "https://github.com/madler/zlib",
+          "role": "source",
+          "extract_notices": true
+        }
+      ],
+      "repository_files": [
+        {
+          "file": "SOURCE_AND_REPLACEMENT.md",
+          "role": "build",
+          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+        }
+      ]
+    },
+    "bzip2": {
+      "version": "1.0.8",
+      "license": "bzip2-1.0.6",
+      "origin": "https://sourceware.org/bzip2",
+      "source_required": true,
+      "dependencies": [
+        "vcpkg-build"
+      ],
+      "issues": [],
+      "artifacts": [
+        {
+          "file": "bzip2-1.0.8.tar.gz",
+          "sha256": "ab5a03176ee106d3f0fa90e381da478ddae405918153cca248e682cd0c4a2269",
+          "origin": "https://sourceware.org/bzip2",
+          "role": "source",
+          "extract_notices": true
+        }
+      ],
+      "repository_files": [
+        {
+          "file": "SOURCE_AND_REPLACEMENT.md",
+          "role": "build",
+          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+        }
+      ]
+    },
+    "liblzma": {
+      "version": "5.8.4",
+      "license": "0BSD AND LicenseRef-XZ-file-notices",
+      "origin": "https://github.com/tukaani-project/xz",
+      "source_required": true,
+      "dependencies": [
+        "vcpkg-build"
+      ],
+      "issues": [],
+      "artifacts": [
+        {
+          "file": "tukaani-project-xz-v5.8.4.tar.gz",
+          "sha256": "b6b34c52e672e810d339db14e0c10b5b6f5f67a30d8d05cdac5d8cb4d82f78d5",
+          "origin": "https://github.com/tukaani-project/xz",
+          "role": "source",
+          "extract_notices": true
+        }
+      ],
+      "repository_files": [
+        {
+          "file": "SOURCE_AND_REPLACEMENT.md",
+          "role": "build",
+          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+        }
+      ]
+    },
+    "lz4": {
+      "version": "1.11.1",
+      "license": "BSD-2-Clause",
+      "origin": "https://github.com/lz4/lz4",
+      "source_required": true,
+      "dependencies": [
+        "vcpkg-build"
+      ],
+      "issues": [],
+      "artifacts": [
+        {
+          "file": "lz4-lz4-v1.11.1.tar.gz",
+          "sha256": "683fed08a844ad012196381e40badf80c0bbe4962959761416d41c9e67d77ec7",
+          "origin": "https://github.com/lz4/lz4",
+          "role": "source",
+          "extract_notices": true
+        }
+      ],
+      "repository_files": [
+        {
+          "file": "SOURCE_AND_REPLACEMENT.md",
+          "role": "build",
+          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+        }
+      ]
+    },
+    "zstd": {
+      "version": "1.5.7",
+      "license": "BSD-3-Clause",
+      "origin": "https://github.com/facebook/zstd",
+      "source_required": true,
+      "dependencies": [
+        "vcpkg-build"
+      ],
+      "issues": [],
+      "artifacts": [
+        {
+          "file": "facebook-zstd-v1.5.7.tar.gz",
+          "sha256": "37d7284556b20954e56e1ca85b80226768902e2edabd3b649e9e72c0c9012ee3",
+          "origin": "https://github.com/facebook/zstd",
+          "role": "source",
+          "extract_notices": true
+        }
+      ],
+      "repository_files": [
+        {
+          "file": "SOURCE_AND_REPLACEMENT.md",
+          "role": "build",
+          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+        }
+      ]
+    },
+    "desktop-runtime": {
+      "version": "0.2.12",
+      "license": "See selected component licenses",
+      "origin": "Foreshadow package assembly",
+      "source_required": false,
+      "dependencies": [
+        "qt"
+      ],
+      "issues": [],
+      "artifacts": [],
+      "repository_files": [
+        {
+          "file": "LICENSE",
+          "role": "notice",
+          "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903"
+        },
+        {
+          "file": "LICENSING.md",
+          "role": "notice",
+          "sha256": "35c78507ff117544de27a31d387b68c078ae49e9edf7ed32396ff3b3391365f1"
+        },
+        {
+          "file": "SOURCE_AND_REPLACEMENT.md",
+          "role": "build",
+          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+        }
+      ]
+    },
+    "distribution-runtime": {
+      "version": "0.2.12",
+      "license": "See selected component licenses",
+      "origin": "Foreshadow package assembly",
+      "source_required": false,
+      "dependencies": [
+        "openssl",
+        "libarchive"
+      ],
+      "issues": [],
+      "artifacts": [],
+      "repository_files": [
+        {
+          "file": "LICENSE",
+          "role": "notice",
+          "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903"
+        },
+        {
+          "file": "LICENSING.md",
+          "role": "notice",
+          "sha256": "35c78507ff117544de27a31d387b68c078ae49e9edf7ed32396ff3b3391365f1"
+        },
+        {
+          "file": "SOURCE_AND_REPLACEMENT.md",
+          "role": "build",
+          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+        }
+      ]
+    },
+    "dsp-runtime": {
+      "version": "0.2.12",
+      "license": "See selected component licenses",
+      "origin": "Foreshadow package assembly",
+      "source_required": false,
+      "dependencies": [
+        "kissfft"
+      ],
+      "issues": [],
+      "artifacts": [],
+      "repository_files": [
+        {
+          "file": "LICENSE",
+          "role": "notice",
+          "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903"
+        },
+        {
+          "file": "LICENSING.md",
+          "role": "notice",
+          "sha256": "35c78507ff117544de27a31d387b68c078ae49e9edf7ed32396ff3b3391365f1"
+        },
+        {
+          "file": "SOURCE_AND_REPLACEMENT.md",
+          "role": "build",
+          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+        }
+      ]
+    },
+    "television-runtime": {
+      "version": "0.2.12",
+      "license": "See selected component licenses",
+      "origin": "Foreshadow package assembly",
+      "source_required": false,
+      "dependencies": [
+        "ffmpeg",
+        "dtmb-sdr",
+        "dra",
+        "kissfft"
+      ],
+      "issues": [],
+      "artifacts": [],
+      "repository_files": [
+        {
+          "file": "LICENSE",
+          "role": "notice",
+          "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903"
+        },
+        {
+          "file": "LICENSING.md",
+          "role": "notice",
+          "sha256": "35c78507ff117544de27a31d387b68c078ae49e9edf7ed32396ff3b3391365f1"
+        },
+        {
+          "file": "SOURCE_AND_REPLACEMENT.md",
+          "role": "build",
+          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+        }
+      ]
+    },
+    "rtlsdr-runtime": {
+      "version": "0.2.12",
+      "license": "See selected component licenses",
+      "origin": "Foreshadow package assembly",
+      "source_required": false,
+      "dependencies": [
+        "rtlsdr"
+      ],
+      "issues": [],
+      "artifacts": [],
+      "repository_files": [
+        {
+          "file": "LICENSE",
+          "role": "notice",
+          "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903"
+        },
+        {
+          "file": "LICENSING.md",
+          "role": "notice",
+          "sha256": "35c78507ff117544de27a31d387b68c078ae49e9edf7ed32396ff3b3391365f1"
+        },
+        {
+          "file": "SOURCE_AND_REPLACEMENT.md",
+          "role": "build",
+          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+        }
+      ]
+    },
+    "soapy-runtime": {
+      "version": "0.2.12",
+      "license": "See selected component licenses",
+      "origin": "Foreshadow package assembly",
+      "source_required": false,
+      "dependencies": [
+        "soapysdr",
+        "soapyremote"
+      ],
+      "issues": [],
+      "artifacts": [],
+      "repository_files": [
+        {
+          "file": "LICENSE",
+          "role": "notice",
+          "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903"
+        },
+        {
+          "file": "LICENSING.md",
+          "role": "notice",
+          "sha256": "35c78507ff117544de27a31d387b68c078ae49e9edf7ed32396ff3b3391365f1"
+        },
+        {
+          "file": "SOURCE_AND_REPLACEMENT.md",
+          "role": "build",
+          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+        }
+      ],
+      "display_notice": "The optional receiver client uses the independent SoapyRemote network protocol. No SDRplay API, local hardware driver, or receiver service binary is included. Install the receiver service and vendor software separately on the receiver computer."
+    },
+    "research-runtime": {
+      "version": "0.2.12",
+      "license": "See selected component licenses",
+      "origin": "Foreshadow package assembly",
+      "source_required": false,
+      "dependencies": [
+        "msvc-runtime"
+      ],
+      "issues": [],
+      "artifacts": [],
+      "repository_files": [
+        {
+          "file": "LICENSE",
+          "role": "notice",
+          "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903"
+        },
+        {
+          "file": "LICENSING.md",
+          "role": "notice",
+          "sha256": "35c78507ff117544de27a31d387b68c078ae49e9edf7ed32396ff3b3391365f1"
+        },
+        {
+          "file": "SOURCE_AND_REPLACEMENT.md",
+          "role": "build",
+          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+        }
+      ]
+    },
+    "soapyremote": {
+      "version": "0.5.4-bd10a2e4a916bf66f0faa36dca7f043d4268138c",
+      "license": "BSL-1.0",
+      "origin": "https://github.com/pothosware/SoapyRemote/tree/bd10a2e4a916bf66f0faa36dca7f043d4268138c",
+      "source_required": true,
+      "dependencies": [],
+      "issues": [],
+      "artifacts": [
+        {
+          "file": "soapyremote.tar.gz",
+          "sha256": "c225d0608ad299053f850fbe8e4ac227f4f920054fde8c422b31eb6d084289bd",
+          "origin": "https://codeload.github.com/pothosware/SoapyRemote/tar.gz/bd10a2e4a916bf66f0faa36dca7f043d4268138c",
+          "role": "source",
+          "extract_notices": true
+        }
+      ],
+      "repository_files": [
+        {
+          "file": "cmake/RemoteReceiver.cmake",
+          "role": "build",
+          "sha256": "2fa24491c3c409debdf56ed1c01674ca10523c7cbfe465d9cd86eb0c2f9fe57f"
+        },
+        {
+          "file": "SOURCE_AND_REPLACEMENT.md",
+          "role": "build",
+          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+        }
+      ]
+    }
+  },
+  "runtime_rules": [
+    {
+      "component": "foreshadow",
+      "pattern": "bin/signalscope-benchmark-lora.exe"
+    },
+    {
+      "component": "foreshadow",
+      "pattern": "bin/signalscope-compare-lora-audit.exe"
+    },
+    {
+      "component": "foreshadow",
+      "pattern": "bin/signalscope-generate-pluto-iq.exe"
+    },
+    {
+      "component": "foreshadow",
+      "pattern": "bin/signalscope-gui.exe"
+    },
+    {
+      "component": "foreshadow",
+      "pattern": "bin/signalscope-launcher-gui.exe"
+    },
+    {
+      "component": "foreshadow",
+      "pattern": "bin/signalscope-launcher.exe"
+    },
+    {
+      "component": "foreshadow",
+      "pattern": "bin/signalscope-media.exe"
+    },
+    {
+      "component": "foreshadow",
+      "pattern": "bin/signalscope-pager-status.exe"
+    },
+    {
+      "component": "foreshadow",
+      "pattern": "bin/signalscope-toolboxes.exe"
+    },
+    {
+      "component": "foreshadow",
+      "pattern": "bin/signalscope-update.exe"
+    },
+    {
+      "component": "foreshadow",
+      "pattern": "bin/signalscope.exe"
+    },
+    {
+      "component": "foreshadow",
+      "pattern": "research-plugins/power-report/amc-power-report.exe"
+    },
+    {
+      "component": "foreshadow",
+      "pattern": "libexec/signalscope/dtmb/amc-dtmb-demap.exe"
+    },
+    {
+      "component": "foreshadow",
+      "pattern": "libexec/signalscope/dtmb/amc-dtmb-fec.exe"
+    },
+    {
+      "component": "foreshadow",
+      "pattern": "libexec/signalscope/dtmb/amc-dtmb-frontend.exe"
+    },
+    {
+      "component": "foreshadow",
+      "pattern": "libexec/signalscope/dtmb/amc-dtmb-resample.exe"
+    },
+    {
+      "component": "foreshadow",
+      "pattern": "bin/receiver-plugins/amc-receiver-rtlsdr.dll"
+    },
+    {
+      "component": "foreshadow",
+      "pattern": "bin/receiver-plugins/amc-receiver-sdrplay.dll"
+    },
+    {
+      "component": "foreshadow",
+      "pattern": "receiver/amc-receiver-rtlsdr.dll"
+    },
+    {
+      "component": "foreshadow",
+      "pattern": "receiver/amc-receiver-sdrplay.dll"
+    },
+    {
+      "component": "foreshadow",
+      "pattern": "research/amc-power-report.exe"
+    },
+    {
+      "component": "ffmpeg",
+      "pattern": "bin/avcodec-63.dll"
+    },
+    {
+      "component": "ffmpeg",
+      "pattern": "bin/avformat-63.dll"
+    },
+    {
+      "component": "ffmpeg",
+      "pattern": "bin/avutil-61.dll"
+    },
+    {
+      "component": "msvc-runtime",
+      "pattern": "bin/concrt140.dll"
+    },
+    {
+      "component": "msvc-runtime",
+      "pattern": "bin/msvcp140.dll"
+    },
+    {
+      "component": "msvc-runtime",
+      "pattern": "bin/msvcp140_1.dll"
+    },
+    {
+      "component": "msvc-runtime",
+      "pattern": "bin/msvcp140_2.dll"
+    },
+    {
+      "component": "msvc-runtime",
+      "pattern": "bin/msvcp140_atomic_wait.dll"
+    },
+    {
+      "component": "msvc-runtime",
+      "pattern": "bin/msvcp140_codecvt_ids.dll"
+    },
+    {
+      "component": "qt",
+      "pattern": "bin/Qt6Core.dll"
+    },
+    {
+      "component": "qt",
+      "pattern": "bin/Qt6Gui.dll"
+    },
+    {
+      "component": "qt",
+      "pattern": "bin/Qt6Multimedia.dll"
+    },
+    {
+      "component": "qt",
+      "pattern": "bin/Qt6Network.dll"
+    },
+    {
+      "component": "qt",
+      "pattern": "bin/Qt6SerialPort.dll"
+    },
+    {
+      "component": "qt",
+      "pattern": "bin/Qt6Svg.dll"
+    },
+    {
+      "component": "qt",
+      "pattern": "bin/Qt6Widgets.dll"
+    },
+    {
+      "component": "ffmpeg",
+      "pattern": "bin/swresample-7.dll"
+    },
+    {
+      "component": "ffmpeg",
+      "pattern": "bin/swscale-10.dll"
+    },
+    {
+      "component": "msvc-runtime",
+      "pattern": "bin/vcruntime140.dll"
+    },
+    {
+      "component": "msvc-runtime",
+      "pattern": "bin/vcruntime140_1.dll"
+    },
+    {
+      "component": "qt",
+      "pattern": "plugins/generic/qtuiotouchplugin.dll"
+    },
+    {
+      "component": "qt",
+      "pattern": "plugins/iconengines/qsvgicon.dll"
+    },
+    {
+      "component": "qt",
+      "pattern": "plugins/imageformats/qgif.dll"
+    },
+    {
+      "component": "qt",
+      "pattern": "plugins/imageformats/qico.dll"
+    },
+    {
+      "component": "qt",
+      "pattern": "plugins/imageformats/qjpeg.dll"
+    },
+    {
+      "component": "qt",
+      "pattern": "plugins/imageformats/qsvg.dll"
+    },
+    {
+      "component": "qt",
+      "pattern": "plugins/networkinformation/qnetworklistmanager.dll"
+    },
+    {
+      "component": "qt",
+      "pattern": "plugins/platforms/qwindows.dll"
+    },
+    {
+      "component": "qt",
+      "pattern": "plugins/styles/qmodernwindowsstyle.dll"
+    },
+    {
+      "component": "qt",
+      "pattern": "plugins/tls/qcertonlybackend.dll"
+    },
+    {
+      "component": "qt",
+      "pattern": "plugins/tls/qschannelbackend.dll"
+    },
+    {
+      "component": "soapysdr",
+      "pattern": "bin/receiver-plugins/SoapySDR.dll"
+    },
+    {
+      "component": "soapysdr",
+      "pattern": "receiver/SoapySDR.dll"
+    },
+    {
+      "component": "msvc-runtime",
+      "pattern": "research/msvcp140.dll"
+    },
+    {
+      "component": "msvc-runtime",
+      "pattern": "research/vcruntime140.dll"
+    },
+    {
+      "component": "msvc-runtime",
+      "pattern": "research/vcruntime140_1.dll"
+    }
+  ],
+  "platform": "windows-x86_64",
+  "build_facts": {
+    "qt": "6.8.3",
+    "openssl": "3.6.5",
+    "application": "0.2.12"
+  },
+  "packages": {
+    "org.amc.ams": [
+      "desktop-runtime",
+      "distribution-runtime",
+      "dsp-runtime",
+      "foreshadow",
+      "rtlsdr-runtime",
+      "television-runtime"
+    ],
+    "org.amc.receiver.rtlsdr": [
+      "foreshadow",
+      "rtlsdr-runtime"
+    ],
+    "org.amc.receiver.sdrplay": [
+      "foreshadow",
+      "soapy-runtime"
+    ],
+    "org.amc.research.power-report": [
+      "foreshadow",
+      "research-runtime"
+    ]
+  }
+}

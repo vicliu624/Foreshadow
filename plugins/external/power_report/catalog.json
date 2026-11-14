@@ -1,0 +1,32 @@
+{
+  "en": {
+    "title": "I/Q power report",
+    "format": "Sample format",
+    "rate": "Sample rate",
+    "frequency": "Capture center",
+    "first": "First analyzed sample",
+    "pairs": "Analyzed I/Q pairs",
+    "available": "Total I/Q pairs",
+    "duration": "Analyzed duration",
+    "power": "Mean full-band power",
+    "clipped": "Clipped I/Q pairs",
+    "dc": "Mean normalized I/Q",
+    "missing": "Unavailable",
+    "note": "Each measurement covers at most five seconds. dBFS is relative to digital full scale."
+  },
+  "zh-CN": {
+    "title": "I/Q 功率报告",
+    "format": "样本格式",
+    "rate": "采样率",
+    "frequency": "采集中心频率",
+    "first": "分析起始样本",
+    "pairs": "已分析 I/Q 对数",
+    "available": "录制总 I/Q 对数",
+    "duration": "已分析时长",
+    "power": "全带平均功率",
+    "clipped": "发生削波的 I/Q 对数",
+    "dc": "归一化 I/Q 均值",
+    "missing": "无可用值",
+    "note": "每次测量最多覆盖五秒。dBFS 以数字满量程为参考。"
+  }
+}

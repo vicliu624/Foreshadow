@@ -1,0 +1,17 @@
+{
+  "player.invalid_selection": "请求的节目或轨道标识无效。",
+  "player.helper_missing": "已安装的媒体解码器缺失。",
+  "player.helper_start": "无法启动媒体解码进程。",
+  "player.helper_failed": "媒体解码进程意外停止。",
+  "player.helper_input": "无法向媒体解码器发送节目流。",
+  "player.no_frames": "节目流已结束，但没有解码出音频或视频。",
+  "player.video_format": "解码器返回了不支持的视频帧。",
+  "player.video_budget": "视频帧超过显示缓冲预算。",
+  "player.audio_format": "解码器返回了不支持的音频帧。",
+  "player.audio_unavailable": "没有输出设备支持 48 kHz 立体声 PCM，可继续观看无声画面。",
+  "player.audio_open": "无法打开音频输出设备，可继续观看无声画面。",
+  "player.audio_output_failed": "音频输出设备发生错误，请选择其他输出设备以恢复声音。",
+  "player.decoder_error": "媒体解码器报告错误。",
+  "player.protocol_error": "媒体解码器返回了无效或不兼容的响应。",
+  "player.volume": "音量必须介于 0% 与 100% 之间。"
+}

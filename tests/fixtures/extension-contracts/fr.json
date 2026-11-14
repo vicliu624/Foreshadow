@@ -1,0 +1,8 @@
+{
+  "tag": "fr",
+  "native_name": "Français",
+  "source_language": false,
+  "catalog": "ams_fr.qm",
+  "aliases": ["fr-Latn"],
+  "system_request": "fr-CA"
+}

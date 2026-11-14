@@ -1,0 +1,371 @@
+name: Release platform builds
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: 'Version tag to publish after validation (vX.Y.Z)'
+        required: true
+        type: string
+      platform:
+        description: 'Release platforms to validate'
+        type: choice
+        default: all
+        options: [all, linux, windows, macos]
+      compliance_bundle_url:
+        description: 'HTTPS archive of reviewed corresponding-source materials, with one directory per exact platform'
+        required: true
+        type: string
+      compliance_bundle_sha256:
+        description: 'SHA256 of the reviewed material archive (source commit must match this run)'
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+env:
+  AMC_RELEASE_TAG: ${{ inputs.release_tag }}
+
+jobs:
+  validation-inputs:
+    runs-on: [self-hosted, Linux, X64, amc-local]
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Prepare checksum-verified independent media
+        run: |
+          python3 tools/validation/fetch_television_references.py "$RUNNER_TEMP/television-references" \
+            --cache-directory "$HOME/.cache/amc-television-references"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: television-validation-media
+          path: ${{ runner.temp }}/television-references/*.ts
+          retention-days: 1
+          if-no-files-found: error
+
+  desktop:
+    needs: validation-inputs
+    strategy:
+      fail-fast: false
+      matrix:
+        os: ${{ fromJSON(inputs.platform == 'macos' && '["macos-15"]' || inputs.platform == 'windows' && '["windows-2022"]' || inputs.platform == 'linux' && '["ubuntu-24.04","ubuntu-24.04-arm"]' || '["ubuntu-24.04","ubuntu-24.04-arm","windows-2022","macos-15"]') }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: television-validation-media
+          path: ${{ runner.temp }}/television-references
+      - name: Install Linux libraries
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y qt6-base-dev qt6-multimedia-dev qt6-serialport-dev qt6-tools-dev qt6-l10n-tools qt6-translations-l10n libfftw3-dev libvolk-dev librtlsdr-dev libsoapysdr-dev libssl-dev libarchive-dev python3 fonts-noto-cjk nasm
+      - name: Install native media build tools on Windows
+        id: media-msys2
+        if: runner.os == 'Windows'
+        uses: msys2/setup-msys2@v2
+        with:
+          install: make nasm diffutils
+      - name: Install Qt on Windows
+        if: runner.os == 'Windows'
+        uses: jurplel/install-qt-action@v4
+        with:
+          version: '6.8.3'
+          arch: win64_msvc2022_64
+          modules: 'qtmultimedia qtserialport'
+      - name: Prepare Windows release dependency cache
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          $binaryCache = Join-Path $env:RUNNER_TEMP 'amc-vcpkg-binaries'
+          New-Item -ItemType Directory -Force -Path $binaryCache | Out-Null
+          $vcpkgRevision = git -C $env:VCPKG_INSTALLATION_ROOT rev-parse HEAD
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          "VCPKG_DEFAULT_BINARY_CACHE=$binaryCache" >> $env:GITHUB_ENV
+          "AMC_DEPENDENCY_CACHE_KEY=windows-${env:ImageVersion}-${vcpkgRevision}-native-v1" >> $env:GITHUB_ENV
+      - uses: actions/cache/restore@v5
+        if: runner.os == 'Windows'
+        id: windows-dependencies
+        with:
+          path: ${{ env.VCPKG_DEFAULT_BINARY_CACHE }}
+          key: ${{ env.AMC_DEPENDENCY_CACHE_KEY }}
+      - name: Install receiver libraries on Windows
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          & (Join-Path $env:VCPKG_INSTALLATION_ROOT 'vcpkg.exe') install rtlsdr:x64-windows-static-md soapysdr:x64-windows openssl:x64-windows-static-md libarchive:x64-windows-static-md
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          Join-Path $env:VCPKG_INSTALLATION_ROOT 'installed/x64-windows/bin' >> $env:GITHUB_PATH
+      - uses: actions/cache/save@v5
+        if: runner.os == 'Windows' && steps.windows-dependencies.outputs.cache-hit != 'true'
+        with:
+          path: ${{ env.VCPKG_DEFAULT_BINARY_CACHE }}
+          key: ${{ env.AMC_DEPENDENCY_CACHE_KEY }}
+      - name: Install Qt and DSP libraries on macOS
+        if: runner.os == 'macOS'
+        run: |
+          export DEVELOPER_DIR=/Applications/Xcode_26.3.app/Contents/Developer
+          xcodebuild -version
+          echo "DEVELOPER_DIR=$DEVELOPER_DIR" >> "$GITHUB_ENV"
+          brew install qt qtserialport fftw volk librtlsdr soapysdr openssl@3 libarchive nasm
+          echo "CMAKE_PREFIX_PATH=$(brew --prefix qt):$(brew --prefix libarchive):$(brew --prefix openssl@3)" >> "$GITHUB_ENV"
+      - name: Configure
+        if: runner.os != 'Windows'
+        env:
+          MACOSX_DEPLOYMENT_TARGET: ${{ runner.os == 'macOS' && '15.0' || '' }}
+        run: |
+          cmake -S . -B build-ci -DCMAKE_BUILD_TYPE=Release -DSIGNALSCOPE_REQUIRE_GUI=ON -DSIGNALSCOPE_REQUIRE_AUDIO=ON \
+            -DSIGNALSCOPE_REQUIRE_RTLSDR=ON -DSIGNALSCOPE_REQUIRE_SDRPLAY=ON
+      - name: Configure Windows desktop
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          $toolchain = Join-Path $env:VCPKG_INSTALLATION_ROOT 'scripts/buildsystems/vcpkg.cmake'
+          $soapy = Join-Path $env:VCPKG_INSTALLATION_ROOT 'installed/x64-windows/share/soapysdr'
+          cmake -S . -B build-ci -A x64 -DCMAKE_BUILD_TYPE=Release "-DCMAKE_TOOLCHAIN_FILE=$toolchain" -DVCPKG_TARGET_TRIPLET=x64-windows-static-md `
+            "-DSIGNALSCOPE_MEDIA_BASH=${{ steps.media-msys2.outputs.msys2-location }}/usr/bin/bash.exe" `
+            "-DSoapySDR_DIR=$soapy" -DSIGNALSCOPE_REQUIRE_GUI=ON -DSIGNALSCOPE_REQUIRE_AUDIO=ON `
+            -DSIGNALSCOPE_REQUIRE_RTLSDR=ON -DSIGNALSCOPE_REQUIRE_SDRPLAY=ON
+      - name: Build
+        run: |
+          cmake --build build-ci --config Release --parallel 2
+      - name: Retain native media configuration diagnostics
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: media-config-${{ runner.os }}-${{ runner.arch }}
+          path: build-ci/_deps/amc-media-build/ffbuild/config.log
+          if-no-files-found: ignore
+      - name: Test
+        run: ctest --test-dir build-ci -C Release --output-on-failure
+      - name: Retain native regression observations
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: native-tests-${{ matrix.os }}
+          path: build-ci/Testing/Temporary/LastTest.log
+          if-no-files-found: warn
+      - name: Stage installation
+        run: |
+          cmake --install build-ci --config Release --component SignalScope --prefix "${{ github.workspace }}/stage"
+          cmake --install build-ci --config Release --component ResearchExamples --prefix "${{ github.workspace }}/stage"
+      - name: Fetch independent media validation inputs
+        shell: bash
+        run: python3 tools/validation/fetch_television_references.py "$RUNNER_TEMP/television-references"
+      - name: Build unsigned official toolbox packages
+        shell: bash
+        run: |
+          python3 tests/licensing_contract_test.py
+          python3 tools/distribution/fetch_compliance_bundle.py \
+            --url "$AMC_COMPLIANCE_BUNDLE_URL" --sha256 "$AMC_COMPLIANCE_BUNDLE_SHA256" --output reviewed-compliance
+          platform=$(python3 -c 'import json; print(json.load(open("stage/share/signalscope/compliance/build-facts.json"))["platform"])')
+          python3 tools/distribution/compliance.py --stage stage \
+            --materials "reviewed-compliance/materials/$platform" --source-commit "${{ github.sha }}"
+          python3 tools/distribution/package_release.py --stage stage --output release-packages \
+            --base-url "https://github.com/${{ github.repository }}/releases/download/$AMC_RELEASE_TAG" --release-tag "$AMC_RELEASE_TAG" \
+            --source-commit "${{ github.sha }}"
+        env:
+          AMC_COMPLIANCE_BUNDLE_URL: ${{ inputs.compliance_bundle_url }}
+          AMC_COMPLIANCE_BUNDLE_SHA256: ${{ inputs.compliance_bundle_sha256 }}
+      - name: Verify official package transactions
+        shell: bash
+        run: |
+          if [ "${{ runner.os }}" = Windows ]; then
+            verifier=build-ci/Release/distribution_package_test.exe
+            cli=stage/bin/signalscope.exe
+          elif [ "${{ runner.os }}" = macOS ]; then
+            verifier=build-ci/distribution_package_test
+            cli=stage/Foreshadow.app/Contents/MacOS/signalscope
+          else
+            verifier=build-ci/distribution_package_test
+            cli=stage/bin/signalscope
+          fi
+          for entries in release-packages/entries-*.json; do
+            "$verifier" "$entries" "$cli"
+            python3 tools/distribution/qualify_packages.py --entries "$entries" --output "$RUNNER_TEMP/qualified-packages"
+          done
+      - name: Upload unsigned catalog entries and packages
+        uses: actions/upload-artifact@v4
+        with:
+          name: toolboxes-${{ runner.os }}-${{ runner.arch }}
+          path: release-packages/*
+          if-no-files-found: error
+      - name: Replay with staged Linux executables
+        if: runner.os == 'Linux'
+        run: |
+          archive="$RUNNER_TEMP/Foreshadow-linux.tar.gz"
+          python3 tools/distribution/portable_archive.py --root "$RUNNER_TEMP/qualified-packages/org.amc.ams" --output "$archive"
+          unpacked="$RUNNER_TEMP/Foreshadow 发布验收 📡"
+          mkdir -p "$unpacked"
+          tar -xzf "$archive" -C "$unpacked"
+          env -u SOAPY_SDR_PLUGIN_PATH cmake "-DAMC_CLI=$unpacked/bin/signalscope" -P tests/check_packaged_receivers.cmake
+          SIGNALSCOPE_RECEIVER_PLUGIN_PATH="$RUNNER_TEMP/qualified-packages/org.amc.receiver.sdrplay/receiver" \
+            python3 tests/with_receiver_service.py build-ci/plugins/receivers/amc-test-receiver-service build-ci/test-plugins \
+              build-ci/soapy_backend_test "$unpacked/bin/signalscope" build-ci/test-plugins
+          cmake "-DAMC_STAGE=$unpacked" "-DAMC_TEST_BIN=$PWD/build-ci" "-DAMC_RESEARCH_ROOT=$RUNNER_TEMP/qualified-packages/org.amc.research.power-report/research" "-DAMC_OPTIONAL_RECEIVER_ROOT=$RUNNER_TEMP/qualified-packages/org.amc.receiver.sdrplay/receiver" "-DAMC_MEDIA_REFERENCES=$RUNNER_TEMP/television-references" -P tests/check_desktop_package.cmake
+      - name: Verify the macOS archive after extraction
+        if: runner.os == 'macOS'
+        shell: bash
+        env:
+          QT_QPA_PLATFORM: cocoa
+        run: |
+          test "$(uname -m)" = arm64
+          ditto -c -k --keepParent "$RUNNER_TEMP/qualified-packages/org.amc.ams/Foreshadow.app" Foreshadow-macos-arm64.zip
+          unpacked="$RUNNER_TEMP/Foreshadow 发布验收 📡"
+          ditto -x -k Foreshadow-macos-arm64.zip "$unpacked"
+          unset QT_PLUGIN_PATH QT_QPA_PLATFORM_PLUGIN_PATH
+          unset DYLD_LIBRARY_PATH DYLD_FALLBACK_LIBRARY_PATH DYLD_FRAMEWORK_PATH DYLD_FALLBACK_FRAMEWORK_PATH
+          unset SOAPY_SDR_PLUGIN_PATH
+          cli="$unpacked/Foreshadow.app/Contents/MacOS/signalscope"
+          test "$(plutil -extract LSMinimumSystemVersion raw "$unpacked/Foreshadow.app/Contents/Info.plist")" = 15.0
+          cmake "-DAMC_CLI=$cli" -P tests/check_packaged_receivers.cmake
+          cmake "-DAMC_STAGE=$unpacked" "-DAMC_TEST_BIN=$PWD/build-ci" "-DAMC_RESEARCH_ROOT=$RUNNER_TEMP/qualified-packages/org.amc.research.power-report/research" "-DAMC_OPTIONAL_RECEIVER_ROOT=$RUNNER_TEMP/qualified-packages/org.amc.receiver.sdrplay/Foreshadow.app/Contents/MacOS/receiver-plugins" "-DAMC_MEDIA_REFERENCES=$RUNNER_TEMP/television-references" -P tests/check_desktop_package.cmake
+      - name: Upload macOS app
+        if: runner.os == 'macOS'
+        uses: actions/upload-artifact@v4
+        with:
+          name: Foreshadow-macos-arm64
+          path: |
+            Foreshadow-macos-arm64.zip
+          if-no-files-found: error
+      - name: Verify the Windows archive after extraction
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          python tools/distribution/portable_archive.py --root "$env:RUNNER_TEMP/qualified-packages/org.amc.ams" --output Foreshadow-windows-x64.zip
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          $unpacked = Join-Path $env:RUNNER_TEMP 'Foreshadow 发布验收 📡'
+          Expand-Archive -Path Foreshadow-windows-x64.zip -DestinationPath $unpacked
+          $bin = Join-Path $unpacked 'bin'
+          if (!(Test-Path "$bin/Qt6Multimedia.dll")) { throw "Archived Qt Multimedia runtime missing" }
+          foreach ($runtime in 'msvcp140.dll', 'vcruntime140.dll', 'vcruntime140_1.dll') {
+            if (!(Test-Path "$bin/$runtime")) { throw "Archived MSVC runtime missing: $runtime" }
+          }
+          $cmake = (Get-Command cmake).Source
+          $env:Path = "$bin;$env:SystemRoot\System32;$env:SystemRoot"
+          $env:QT_PLUGIN_PATH = ""
+          $env:QT_QPA_PLATFORM_PLUGIN_PATH = ""
+          $env:QT_QPA_PLATFORM = "windows"
+          $devices = & "$bin/signalscope.exe" devices --receiver rtlsdr
+          if ($LASTEXITCODE -ne 0 -or (($devices -join "`n") | ConvertFrom-Json).backend -ne 'librtlsdr') {
+            throw "The archived CLI could not initialize the RTL-SDR backend"
+          }
+          $env:SIGNALSCOPE_RECEIVER_PLUGIN_PATH = "$env:RUNNER_TEMP/qualified-packages/org.amc.receiver.sdrplay/receiver"
+          $baseRuntimePath = $env:PATH
+          $env:PATH = "$env:SIGNALSCOPE_RECEIVER_PLUGIN_PATH;$baseRuntimePath"
+          python tests/with_receiver_service.py build-ci/plugins/receivers/Release/amc-test-receiver-service.exe build-ci/test-plugins/Release build-ci/Release/soapy_backend_test.exe "$bin/signalscope.exe" build-ci/test-plugins/Release
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          $env:SIGNALSCOPE_RECEIVER_PLUGIN_PATH = ""
+          $env:PATH = $baseRuntimePath
+          & $cmake "-DAMC_STAGE=$unpacked" "-DAMC_TEST_BIN=$PWD/build-ci/Release" "-DAMC_RESEARCH_ROOT=$env:RUNNER_TEMP/qualified-packages/org.amc.research.power-report/research" "-DAMC_OPTIONAL_RECEIVER_ROOT=$env:RUNNER_TEMP/qualified-packages/org.amc.receiver.sdrplay/receiver" "-DAMC_MEDIA_REFERENCES=$env:RUNNER_TEMP/television-references" -P tests/check_desktop_package.cmake
+          exit $LASTEXITCODE
+      - name: Upload Windows desktop and plugins
+        if: runner.os == 'Windows'
+        uses: actions/upload-artifact@v4
+        with:
+          name: Foreshadow-windows-x64
+          path: Foreshadow-windows-x64.zip
+          if-no-files-found: error
+      - name: Set up Python for legacy regressions
+        if: matrix.os == 'ubuntu-24.04'
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run legacy Sub-GHz regressions separately
+        if: matrix.os == 'ubuntu-24.04'
+        run: |
+          python -m pip install numpy
+          cmake -S . -B build-ci -DSIGNALSCOPE_LEGACY_TESTS=ON
+          ctest --test-dir build-ci -C Release --output-on-failure --no-tests=error -L subghz
+
+  debian:
+    needs: validation-inputs
+    if: inputs.platform == 'all' || inputs.platform == 'linux'
+    name: Debian 13 (${{ matrix.arch }})
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - runner: ubuntu-24.04
+            arch: amd64
+          - runner: ubuntu-24.04-arm
+            arch: arm64
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 30
+    container: debian:13-slim
+    env:
+      LANG: C.UTF-8
+    steps:
+      - name: Install Debian build dependencies
+        run: |
+          test "$(dpkg --print-architecture)" = "${{ matrix.arch }}"
+          apt-get update
+          apt-get install -y --no-install-recommends ca-certificates git build-essential cmake pkg-config qt6-base-dev qt6-multimedia-dev qt6-serialport-dev qt6-tools-dev qt6-l10n-tools qt6-translations-l10n libfftw3-dev libvolk-dev librtlsdr-dev libsoapysdr-dev libssl-dev libarchive-dev python3 fonts-noto-cjk nasm
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: television-validation-media
+          path: ${{ runner.temp }}/television-references
+      - name: Build and test C++ desktop
+        run: |
+          cmake -S . -B build-ci -DCMAKE_BUILD_TYPE=Release -DSIGNALSCOPE_REQUIRE_GUI=ON -DSIGNALSCOPE_REQUIRE_AUDIO=ON \
+            -DSIGNALSCOPE_REQUIRE_RTLSDR=ON -DSIGNALSCOPE_REQUIRE_SDRPLAY=ON -DSIGNALSCOPE_LEGACY_TESTS=OFF
+          cmake --build build-ci --parallel 2
+          ctest --test-dir build-ci --output-on-failure
+      - name: Retain native regression observations
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: native-tests-debian13-${{ matrix.arch }}
+          path: build-ci/Testing/Temporary/LastTest.log
+          if-no-files-found: warn
+      - name: Fetch independent media validation inputs
+        run: python3 tools/validation/fetch_television_references.py "$RUNNER_TEMP/television-references"
+      - name: Verify the Debian archive after extraction
+        run: |
+          cmake --install build-ci --component SignalScope --prefix "$PWD/stage"
+          cmake --install build-ci --component ResearchExamples --prefix "$PWD/stage"
+          archive="Foreshadow-debian13-${{ matrix.arch }}.tar.gz"
+          tar -czf "$archive" -C stage .
+          unpacked="$RUNNER_TEMP/Foreshadow 发布验收 📡"
+          mkdir -p "$unpacked"
+          tar -xzf "$archive" -C "$unpacked"
+          env -u SOAPY_SDR_PLUGIN_PATH cmake "-DAMC_CLI=$unpacked/bin/signalscope" -P tests/check_packaged_receivers.cmake
+          cmake "-DAMC_STAGE=$unpacked" "-DAMC_TEST_BIN=$PWD/build-ci" "-DAMC_MEDIA_REFERENCES=$RUNNER_TEMP/television-references" -P tests/check_desktop_package.cmake
+      - name: Build unsigned official toolbox packages
+        shell: bash
+        run: |
+          python3 tools/distribution/package_release.py --stage stage --output release-packages \
+            --base-url "https://github.com/${{ github.repository }}/releases/download/$AMC_RELEASE_TAG" --release-tag "$AMC_RELEASE_TAG" \
+            --source-commit "${{ github.sha }}"
+      - name: Verify official package transactions
+        shell: bash
+        run: |
+          if [ "${{ runner.os }}" = Windows ]; then
+            verifier=build-ci/Release/distribution_package_test.exe
+            cli=stage/bin/signalscope.exe
+          elif [ "${{ runner.os }}" = macOS ]; then
+            verifier=build-ci/distribution_package_test
+            cli=stage/Foreshadow.app/Contents/MacOS/signalscope
+          else
+            verifier=build-ci/distribution_package_test
+            cli=stage/bin/signalscope
+          fi
+          for entries in release-packages/entries-*.json; do
+            "$verifier" "$entries" "$cli"
+          done
+      - name: Upload unsigned catalog entries and packages
+        uses: actions/upload-artifact@v4
+        with:
+          name: toolboxes-debian13-${{ matrix.arch }}
+          path: release-packages/*
+          if-no-files-found: error
+      - name: Upload Debian desktop and plugins
+        uses: actions/upload-artifact@v4
+        with:
+          name: Foreshadow-debian13-${{ matrix.arch }}
+          path: Foreshadow-debian13-${{ matrix.arch }}.tar.gz
+          if-no-files-found: error

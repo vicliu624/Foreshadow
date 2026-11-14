@@ -1,0 +1,3 @@
+{
+  "issue.rtl_usb_rate_risk": "Rates above 2.56 MS/s can lose samples on RTL-SDR. This rate remains available; check sample continuity during capture."
+}

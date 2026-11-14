@@ -1,0 +1,116 @@
+{
+  "schema": 1,
+  "capture_date": "2026-11-13",
+  "source_commit": "d7cfd271c1ee19e022051676fac48c545dab7381",
+  "host": "vicliu-workstation",
+  "platform": "Debian 13 x86_64 / native Qt X11",
+  "ui_language": "en",
+  "receiver": "SDRplay RSPdx-R2",
+  "images": [
+    {
+      "file": "docs/images/workspace.png",
+      "input": "physical-rf",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "9fa0c50aa1f0e9cfc11b2bfd59e00fad8c6732a6130e69b94e5b38235da92ec1"
+    },
+    {
+      "file": "docs/images/receiver-settings.png",
+      "input": "physical-device-query",
+      "width": 1200,
+      "height": 650,
+      "sha256": "e0afaf07a3c657149b2b19d0b0528b0c876d6630961ce9c3c09558717b1c3993"
+    },
+    {
+      "file": "docs/images/waveform.png",
+      "input": "synthetic-01",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "1f13cf92c04e571eb08286aa277a40c0d671aa9e87eb64c224d1d706124b386d"
+    },
+    {
+      "file": "docs/images/window-research.png",
+      "input": "synthetic-01",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "2cf62f9d96ddc100ef6531cd8f24a97af21df9d7a449085eae5806d047147249"
+    },
+    {
+      "file": "docs/images/reference-model.png",
+      "input": "synthetic-01",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "cabf890a2b105e7df404247093a246c71cbe27366ca5df7c533c4d229c202d51"
+    },
+    {
+      "file": "docs/images/recovery-fsk.png",
+      "input": "synthetic-02",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "995bcf283bd1be324b8b9783f41e406975992147359e237336dc3e3f7efb9f61"
+    },
+    {
+      "file": "docs/images/frame-checks.png",
+      "input": "synthetic-02",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "97b222f4a32caafc57fb95982c74d609008bacab5b8a8a639525a079ffa376dc"
+    },
+    {
+      "file": "docs/images/recovery-lora.png",
+      "input": "synthetic-03",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "cacdd6a340e36cda77e7483e6edfd8681567a3e98a01553d8e29db71832089f9"
+    },
+    {
+      "file": "docs/images/recovery-paired.png",
+      "input": "synthetic-04",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "e7a0809b93912b5596c27031e6d45768464f0e33327f0f1b4f2d4f0bd234297a"
+    },
+    {
+      "file": "docs/images/recovery-psk.png",
+      "input": "synthetic-05",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "1423e95db8c7e20972c355a9964fa5625ad77ac4ed52ae5214b36deebf218ce5"
+    },
+    {
+      "file": "docs/images/recovery-ofdm.png",
+      "input": "synthetic-06",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "fa9facb050d4829edf20aa0363ab242436ecf5a52edcbf6fb0ccbf070efdec7d"
+    },
+    {
+      "file": "docs/images/compact.png",
+      "input": "synthetic-02",
+      "width": 640,
+      "height": 480,
+      "sha256": "6156591cd421c6b84d8accf4d4a0aa2f60d31b9b671999e8b0577de30bd16879"
+    },
+    {
+      "file": "docs/images/fm-radio.png",
+      "input": "physical-rf-muted",
+      "width": 1200,
+      "height": 900,
+      "sha256": "f316bab4d716e0490afe37c7e8e50d5536c98a89c30e4140250e426e8e0b1261"
+    },
+    {
+      "file": "docs/images/television.png",
+      "input": "synthetic-transport-stream",
+      "width": 1440,
+      "height": 1000,
+      "sha256": "efce742296fccbae4b8c8f47a545fe01ca70c4be0c7c8b79a0d64040ff879e09"
+    },
+    {
+      "file": "docs/images/toolbox-center.png",
+      "input": "installed-package-ui",
+      "width": 1060,
+      "height": 650,
+      "sha256": "c06ff95b8c5ba2defeafc65ae190ecf26ee896075b2d8036650881b2b3c85f38"
+    }
+  ]
+}

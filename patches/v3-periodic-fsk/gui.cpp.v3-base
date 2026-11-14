@@ -1,0 +1,359 @@
+#include "signalscope/monitor.hpp"
+#include "analysis_panel.hpp"
+#include <QApplication>
+#include <QCloseEvent>
+#include <QComboBox>
+#include <QDateTime>
+#include <QDir>
+#include <QDirIterator>
+#include <QDoubleSpinBox>
+#include <QFileDialog>
+#include <QFile>
+#include <QFileInfo>
+#include <QFormLayout>
+#include <QHeaderView>
+#include <QImage>
+#include <QLabel>
+#include <QLineEdit>
+#include <QMainWindow>
+#include <QMessageBox>
+#include <QPainter>
+#include <QPainterPath>
+#include <QPushButton>
+#include <QScreen>
+#include <QSettings>
+#include <QSplitter>
+#include <QSpinBox>
+#include <QStandardPaths>
+#include <QTableWidget>
+#include <QTabWidget>
+#include <QTextEdit>
+#include <QTimer>
+#include <QToolTip>
+#include <QCursor>
+#include <QVBoxLayout>
+#include <atomic>
+#include <algorithm>
+#include <cmath>
+#include <cstring>
+#include <iostream>
+#include <mutex>
+#include <thread>
+
+using namespace signalscope;
+namespace {
+QString number(const Json& value,int decimals=2) {
+    return value.is_number()?QString::number(value.get<double>(),'f',decimals):QStringLiteral("—");
+}
+class SpectrumView:public QWidget {
+public:
+    SpectrumView(){setMinimumHeight(205);setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);}
+    void reset(){frame_={};waterfall_=QImage();update();}
+    void setFrame(const SpectrumFrame& frame) {
+        if(frame.sequence==frame_.sequence || frame.bins_dbfs.empty())return;
+        frame_=frame;
+        if(waterfall_.isNull()) {waterfall_=QImage(512,100,QImage::Format_RGB32);waterfall_.fill(QColor("#0b1525"));}
+        for(int y=waterfall_.height()-1;y>0;--y)std::memcpy(waterfall_.scanLine(y),waterfall_.constScanLine(y-1),static_cast<std::size_t>(waterfall_.bytesPerLine()));
+        for(int x=0;x<512;++x) {
+            const auto bin=static_cast<std::size_t>(x)*frame_.bins_dbfs.size()/512;
+            const double level=std::clamp((frame_.bins_dbfs[bin]+100)/85.0,0.0,1.0);
+            waterfall_.setPixelColor(x,0,QColor::fromHsvF(.66-level*.66,.8,.12+.88*level));
+        }
+        update();
+    }
+protected:
+    void paintEvent(QPaintEvent*) override {
+        QPainter p(this);p.fillRect(rect(),QColor("#0b1525"));p.setRenderHint(QPainter::Antialiasing);
+        const QRectF plot(55,18,width()-75,(height()-50)*.50);
+        p.setPen(QColor("#8294ad"));
+        for(int i=0;i<=4;++i) {
+            const auto y=plot.top()+i*plot.height()/4;
+            p.drawText(QRectF(0,y-8,48,16),Qt::AlignRight,QString::number(-20-i*20));
+            p.setPen(QColor("#233247"));p.drawLine(QPointF(plot.left(),y),QPointF(plot.right(),y));p.setPen(QColor("#8294ad"));
+        }
+        p.drawText(5,13,QStringLiteral("dBFS/频点"));
+        if(frame_.bins_dbfs.empty()) {p.setPen(Qt::white);p.drawText(rect(),Qt::AlignCenter,QStringLiteral("开始监听后显示实时频谱与瀑布"));return;}
+        QPainterPath trace;
+        for(std::size_t i=0;i<frame_.bins_dbfs.size();++i) {
+            const double x=plot.left()+double(i)*plot.width()/double(frame_.bins_dbfs.size()-1);
+            const double y=plot.top()+std::clamp((-20-frame_.bins_dbfs[i])/80.0,0.0,1.0)*plot.height();
+            if(i==0)trace.moveTo(x,y);else trace.lineTo(x,y);
+        }
+        p.setPen(QPen(QColor("#5bdcc6"),1.2));p.drawPath(trace);
+        const QRectF water(plot.left(),plot.bottom()+24,plot.width(),height()-plot.bottom()-33);
+        p.drawImage(water,waterfall_);p.setPen(QColor("#aebed1"));
+        const double search_left=plot.left()+plot.width()*(.5-500000.0/frame_.rate);
+        const double search_right=plot.left()+plot.width()*(.5+500000.0/frame_.rate);
+        p.fillRect(QRectF(plot.left(),plot.top(),search_left-plot.left(),water.bottom()-plot.top()),QColor(0,0,0,70));
+        p.fillRect(QRectF(search_right,plot.top(),plot.right()-search_right,water.bottom()-plot.top()),QColor(0,0,0,70));
+        p.setPen(QPen(QColor("#72a9db"),1,Qt::DashLine));
+        p.drawLine(QPointF(search_left,plot.top()),QPointF(search_left,water.bottom()));
+        p.drawLine(QPointF(search_right,plot.top()),QPointF(search_right,water.bottom()));
+        p.drawText(QRectF(search_left+5,plot.top()+3,search_right-search_left-10,18),Qt::AlignLeft,QStringLiteral("LoRa 中心识别范围"));
+        p.setPen(QColor("#aebed1"));
+        for(int i=0;i<=4;++i) {
+            const double f=frame_.frequency-frame_.rate/2.0+i*frame_.rate/4.0;
+            const auto x=plot.left()+i*plot.width()/4;
+            p.drawText(QRectF(std::clamp(x-55,0.0,double(width()-110)),plot.bottom()+3,110,18),Qt::AlignCenter,QString::number(f/1e6,'f',3));
+        }
+        p.drawText(QRectF(plot.left(),height()-19,plot.width(),18),Qt::AlignRight,QStringLiteral("MHz · 瀑布为显示快照，原始采集连续"));
+    }
+private:SpectrumFrame frame_;QImage waterfall_;
+};
+class IqView:public QWidget {
+public:
+    IqView(){setMinimumHeight(160);}
+    void setFrame(const SpectrumFrame& f){points_=f.iq_preview;update();}
+protected:
+    void paintEvent(QPaintEvent*) override {
+        QPainter p(this);p.fillRect(rect(),QColor("#0b1525"));p.setPen(QColor("#9badc4"));
+        p.drawText(12,20,QStringLiteral("当前 I/Q 片段 · 归一化幅度 · I 青色 / Q 橙色"));
+        p.drawLine(12,height()/2,width()-12,height()/2);
+        for(int component=0;component<2;++component) {
+            QPainterPath path;
+            for(std::size_t i=0;i<points_.size();++i) {
+                const auto x=12+double(i)*(width()-24)/std::max<std::size_t>(1,points_.size()-1);
+                const double value=component?points_[i].imag():points_[i].real();
+                const auto y=height()/2.0-value*(height()-50)/2;
+                if(i==0)path.moveTo(x,y);else path.lineTo(x,y);
+            }
+            p.setPen(QPen(QColor(component?"#f1b761":"#5bdcc6"),1.4));p.drawPath(path);
+        }
+    }
+private:std::vector<std::complex<float>> points_;
+};
+struct Shared {
+    std::mutex mutex;SpectrumFrame spectrum;Json status=Json::object();QString error;bool done=false;
+};
+class Window:public QMainWindow {
+public:
+    Window(const QString& output,const QString& input):output_(output),input_(input) {
+        setWindowTitle(QStringLiteral("SignalScope · LoRa 监听与研究"));resize(1120,680);setMinimumSize(760,480);
+        QSettings settings;
+        sample_rate_hz_=settings.value("receiver/sample_rate_hz",2000000).toUInt();
+        if(sample_rate_hz_!=1750000&&sample_rate_hz_!=1875000&&sample_rate_hz_!=2000000)sample_rate_hz_=2000000;
+        detection_workers_=std::clamp(settings.value("receiver/detection_workers",3).toInt(),1,4);
+        threshold_db_=settings.value("receiver/threshold_db",18).toDouble();
+        if(!std::isfinite(threshold_db_)||threshold_db_<6||threshold_db_>60)threshold_db_=18;
+        auto* center=new QWidget;setCentralWidget(center);auto* layout=new QVBoxLayout(center);
+        auto* title=new QLabel(QStringLiteral("SignalScope   LoRa 监听与研究"));title->setStyleSheet("font-size:21px;font-weight:600;color:#e5f5f2");layout->addWidget(title);
+        auto* controls=new QHBoxLayout;
+        frequency_=new QDoubleSpinBox;frequency_->setRange(.1,1740);frequency_->setDecimals(6);frequency_->setValue(QSettings().value("receiver/frequency_mhz",470.5).toDouble());frequency_->setSuffix(" MHz");
+        gain_=new QComboBox;for(const auto* g:{"19.7","28.0","38.6","49.6","auto"})gain_->addItem(g);
+        const auto saved_gain=gain_->findText(QSettings().value("receiver/gain","19.7").toString());if(saved_gain>=0)gain_->setCurrentIndex(saved_gain);
+        sf_=new QComboBox;sf_->addItem(QStringLiteral("SF7–12"),0);for(int i=7;i<=12;++i)sf_->addItem("SF"+QString::number(i),i);
+        controls->addWidget(new QLabel(QStringLiteral("接收中心")));controls->addWidget(frequency_);controls->addWidget(new QLabel(QStringLiteral("增益 dB")));controls->addWidget(gain_);
+        bw_=new QComboBox;bw_->addItem(QStringLiteral("BW 自动"),0);for(int b:{125,250,500})bw_->addItem(QString::number(b)+" kHz",b*1000);
+        bw_->setToolTip(QStringLiteral("自动搜索 125 / 250 / 500 kHz，不需要事先知道发送参数。"));
+        controls->addWidget(bw_);controls->addWidget(sf_);
+        start_=new QPushButton(QStringLiteral("开始监听"));stop_=new QPushButton(QStringLiteral("停止"));stop_->setEnabled(false);
+        pause_=new QPushButton(QStringLiteral("暂停重放"));pause_->setEnabled(false);
+        controls->addWidget(start_);controls->addWidget(stop_);controls->addWidget(pause_);layout->addLayout(controls);
+        auto* paths=new QHBoxLayout;
+        auto* live=new QPushButton(QStringLiteral("实时来源"));auto* open=new QPushButton(QStringLiteral("打开 I/Q 录制"));auto* refresh=new QPushButton(QStringLiteral("刷新录制列表"));
+        auto* export_file=new QPushButton(QStringLiteral("导出所选录制"));
+        auto* analyze_file=new QPushButton(QStringLiteral("信号分析"));
+        quota_=new QSpinBox;quota_->setRange(64,16384);quota_->setValue(1024);quota_->setSuffix(" MiB");
+        limit_=new QDoubleSpinBox;limit_->setRange(1,60);limit_->setValue(QSettings().value("receiver/max_event_seconds",8).toDouble());limit_->setSuffix(" 秒");
+        paths->addWidget(live);paths->addWidget(open);paths->addWidget(refresh);paths->addWidget(export_file);paths->addWidget(analyze_file);paths->addStretch();paths->addWidget(new QLabel(QStringLiteral("片段上限")));paths->addWidget(limit_);paths->addWidget(new QLabel(QStringLiteral("配额")));paths->addWidget(quota_);layout->addLayout(paths);
+        source_=new QLabel;source_->setWordWrap(true);layout->addWidget(source_);updateSource();
+        coverage_=new QLabel;layout->addWidget(coverage_);updateCoverage();
+        connect(frequency_,&QDoubleSpinBox::valueChanged,this,[this](double){updateCoverage();});
+        state_=new QLabel(QStringLiteral("尚未监听 · 中心 ±0.5 MHz 搜索"));state_->setWordWrap(true);layout->addWidget(state_);
+        power_=new QLabel(QStringLiteral("当前全带强度 — dBFS    ·    非校准 RF 功率"));layout->addWidget(power_);
+        tabs_=new QTabWidget;
+        spectrum_=new SpectrumView;tabs_->addTab(spectrum_,QStringLiteral("频谱与瀑布"));
+        iq_=new IqView;tabs_->addTab(iq_,QStringLiteral("I/Q 波形"));
+        evidence_=new QTextEdit;evidence_->setReadOnly(true);evidence_->setPlainText(QStringLiteral("选中 LoRa 事件可查看前导码、同步 Chirp 和 SFD 结构证据。\n得分未经概率校准；不解析载荷或通信协议。"));tabs_->addTab(evidence_,QStringLiteral("识别证据"));
+        files_=new QTableWidget(0,4);files_->setHorizontalHeaderLabels({QStringLiteral("录制"),QStringLiteral("时长 / 秒"),QStringLiteral("状态"),QStringLiteral("中心 MHz")});
+        files_->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);files_->setSelectionBehavior(QAbstractItemView::SelectRows);files_->setEditTriggers(QAbstractItemView::NoEditTriggers);tabs_->addTab(files_,QStringLiteral("录制与重放"));
+        analysis_=new AnalysisPanel;tabs_->addTab(analysis_,QStringLiteral("信号分析"));
+        layout->addWidget(tabs_,1);
+        events_=new QTableWidget(0,6);events_->setHorizontalHeaderLabels({QStringLiteral("判定"),QStringLiteral("中心 MHz"),QStringLiteral("BW / SF"),QStringLiteral("匹配分量 dBFS"),QStringLiteral("匹配峰比 dB"),QStringLiteral("观察样本")});
+        events_->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);events_->setSelectionBehavior(QAbstractItemView::SelectRows);events_->setEditTriggers(QAbstractItemView::NoEditTriggers);events_->setMaximumHeight(125);layout->addWidget(events_);
+        storage_=new QLabel(QStringLiteral("原始预录制仅在内存保留 4 秒；仅 LoRa 结构事件保存；片段长度受上限约束"));storage_->setWordWrap(true);layout->addWidget(storage_);
+        storage_->setToolTip(QStringLiteral("配额或数量满时会淘汰最旧的自动录制；需要长期保留的事件请导出。"));
+        connect(tabs_,&QTabWidget::currentChanged,this,[this](int index){const bool study=tabs_->widget(index)==analysis_;events_->setVisible(!study);power_->setVisible(!study);});
+        connect(start_,&QPushButton::clicked,this,[this]{start();});connect(stop_,&QPushButton::clicked,this,[this]{cancel_=true;stop_->setEnabled(false);});
+        connect(pause_,&QPushButton::clicked,this,[this]{paused_=!paused_;pause_->setText(paused_?QStringLiteral("继续重放"):QStringLiteral("暂停重放"));});
+        connect(live,&QPushButton::clicked,this,[this]{if(!running_){input_.clear();updateSource();}});
+        connect(open,&QPushButton::clicked,this,[this]{if(running_)return;auto path=QFileDialog::getOpenFileName(this,QStringLiteral("打开 SigMF 录制"),QDir::homePath(),"SigMF (*.sigmf-meta)");if(!path.isEmpty()){input_=path;updateSource();}});
+        connect(refresh,&QPushButton::clicked,this,[this]{refreshFiles();});
+        connect(analyze_file,&QPushButton::clicked,this,[this]{const auto row=files_->currentRow();if(row>=0)analyzeFile(files_->item(row,0)->data(Qt::UserRole).toString());else if(!input_.isEmpty())analyzeFile(input_);else{tabs_->setCurrentWidget(files_);state_->setText(QStringLiteral("请先在录制列表中选择一段 I/Q。"));}});
+        connect(export_file,&QPushButton::clicked,this,[this]{
+            const auto row=files_->currentRow();if(row<0)return;
+            const auto meta=files_->item(row,0)->data(Qt::UserRole).toString();
+            const auto parent=QFileDialog::getExistingDirectory(this,QStringLiteral("选择导出位置；导出的录制不会被自动淘汰"),QDir::homePath());if(parent.isEmpty())return;
+            const auto name=QFileInfo(meta).dir().dirName();QDir dest(parent);
+            if(!dest.mkdir(name)){QMessageBox::warning(this,QStringLiteral("无法导出"),QStringLiteral("目标目录已存在或无法创建，未覆盖任何文件。"));return;}
+            const auto folder=dest.filePath(name);const auto data=QFileInfo(meta).dir().filePath("capture.sigmf-data");
+            if(!QFile::copy(data,folder+"/capture.sigmf-data") || !QFile::copy(meta,folder+"/capture.sigmf-meta"))
+                QMessageBox::warning(this,QStringLiteral("导出未完成"),QStringLiteral("请检查空间与文件权限；目标目录中可能只有部分文件。"));
+            else QToolTip::showText(QCursor::pos(),QStringLiteral("录制已导出：")+folder,this);
+        });
+        connect(files_,&QTableWidget::cellDoubleClicked,this,[this](int row,int){if(!running_){input_=files_->item(row,0)->data(Qt::UserRole).toString();updateSource();start();}});
+        connect(events_,&QTableWidget::cellClicked,this,[this](int row,int){if(row>=0&&row<int(display_events_.size())){evidence_->setPlainText(QString::fromStdString(display_events_[static_cast<std::size_t>(row)].dump(2)));tabs_->setCurrentWidget(evidence_);}});
+        timer_.setInterval(100);connect(&timer_,&QTimer::timeout,this,[this]{poll();});timer_.start();refreshFiles();
+    }
+    ~Window() override {cancel_=true;if(worker_.joinable())worker_.join();}
+    void setFrequency(double mhz){if(!running_)frequency_->setValue(mhz);}
+    bool setGain(QString value){if(value!="auto"){bool ok=false;const auto gain=value.toDouble(&ok);if(!ok)return false;value=QString::number(gain,'f',1);}const auto index=gain_->findText(value);if(index<0)return false;gain_->setCurrentIndex(index);return true;}
+    bool setDsp(const QString& rate,const QString& workers,const QString& threshold){
+        bool rate_ok=true,workers_ok=true,threshold_ok=true;
+        const auto r=rate.isEmpty()?sample_rate_hz_:rate.toUInt(&rate_ok);
+        const auto w=workers.isEmpty()?detection_workers_:workers.toInt(&workers_ok);
+        const auto t=threshold.isEmpty()?threshold_db_:threshold.toDouble(&threshold_ok);
+        if(!rate_ok||!workers_ok||!threshold_ok||(r!=1750000&&r!=1875000&&r!=2000000)||w<1||w>4||!std::isfinite(t)||t<6||t>60)return false;
+        sample_rate_hz_=r;detection_workers_=w;threshold_db_=t;updateCoverage();return true;
+    }
+    void enableDiagnostics(){diagnostics_=true;}
+    void analyzeFile(const QString& metadata){tabs_->setCurrentWidget(analysis_);analysis_->setThreshold(threshold_db_);analysis_->analyze(metadata);}
+    void start() {
+        if(running_)return;if(worker_.joinable())worker_.join();cancel_=false;paused_=false;
+        if(!input_.isEmpty()) {
+            try {frequency_->setValue(inspect_recording(input_.toStdString()).frequency/1e6);}
+            catch(const std::exception& e){state_->setText(QStringLiteral("无法打开录制：")+QString::fromUtf8(e.what()));return;}
+        }
+        Config cfg;cfg.rate=sample_rate_hz_;cfg.seconds=0;cfg.frequency=static_cast<std::uint32_t>(std::llround(frequency_->value()*1e6));
+        cfg.auto_gain=gain_->currentText()=="auto";if(!cfg.auto_gain)cfg.gain_tenths=static_cast<int>(std::lround(gain_->currentText().toDouble()*10));
+        LoRaConfig lc;lc.rate=cfg.rate;lc.receiver_frequency=cfg.frequency;
+        lc.workers=static_cast<unsigned>(detection_workers_);lc.peak_to_mean_db=threshold_db_;
+        const auto bandwidth=bw_->currentData().toInt();if(bandwidth)lc.bandwidth=bandwidth;else lc.bandwidth_candidates={125000,250000,500000};
+        const auto sf=sf_->currentData().toInt();if(sf)lc.sf_min=lc.sf_max=sf;
+        RetentionPolicy retention;retention.quota_bytes=static_cast<std::uint64_t>(quota_->value())*1024*1024;
+        retention.max_event_seconds=limit_->value();retention.max_event_bytes=static_cast<std::uint64_t>(std::ceil(cfg.rate*2*retention.max_event_seconds));
+        if(retention.quota_bytes<retention.max_event_bytes+1024*1024){state_->setText(QStringLiteral("配额不足以保存所选最长片段，请增大配额或缩短片段上限。"));return;}
+        retention.diagnostic_candidates=diagnostics_;
+        const auto input=input_.toStdString(),output=output_.toStdString();
+        if(input.empty()){QSettings settings;settings.setValue("receiver/frequency_mhz",frequency_->value());settings.setValue("receiver/gain",gain_->currentText());settings.setValue("receiver/max_event_seconds",limit_->value());settings.setValue("receiver/sample_rate_hz",sample_rate_hz_);settings.setValue("receiver/detection_workers",detection_workers_);settings.setValue("receiver/threshold_db",threshold_db_);}
+        {std::lock_guard lock(shared_.mutex);shared_.error.clear();shared_.done=false;shared_.status=Json::object();shared_.spectrum={};}
+        running_=true;start_->setEnabled(false);stop_->setEnabled(true);pause_->setEnabled(!input_.isEmpty());frequency_->setEnabled(false);gain_->setEnabled(false);sf_->setEnabled(false);bw_->setEnabled(false);quota_->setEnabled(false);limit_->setEnabled(false);
+        spectrum_->reset();iq_->setFrame({});events_->setRowCount(0);display_events_=Json::array();
+        power_->setText(QStringLiteral("等待当前来源的新 I/Q…"));
+        storage_->setText(input_.isEmpty()?QStringLiteral("预录制仅在内存，只有 LoRa 结构事件保存到磁盘"):QStringLiteral("研究重放：只分析原始录制，不重复保存 I/Q"));
+        evidence_->setPlainText(QStringLiteral("等待当前会话的 LoRa 结构事件。"));
+        state_->setText(input_.isEmpty()?QStringLiteral("正在初始化 AIO2…"):QStringLiteral("正在打开录制…"));
+        worker_=std::jthread([this,cfg,lc,retention,input,output]() mutable {
+            MonitorObserver observer;
+            observer.status=[this](const Json& status){std::lock_guard lock(shared_.mutex);shared_.status=status;};
+            observer.spectrum=[this](const SpectrumFrame& frame){std::lock_guard lock(shared_.mutex);shared_.spectrum=frame;};
+            try {
+                if(input.empty())monitor(cfg,lc,retention,output,input,[this]{return cancel_.load();},observer);
+                else {
+                    const auto info=inspect_recording(input);lc.rate=info.rate;lc.receiver_frequency=info.frequency;
+                    LoRaDetector detector(lc);Spectrometer spectrum;Json recent=Json::array();
+                    auto last_report=std::chrono::steady_clock::now()-std::chrono::seconds(1);
+                    auto deadline=std::chrono::steady_clock::now();std::uint64_t processed=0;
+                    replay(info,0,info.pairs,0,65536,[&](auto bytes,auto first){
+                        bool waited=false;while(paused_ && !cancel_){waited=true;std::this_thread::sleep_for(std::chrono::milliseconds(20));}
+                        if(waited)deadline=std::chrono::steady_clock::now();if(cancel_)return;
+                        detector.feed(bytes,first);processed=first+bytes.size()/2;
+                        for(auto& event:detector.take_events())if(event.value("evidence_level",std::string())=="lora_structure_match") {recent.push_back(event);if(recent.size()>32)recent.erase(recent.begin());}
+                        if(std::chrono::steady_clock::now()-last_report>=std::chrono::milliseconds(250)) {
+                            observer.spectrum(spectrum.measure(bytes,first,info.rate,info.frequency));
+                            observer.status({{"state","replaying"},{"source","recorded"},{"source_pairs",info.pairs},{"processed_pairs",processed},{"analysis_dropped_pairs",0},{"recent_lora_events",recent}});last_report=std::chrono::steady_clock::now();
+                        }
+                        deadline+=std::chrono::duration_cast<std::chrono::steady_clock::duration>(std::chrono::duration<double>(double(bytes.size()/2)/info.rate));
+                        while(std::chrono::steady_clock::now()<deadline && !cancel_ && !paused_)std::this_thread::sleep_for(std::chrono::milliseconds(2));
+                    },[this]{return cancel_.load();});
+                    observer.status({{"state","replay_finished"},{"source","recorded"},{"source_pairs",info.pairs},{"processed_pairs",processed},{"analysis_dropped_pairs",0},{"recent_lora_events",recent}});
+                }
+            } catch(const std::exception& e) {std::lock_guard lock(shared_.mutex);shared_.error=QString::fromUtf8(e.what());}
+            std::lock_guard lock(shared_.mutex);shared_.done=true;
+        });
+    }
+protected:
+    void closeEvent(QCloseEvent* event) override {cancel_=true;event->accept();}
+private:
+    void updateCoverage(){
+        if(!coverage_)return;
+        double rate=sample_rate_hz_,frequency=frequency_->value();
+        if(!input_.isEmpty())try{const auto info=inspect_recording(input_.toStdString());rate=info.rate;frequency=info.frequency/1e6;}catch(const std::exception&){}
+        coverage_->setText(QStringLiteral("%1 MS/s · LoRa 中心搜索 %2–%3 MHz · 双 I/Q 极性").arg(rate/1e6,0,'f',3).arg(frequency-.5,0,'f',3).arg(frequency+.5,0,'f',3));
+    }
+    void updateSource(){source_->setText(input_.isEmpty()?QStringLiteral("来源：AIO2 实时 · 自动事件目录：")+output_:QStringLiteral("来源：录制重放（不发射、不重复保存 I/Q） · ")+input_);start_->setText(input_.isEmpty()?QStringLiteral("开始监听"):QStringLiteral("开始重放"));updateCoverage();}
+    void refreshFiles() {
+        files_->setRowCount(0);QDirIterator it(output_,{"capture.sigmf-meta"},QDir::Files,QDirIterator::Subdirectories);
+        while(it.hasNext()&&files_->rowCount()<256) {
+            const auto path=it.next();try {
+                const auto info=inspect_recording(path.toStdString());const auto row=files_->rowCount();files_->insertRow(row);
+                auto* item=new QTableWidgetItem(QFileInfo(path).dir().dirName());item->setData(Qt::UserRole,path);files_->setItem(row,0,item);
+                files_->setItem(row,1,new QTableWidgetItem(QString::number(double(info.pairs)/info.rate,'f',3)));
+                const auto state=info.metadata["global"].value("signalscope:status","external");
+                const auto label=state=="event_complete"||state=="complete"?QStringLiteral("已保存"):state=="recording"?QStringLiteral("录制中"):state=="size_or_time_limit"?QStringLiteral("达到片段上限"):state=="provisional_not_confirmed"?QStringLiteral("临时候选，未确认"):state=="analysis_gap"?QStringLiteral("部分录制，有缺口"):QString::fromStdString(state);
+                files_->setItem(row,2,new QTableWidgetItem(label));
+                files_->setItem(row,3,new QTableWidgetItem(QString::number(info.frequency/1e6,'f',6)));
+            } catch(...) {}
+        }
+        tabs_->setTabText(3,QStringLiteral("录制与重放 (%1)").arg(files_->rowCount()));
+    }
+    void poll() {
+        SpectrumFrame frame;Json status;QString error;bool done=false;
+        {std::lock_guard lock(shared_.mutex);frame=shared_.spectrum;status=shared_.status;error=shared_.error;done=shared_.done;}
+        if(!frame.bins_dbfs.empty()){
+            spectrum_->setFrame(frame);iq_->setFrame(frame);power_->setText(QStringLiteral("当前全带强度 %1 dBFS · 非校准 RF 功率 · 当前样本 %2").arg(frame.power_dbfs,0,'f',1).arg(qulonglong(frame.first_sample)));
+            coverage_->setText(QStringLiteral("采集 %1–%2 MHz · LoRa 中心搜索 %3–%4 MHz · 双 I/Q 极性").arg((frame.frequency-frame.rate/2.0)/1e6,0,'f',3).arg((frame.frequency+frame.rate/2.0)/1e6,0,'f',3).arg((frame.frequency-500000)/1e6,0,'f',3).arg((frame.frequency+500000)/1e6,0,'f',3));
+        }
+        if(!status.empty()) {
+            const auto dropped=status.value("analysis_dropped_pairs",std::uint64_t(0));
+            const auto state=status.value("state",std::string());
+            const QString label=state=="listening"?QStringLiteral("实时监听"):state=="replaying"?QStringLiteral("录制重放"):state=="replay_finished"?QStringLiteral("重放结束"):state=="stopped"?QStringLiteral("已停止"):state=="analysis_finished"?QStringLiteral("收尾中"):state=="starting"?QStringLiteral("初始化"):QString::fromStdString(state);
+            state_->setText(QStringLiteral("%1 · 已分析 %2 / 已采集或文件 %3 对 I/Q · 未分析 %4 对").arg(label).arg(qulonglong(status.value("processed_pairs",std::uint64_t(0)))).arg(qulonglong(status.value("source_pairs",std::uint64_t(0)))).arg(qulonglong(dropped)));
+            const auto recording_lag=status.value("recording_lag_seconds",0.0);
+            if(recording_lag>.2)state_->setText(state_->text()+QStringLiteral(" · 录制积压 %1 秒").arg(recording_lag,0,'f',2));
+            state_->setStyleSheet(dropped?"color:#ffb06c":"color:#9ee0c8");
+            display_events_=status.value("recent_lora_events",Json::array());
+            for(const auto& candidate:status.value("recent_candidates",Json::array()))display_events_.push_back(candidate);
+            events_->setRowCount(static_cast<int>(display_events_.size()));
+            for(std::size_t row=0;row<display_events_.size();++row) {
+                const auto& e=display_events_[row];const bool confirmed=e.value("evidence_level",std::string())=="lora_structure_match";
+                const auto centre=e.value("center_frequency_hz",Json(nullptr));
+                QStringList cells={confirmed?QStringLiteral("LoRa 结构"):e.value("evidence_level",std::string())=="energy_transient"?QStringLiteral("能量待验证"):QStringLiteral("Chirp 待验证"),number(centre.is_number()?Json(centre.get<double>()/1e6):Json(nullptr),6),
+                    number(e.value("bandwidth_hz",Json(nullptr)).is_number()?Json(e["bandwidth_hz"].get<double>()/1000):Json(nullptr),0)+"k / SF"+number(e.value("sf_candidate",Json(nullptr)),0),
+                    number(e.value("matched_component_dbfs",Json(nullptr)),1),number(e.value("preamble_peak_to_mean_db",e.value("peak_to_mean_db",Json(nullptr))),1),number(e.value("first_observed_sample",Json(nullptr)),0)};
+                for(int col=0;col<cells.size();++col)events_->setItem(static_cast<int>(row),col,new QTableWidgetItem(cells[col]));
+            }
+            if(status.contains("storage")) {
+                const auto& s=status["storage"];storage_->setText(QStringLiteral("内存预留 %1 MiB · 本次保存 %2 段 · 已淘汰 %3 段 · 配额 %4 MiB · 仅保存 LoRa 结构事件").arg(s.value("ring_bytes",0ULL)/1048576.0,0,'f',1).arg(qulonglong(s.value("completed",0ULL))).arg(qulonglong(s.value("retention_deleted",0ULL))).arg(qulonglong(s.value("quota_bytes",0ULL)/1048576)));
+                if(status.contains("rss_bytes"))storage_->setText(storage_->text()+QStringLiteral(" · 进程 %1 MiB · CPU %2%").arg(status["rss_bytes"].get<double>()/1048576,0,'f',0).arg(status.value("cpu_percent_of_machine",0.0),0,'f',0));
+                const auto completed=s.value("completed",0ULL);if(completed!=last_completed_){last_completed_=completed;refreshFiles();}
+            }
+        }
+        if(!error.isEmpty())state_->setText(QStringLiteral("错误：")+error);
+        if(done&&running_){running_=false;worker_.join();start_->setEnabled(true);stop_->setEnabled(false);pause_->setEnabled(false);frequency_->setEnabled(true);gain_->setEnabled(true);sf_->setEnabled(true);bw_->setEnabled(true);quota_->setEnabled(true);limit_->setEnabled(true);refreshFiles();}
+    }
+    QString output_,input_;QDoubleSpinBox* frequency_;QComboBox* gain_;QComboBox* sf_;QComboBox* bw_;QSpinBox* quota_;
+    QDoubleSpinBox* limit_;
+    QPushButton *start_,*stop_,*pause_;QLabel *source_,*state_,*power_,*storage_,*coverage_=nullptr;QTabWidget* tabs_;
+    std::uint32_t sample_rate_hz_=2000000;int detection_workers_=3;double threshold_db_=18;
+    SpectrumView* spectrum_;IqView* iq_;QTextEdit* evidence_;QTableWidget *events_,*files_;AnalysisPanel* analysis_;
+    QTimer timer_;Shared shared_;std::jthread worker_;std::atomic<bool> cancel_=false,paused_=false;
+    bool running_=false,diagnostics_=false;Json display_events_=Json::array();std::uint64_t last_completed_=0;
+};
+}
+int main(int argc,char** argv) {
+    QApplication app(argc,argv);app.setApplicationName("SignalScope");app.setOrganizationName("SignalScope");
+    app.setStyle("Fusion");app.setStyleSheet("QWidget{background:#142033;color:#dce7f5;font-size:13px;} QPushButton{background:#29415b;padding:6px;border:1px solid #49647f;border-radius:4px;} QPushButton:disabled{color:#77869a;} QLineEdit,QAbstractSpinBox,QComboBox,QTextEdit,QTableWidget{background:#0e1929;} QHeaderView::section{background:#22364d;padding:5px;} QTabBar::tab{padding:7px;background:#22364d;} QTabBar::tab:selected{background:#355775;}");
+    const auto args=app.arguments();auto option=[&](const QString& name){auto at=args.indexOf(name);return at>=0&&at+1<args.size()?args[at+1]:QString();};
+    QString output=option("--output");if(output.isEmpty())output=QDir::homePath()+"/SignalScope-events";
+    Window window(output,option("--replay"));
+    if(!window.setDsp(option("--rate"),option("--workers"),option("--threshold-db"))){std::cerr<<"采样率须为 1750000/1875000/2000000，线程 1–4，门限 6–60 dB\n";return 2;}
+    if(args.contains("--diagnostic"))window.enableDiagnostics();
+    if(!option("--gain").isEmpty()&&!window.setGain(option("--gain"))){std::cerr<<"不支持的增益档位\n";return 2;}
+    const auto frequency=option("--frequency");
+    if(!frequency.isEmpty()) {
+        bool ok=false;const auto mhz=frequency.toDouble(&ok);
+        if(!ok || mhz<.1 || mhz>1740){std::cerr<<"频率参数须为 0.1–1740 MHz\n";return 2;}
+        window.setFrequency(mhz);
+    }
+    if(auto* screen=QGuiApplication::primaryScreen()) {
+        const auto area=screen->availableGeometry();window.resize(std::min(1120,area.width()),std::min(680,area.height()-24));
+    }
+    window.show();
+    const auto analyze=option("--analyze");if(!analyze.isEmpty())QTimer::singleShot(100,&window,[&]{window.analyzeFile(analyze);});
+    if(args.contains("--autostart"))QTimer::singleShot(100,&window,[&]{window.start();});
+    const auto screenshot=option("--screenshot");
+    if(!screenshot.isEmpty())QTimer::singleShot(option("--screenshot-delay-ms").isEmpty()?1500:option("--screenshot-delay-ms").toInt(),&window,[&]{window.grab().save(screenshot);if(!args.contains("--autostart"))app.quit();});
+    const auto smoke=option("--smoke-seconds");if(!smoke.isEmpty())QTimer::singleShot(smoke.toInt()*1000,&app,&QApplication::quit);
+    return app.exec();
+}

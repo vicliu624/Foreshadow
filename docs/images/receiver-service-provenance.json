@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "capture_date": "2026-11-14",
+  "source_commit": "f763a3053db6e9edca4be23e50fb6c67ae42fab5",
+  "host": "vicliu-workstation",
+  "platform": "Debian 13 x86_64 / native Qt X11",
+  "ui_language": "en",
+  "receiver": "SDRplay RSPdx-R2 via independent SoapyRemote service",
+  "images": [
+    {
+      "file": "docs/images/receiver-service-settings.png",
+      "input": "physical-device-query",
+      "capture": "Final extracted native package and QA receiver-dialog harness",
+      "width": 1200,
+      "height": 650,
+      "sha256": "28e789806ae36ea3f51ab8ae9ed91aa532f29aafa5e87d3c05519f0bd014adc5"
+    },
+    {
+      "file": "docs/images/receiver-service-workspace.png",
+      "input": "physical-rf",
+      "capture": "Installed r4 native GUI, autostart monitoring and native window capture",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "f7a59efcf4fff34968b4d799ac4027f3e85610c253a7058eae64e7e35cf670ab"
+    },
+    {
+      "file": "docs/images/receiver-service-licenses.png",
+      "input": "packaged-license-material",
+      "capture": "Final extracted package and native license-dialog QA harness",
+      "width": 960,
+      "height": 640,
+      "sha256": "dc0815c28e2fe3a6deb31fb1931a086b5569598fa0b225eebddc979ef253f475"
+    }
+  ]
+}

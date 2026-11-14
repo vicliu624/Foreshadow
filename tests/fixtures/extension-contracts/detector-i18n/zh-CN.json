@@ -1,0 +1,8 @@
+{
+  "test.detector.label": "独立载波检测器",
+  "test.detector.parsing": "独立特征证据",
+  "test.detector.effect": "由扩展提供者配置",
+  "test.detector.summary": "特征识别，无载荷解码",
+  "test.detector.impact": "完整快照",
+  "test.feature.label": "独立特征"
+}

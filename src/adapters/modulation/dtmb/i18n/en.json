@@ -1,0 +1,12 @@
+{
+  "dtmb.label": "DTMB terrestrial TV",
+  "dtmb.event": "DTMB frame structure",
+  "dtmb.header": "PN header (symbols)",
+  "dtmb.frames": "Checked frames",
+  "dtmb.coherence": "PN coherence",
+  "dtmb.parsing": "This detector checks PN420 / PN595 / PN945 and repeated 3780-symbol frame bodies. The enabled television reception module separately verifies system information, FEC, transport streams and playback; frame evidence alone does not establish decoded programmes.",
+  "dtmb.effect": "A 12 ms continuous window is checked every second, without requiring a power change. Complete 8 MHz channels must fit inside the receiver passband; estimated centers must lie within Search width. Wider inputs use overlapping analysis channels and require more CPU. Busy analysis windows are counted separately from receiver sample loss.",
+  "dtmb.summary": "PN and frame timing evidence; programme reception is assessed separately",
+  "dtmb.impact": "Periodic · Complete 8 MHz channel · PN420 / 595 / 945",
+  "dtmb.outside": "Requires at least 8 MS/s and a complete 8 MHz receiver passband. Filter clipping, noise and reception conditions can prevent identification even when the configuration is compatible."
+}

@@ -1,0 +1,19 @@
+# Compliance hashes cover the same text bytes on every build platform.
+*.sh text eol=lf
+cmake/RemoteReceiver.cmake text eol=lf
+/LICENSE text eol=lf
+/LICENSES/*.txt text eol=lf
+# Preserve verbatim upstream license text, including its original whitespace.
+/LICENSES/*.txt -whitespace
+/LICENSING*.md text eol=lf
+/SOURCE_AND_REPLACEMENT*.md text eol=lf
+/THIRD_PARTY_NOTICES*.md text eol=lf
+/resources/licensing/**/*.json text eol=lf
+/plugins/**/licensing.json text eol=lf
+/cmake/BuildFfmpeg.sh text eol=lf
+/cmake/MediaDecoder.cmake text eol=lf
+/cmake/DtmbReceiver.cmake text eol=lf
+/third_party/dra/LICENSE text eol=lf
+/third_party/dra/UPSTREAM*.md text eol=lf
+/third_party/dtmb-sampler-LICENSE text eol=lf
+/third_party/dtmb-patches/*.json text eol=lf

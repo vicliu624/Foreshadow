@@ -1,0 +1,12 @@
+{
+  "amplitude": "参考幅度",
+  "phase_rad": "初始相位",
+  "carrier_hz": "载波频偏",
+  "issue.parameter": "请输入符合整套配置范围的参数值。",
+  "issue.unknown": "此模型未声明该参数。",
+  "issue.nyquist": "整套模型与时间对齐必须位于输入的奈奎斯特范围内。",
+  "label": "正弦 FM",
+  "about": "恒包络上的正弦瞬时频偏。瞬时频率有界不代表占用带宽已经验证，也不保证所有边带均充分采样。",
+  "modulation_hz": "调制频率",
+  "deviation_hz": "峰值频偏"
+}

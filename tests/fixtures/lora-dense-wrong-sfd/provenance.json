@@ -1,0 +1,7 @@
+{
+  "generator": "tools/evaluate_weak_lora.py",
+  "seed": 26130020,
+  "retained_samples": 16384,
+  "sfd_symbols": 2.375,
+  "fixture_sha256": "13cb3a4b8c492f3f4ecdd3cbfdc79f2e8af27336a3d1a95f99f82fe282829b0b"
+}

@@ -1,0 +1,16 @@
+{
+  "amplitude": "参考幅度",
+  "phase_rad": "初始相位",
+  "carrier_hz": "载波频偏",
+  "issue.parameter": "请输入符合整套配置范围的参数值。",
+  "issue.unknown": "此模型未声明该参数。",
+  "issue.nyquist": "整套模型与时间对齐必须位于输入的奈奎斯特范围内。",
+  "label": "LoRa 符号 Chirp",
+  "about": "按 Chiani 与 Elzanaty（2019）的连续相位公式，循环显式选择的 LoRa 符号；方向可镜像扫频。此模型不包含报文、编码、CRC 或 LoRaWAN 解释，扫频宽度也不是已验证的占用带宽。",
+  "bandwidth_hz": "Chirp 扫频宽度",
+  "sf": "扩频因子",
+  "symbol": "循环符号",
+  "direction": "Chirp 方向",
+  "direction.up": "上扫",
+  "direction.down": "下扫"
+}

@@ -1,0 +1,60 @@
+{
+  "source": "controlled Pager SX1262 RF capture; not synthetic",
+  "source_sha256": "54f448966d20cd4b97f903626ea4a71967a2c563a5390fbe5b91f97601faf2d7",
+  "fixture_sha256": "be7fad17ae094fef60a4cd55a0231f524e42d889e854d2a950e58a09bf6e9122",
+  "source_sample_interval": [
+    600000,
+    720000
+  ],
+  "trial": {
+    "case": {
+      "name": "edge-high-bw500",
+      "frequency": 478994997,
+      "bandwidth": 500000,
+      "sf": 7,
+      "cr": 5,
+      "power": -9,
+      "preamble": 8,
+      "sync": 18,
+      "inverted": false,
+      "length": 8,
+      "repeat_index": 1
+    },
+    "receiver_configuration": {
+      "auto_gain": false,
+      "frequency_hz": 478500000,
+      "gain_tenths_db": 386,
+      "sample_rate_hz": 1750000,
+      "search_width_hz": 1000000.0
+    },
+    "capture_rate_hz": 1750000,
+    "source": "controlled_tx_raw_capture_for_diagnosis",
+    "created_unix_seconds": 1793741742.9338863,
+    "tx": {
+      "host_request_unix_seconds": 1793741744.8811252,
+      "host_done_unix_seconds": 1793741744.9012065,
+      "host_request_utc": "2026-11-03T21:35:44.881125+00:00",
+      "started": {
+        "ok": true,
+        "kind": "tx_started",
+        "id": 2740382443,
+        "length": 8,
+        "airtime_us": 9024,
+        "payload_fnv1a32": 2741189961,
+        "start_us": 1985950552
+      },
+      "done": {
+        "ok": true,
+        "kind": "tx_done",
+        "id": 2740382443,
+        "elapsed_us": 15552,
+        "code": 0
+      },
+      "payload_hex": "414d4331ebea56a3",
+      "note": "TX_DONE 为芯片状态；未代表接收端已解调这些字节"
+    },
+    "capture_returncode": 0,
+    "restored_receiver_pid": 922625
+  },
+  "known_failure": "strict SFD quarter-to-after drop gate; not yet a passing regression"
+}
