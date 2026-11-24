@@ -1,0 +1,24 @@
+{
+  "repository": "https://github.com/WSJTX/wsjtx",
+  "revision": "967c85a6119110788b0df3782cf796485b2cee14",
+  "license": "GPL-3.0-or-later (project); preserve individual author notices",
+  "files": {
+    "fano.c": {
+      "upstream_path": "lib/wsprd/fano.c",
+      "sha256": "72d3e176e75b7714916aed9fbf36f003b7ea5f511f0dd13e96e9ddbc2e159a15"
+    },
+    "fano.h": {
+      "upstream_path": "lib/wsprd/fano.h",
+      "sha256": "1955cd1d71d4cfb69cd5a4cc7dd563d239948fa9e302f1cfe4f40e8b5409ff65"
+    },
+    "tab.c": {
+      "upstream_path": "lib/wsprd/tab.c",
+      "sha256": "c453b07ac25d30227e4d25c0e134718a1858cf9ab801a1679935925957fcfe54"
+    },
+    "COPYING": {
+      "upstream_path": "COPYING",
+      "sha256": "b4bbff835ca86b6051284a77138b7b31db215fb3e8aa70221464126cc9ad60fa"
+    }
+  },
+  "modifications": []
+}

@@ -5,12 +5,12 @@
 #include "builtin/dtmb_tv.hpp"
 #endif
 
-namespace signalscope::desktop { LiveResearchProvider adsbLiveProvider(); }
+namespace signalscope::desktop { LiveResearchProvider adsbLiveProvider(); LiveResearchProvider wsprLiveProvider(); }
 #include <mutex>
 namespace signalscope::desktop {
 namespace {
 std::mutex registryMutex;
-std::vector<LiveResearchProvider>& registry(){static std::vector<LiveResearchProvider> value{fmLiveResearchProvider(),waveformLaboratoryProvider(),adsbLiveProvider()
+std::vector<LiveResearchProvider>& registry(){static std::vector<LiveResearchProvider> value{fmLiveResearchProvider(),waveformLaboratoryProvider(),adsbLiveProvider(),wsprLiveProvider()
 #ifdef SIGNALSCOPE_HAS_TELEVISION
     ,dtmbTvResearchProvider()
 #endif
