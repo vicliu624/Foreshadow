@@ -1,4 +1,5 @@
 add_library(signalscope_modulation
+    "${PROJECT_SOURCE_DIR}/plugins/adsb/detection.cpp"
     lora/lora.cpp
     lora/wideband_lora.cpp
     narrowband/fsk.cpp

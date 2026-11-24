@@ -155,7 +155,8 @@
       "reason": "通用工作区不得按显示或调制提供者标识分支。"
     }
   ],
-  "catalog_roots": [
+    "catalog_roots": [
+      "plugins/adsb/i18n",
     "src/backend/iq/signal_sources/i18n",
     "plugins/receivers/common/i18n",
     "plugins/receivers/rtl_sdr/i18n",
