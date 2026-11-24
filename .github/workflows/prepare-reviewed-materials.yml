@@ -1,0 +1,28 @@
+name: Prepare reviewed release materials
+on:
+  workflow_dispatch:
+    inputs:
+      release_id:
+        description: Private release-inputs draft ID
+        required: true
+      base_tag:
+        description: Published version supplying checksum-pinned unchanged dependency sources
+        required: true
+permissions:
+  contents: read
+jobs:
+  prepare:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Reconstruct exact reviewed materials without accepting licenses or signing
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_ID: ${{ inputs.release_id }}
+          BASE_TAG: ${{ inputs.base_tag }}
+        run: python3 tools/distribution/prepare_reviewed_materials.py

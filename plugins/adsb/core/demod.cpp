@@ -4,8 +4,16 @@
 #include <cmath>
 #include <stdexcept>
 namespace signalscope::adsb {
-Demodulator::Demodulator(std::uint32_t rate):rate_(rate),frame_samples_((std::uint64_t(rate)*120+999999)/1000000) {
+Demodulator::Demodulator(std::uint32_t rate):frame_samples_((std::uint64_t(rate)*120+999999)/1000000) {
     if(!supports_rate(rate))throw std::invalid_argument("ADS-B input rate outside 2-20 MS/s");
+    // Integration boundaries depend only on rate/phase, never on input power.
+    // Integer half-bit rates give identical plans for several phase probes.
+    for(const double phase:{0.,-.4,.4,-.2,.2}) {
+        IntegrationPlan plan;
+        const auto boundary=[&](unsigned slot){return std::min(frame_samples_,std::size_t(std::max(0LL,std::llround(double(slot)*rate/2000000+phase))));};
+        for(unsigned slot=0;slot<plan.size();++slot)plan[slot]={boundary(slot),boundary(slot+1)};
+        if(std::find(plans_.begin(),plans_.end(),plan)==plans_.end())plans_.push_back(plan);
+    }
     power_.reserve(frame_samples_+1);
 }
 void Demodulator::reset(){power_.clear();head_=0;initialized_=false;}
@@ -20,10 +28,9 @@ void Demodulator::feed(std::span<const std::complex<float>> samples,std::uint64_
         else {power_[head_]=std::isfinite(p)?p:0;head_=(head_+1)%frame_samples_;}
         if(power_.size()<frame_samples_)continue;
         bool found=false;
-        for(const double phase:{0.,-.4,.4,-.2,.2}) {
+        for(const auto& plan:plans_) {
         const auto half=[&](unsigned slot){
-            const auto begin=std::min(power_.size(),std::size_t(std::max(0LL,std::llround(double(slot)*rate_/2000000+phase))));
-            const auto end=std::min(power_.size(),std::size_t(std::max(0LL,std::llround(double(slot+1)*rate_/2000000+phase))));
+            const auto [begin,end]=plan[slot];
             double total=0;for(auto i=begin;i<end;++i)total+=power_[(head_+i)%frame_samples_];return total/std::max<std::size_t>(1,end-begin);
         };
         // Necessary condition of weakest-pulse > 2 * strongest quiet slot.

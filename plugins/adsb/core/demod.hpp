@@ -1,5 +1,6 @@
 #pragma once
 #include "codec.hpp"
+#include <array>
 #include <complex>
 #include <functional>
 #include <vector>
@@ -14,7 +15,12 @@ public:
     void feed(std::span<const std::complex<float>>,std::uint64_t first,bool discontinuous,
               const std::function<void(const Frame&)>&);
 private:
-    std::uint32_t rate_;
+    struct Interval {
+        std::size_t begin,end;
+        bool operator==(const Interval&) const=default;
+    };
+    using IntegrationPlan=std::array<Interval,240>;
+    std::vector<IntegrationPlan> plans_;
     std::size_t frame_samples_;
     std::vector<float> power_;
     std::size_t head_=0;
