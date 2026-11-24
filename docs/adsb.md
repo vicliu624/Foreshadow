@@ -123,11 +123,13 @@ At that checkpoint, final distribution acceptance was blocked on corresponding r
 platform/dependency materials. Do not substitute a copied executable directory
 or an unsigned ad-hoc archive for that gate.
 
-The [0.2.13 release preparation](releases/0.2.13.md) adds a distinct
+The [published 0.2.13 release](releases/0.2.13.md) uses a distinct
 `linux-debian13-arm64` profile for the generic Debian 13 hosted SDK, including
 OpenSSL 3.5.9 source materials and an installed-SDK source-identity gate. The
 uConsole's Raspberry Pi OpenSSL 3.5.7 runtime remains a separate compatibility
-target. Its local build is not relabelled as the hosted build. Final archive
+target. The actual hosted artifact passed uConsole startup, English provider,
+I/Q replay, AVS+/DRA, toolbox installation and injected receiver-service checks.
+Its local development build was not relabelled as the hosted artifact. Final archive
 and device qualification are recorded with the release assets; macOS is outside
 this release's acceptance scope. Physical RF decoding remains unverified.
 

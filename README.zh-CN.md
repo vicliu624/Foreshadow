@@ -41,10 +41,10 @@ Foreshadow 在同一桌面工作区中组织接收机、检测、显示和研究
 | 插件类别 | 负责的功能 | 当前交付方式 |
 |---|---|---|
 | 接收机插件 | RTL-SDR/AIO2、SDRplay；发现、能力、参数、联动、推荐、应用/回读、驱动运行库与资源 | 运行时原生模块，可独立安装为接收机工具箱 |
-| 检测模块 | LoRa、FSK/OOK/ASK、FM、PSK、OFDM、CSS、DTMB 的检测语义、输入要求与事件证据 | 注册内置实现，随应用更新 |
-| 显示与实时研究提供者 | 频谱/瀑布/I/Q；波形实验室、独立 FM 和电视面板、状态、操作及接收需求 | 内置提供者，由通用工作区承载 |
+| 检测模块 | LoRa、FSK/OOK/ASK、FM、PSK、OFDM、CSS、DTMB、ADS-B 的检测语义、输入要求与事件证据 | 注册内置实现，随应用更新 |
+| 显示与实时研究提供者 | 频谱/瀑布/I/Q；波形实验室、独立 FM、电视及 ADS-B 航空器工作区、状态、操作及接收需求 | 内置提供者，由通用工作区承载 |
 | 参考模型提供者 | 单音、AM、FM、FSK、Chirp、LoRa、PSK、OFDM 的生成、参数与校验 | 注册研究实现，使用共享对照流程 |
-| 恢复提供者 | FSK 帧、LoRa PHY、成对编码研究、训练式 PSK/OFDM 同步、信道估计、均衡及 EVM 证据 | 注册研究实现，使用公共证据、持久化和导出 |
+| 恢复提供者 | FSK 帧、LoRa PHY、ADS-B 帧、成对编码研究、训练式 PSK/OFDM 同步、信道估计、均衡及 EVM 证据 | 注册研究实现，使用公共证据、持久化和导出 |
 | 外部研究工具 | 原生功率报告及兼容快照工具，声明参数、输出、资源和运行库 | 独立可执行程序/清单，可独立安装为研究工具箱 |
 | 媒体编解码提供者 | FFmpeg 解码器和 DRA、轨道能力及诊断 | 隔离媒体辅助进程中的原生提供者 |
 
@@ -70,6 +70,7 @@ Foreshadow 在同一桌面工作区中组织接收机、检测、显示和研究
 | OFDM | OFDM 恢复提供者 | CP/重复训练捕获、频偏校正、逐载波估计/均衡、导频跟踪、擦除和 EVM | 需要声明 FFT/CP、活动载波、训练、导频和映射 |
 | 证据 | 提供者结果与通用证据消费者 | 符号、比特、字节、帧、Hex/ASCII、校验状态、复数测量、JSON 和已知字节导出 | 未知值、修复候选、未携带校验和校验失败分别表示 |
 | 广播研究 | FM/电视实时研究及媒体提供者 | 独立单声道 FM 收听；DTMB 节目流恢复与音视频播放 | 检测证据和成功节目恢复分开 |
+| ADS-B | ADS-B 检测／恢复／实时提供者 | 周期候选、连续 PPM/CRC 处理、DF17/DF18 证据、航空器列表及离线地图 | 实体 1090 MHz 接收仍未验证；合成输入与原生包证据分别限定范围 |
 | 工作区 | 通用宿主工作区 | 停靠、浮动、标签、保存布局、显式预设和小屏支持 | 缩放保留用户布局 |
 | 分发 | 分发服务与包类型适配 | 签名官方目录、受管工具箱、离线包匹配、主体激活和回滚 | 内置模块随主体更新；原生变更重启生效 |
 | 本地化 | 提供者资源与公共解析 | 英文、简体中文、提供者字典与逐 key 回退 | 新语言通过资源加入，不增加实现 ID 分支 |
@@ -140,15 +141,23 @@ Foreshadow 在同一桌面工作区中组织接收机、检测、显示和研究
 
 ## 安装与启动
 
-通过 [GitHub Releases](https://github.com/vicliu624/Foreshadow/releases)发布经验证的 Windows x64、Debian 13 x64 和 Debian 13 ARM64 下载包。实际提供的平台及剩余限制，以相应发布附带的验收和源码／材料清单为准；若该版本仍在准备，请使用后文源码构建说明。下载包须完整解压，保留运行库、资源、接收机模块和依赖通知的相对位置。另见 [0.2.13 发布说明](docs/releases/0.2.13.zh-CN.md)，其中包含旧 AMS 安装的一次性迁移步骤。
+**[Foreshadow 0.2.13 已正式发布](https://github.com/vicliu624/Foreshadow/releases/tag/v0.2.13)**，提供已验收的 Windows x64、Debian 13 x64 和 Debian 13 ARM64 下载包。
 
-**源码分支与正式发布的功能状态分开。** 本分支已包含波形实验室和训练式 PSK/OFDM。线上签名目录可能仍指向此前验收版本，请核对版本与发布说明；已有资产也可能使用历史名称 AMS。
+| 已验收便携包 | 下载 |
+|---|---|
+| Windows x64 | [Foreshadow-windows-x64.zip](https://github.com/vicliu624/Foreshadow/releases/download/v0.2.13/Foreshadow-windows-x64.zip) |
+| Debian 13 x64 | [Foreshadow-debian13-amd64.tar.gz](https://github.com/vicliu624/Foreshadow/releases/download/v0.2.13/Foreshadow-debian13-amd64.tar.gz) |
+| Debian 13 ARM64 / uConsole | [Foreshadow-debian13-arm64.tar.gz](https://github.com/vicliu624/Foreshadow/releases/download/v0.2.13/Foreshadow-debian13-arm64.tar.gz) |
+
+请完整解压到新目录，保留运行库、资源、接收机模块和依赖通知的相对位置。基础包包含 RTL-SDR，独立 SDRplay 服务客户端和 Power Report 工具箱通过 **Plugins → Toolbox Center** 获取。另见 [SHA256SUMS](https://github.com/vicliu624/Foreshadow/releases/download/v0.2.13/SHA256SUMS.txt)、[验收记录](https://github.com/vicliu624/Foreshadow/releases/download/v0.2.13/release-qualification.json)和[发布说明](docs/releases/0.2.13.zh-CN.md)，其中包含旧 AMS 安装的一次性迁移步骤。
+
+0.2.13 下载包包含波形实验室、训练式 PSK/OFDM 及 ADS-B 模块。每个版本分别记录平台与功能证据，评估下载包时请查阅对应版本的验收记录；历史报告和旧资产可能使用 AMS 名称。
 
 | 平台 | 新构建安装目录入口 | 外部条件 |
 |---|---|---|
 | Windows x64 | `bin/signalscope-gui.exe` | 随包 Qt/媒体运行库及目标硬件驱动 |
 | Linux | `bin/signalscope-gui` | CPU/发行版基线匹配、USB 权限和设备 API/服务 |
-| macOS | `Foreshadow.app` | 架构、系统及运行库匹配；旧包为 `AMS.app` |
+| macOS，历史／源码构建 | `Foreshadow.app` | 0.2.13 未发布或验收 macOS 包；旧包为 `AMS.app` |
 
 `signalscope`、`signalscope-gui`、`signalscope-toolboxes` 保留为兼容命令名。**产品名为 Foreshadow**，源码仓库现为 [vicliu624/Foreshadow](https://github.com/vicliu624/Foreshadow)，采用全新 Git 历史。历史证据及发布范围见[仓库迁移说明](docs/repository-transition.zh-CN.md)。
 
@@ -380,7 +389,17 @@ flowchart LR
 
 测试覆盖独立发射真值、反例、预算、不连续、取消、源映射、独立提供者、资源语言/回退、持久化、原生界面和真实包事务。构建或截图成功不能单独作为功能验收。
 
-[0.2.12 r4 验收](docs/reports/2026-11-14-receiver-service-review.zh-CN.md)记录当前 Windows/Linux 服务架构及真实归档：
+[0.2.13 正式构建](https://github.com/vicliu624/Foreshadow/actions/runs/45312368287)对应冻结应用源码 `b2eecf9`：
+
+| 正式平台 | CTest | 实际归档与运行验收 |
+|---|---|---|
+| Windows x64 | 112 通过，2 项实体音频资格跳过，0 失败 | 原生包／工具箱／服务／媒体／桌面检查及中文／非 BMP 解压路径；最终 ZIP 另在本机 Windows 启动 |
+| Debian 13 x64 | 113 通过，2 项实体音频资格跳过，0 失败 | 原生归档检查；实际下载包在接收机工作站验证 AVS+/DRA 与独立客户端／服务兼容性 |
+| Debian 13 ARM64 | 113 通过，2 项实体音频资格跳过，0 失败 | 原生归档检查；实际包在 uConsole 验证英文提供者、I/Q 回放、AVS+/DRA、独立工具箱安装及注入接收服务 |
+
+[验收记录](https://github.com/vicliu624/Foreshadow/releases/download/v0.2.13/release-qualification.json)提供精确源码、SDK 身份、哈希和限制。Debian 构建 SDK 为 Qt 6.8.2／OpenSSL 3.5.9，实际包另在未升级的 Debian／RPi OpenSSL 3.5.7 运行库上通过验证；Windows 为 Qt 6.8.3／OpenSSL 3.6.5。构建后另行测试发布验证工具修复（`0a0875a`，27 项契约），在 Windows 安全处理 POSIX 归档链接；应用／运行时源码仍为已验收的 `b2eecf9`。这些软件／包检查不证明实体 1090 MHz 解码、长期硬件采样连续性或实体声音输出；macOS 不在 0.2.13 验收范围内。
+
+[0.2.12 r4 验收](docs/reports/2026-11-14-receiver-service-review.zh-CN.md)记录此前 Windows/Linux 服务架构及真实归档：
 
 | 环境 | 完整回归 | 其他证据 |
 |---|---|---|
@@ -431,6 +450,6 @@ flowchart LR
 
 [r4 服务验收](docs/reports/2026-11-14-receiver-service-review.zh-CN.md)记录独立基础包／客户端、两平台各四包的机械材料门禁通过、第一方源码干净重建、Qt 替换、实体服务采集及当前评审入口。[r3 许可落地验收](docs/reports/2026-11-13-license-adoption-review.zh-CN.md)保留为已替代的进程内方案历史证据。
 
-[免费开源编解码专利评估](docs/codec-patent-assessment.zh-CN.md)区分免费下载、版税与许可。准备的基础包保留完整电视功能，其具体专利判断仍未解决；SDRplay 客户端有单独准备的资产。[发布准备报告](docs/reports/2026-11-14-public-release-preparation.zh-CN.md)分别记录状态，机械材料验收不等于专利清权。
+[免费开源编解码专利评估](docs/codec-patent-assessment.zh-CN.md)区分免费下载、版税与许可。已发布的 0.2.13 基础包保留完整电视功能；发布本身不解决现有具体专利评估，也不构成新授权。SDRplay 客户端已作为独立包发布。带日期的[发布准备报告](docs/reports/2026-11-14-public-release-preparation.zh-CN.md)记录此前决策，机械材料验收不等于专利清权。
 
 ![接收机工作站原生渲染的许可证与源码窗口](docs/images/receiver-service-licenses.png)

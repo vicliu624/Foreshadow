@@ -59,6 +59,8 @@ Manually dispatch **Release platform builds** with `release_tag`, `platform`, an
 
 Publisher reviews/downloads builds, then runs `tools/distribution/sign_catalog.py --entries ... --key ... --output catalog.json` with an external Ed25519 private key; `--previous` validates/merges the preceding catalog and sequence must increase. Tool verifies public-key match, hashes and signature. Upload packages/catalog to the formal release only after this review. Keys stay outside Actions/Git/packages/remote deployment hosts.
 
+The local signing host needs an OpenSSL 3.x CLI with Ed25519 `pkeyutl -rawin` support. The archive verifier checks the POSIX member graph before scanning regular contents, rejects unsafe links/duplicate members/link descendants, and does not materialize symbolic aliases during cross-host verification. This avoids Windows silently copying aliases into extra runtimes. Native qualification must still extract and execute the unchanged real archive on its target platform.
+
 **Release media deadline diagnostic** is manually invoked formal-release diagnostics, not daily CI. It compares condition-variable, relative/Mach and absolute waits independently of codecs. Retain native logs; host timing blockage and functionality are separate conclusions.
 
 ## Acceptance
