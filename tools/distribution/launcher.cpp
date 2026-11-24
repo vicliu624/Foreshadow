@@ -1,4 +1,5 @@
 #include <filesystem>
+#include <cstdlib>
 #include <fstream>
 #include <iostream>
 #include <nlohmann/json.hpp>
@@ -40,6 +41,20 @@ nlohmann::json read(const fs::path &path) {
 fs::path fromUtf8(const std::string &path) {
     return fs::path(std::u8string(reinterpret_cast<const char8_t *>(path.data()), path.size()));
 }
+void configureDistributionRoot(const nlohmann::json &config) {
+    if (!config.contains("distribution_root"))
+        return;
+    const auto value = config.at("distribution_root").get<std::string>();
+    const auto root = fromUtf8(value);
+    if (value.empty() || value.find('\0') != std::string::npos || !root.is_absolute())
+        throw std::runtime_error("launcher_configuration");
+#ifdef _WIN32
+    if (!SetEnvironmentVariableW(L"SIGNALSCOPE_DISTRIBUTION_ROOT", root.c_str()))
+#else
+    if (setenv("SIGNALSCOPE_DISTRIBUTION_ROOT", root.c_str(), 1) != 0)
+#endif
+        throw std::runtime_error("launcher_environment");
+}
 #ifdef _WIN32
 std::wstring quote(const std::wstring &text) {
     std::wstring result = L"\"";
@@ -67,6 +82,7 @@ int launchMain(int argc, wchar_t **argv) {
         auto configPath = selfPath();
         configPath += L".json";
         const auto config = read(configPath);
+        configureDistributionRoot(config);
         const auto descriptor = read(fromUtf8(config.at("root")) / "current.json");
         const auto executable = fromUtf8(descriptor.at("executables").at(config.at("role").get<std::string>()));
         std::wstring command = quote(executable.wstring());
@@ -117,6 +133,7 @@ int main(int argc, char **argv) {
         auto configPath = selfPath();
         configPath += ".json";
         const auto config = read(configPath);
+        configureDistributionRoot(config);
         const auto descriptor = read(fromUtf8(config.at("root")) / "current.json");
         const auto executable = fromUtf8(descriptor.at("executables").at(config.at("role").get<std::string>()));
         const auto name = executable.string();

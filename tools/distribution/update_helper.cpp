@@ -92,7 +92,8 @@ void shortcuts(const Json &request, const fs::path &appRoot) {
         copyFile(role == "gui" && request.contains("gui_launcher") ? path(request.at("gui_launcher")) : source,
                  launcher);
         writeJsonAtomically(path_from_utf8(path_to_utf8(launcher) + ".json"),
-                            {{"root", path_to_utf8(appRoot)}, {"role", role}});
+                            {{"root", path_to_utf8(appRoot)}, {"role", role},
+                             {"distribution_root", path_to_utf8(appRoot.parent_path())}});
     }
 #if defined(__linux__)
     fs::create_directories(base / ".local/bin");
@@ -147,7 +148,8 @@ void shortcuts(const Json &request, const fs::path &appRoot) {
         const auto launcher = bundle / "MacOS/Foreshadow";
         copyFile(source, launcher);
         writeJsonAtomically(path_from_utf8(path_to_utf8(launcher) + ".json"),
-                            {{"root", path_to_utf8(appRoot)}, {"role", "gui"}});
+                            {{"root", path_to_utf8(appRoot)}, {"role", "gui"},
+                             {"distribution_root", path_to_utf8(appRoot.parent_path())}});
         std::ofstream info(bundle / "Info.plist");
         info << "<?xml version=\"1.0\" encoding=\"UTF-8\"?><plist "
                 "version=\"1.0\"><dict><key>CFBundleExecutable</key><string>Foreshadow</string><key>CFBundleIdentifier</"

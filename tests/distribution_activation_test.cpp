@@ -17,6 +17,10 @@ int main(int argc, char **argv) {
             writeJsonAtomically(path_from_utf8(arguments.at(2).toStdString()), {{"recovered", true}});
             return 0;
         }
+        if (arguments.contains("--fixture-store")) {
+            std::cout << Json(environment_utf8("SIGNALSCOPE_DISTRIBUTION_ROOT").value_or("unset")).dump();
+            return 0;
+        }
         if (arguments.contains("--fixture-target") || arguments.contains("--fixture-target-crash")) {
             const auto at = arguments.indexOf("--update-health-request");
             const auto path = path_from_utf8(arguments.at(at + 1).toStdString());
@@ -138,6 +142,19 @@ int main(int argc, char **argv) {
             Json::parse(runner.run(QString::fromStdString(path_to_utf8(launcher)), inputs, 7).toStdString());
         require(output == Json::array({"中文 参数", "with \"quotes\"", "trailing\\", ""}),
                 "Bootstrap changed arguments or exit status");
+        const auto selectedStore = root / path_from_utf8("独立 toolbox store 📡");
+        const auto launcherConfig = path_from_utf8(path_to_utf8(launcher) + ".json");
+        auto configured = readJson(launcherConfig);
+        configured["distribution_root"] = path_to_utf8(selectedStore);
+        writeJsonAtomically(launcherConfig, configured);
+        runner.setEnvironment("SIGNALSCOPE_DISTRIBUTION_ROOT", "stale-parent-store");
+        const auto selected = Json::parse(runner.run(QString::fromStdString(path_to_utf8(launcher)),
+                                                    {"--fixture-store"}).toStdString());
+        require(selected == path_to_utf8(selectedStore),
+                "A cold bootstrap lost its selected Unicode store or inherited another installation's store");
+        configured["distribution_root"] = "relative-store";
+        writeJsonAtomically(launcherConfig, configured);
+        runner.run(QString::fromStdString(path_to_utf8(launcher)), {"--fixture-store"}, 1);
         std::cout << "Activation, health failure rollback, hash rejection, concurrent state rejection and Unicode "
                      "bootstrap passed.\n";
         return 0;
