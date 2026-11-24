@@ -93,14 +93,35 @@ void acceptHardware(const std::string& receiver,const std::filesystem::path& out
     auto elapsed=[&]{return std::chrono::duration<double>(Clock::now()-started).count();};
     auto record=[&](const char* phase){auto current=state();validate(current);report["phases"].push_back({{"phase",phase},{"seconds",elapsed()},{"waveform",current},{"receiver",session->snapshot()},{"independent_consumer",monitor->snapshot()}});write_json(output/"result.json",report);std::cout<<phase<<" at "<<elapsed()<<" s\n"<<std::flush;};
     double lastObservation=-1;
-    auto runTo=[&](double target,bool expectCapture=true){while(elapsed()<target){QCoreApplication::processEvents();if(elapsed()-lastObservation>=1){const auto current=state();validate(current);require(current.at("capture").at("active").get<bool>()==expectCapture,"Capture activity changed outside its requested lifecycle");report["observations"].push_back({{"seconds",elapsed()},{"capture",current.at("capture")},{"analysis_state",current.at("state")},{"independent_consumer_samples",monitor->samples.load()}});lastObservation=elapsed();}std::this_thread::sleep_for(std::chrono::milliseconds(2));}};
+    auto runTo=[&](double target,bool expectCapture=true,bool allowReconfiguration=false){
+        while(elapsed()<target){
+            QCoreApplication::processEvents();
+            if(elapsed()-lastObservation>=1){
+                const auto current=state();validate(current);const auto& capture=current.at("capture");
+                const bool restarting=expectCapture && allowReconfiguration &&
+                    capture.at("receiver").value("state",std::string())=="starting";
+                report["observations"].push_back({{"seconds",elapsed()},{"capture",capture},
+                    {"analysis_state",current.at("state")},{"independent_consumer_samples",monitor->samples.load()},
+                    {"planned_reconfiguration",restarting}});
+                if(capture.at("active").get<bool>()!=expectCapture && !restarting){
+                    report["lifecycle_failure"]={{"seconds",elapsed()},{"waveform",current},{"receiver",session->snapshot()}};
+                    write_json(output/"result.json",report);
+                    throw std::runtime_error("Capture activity changed outside its requested lifecycle");
+                }
+                lastObservation=elapsed();
+            }
+            std::this_thread::sleep_for(std::chrono::milliseconds(2));
+        }
+        if(allowReconfiguration)until([&]{const auto current=state();return current.at("capture").at("active").get<bool>() &&
+            current.at("capture").at("receiver").value("state",std::string())=="receiving";});
+    };
     record("shared-input-following");runTo(seconds/6.0);
     until([&]{return freeze->isEnabled() && state().at("state")=="ready";});const auto beforeFreeze=state().at("configuration").at("source");
     freeze->click();until([&]{const auto current=state();return current.at("state")=="ready" && !current.at("capture").at("following").get<bool>() && current.at("configuration").at("source")!=beforeFreeze;});
     auto frozen=state().at("configuration");record("frozen-while-input-continues");runTo(seconds/3.0);
     require(state().at("configuration")==frozen,"A frozen analysis changed while capture continued");
     monitorLease->release();monitorLease.reset();host.setSession(false);
-    until([&]{return session->snapshot().at("users")==1 && state().at("capture").at("active").get<bool>();});record("independent-consumer-released");runTo(seconds/2.0);
+    until([&]{return session->snapshot().at("users")==1 && state().at("capture").at("active").get<bool>();});record("independent-consumer-released");runTo(seconds/2.0,true,true);
     require(state().at("configuration")==frozen,"Releasing another lease replaced the frozen analysis");
     const auto independentProgress=state().at("capture");
     until([&]{const auto current=state().at("capture");return current.at("processed_samples").get<std::uint64_t>()>independentProgress.at("processed_samples").get<std::uint64_t>() || (current.at("generation")!=independentProgress.at("generation") && current.at("processed_samples").get<std::uint64_t>()>0);});
@@ -108,7 +129,7 @@ void acceptHardware(const std::string& receiver,const std::filesystem::path& out
     // An incompatible new exact demand must not retune existing consumers.
     auto rejected=std::make_shared<Observation>();auto conflictDemand=demand;conflictDemand.frequency_hz+=10000000;conflictDemand.exact->frequency+=10000000;
     auto conflict=session->acquire(conflictDemand,observed(rejected));until([&]{return rejected->snapshot().at("state")=="conflict";});conflict->release();conflict.reset();report["conflict"]=rejected->snapshot();
-    runTo(seconds*2.0/3);require(state().at("configuration")==frozen,"An incompatible demand replaced an accepted frozen analysis");
+    runTo(seconds*2.0/3,true,true);require(state().at("configuration")==frozen,"An incompatible demand replaced an accepted frozen analysis");
     until([&]{return freeze->isEnabled();});const auto beforeSecondFreeze=state().at("configuration").at("source");freeze->click();until([&]{return state().at("state")=="ready" && state().at("configuration").at("source")!=beforeSecondFreeze;});frozen=state().at("configuration");
     const auto saved=output/path_from_utf8("实时冻结 📡.amc-analysis.json");chooseFile(host.panels().at(0).widget->findChild<QAction*>("waveform-save-analysis"),saved);until([&]{return state().at("last_save").value("committed",false);});
     std::ifstream input(saved);Json configuration;input>>configuration;

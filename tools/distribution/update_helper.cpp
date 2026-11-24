@@ -63,6 +63,24 @@ void copyFile(const fs::path &source, const fs::path &destination) {
 }
 void shortcuts(const Json &request, const fs::path &appRoot) {
     const auto source = path(request.at("launcher"));
+#if defined(__linux__)
+    const auto home = environment_utf8("HOME");
+    if (!home)
+        throw Error("home");
+    const auto base = path_from_utf8(*home);
+    const auto applications = base / ".local/share/applications";
+    const auto desktopEntry = applications / "signalscope.desktop";
+    bool preserveDesktopEntry = false;
+    try {
+        const auto existing = readJson(appRoot / "bin/signalscope-gui.json");
+        preserveDesktopEntry = existing.at("role") == "gui" &&
+                               fs::weakly_canonical(path(existing.at("root"))) == fs::weakly_canonical(appRoot) &&
+                               fs::is_regular_file(desktopEntry) && fs::file_size(desktopEntry) > 0;
+    } catch (const std::exception &) {
+        // An absent or damaged bootstrap needs a new entry; an existing managed
+        // entry may contain user launch options that must survive activation.
+    }
+#endif
 #ifdef _WIN32
     const std::string suffix = ".exe";
 #else
@@ -74,13 +92,10 @@ void shortcuts(const Json &request, const fs::path &appRoot) {
         copyFile(role == "gui" && request.contains("gui_launcher") ? path(request.at("gui_launcher")) : source,
                  launcher);
         writeJsonAtomically(path_from_utf8(path_to_utf8(launcher) + ".json"),
-                            {{"root", path_to_utf8(appRoot)}, {"role", role}});
+                            {{"root", path_to_utf8(appRoot)}, {"role", role},
+                             {"distribution_root", path_to_utf8(appRoot.parent_path())}});
     }
 #if defined(__linux__)
-    const auto home = environment_utf8("HOME");
-    if (!home)
-        throw Error("home");
-    const auto base = path_from_utf8(*home);
     fs::create_directories(base / ".local/bin");
     for (const auto *name : {"signalscope", "signalscope-gui"}) {
         const auto link = base / ".local/bin" / name;
@@ -91,8 +106,9 @@ void shortcuts(const Json &request, const fs::path &appRoot) {
         fs::create_symlink(appRoot / "bin" / name, temporary);
         fs::rename(temporary, link);
     }
-    const auto applications = base / ".local/share/applications";
     fs::create_directories(applications);
+    if (preserveDesktopEntry)
+        return;
     auto executable = path_to_utf8(appRoot / "bin/signalscope-gui");
     std::string escaped;
     for (const auto c : executable) {
@@ -102,7 +118,7 @@ void shortcuts(const Json &request, const fs::path &appRoot) {
             escaped += '%';
         escaped += c;
     }
-    std::ofstream desktop(applications / "signalscope.desktop");
+    std::ofstream desktop(desktopEntry);
     desktop << "[Desktop Entry]\nType=Application\nName=Foreshadow\nExec=\"" << escaped
             << "\"\nTerminal=false\nCategories=Science;\n";
     if (!desktop)
@@ -132,7 +148,8 @@ void shortcuts(const Json &request, const fs::path &appRoot) {
         const auto launcher = bundle / "MacOS/Foreshadow";
         copyFile(source, launcher);
         writeJsonAtomically(path_from_utf8(path_to_utf8(launcher) + ".json"),
-                            {{"root", path_to_utf8(appRoot)}, {"role", "gui"}});
+                            {{"root", path_to_utf8(appRoot)}, {"role", "gui"},
+                             {"distribution_root", path_to_utf8(appRoot.parent_path())}});
         std::ofstream info(bundle / "Info.plist");
         info << "<?xml version=\"1.0\" encoding=\"UTF-8\"?><plist "
                 "version=\"1.0\"><dict><key>CFBundleExecutable</key><string>Foreshadow</string><key>CFBundleIdentifier</"

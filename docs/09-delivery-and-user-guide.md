@@ -15,7 +15,7 @@ A bare binary file without explicit format/rate/source metadata must not be gues
 
 ## Connect an independent SDRplay service
 
-From 0.2.12 the base and SDRplay client are separate packages. Install **SDRplay Support**, then open **Receiver settings → SDRplay**, enter **Receiver service**, and choose **Refresh devices**. Select the device, antenna, rate, gain and advanced settings; apply the entire configuration and inspect actual readback before starting. The endpoint is saved with the receiver settings. The current r4 review profile already contains its receiver workstation address.
+From 0.2.12 the base and SDRplay client are separate packages. Install **SDRplay Support**, then open **Receiver settings → SDRplay**, enter **Receiver service**, and choose **Refresh devices**. Select the device, antenna, rate, gain and advanced settings; apply the entire configuration and inspect actual readback before starting. The endpoint is saved with the receiver settings. Configure it once on a new installation; a configured workstation retains its saved address across restarts.
 
 The receiver computer runs independently installed SoapySDRServer with the user's vendor API/driver; Foreshadow does not load those local hardware components. Stop the current hardware user before starting a second client. Service setup, trusted-network requirements and the SDRconnect comparison are in [Receiver services](receiver-services.md); actual package/hardware evidence is in the [r4 report](reports/2026-11-14-receiver-service-review.md).
 

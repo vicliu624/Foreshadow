@@ -18,6 +18,7 @@ Foreshadow 是以插件驱动的信号研究工作台。接收机、检测、显
 - [产品概览与完整流程](../README.zh-CN.md)
 - [插件分类、宿主职责与交付形式](plugins.zh-CN.md)
 - [接收机工作站上的英文截图](screenshots.zh-CN.md)
+- [11 月 24 日 RSPdx-R2 实机流程、插件生命周期及本地评审修复](reports/2026-11-24-rspdx-r2-workflow-review.zh-CN.md)
 - [交付与使用指南](09-交付与使用说明.md)
 - [构建与 CLI](07-构建与命令行操作.md)
 - [源码所有权地图](../src/README.zh-CN.md)

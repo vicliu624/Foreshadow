@@ -87,7 +87,7 @@ signalscope-gui --replay capture-001/capture.sigmf-meta
 
 For native synthetic examples, build tests and run `waveform_recovery_workflow_test --export-review-fixtures NEW_DIR`. It saves/reopens six cases. Physical-input acceptance is separately built with `SIGNALSCOPE_HARDWARE_ACCEPTANCE=ON` and manually invoked. Normal CTest does not open real receivers.
 
-Queue and store options are described in [continuous monitoring](08-continuous-monitoring-and-event-storage.md). Do not interpret software counts, nominal ADC bits, configuration acceptance or file size as calibrated RF quality/hardware loss proof. Project licensing remains an explicit open decision; retain dependency notices and source/relink material.
+Queue and store options are described in [continuous monitoring](08-continuous-monitoring-and-event-storage.md). Do not interpret software counts, nominal ADC bits, configuration acceptance or file size as calibrated RF quality/hardware loss proof. The application and first-party plugins use GPL-3.0-or-later; retain dependency notices and source/relink material. New SigMF recordings identify the actual Foreshadow build version in `core:recorder`; historical recorder labels remain readable and exports preserve existing metadata.
 
 ## Independent receiver services (0.2.12)
 

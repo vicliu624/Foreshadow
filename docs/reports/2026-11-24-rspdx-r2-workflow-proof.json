@@ -1,0 +1,211 @@
+{
+  "schema": 1,
+  "date": "2026-11-24",
+  "timezone": "Asia/Shanghai",
+  "platform": "Debian 13 x86_64",
+  "hardware": "RSPdx-R2 through the independently installed receiver service",
+  "public_baseline_source_commit": "b2eecf90b80692d45fac52e7b6b5a8fce13fd299",
+  "deployed_review_source_commit": "c53e02fc27f895ac447c0072ddff85bddfa0955c",
+  "physical_acceptance_source_commit": "dd301b362ff75b9cdf5fc27f96490772f9632dc3",
+  "official_release_changed": false,
+  "hardware_lossless_claim": false,
+  "raw_capture": {
+    "frequency_hz": 478500000,
+    "sample_rate_hz": 2000000,
+    "filter_bandwidth_hz": 1536000,
+    "antenna": "Antenna B",
+    "sample_datatype": "ci16_le",
+    "duration_seconds": 15,
+    "sample_pairs": 30000000,
+    "sample_bytes": 120000000,
+    "status": "complete",
+    "software_rejected_pairs": 0,
+    "read_timeouts": 1,
+    "sha256": {
+      "capture.sigmf-meta": "a1d4235d7a79041bf76932d09d636a026fb27120e9a0c7ca1daf7a0d867a724a",
+      "capture.sigmf-data": "28f800c10770f3dbd5919a246ccb3c43147101be91313778989ac0bf10779fa1"
+    }
+  },
+  "monitor": {
+    "elapsed_seconds": 397.683815416,
+    "state": "stopped",
+    "source_pairs": 793165824,
+    "processed_pairs": 793165824,
+    "recording_processed_pairs": 793165824,
+    "analysis_dropped_pairs": 0,
+    "analysis_gaps": 0,
+    "analysis_queue_high_water_bytes": 262144,
+    "peak_rss_bytes": 410755072,
+    "fsk_analysis": {
+      "processed_pairs": 793165824,
+      "queue_capacity_bytes": 16777216,
+      "queue_capacity_seconds": 2.097152,
+      "queue_high_water_blocks": 4,
+      "queue_high_water_bytes": 262144,
+      "scanned_blocks": 48411,
+      "skipped_blocks": 0,
+      "skipped_pairs": 0,
+      "unavailable": false
+    }
+  },
+  "offline": {
+    "slice_start_sample": 4000000,
+    "slice_pairs": 6000000,
+    "slice_matches_exact_original_bytes": true,
+    "export_preserves_exact_metadata_and_samples": true,
+    "source_unchanged": true,
+    "gui_pause_resume_complete_pairs": 30000000,
+    "native_power_plugin_selected_pairs": 6000000
+  },
+  "waveform": {
+    "frozen_pairs": 1048576,
+    "frozen_duration_ms": 524.288,
+    "frozen_window_missing_clock_positions": 0,
+    "initial_short_gui_capture_rejected_pairs": 16384,
+    "channel_offset_hz": 375000,
+    "channel_rate_hz": 400000,
+    "processed_pairs": 209676,
+    "fir_delay_source_samples": 100,
+    "save_reopen_verified": true
+  },
+  "physical_lease_acceptance": {
+    "status": "passed",
+    "capture_seconds": 60.004998065,
+    "phases": [
+      {
+        "phase": "shared-input-following",
+        "seconds": 3.465e-05
+      },
+      {
+        "phase": "frozen-while-input-continues",
+        "seconds": 10.477319932
+      },
+      {
+        "phase": "independent-consumer-released",
+        "seconds": 20.002676725
+      },
+      {
+        "phase": "independent-consumer-restored",
+        "seconds": 31.801379689
+      },
+      {
+        "phase": "physical-freeze-save-reopen",
+        "seconds": 40.665484161
+      },
+      {
+        "phase": "sustained-capture-complete",
+        "seconds": 60.001904848
+      },
+      {
+        "phase": "capture-stopped-other-input-continues",
+        "seconds": 65.000569063
+      }
+    ],
+    "generations": {
+      "1": {
+        "maximum_rejected_samples": 0,
+        "peak_queue_bytes": 196608,
+        "maximum_retained_bytes": 8388608
+      },
+      "2": {
+        "maximum_rejected_samples": 0,
+        "peak_queue_bytes": 65536,
+        "maximum_retained_bytes": 6029312
+      },
+      "3": {
+        "maximum_rejected_samples": 0,
+        "peak_queue_bytes": 262144,
+        "maximum_retained_bytes": 8388608
+      }
+    },
+    "budget": {
+      "maximum_block_bytes": 262144,
+      "queue_payload_bytes": 2097152,
+      "retention_payload_bytes": 8388608,
+      "retention_seconds": 1.0
+    },
+    "conflict_state": "conflict",
+    "independent_consumer_pairs": 106905600,
+    "final_receiver_users": 0,
+    "first_attempt": "Test incorrectly rejected the protocol-permitted starting transition after a shared lease change; corrected to allow only declared reconfiguration phases, require receiving recovery, and retain error/budget/identity checks."
+  },
+  "toolboxes": {
+    "historical_catalog_signature": "verified with the current official public key",
+    "historical_catalog_sequence": 1794399681,
+    "current_catalog_sequence": 1795490462,
+    "historical_version": "0.2.11",
+    "current_version": "0.2.13",
+    "verified_actions": [
+      "online-upgrade",
+      "pending-versus-loaded",
+      "restart-health-activation",
+      "disable-and-restart",
+      "enable",
+      "rollback-and-restart",
+      "roll-forward-and-restart",
+      "uninstall-and-restart",
+      "official-offline-reinstall-and-restart",
+      "desktop-options-preserved",
+      "cold-store-selection",
+      "SDRplay-client-loaded-from-selected-store",
+      "final-desktop-cold-start-and-GUI-catalog-check"
+    ]
+  },
+  "regression": {
+    "run": "https://github.com/vicliu624/Foreshadow/actions/runs/45335855573",
+    "total": 115,
+    "passed": 113,
+    "skipped": 2,
+    "failed": 0,
+    "skipped_tests": [
+      "research_audio_output",
+      "fm_playback_recovery"
+    ]
+  },
+  "review_materials": {
+    "first_party_source_included": true,
+    "dependency_materials_retained": true,
+    "local_runtime_material_validation": "passed in non-formal local-review mode",
+    "runtime_binaries": 20
+  },
+  "screenshots": [
+    {
+      "file": "02-live-monitor-and-frozen-capture.png",
+      "method": "X11 capture of the real running application",
+      "source": "public-baseline"
+    },
+    {
+      "file": "03-window-analysis.png",
+      "method": "X11 capture of the real running application",
+      "source": "public-baseline"
+    },
+    {
+      "file": "04-channel-analysis-reopened.png",
+      "method": "X11 capture of the real running application",
+      "source": "public-baseline"
+    },
+    {
+      "file": "05-replay-paused.png",
+      "method": "X11 capture of the real running application",
+      "source": "public-baseline"
+    },
+    {
+      "file": "07-toolbox-after-upgrade.png",
+      "method": "Native QWidget capture of the real ToolboxCenter built from the same GUI objects, using the actual installed store and live official catalog; no fixture catalog",
+      "source": "deployed-review"
+    },
+    {
+      "file": "08-fixed-review-actual-window.png",
+      "method": "Existing --screenshot native capture from the actual reviewed application process",
+      "source": "deployed-review"
+    }
+  ],
+  "external_conditions": {
+    "hardware_sample_counter": "not exposed",
+    "ADC_overload": "unknown / not exposed by provider",
+    "RF_power_calibration": "unknown; digital dBFS only",
+    "update_route": "existing Windows forwarding connection must remain online",
+    "desktop": "Some steps occurred while the user desktop was locked; actual application controls were driven with AT-SPI/X11 and native widget captures were used where the X11 window could not be captured. No unlocked manual pointer assessment is claimed.",
+    "new_Windows_or_macOS_build_qualification": "outside this Linux hardware review"
+  }
+}

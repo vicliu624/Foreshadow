@@ -70,8 +70,9 @@ DLL discovery/preload implementation was removed.
 For unattended use, configure the external server with the operating system's
 service manager. The review receiver workstation has a user service named
 `foreshadow-receiver.service`; `systemctl --user status|start|stop|restart
-foreshadow-receiver.service` manages it. The review launcher/profile already
-contains its address. The base application neither installs nor starts vendor
+foreshadow-receiver.service` manages it. The configured review workstation saves
+its address in receiver settings. On a new installation, enter the address once
+in Receiver settings. The base application neither installs nor starts vendor
 software silently.
 
 The optional `FORESHADOW_SDRPLAY_SERVICE` environment variable supplies an initial

@@ -110,6 +110,20 @@ int main(int argc,char** argv) {
         require(!QFile::exists(invalidReport),"An out-of-bounds sample range produced a report");
         require(generated.value("pairs").toInt()==100000 && payload.size()==200000,"Unexpected synth sample count");
         const auto info=run({"inspect","--input",meta});
+        const auto recorderVersion=QString::fromUtf8(runner.run(exe,{"--version"})).trimmed();
+        const auto recordedMetadata=QJsonDocument::fromJson(read(meta)).object();
+        require(recordedMetadata.value("global").toObject().value("core:recorder").toString()==
+                    "Foreshadow "+recorderVersion &&
+                info.value("metadata").toObject()==recordedMetadata,
+                "Recording provenance does not match the actual recorder binary version");
+        auto historicalMetadata=recordedMetadata;
+        auto historicalGlobal=historicalMetadata.value("global").toObject();
+        historicalGlobal.insert("core:recorder","SignalScope 0.1.0");
+        historicalMetadata.insert("global",historicalGlobal);
+        write(meta,QJsonDocument(historicalMetadata).toJson());
+        require(run({"inspect","--input",meta}).value("pairs")==info.value("pairs"),
+                "Historical recorder identity made existing I/Q unreadable");
+        write(meta,QJsonDocument(recordedMetadata).toJson());
         const auto replay=run({"replay-events","--input",meta,"--lora","0","--fsk","0","--ook","0","--ask","0","--fm","0"});
         require(replay.value("state")=="replay_finished" && replay.value("processed_pairs")==info.value("pairs"),
                 "Headless replay did not finish the Unicode-path recording");

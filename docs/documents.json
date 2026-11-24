@@ -3,6 +3,11 @@
   "default_language": "en",
   "documents": [
     {
+      "en": "docs/reports/2026-11-24-rspdx-r2-workflow-review.md",
+      "zh-CN": "docs/reports/2026-11-24-rspdx-r2-workflow-review.zh-CN.md",
+      "status": "historical"
+    },
+    {
       "en": "docs/releases/0.2.13.md",
       "zh-CN": "docs/releases/0.2.13.zh-CN.md",
       "status": "current"
