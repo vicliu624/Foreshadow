@@ -24,6 +24,10 @@ The bundled [ADS-B module](adsb.md) adds detection, recovery and a live map pane
 Its integration and acceptance are in progress; the module guide separates
 verified evidence from pending runtime and hardware checks.
 
+The bundled [WSPR module](wspr.md) uses independent long-duration reception and
+recording actions for WSPR-2 decoding and a station-results panel. It does not
+route 110-second messages through the sub-second snapshot detector contract.
+
 | Provider family | Responsibilities and examples | Current integration |
 |---|---|---|
 | Receiver plugins | RTL-SDR/AIO2 and SDRplay; device discovery, capabilities, parameters, dependencies, recommendations, validation, application order, readback, driver runtime and translations | Independently built native modules discovered through the receiver C ABI |

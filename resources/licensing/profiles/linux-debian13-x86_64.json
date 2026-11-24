@@ -60,12 +60,12 @@
         {
           "file": "THIRD_PARTY_NOTICES.md",
           "role": "notice",
-          "sha256": "7e7b1b1790e7269774fe9928171f759535ebe5b99418bce8c4ab8364cdf46654"
+          "sha256": "7776686c757e8f13a0d0fb4af37e0a0944adf6d2b6aa3296cff0422817ccff5d"
         },
         {
           "file": "THIRD_PARTY_NOTICES.zh-CN.md",
           "role": "notice",
-          "sha256": "63942fc0d8baefd8accc1fb45907bbf7c49592ea73852857ffc39805933519cb"
+          "sha256": "6b8502582b26fdb98eb95d29c601c3845dfe24f8dfd6d652884335152f4c3825"
         },
         {
           "file": "SOURCE_AND_REPLACEMENT.zh-CN.md",
@@ -947,6 +947,42 @@
           "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
         }
       ]
+    },
+    "wsjtx-wspr-fec": {
+      "version": "967c85a6119110788b0df3782cf796485b2cee14",
+      "license": "GPL-3.0-or-later",
+      "origin": "WSJT-X selected WSPR Fano decoder and parity table; pinned vendored source",
+      "source_required": true,
+      "dependencies": [],
+      "issues": [],
+      "artifacts": [],
+      "repository_files": [
+        {
+          "file": "plugins/wspr/vendor/wsjtx/fano.c",
+          "role": "source",
+          "sha256": "72d3e176e75b7714916aed9fbf36f003b7ea5f511f0dd13e96e9ddbc2e159a15"
+        },
+        {
+          "file": "plugins/wspr/vendor/wsjtx/fano.h",
+          "role": "source",
+          "sha256": "1955cd1d71d4cfb69cd5a4cc7dd563d239948fa9e302f1cfe4f40e8b5409ff65"
+        },
+        {
+          "file": "plugins/wspr/vendor/wsjtx/tab.c",
+          "role": "source",
+          "sha256": "c453b07ac25d30227e4d25c0e134718a1858cf9ab801a1679935925957fcfe54"
+        },
+        {
+          "file": "plugins/wspr/vendor/wsjtx/COPYING",
+          "role": "notice",
+          "sha256": "b4bbff835ca86b6051284a77138b7b31db215fb3e8aa70221464126cc9ad60fa"
+        },
+        {
+          "file": "plugins/wspr/vendor/wsjtx/origin.json",
+          "role": "build",
+          "sha256": "24f27c3e4dbdfc79b3191ff2b1438bf0e702d6341779acd1a46dc941ee96dccf"
+        }
+      ]
     }
   },
   "runtime_rules": [
@@ -1080,7 +1116,8 @@
       "dsp-runtime",
       "foreshadow",
       "rtlsdr-runtime",
-      "television-runtime"
+      "television-runtime",
+      "wsjtx-wspr-fec"
     ],
     "org.amc.receiver.rtlsdr": [
       "foreshadow",

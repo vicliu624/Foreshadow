@@ -156,6 +156,7 @@
     }
   ],
     "catalog_roots": [
+      "plugins/wspr/i18n",
       "plugins/adsb/i18n",
     "src/backend/iq/signal_sources/i18n",
     "plugins/receivers/common/i18n",

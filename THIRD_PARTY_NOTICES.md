@@ -59,6 +59,13 @@ from the root GPL file. Existing fixture provenance/dedications remain in place.
 
 ## Keeping notices accurate
 
+The WSPR module vendors the WSJT-X Fano decoder and parity table. Original Phil
+Karn/Joe Taylor notices, GPL and pinned source hashes remain under
+`plugins/wspr/vendor/wsjtx`. Other upstream tools used for independent reference
+generation are not linked into the application.
+The bounded C++ source-field adapter acknowledges the WSJT-X field conventions
+and original Joe Taylor/Steven Franke notices; it remains under GPL-3.0-or-later.
+
 Providers register their legal roots at build/distribution assembly boundaries.
 Reviewed platform profiles pin source hashes, selected license alternatives,
 runtime ownership and build facts. The generic collector checks material

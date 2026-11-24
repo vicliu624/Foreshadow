@@ -13,6 +13,7 @@ target_link_libraries(signalscope_core PUBLIC signalscope_receivers signalscope_
 add_library(signalscope_dsp dsp/spectrum.cpp dsp/channelizer.cpp dsp/waveform.cpp dsp/signal_processing.cpp dsp/window_research.cpp
     dsp/reference_model.cpp dsp/recovery.cpp dsp/recovery_export.cpp)
 add_subdirectory("${PROJECT_SOURCE_DIR}/plugins/adsb" "${PROJECT_BINARY_DIR}/adsb_module")
+add_subdirectory("${PROJECT_SOURCE_DIR}/plugins/wspr" "${PROJECT_BINARY_DIR}/wspr_module")
 add_subdirectory("${PROJECT_SOURCE_DIR}/plugins/research/models" "${PROJECT_BINARY_DIR}/reference_models")
 add_subdirectory("${PROJECT_SOURCE_DIR}/plugins/research/recovery" "${PROJECT_BINARY_DIR}/recovery_providers")
 target_link_libraries(signalscope_dsp PUBLIC signalscope_iq PRIVATE kissfft::kissfft)

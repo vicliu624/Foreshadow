@@ -3,6 +3,11 @@
   "default_language": "en",
   "documents": [
     {
+      "en": "docs/wspr.md",
+      "zh-CN": "docs/wspr.zh-CN.md",
+      "status": "current"
+    },
+    {
       "en": "docs/releases/0.2.13.md",
       "zh-CN": "docs/releases/0.2.13.zh-CN.md",
       "status": "current"
