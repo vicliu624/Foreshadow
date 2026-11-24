@@ -66,11 +66,28 @@ same continuous source clock. Gaps reset pairing. Position validity expires afte
 and 128 trail points per target. The live input queue budgets actual payload at
 8 MiB; processed/rejected input and discontinuities are separate diagnostics.
 
-The map uses bundled Natural Earth 1:50m land contours with Mercator projection.
-It supports pan, zoom and locating a positioned target. This is a coarse offline
-geographic overview, not a detailed navigation chart. Source URL, original hash
-and conversion are retained in `plugins/adsb/map-source.json`. Natural Earth data
-is [public domain](https://www.naturalearthdata.com/about/terms-of-use/).
+The offline Mercator map combines Natural Earth 1:50m land contours with 1:10m
+country boundaries, 4,589 named first-level administrative regions and 7,342
+populated places. It provides adaptive country/province/city labels, collision
+avoidance, explicit zoom buttons, a scale bar, selected-region highlighting and
+an aircraft location card. The table retains coordinates and adds an Area column.
+Region containment and nearby-city distance are distinct: a city reference does
+not claim municipal/district jurisdiction. Open water and missing coverage remain
+unavailable rather than acquiring the nearest land region.
+
+The provider owns geography resources, bounded loading, spatial indices, rendering
+and localized descriptions. Receiver, tracking, generic workspace and distribution
+consumers have no country, city or aircraft-ID branches. Missing/corrupt geographic
+layers fall back to available land/coordinate context. A resource-only independent
+country/province/city fixture verifies containment, holes and added-language names.
+
+`tools/maps/build_adsb_geography.py --cache <source-directory> --download` regenerates
+the delivered data from fixed SHA-256 inputs. It preserves polygon holes and records
+the generalization, omitted unnamed features, language resources and output hash in
+`plugins/adsb/map-source.json`. Resources are capped at 16 MiB and 650,000 polygon
+points; grid indices bound containment/proximity lookup. These generalized layers
+are geographic context, not a detailed navigation chart. Natural Earth data is
+[public domain](https://www.naturalearthdata.com/about/terms-of-use/).
 
 ## Evidence and remaining acceptance
 
