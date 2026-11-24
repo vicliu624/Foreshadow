@@ -194,8 +194,11 @@ class ToolboxCenter::Impl {
         return true;
     }
     const Row *selected() const {
-        const auto row = table->currentRow();
-        if (row < 0 || !table->item(row, 0))
+        const auto selectedRows = table->selectionModel()->selectedRows();
+        if (selectedRows.size() != 1)
+            return nullptr;
+        const auto row = selectedRows.front().row();
+        if (!table->item(row, 0))
             return nullptr;
         const auto id = table->item(row, 0)->data(Qt::UserRole).toString().toStdString();
         for (const auto &item : rows)

@@ -3,6 +3,7 @@
 #include "toolbox_center.hpp"
 #include <QApplication>
 #include <QElapsedTimer>
+#include <QItemSelectionModel>
 #include <QPushButton>
 #include <QTableWidget>
 #include <QTcpServer>
@@ -69,6 +70,13 @@ int main(int argc, char **argv) {
         auto *enable = center.findChild<QPushButton *>("toolbox-enable");
         require(table && table->rowCount() == 1 && install && install->isEnabled(),
                 "Verified catalog did not appear in toolbox center");
+        table->selectionModel()->clear();
+        require(!install->isEnabled(), "A toolbox action remained enabled without a selected package");
+        // Accessibility row selection need not move the keyboard-current cell.
+        table->selectionModel()->select(table->model()->index(0, 0),
+                                        QItemSelectionModel::Select | QItemSelectionModel::Rows);
+        require(!table->currentIndex().isValid() && install->isEnabled(),
+                "An accessibility-selected package cannot be installed without a keyboard-current cell");
         install->click();
         until([&] { return !center.busy(); });
         require(service->store().installedVersions().empty(), "Active tasks did not block toolbox installation");
