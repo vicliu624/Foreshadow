@@ -10,6 +10,7 @@ import json
 import shutil
 import tarfile
 import html
+import posixpath
 
 
 DIRECTORY = 'share/foreshadow/compliance'
@@ -259,7 +260,40 @@ def validate_archive(archive, package_id, formal=True, trusted_profiles=None):
     with tempfile.TemporaryDirectory(prefix='foreshadow-license-') as temporary:
         root = Path(temporary)
         with tarfile.open(archive, 'r:gz') as stream:
-            stream.extractall(root, filter='data')
+            members = stream.getmembers()
+            checked = {}
+            for member in members:
+                if '\\' in member.name or ((member.issym() or member.islnk()) and '\\' in member.linkname):
+                    raise ValueError('Archive member uses a non-portable backslash path')
+                safe = tarfile.data_filter(member, str(root))
+                name = posixpath.normpath(safe.name)
+                if name in checked:
+                    raise ValueError(f'Duplicate archive member: {name}')
+                # data_filter may translate linkname to host separators. Keep
+                # the original POSIX archive graph for deterministic checks.
+                checked[name] = member
+            links = {name for name, member in checked.items() if member.issym()}
+            for name in links:
+                if name == '.' or any(other.startswith(name + '/') for other in checked):
+                    raise ValueError(f'Symbolic link has archive descendants: {name}')
+            for member in checked.values():
+                if member.islnk():
+                    target = posixpath.normpath(member.linkname)
+                    seen = set()
+                    while target in checked and checked[target].islnk():
+                        if target in seen:
+                            raise ValueError('Cyclic archive hard link')
+                        seen.add(target)
+                        target = posixpath.normpath(checked[target].linkname)
+                    if target in links or any(target.startswith(link + '/') for link in links):
+                        raise ValueError('Archive hard link refers to a symbolic link')
+            # Validation scans regular runtimes, as binary() explicitly skips
+            # symbolic aliases. Windows tar extraction may silently copy an
+            # alias when symlink creation is unavailable, inventing an extra
+            # runtime fingerprint. Validate link safety above without creating
+            # those aliases. Native package transactions separately exercise the
+            # actual unchanged archive layout on each release platform.
+            stream.extractall(root, members=[m for m in members if not m.issym()], filter='data')
         if trusted_profiles is not None:
             directory = root / DIRECTORY
             inventory = load(directory / 'inventory.json')

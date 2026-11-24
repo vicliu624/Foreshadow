@@ -285,6 +285,108 @@ class ComplianceContract(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'checksum'):
             validate_archive(archive, 'new.app')
 
+    def test_archive_verification_preserves_alias_semantics_without_host_symlink_privileges(self):
+        import tarfile
+        from unittest.mock import patch
+        self.prepare()
+        archive = self.root / 'independent-alias.amctbx'
+        with tarfile.open(archive, 'w:gz') as stream:
+            stream.add(self.stage, arcname='')
+            alias = tarfile.TarInfo('plugin/versioned.so')
+            alias.type = tarfile.SYMTYPE
+            alias.linkname = 'native.so'
+            stream.addfile(alias)
+        with patch('os.symlink', side_effect=PermissionError('Host has no symlink privilege')):
+            result = validate_archive(archive, 'new.app')
+        self.assertEqual([b['path'] for b in result['binaries']], ['plugin/native.so'])
+
+    def test_unsafe_symbolic_alias_is_rejected_before_omission(self):
+        import tarfile
+        self.prepare()
+        archive = self.root / 'escaping-alias.amctbx'
+        with tarfile.open(archive, 'w:gz') as stream:
+            stream.add(self.stage, arcname='')
+            alias = tarfile.TarInfo('plugin/escape.so')
+            alias.type = tarfile.SYMTYPE
+            alias.linkname = '../../outside.so'
+            stream.addfile(alias)
+        with self.assertRaises(tarfile.LinkOutsideDestinationError):
+            validate_archive(archive, 'new.app')
+
+    def test_duplicate_member_cannot_mask_a_runtime_with_an_omitted_alias(self):
+        import tarfile
+        self.prepare()
+        archive = self.root / 'duplicate-runtime.amctbx'
+        with tarfile.open(archive, 'w:gz') as stream:
+            stream.add(self.stage, arcname='')
+            alias = tarfile.TarInfo('plugin/native.so')
+            alias.type = tarfile.SYMTYPE
+            alias.linkname = 'other.so'
+            stream.addfile(alias)
+        with self.assertRaisesRegex(ValueError, 'Duplicate archive member'):
+            validate_archive(archive, 'new.app')
+
+    def test_symbolic_directory_cannot_mask_descendant_materials(self):
+        import io
+        import tarfile
+        self.prepare()
+        archive = self.root / 'directory-alias.amctbx'
+        with tarfile.open(archive, 'w:gz') as stream:
+            stream.add(self.stage, arcname='')
+            alias = tarfile.TarInfo('alias-directory')
+            alias.type = tarfile.SYMTYPE
+            alias.linkname = 'elsewhere'
+            stream.addfile(alias)
+            child = tarfile.TarInfo('alias-directory/source.txt')
+            child.size = 4
+            stream.addfile(child, io.BytesIO(b'data'))
+        with self.assertRaisesRegex(ValueError, 'archive descendants'):
+            validate_archive(archive, 'new.app')
+
+    def test_symbolic_alias_cannot_replace_required_regular_source(self):
+        import tarfile
+        self.prepare()
+        archive = self.root / 'aliased-source.amctbx'
+        with tarfile.open(archive, 'w:gz') as stream:
+            stream.add(self.stage, arcname='', filter=lambda item:
+                       None if item.name == DIRECTORY + '/source.txt' else item)
+            alias = tarfile.TarInfo(DIRECTORY + '/source.txt')
+            alias.type = tarfile.SYMTYPE
+            alias.linkname = 'notice.txt'
+            stream.addfile(alias)
+        with self.assertRaisesRegex(ValueError, 'Missing regular compliance material'):
+            validate_archive(archive, 'new.app')
+
+    def test_hard_link_cannot_reintroduce_a_symbolic_alias(self):
+        import tarfile
+        self.prepare()
+        archive = self.root / 'hard-symbolic-alias.amctbx'
+        with tarfile.open(archive, 'w:gz') as stream:
+            stream.add(self.stage, arcname='')
+            alias = tarfile.TarInfo('plugin/versioned.so')
+            alias.type = tarfile.SYMTYPE
+            alias.linkname = 'native.so'
+            stream.addfile(alias)
+            hard = tarfile.TarInfo('plugin/hard.so')
+            hard.type = tarfile.LNKTYPE
+            hard.linkname = alias.name
+            stream.addfile(hard)
+        with self.assertRaisesRegex(ValueError, 'hard link refers to a symbolic link'):
+            validate_archive(archive, 'new.app')
+
+    def test_owned_regular_hard_links_remain_verifiable(self):
+        import os
+        import tarfile
+        os.link(self.stage / 'plugin/native.so', self.stage / 'plugin/another.so')
+        self.evidence['runtime_rules'][0]['pattern'] = 'plugin/*.so'
+        self.prepare()
+        archive = self.root / 'regular-hard-link.amctbx'
+        with tarfile.open(archive, 'w:gz') as stream:
+            stream.add(self.stage, arcname='')
+        result = validate_archive(archive, 'new.app')
+        self.assertEqual({b['path'] for b in result['binaries']},
+                         {'plugin/native.so', 'plugin/another.so'})
+
 
 if __name__ == '__main__':
     unittest.main()
