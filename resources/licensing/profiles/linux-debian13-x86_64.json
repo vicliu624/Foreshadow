@@ -60,12 +60,12 @@
         {
           "file": "THIRD_PARTY_NOTICES.md",
           "role": "notice",
-          "sha256": "5657dd129da7127fcb798e823fd461740354bcc1960cee4b1fc55f9dae847888"
+          "sha256": "a47ce67c3610492a3dad84452b68d3100d8f94f1d9e1c8456d46353e830be87d"
         },
         {
           "file": "THIRD_PARTY_NOTICES.zh-CN.md",
           "role": "notice",
-          "sha256": "296cc0cd5ccbf6ab99006a6184c27b1a03b0b179923d50f6e9a9c2e604235335"
+          "sha256": "a0221ef140e499a8911c23f36585561951546ec344bbee21f7792900692c77d3"
         },
         {
           "file": "SOURCE_AND_REPLACEMENT.zh-CN.md",
@@ -969,6 +969,42 @@
         }
       ],
       "display_notice": "Made with Natural Earth. Bundled 1:50m land and 1:10m country/admin-1/populated-place data are public domain; pinned source URLs, hashes and conversion are retained. Nearby cities are geographic references, distinct from administrative containment. Application code remains GPL-3.0-or-later."
+    },
+    "wsjtx-wspr-fec": {
+      "version": "967c85a6119110788b0df3782cf796485b2cee14",
+      "license": "GPL-3.0-or-later",
+      "origin": "WSJT-X selected WSPR Fano decoder and parity table; pinned vendored source",
+      "source_required": true,
+      "dependencies": [],
+      "issues": [],
+      "artifacts": [],
+      "repository_files": [
+        {
+          "file": "plugins/wspr/vendor/wsjtx/fano.c",
+          "role": "source",
+          "sha256": "72d3e176e75b7714916aed9fbf36f003b7ea5f511f0dd13e96e9ddbc2e159a15"
+        },
+        {
+          "file": "plugins/wspr/vendor/wsjtx/fano.h",
+          "role": "source",
+          "sha256": "1955cd1d71d4cfb69cd5a4cc7dd563d239948fa9e302f1cfe4f40e8b5409ff65"
+        },
+        {
+          "file": "plugins/wspr/vendor/wsjtx/tab.c",
+          "role": "source",
+          "sha256": "c453b07ac25d30227e4d25c0e134718a1858cf9ab801a1679935925957fcfe54"
+        },
+        {
+          "file": "plugins/wspr/vendor/wsjtx/COPYING",
+          "role": "notice",
+          "sha256": "b4bbff835ca86b6051284a77138b7b31db215fb3e8aa70221464126cc9ad60fa"
+        },
+        {
+          "file": "plugins/wspr/vendor/wsjtx/origin.json",
+          "role": "build",
+          "sha256": "24f27c3e4dbdfc79b3191ff2b1438bf0e702d6341779acd1a46dc941ee96dccf"
+        }
+      ]
     }
   },
   "runtime_rules": [
@@ -1103,7 +1139,8 @@
       "foreshadow",
       "natural-earth-map",
       "rtlsdr-runtime",
-      "television-runtime"
+      "television-runtime",
+      "wsjtx-wspr-fec"
     ],
     "org.amc.receiver.rtlsdr": [
       "foreshadow",

@@ -7,6 +7,7 @@ add_library(signalscope_desktop_display STATIC
 target_link_libraries(signalscope_desktop_display PUBLIC signalscope_dsp Qt6::Widgets)
 
 add_library(signalscope_desktop_research STATIC
+    "${PROJECT_SOURCE_DIR}/plugins/wspr/live_panel.cpp"
     "${PROJECT_SOURCE_DIR}/plugins/adsb/live_panel.cpp"
     "${PROJECT_SOURCE_DIR}/plugins/adsb/map_view.cpp"
     "${PROJECT_SOURCE_DIR}/plugins/adsb/map_geography.cpp"

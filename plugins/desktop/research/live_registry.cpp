@@ -1,6 +1,7 @@
 #include "live_provider.hpp"
 #include "builtin/fm_live.hpp"
 #include "waveform/laboratory.hpp"
+#include "plugins/wspr/live_panel.hpp"
 #ifdef SIGNALSCOPE_HAS_TELEVISION
 #include "builtin/dtmb_tv.hpp"
 #endif
@@ -10,7 +11,7 @@ namespace signalscope::desktop { LiveResearchProvider adsbLiveProvider(); }
 namespace signalscope::desktop {
 namespace {
 std::mutex registryMutex;
-std::vector<LiveResearchProvider>& registry(){static std::vector<LiveResearchProvider> value{fmLiveResearchProvider(),waveformLaboratoryProvider(),adsbLiveProvider()
+std::vector<LiveResearchProvider>& registry(){static std::vector<LiveResearchProvider> value{fmLiveResearchProvider(),waveformLaboratoryProvider(),adsbLiveProvider(),wsprLiveProvider()
 #ifdef SIGNALSCOPE_HAS_TELEVISION
     ,dtmbTvResearchProvider()
 #endif
