@@ -3,7 +3,7 @@
   "application_id": "org.amc.ams",
   "components": {
     "foreshadow": {
-      "version": "0.2.14",
+      "version": "0.2.15",
       "license": "GPL-3.0-or-later",
       "origin": "Frozen Foreshadow Git commit",
       "source_required": true,
@@ -708,7 +708,7 @@
       ]
     },
     "desktop-runtime": {
-      "version": "0.2.14",
+      "version": "0.2.15",
       "license": "See selected component licenses",
       "origin": "Foreshadow package assembly",
       "source_required": false,
@@ -740,7 +740,7 @@
       ]
     },
     "distribution-runtime": {
-      "version": "0.2.14",
+      "version": "0.2.15",
       "license": "See selected component licenses",
       "origin": "Foreshadow package assembly",
       "source_required": false,
@@ -769,7 +769,7 @@
       ]
     },
     "dsp-runtime": {
-      "version": "0.2.14",
+      "version": "0.2.15",
       "license": "See selected component licenses",
       "origin": "Foreshadow package assembly",
       "source_required": false,
@@ -799,7 +799,7 @@
       ]
     },
     "television-runtime": {
-      "version": "0.2.14",
+      "version": "0.2.15",
       "license": "See selected component licenses",
       "origin": "Foreshadow package assembly",
       "source_required": false,
@@ -831,7 +831,7 @@
       ]
     },
     "rtlsdr-runtime": {
-      "version": "0.2.14",
+      "version": "0.2.15",
       "license": "See selected component licenses",
       "origin": "Foreshadow package assembly",
       "source_required": false,
@@ -859,7 +859,7 @@
       ]
     },
     "soapy-runtime": {
-      "version": "0.2.14",
+      "version": "0.2.15",
       "license": "See selected component licenses",
       "origin": "Foreshadow package assembly",
       "source_required": false,
@@ -889,7 +889,7 @@
       "display_notice": "The optional receiver client uses the independent SoapyRemote network protocol. No SDRplay API, local hardware driver, or receiver service binary is included. Install the receiver service and vendor software separately on the receiver computer."
     },
     "research-runtime": {
-      "version": "0.2.14",
+      "version": "0.2.15",
       "license": "See selected component licenses",
       "origin": "Foreshadow package assembly",
       "source_required": false,
@@ -1093,7 +1093,7 @@
   "build_facts": {
     "qt": "6.8.2",
     "openssl": "3.5.9",
-    "application": "0.2.14"
+    "application": "0.2.15"
   },
   "packages": {
     "org.amc.ams": [

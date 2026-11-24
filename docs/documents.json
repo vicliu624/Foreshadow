@@ -3,6 +3,11 @@
   "default_language": "en",
   "documents": [
     {
+      "en": "docs/releases/0.2.15.md",
+      "zh-CN": "docs/releases/0.2.15.zh-CN.md",
+      "status": "current"
+    },
+    {
       "en": "docs/releases/0.2.14.md",
       "zh-CN": "docs/releases/0.2.14.zh-CN.md",
       "status": "current"
