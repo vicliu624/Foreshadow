@@ -3,6 +3,16 @@
   "default_language": "en",
   "documents": [
     {
+      "en": "docs/releases/0.2.13.md",
+      "zh-CN": "docs/releases/0.2.13.zh-CN.md",
+      "status": "current"
+    },
+    {
+      "en": "docs/adsb.md",
+      "zh-CN": "docs/adsb.zh-CN.md",
+      "status": "current"
+    },
+    {
       "en": "AGENTS.md",
       "zh-CN": "AGENTS.zh-CN.md",
       "status": "current"

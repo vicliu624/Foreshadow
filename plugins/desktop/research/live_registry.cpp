@@ -4,11 +4,13 @@
 #ifdef SIGNALSCOPE_HAS_TELEVISION
 #include "builtin/dtmb_tv.hpp"
 #endif
+
+namespace signalscope::desktop { LiveResearchProvider adsbLiveProvider(); }
 #include <mutex>
 namespace signalscope::desktop {
 namespace {
 std::mutex registryMutex;
-std::vector<LiveResearchProvider>& registry(){static std::vector<LiveResearchProvider> value{fmLiveResearchProvider(),waveformLaboratoryProvider()
+std::vector<LiveResearchProvider>& registry(){static std::vector<LiveResearchProvider> value{fmLiveResearchProvider(),waveformLaboratoryProvider(),adsbLiveProvider()
 #ifdef SIGNALSCOPE_HAS_TELEVISION
     ,dtmbTvResearchProvider()
 #endif

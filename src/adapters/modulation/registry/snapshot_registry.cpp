@@ -3,6 +3,8 @@
 #include <algorithm>
 #include <array>
 #include <mutex>
+
+namespace signalscope::adsb { SnapshotExtension detection_extension(); }
 #include <cmath>
 
 namespace signalscope {
@@ -18,7 +20,7 @@ bool SnapshotSelection::any() const {
 }
 
 std::span<const SnapshotExtension> builtinSnapshotExtensions() {
-    static const std::array providers{dtmb::extension()};return providers;
+    static const std::array providers{dtmb::extension(),adsb::detection_extension()};return providers;
 }
 std::span<const SnapshotDetectorOption> legacySnapshotOptions() {
     static const std::array options{

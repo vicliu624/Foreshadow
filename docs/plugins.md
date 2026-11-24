@@ -20,6 +20,10 @@ Shared DSP kernels implement operations such as filtering, resampling, reference
 
 ## Where the capabilities come from
 
+The bundled [ADS-B module](adsb.md) adds detection, recovery and a live map panel.
+Its integration and acceptance are in progress; the module guide separates
+verified evidence from pending runtime and hardware checks.
+
 | Provider family | Responsibilities and examples | Current integration |
 |---|---|---|
 | Receiver plugins | RTL-SDR/AIO2 and SDRplay; device discovery, capabilities, parameters, dependencies, recommendations, validation, application order, readback, driver runtime and translations | Independently built native modules discovered through the receiver C ABI |
