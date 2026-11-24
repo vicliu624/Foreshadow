@@ -34,7 +34,7 @@ QPointF MapView::project(Position p) const {
     return mapProject(p);
 }
 QPointF MapView::screen(Position p) const {return (project(p)-center_)*(256*std::exp2(zoom_))+QPointF(width()/2.,height()/2.);}
-QString MapView::text(const std::string& key,const nlohmann::json& arguments) const {static const auto catalog=TextCatalog::resource("adsb");Json value={{"label_key",key},{"arguments",arguments}};catalog.resolve(value);return desktop::localizedText(value.at("label"),language_,QString::fromStdString(key));}
+QString MapView::text(const std::string& key,const nlohmann::json& arguments) const {static const auto catalog=TextCatalog::resource("adsb");nlohmann::json value={{"label_key",key},{"arguments",arguments}};catalog.resolve(value);return desktop::localizedText(value.at("label"),language_,QString::fromStdString(key));}
 void MapView::updateContext(){selectedIdentity_.clear();selectedContext_.clear();for(const auto& a:aircraft_)if(selected_==aircraft_key(a.latest)&&a.position){selectedIdentity_=a.callsign.empty()?QString::number(a.latest.address,16).toUpper():QString::fromStdString(a.callsign);selectedContext_=geographicContext(*a.position);break;}setAccessibleDescription(selectedContext_);setToolTip(selectedContext_);}
 void MapView::setAircraft(std::vector<Aircraft> value){aircraft_=std::move(value);updateContext();update();}
 void MapView::selectAircraft(std::uint64_t key){selected_=key;for(const auto& aircraft:aircraft_)if(aircraft_key(aircraft.latest)==key && aircraft.position){center_=project(*aircraft.position);if(zoom_<5)zoom_=7;break;}updateContext();update();}

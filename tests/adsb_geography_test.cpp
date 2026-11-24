@@ -8,6 +8,7 @@
 #include <fstream>
 #include <iostream>
 using namespace signalscope;
+using Json=nlohmann::json;
 namespace {
 void require(bool value,const char* message){if(!value)throw std::runtime_error(message);}
 }
