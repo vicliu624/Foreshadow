@@ -101,7 +101,7 @@ Recorder::Recorder(const std::filesystem::path& dir, const Config& c, const std:
     if (std::filesystem::space(dir).available<required)
         throw OperationError(ErrorCode::recording_space,"Insufficient disk space for the requested recording and safety margin");
     meta_={{"global",{{"core:datatype",sample_datatype(format_)},{"core:sample_rate",c.rate},{"core:version","1.2.6"},
-        {"core:recorder","SignalScope 0.1.0"},{"core:description","Wideband I/Q for offline analysis"},
+        {"core:recorder","Foreshadow " FORESHADOW_RECORDER_VERSION},{"core:description","Wideband I/Q for offline analysis"},
         {"core:extensions",Json::array({{{"name","signalscope"},{"version","0.1.0"},{"optional",true}}})},
         {"signalscope:source",source},{"signalscope:status","recording"},
         {"signalscope:gain_mode",c.auto_gain?"auto":"manual"},{"signalscope:gain_tenths_db",c.gain_tenths},

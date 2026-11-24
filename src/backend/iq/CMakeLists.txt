@@ -1,5 +1,6 @@
 add_library(signalscope_iq iq.cpp text_catalog.cpp path.cpp signal_window.cpp signal_capture.cpp signal_source.cpp acquisition_conditions.cpp)
 target_include_directories(signalscope_iq PUBLIC "${PROJECT_SOURCE_DIR}/include")
+target_compile_definitions(signalscope_iq PRIVATE FORESHADOW_RECORDER_VERSION="${PROJECT_VERSION}")
 target_link_libraries(signalscope_iq PUBLIC nlohmann_json::nlohmann_json Threads::Threads)
 file(GLOB signal_source_catalogs CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/signal_sources/i18n/*.json")
 foreach(catalog IN LISTS signal_source_catalogs)
