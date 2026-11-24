@@ -1,0 +1,35 @@
+name: Stage reviewed release assets
+on:
+  workflow_dispatch:
+    inputs:
+      release_id:
+        description: Private draft release ID prepared by the publisher
+        required: true
+      build_run_id:
+        description: Successful formal release build run ID
+        required: true
+      source_commit:
+        description: Frozen application source commit
+        required: true
+      checksums_sha256:
+        description: Publisher-approved SHA256SUMS.txt SHA-256
+        required: true
+permissions:
+  contents: read
+jobs:
+  stage:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - uses: actions/checkout@v4
+      - name: Transfer exact approved artifacts to the private draft
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_ID: ${{ inputs.release_id }}
+          BUILD_RUN_ID: ${{ inputs.build_run_id }}
+          SOURCE_COMMIT: ${{ inputs.source_commit }}
+          CHECKSUMS_SHA256: ${{ inputs.checksums_sha256 }}
+        run: python3 tools/distribution/stage_reviewed_release.py
