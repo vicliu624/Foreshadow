@@ -13,6 +13,7 @@
 #include <QSplitter>
 #include <QTimer>
 #include <QPointer>
+#include <QMetaObject>
 #include <QSignalBlocker>
 namespace signalscope::desktop {
 namespace {
@@ -43,7 +44,7 @@ private:
     void stop(){++generation_;lease_.reset();input_=std::make_shared<adsb::LiveInput>();status_->setText(text("idle"));metrics_->clear();map_->setAircraft({});table_->setRowCount(0);}
     void listen(){stop();if(!acquire_){status_->setText(text("unavailable"));return;}auto input=input_;
         const auto generation=generation_;const QPointer<Panel> guard(this);
-        try{lease_=acquire_({adsb::frequency_hz,adsb::passband_hz,adsb::minimum_rate,adsb::maximum_rate,{}},{[guard,generation](const ReceptionStatus& status){if(guard && guard->generation_==generation)guard->status_->setText(guard->text("reception."+status.state));},[input](const IqBlockView& block){input->offer(block);}});}catch(const std::exception&){status_->setText(text("unavailable"));}}
+        try{lease_=acquire_({adsb::frequency_hz,adsb::passband_hz,adsb::minimum_rate,adsb::maximum_rate,{}},{[guard,generation](const ReceptionStatus& status){if(guard)QMetaObject::invokeMethod(guard,[guard,generation,state=status.state]{if(guard && guard->generation_==generation)guard->status_->setText(guard->text("reception."+state));},Qt::QueuedConnection);},[input](const IqBlockView& block){input->offer(block);}});}catch(const std::exception&){status_->setText(text("unavailable"));}}
     void refresh(){if(!lease_)return;const auto snapshot=input_->snapshot();map_->setAircraft(snapshot.aircraft);const QSignalBlocker block(table_);table_->setRowCount(int(snapshot.aircraft.size()));
         metrics_->setText(text("metrics",{{"targets",snapshot.aircraft.size()},{"processed",snapshot.processed_pairs},{"rejected",snapshot.rejected_pairs},{"gaps",snapshot.discontinuities},{"queue",snapshot.queued_bytes},{"capacity",adsb::LiveInput::capacity_bytes}}));
         for(std::size_t row=0;row<snapshot.aircraft.size();++row){const auto& a=snapshot.aircraft[row];QStringList fields{QString::number(a.latest.address,16).toUpper(),QString::fromStdString(a.callsign),a.altitude_ft?QString::number(*a.altitude_ft):text("unknown"),a.ground_speed_kt?QString::number(*a.ground_speed_kt,'f',0):text("unknown"),a.position?QString::number(a.position->latitude,'f',4)+", "+QString::number(a.position->longitude,'f',4):text("unknown"),a.position?map_->geographicContext(*a.position,false):text("unknown")};for(int column=0;column<fields.size();++column)table_->setItem(int(row),column,new QTableWidgetItem(fields[column]));}
