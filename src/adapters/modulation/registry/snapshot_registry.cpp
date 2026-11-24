@@ -1,9 +1,10 @@
 #include "snapshot_registry.hpp"
 #include "../dtmb/detector.hpp"
-#include "../../../../plugins/adsb/detection.hpp"
 #include <algorithm>
 #include <array>
 #include <mutex>
+
+namespace signalscope::adsb { SnapshotExtension detection_extension(); }
 #include <cmath>
 
 namespace signalscope {
