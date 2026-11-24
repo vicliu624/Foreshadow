@@ -51,7 +51,7 @@ Windows 厂商 DLL 查找、预加载代码已经移除。
 
 无人值守使用可通过操作系统的服务管理器配置外部服务。评审接收机电脑已配置用户服务
 `foreshadow-receiver.service`，可用 `systemctl --user status|start|stop|restart
-foreshadow-receiver.service` 管理。评审启动器及配置已填写地址；基础程序不会静默安装或启动厂商软件。
+foreshadow-receiver.service` 管理。已配置的评审工作站在接收机设置中保存地址；全新安装时在 Receiver settings 中填写一次地址。基础程序不会静默安装或启动厂商软件。
 
 可选环境变量 `FORESHADOW_SDRPLAY_SERVICE` 提供初始默认值，显式的 `service_endpoint`
 设置优先。CLI 示例：

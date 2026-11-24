@@ -18,6 +18,7 @@ Current documentation describes the source branch. Dated acceptance reports iden
 - [Product overview and complete workflow](../README.md)
 - [Plugin families, host responsibilities and deployment](plugins.md)
 - [English UI screenshots from the receiver-connected workstation](screenshots.md)
+- [24 November RSPdx-R2 hardware workflow, toolbox lifecycle and local review fixes](reports/2026-11-24-rspdx-r2-workflow-review.md)
 - [Delivery and user guide](09-delivery-and-user-guide.md)
 - [Build and CLI](07-building-and-cli.md)
 - [Source ownership map](../src/README.md)

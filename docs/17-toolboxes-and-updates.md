@@ -47,6 +47,8 @@ Windows receiver private runtimes follow provider build declarations and ship ad
 
 Linux uses user-root stable launchers and `.desktop`; Windows GUI/CLI launchers and desktop shortcut; Mac user Applications launcher bundle. Launchers do not need Qt; CLI forwards arguments/stdout/exit status. New visible entries use Foreshadow. Existing `signalscope` commands, state roots, trust source and package IDs remain compatible.
 
+An optional absolute UTF-8 `distribution_root` in a bootstrap configuration binds a cold GUI/CLI launch to its installation's toolbox store, overriding a stale inherited root. Configurations without this field retain legacy behavior. Activation refreshes the bootstrap and pointer; an existing Linux desktop entry backed by that same managed bootstrap keeps its user launch options. A missing or damaged bootstrap creates a fresh entry. Toolbox actions follow the selected package row even when accessibility selection has not moved the keyboard-current cell.
+
 ## CI and formal release operations
 
 Source/catalog/assets use the repository Releases. Binaries exclude private keys/tokens/private files. Daily builds reuse local caches and trusted self-hosted runners for pushes/same-repository PRs; untrusted fork PRs do not execute there. Hosted platform matrices are explicit release validation only; creating an accepted tag does not rebuild them.

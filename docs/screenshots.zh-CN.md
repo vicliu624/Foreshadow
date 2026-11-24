@@ -10,9 +10,13 @@
 
 [详细用户指南](09-交付与使用说明.md) · [文档索引](README.zh-CN.md)
 
+## 11 月 24 日 RSPdx-R2 流程评审
+
+[本次实机流程报告](reports/2026-11-24-rspdx-r2-workflow-review.zh-CN.md)新增六张实际英文界面截图：实时频谱与冻结输入、窗口研究、重新打开的目标信道分析、录制回放暂停、升级后的工具箱和运行独立研究插件的本地修复评审版。报告区分正式 0.2.13 基线与本地评审源码、截图方式、软件丢样计数及外部条件。这组新截图不构成对下列历史电视或合成用例的重新验收。
+
 ## 实体接收工作区
 
-当前 0.2.12 r4 服务部署（11 月 14 日）使用独立安装的接收服务。下图是已安装评审 GUI 的 478.5 MHz、2 MS/s 实体输入；最终状态记录监听、激活／回读确认及源／分析计数前进，不声称检测到事件。见 [r4 验收](reports/2026-11-14-receiver-service-review.zh-CN.md)与[服务图片来源](images/receiver-service-provenance.json)。
+历史 0.2.12 r4 服务部署（11 月 14 日）使用独立安装的接收服务。下图是已安装评审 GUI 的 478.5 MHz、2 MS/s 实体输入；最终状态记录监听、激活／回读确认及源／分析计数前进，不声称检测到事件。见 [r4 验收](reports/2026-11-14-receiver-service-review.zh-CN.md)与[服务图片来源](images/receiver-service-provenance.json)。
 
 ![已安装 r4 实时服务工作区](images/receiver-service-workspace.png)
 
