@@ -1,12 +1,11 @@
 #include "live_provider.hpp"
 #include "builtin/fm_live.hpp"
 #include "waveform/laboratory.hpp"
-#include "plugins/wspr/live_panel.hpp"
 #ifdef SIGNALSCOPE_HAS_TELEVISION
 #include "builtin/dtmb_tv.hpp"
 #endif
 
-namespace signalscope::desktop { LiveResearchProvider adsbLiveProvider(); }
+namespace signalscope::desktop { LiveResearchProvider adsbLiveProvider(); LiveResearchProvider wsprLiveProvider(); }
 #include <mutex>
 namespace signalscope::desktop {
 namespace {
