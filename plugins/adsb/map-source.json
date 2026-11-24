@@ -4,5 +4,49 @@
   "license": "public-domain",
   "terms": "https://www.naturalearthdata.com/about/terms-of-use/",
   "processing": "50m land polygon rings, coordinates rounded to five decimal places",
-  "processed_sha256": "b6bc4b6c24fbc9650abfe87d6606a6feabaa65e2acd8f8cfb70a25a264cd0fe6"
+  "processed_sha256": "b6bc4b6c24fbc9650abfe87d6606a6feabaa65e2acd8f8cfb70a25a264cd0fe6",
+  "geography": {
+    "schema": 1,
+    "revision": "ca96624a56bd078437bca8184e78163e5039ad19",
+    "layers": [
+      {
+        "layer": "countries",
+        "url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/ca96624a56bd078437bca8184e78163e5039ad19/geojson/ne_10m_admin_0_countries.geojson",
+        "source_sha256": "239eec57ac17f100a11e2536cffc56752c318b50ae765b0918ff7aab4ce8f255",
+        "source_bytes": 13287234,
+        "features": 258,
+        "omitted_unnamed_features": 0
+      },
+      {
+        "layer": "regions",
+        "url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/ca96624a56bd078437bca8184e78163e5039ad19/geojson/ne_10m_admin_1_states_provinces.geojson",
+        "source_sha256": "22d0e3ad85eb3e27f17cabf8ba2d50e554fbc27a87796ff891d958185da62fb5",
+        "source_bytes": 40726851,
+        "features": 4589,
+        "omitted_unnamed_features": 7
+      },
+      {
+        "layer": "places",
+        "url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/ca96624a56bd078437bca8184e78163e5039ad19/geojson/ne_10m_populated_places.geojson",
+        "source_sha256": "9b8e3de09048ef00dfc70357dbb9fa324493f214b5e0ae4daf1aa79a8d10116b",
+        "source_bytes": 19359003,
+        "features": 7342,
+        "omitted_unnamed_features": 0
+      }
+    ],
+    "terms": "https://www.naturalearthdata.com/about/terms-of-use/",
+    "license": "public-domain",
+    "language_aliases": {
+      "zh": "zh-CN",
+      "zht": "zh-TW"
+    },
+    "exported_name_locales": [
+      "en",
+      "zh-CN"
+    ],
+    "processing": "Preserve country/admin-1 polygon and hole grouping; RDP tolerance 0.01 degrees; coordinates rounded to five decimals; upstream names for installed provider locales and populated places retained. City proximity is distinct from administrative containment.",
+    "processed_sha256": "c6fcae7e13a8863ccb64e29cd8825471c70d36ae61f027ab571f935c765ad1a3",
+    "processed_bytes": 13182343,
+    "polygon_points": 575564
+  }
 }

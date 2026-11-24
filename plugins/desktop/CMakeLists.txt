@@ -9,6 +9,7 @@ target_link_libraries(signalscope_desktop_display PUBLIC signalscope_dsp Qt6::Wi
 add_library(signalscope_desktop_research STATIC
     "${PROJECT_SOURCE_DIR}/plugins/adsb/live_panel.cpp"
     "${PROJECT_SOURCE_DIR}/plugins/adsb/map_view.cpp"
+    "${PROJECT_SOURCE_DIR}/plugins/adsb/map_geography.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/research/waveform/trace_view.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/research/waveform/plane_view.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/research/waveform/recorded_worker.cpp"

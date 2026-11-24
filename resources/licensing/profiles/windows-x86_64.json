@@ -903,7 +903,7 @@
       ]
     },
     "natural-earth-map": {
-      "version": "50m-e874b27a",
+      "version": "10m-ca96624a+50m-e874b27a",
       "license": "LicenseRef-Natural-Earth-Public-Domain",
       "origin": "https://www.naturalearthdata.com/about/terms-of-use/",
       "source_required": false,
@@ -914,20 +914,20 @@
         {
           "file": "plugins/adsb/map-source.json",
           "role": "notice",
-          "sha256": "3dbebee0957a14bf3ded1c2bad0043f4e7e299c6682aa6566aa0c0bb6d8c9d40"
+          "sha256": "e23f57bef9b88489afdd705077e76b77fad59baf01597fb6c144253850b0b040"
         },
         {
           "file": "plugins/adsb/map-license.md",
           "role": "notice",
-          "sha256": "1d59bee66c06b0433e06617c2f2bf8edbf4f810d3a694b0e76a1e084edce6647"
+          "sha256": "992612c290779be77d352ea8bfd6437d8029037bff7061e851391b5510ce50d5"
         },
         {
           "file": "plugins/adsb/map-license.zh-CN.md",
           "role": "notice",
-          "sha256": "4a6fbd74e7168d587a6ff986f22cab25c2b3584ed9616e9e76bf7b714f9cd253"
+          "sha256": "afdd2f6bfdd48392a25c40a3b366a77b3896c6652a46508d0cd7f7a9d55d7e63"
         }
       ],
-      "display_notice": "Made with Natural Earth. Bundled 1:50m land data is public domain; its original URL, hashes and conversion are retained. Application code remains GPL-3.0-or-later."
+      "display_notice": "Made with Natural Earth. Bundled 1:50m land and 1:10m country/admin-1/populated-place data are public domain; pinned source URLs, hashes and conversion are retained. Nearby cities are geographic references, distinct from administrative containment. Application code remains GPL-3.0-or-later."
     }
   },
   "runtime_rules": [

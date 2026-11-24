@@ -13,6 +13,7 @@ cmake/RemoteReceiver.cmake text eol=lf
 /resources/licensing/**/*.json text eol=lf
 /plugins/**/licensing.json text eol=lf
 /plugins/adsb/map-source.json text eol=lf
+/plugins/adsb/geography.json text eol=lf
 /plugins/adsb/map-license*.md text eol=lf
 /cmake/BuildFfmpeg.sh text eol=lf
 /cmake/MediaDecoder.cmake text eol=lf
