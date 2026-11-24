@@ -2,8 +2,16 @@
 
 English · [简体中文](wspr.zh-CN.md)
 
+## Current formal release and workflow acceptance
+
+Requested input `2ec2c1322338a5b7ccc0b9c5c5f2b64bbc409ae2` is in `main` through PR #5. All three formal suites include the 140-second sustained 2 MS/s path. A supplementary actual uConsole observation processed 280,000,000 pairs and four windows, retaining one message with zero rejected input/windows. That observation uses a source-compared native library and is not relabelled as a formal artifact.
+
+After a normal public signed-catalog update, `.42` used the actual English GUI to open an independent synthetic reference from a Chinese/non-BMP path and recover K1ABC/FN42/37. Physical HF observations are separate; synthetic input is not an on-air station. The [formal release and workstation evidence](reports/2026-11-24-0.2.15-release-and-update.md) records actual images, input hashes, queue counters and limits. macOS is outside this release selection.
+
+The standalone development observations below retain their historical scope. Outstanding platform/high-rate/package items at those checkpoints are superseded only by the versioned final results above.
+
 Numerical WSPR-2 decoding and the provider-owned realtime/recording panel are
-implemented and verified in the ARM64 host; other platform acceptance remains outstanding. Physical HF reception
+published in 0.2.15 with actual Windows x64, Debian 13 x64 and ARM64 package acceptance. Physical HF reception
 is not established by these software tests.
 WSPR-2 has 162 four-tone symbols over 110.592 seconds; the existing sub-second
 snapshot lifecycle cannot represent a complete frame.
@@ -42,7 +50,7 @@ source positions, Chinese/non-BMP paths and cancellation. Those initial eight
 cases did not cover host integration, panel runtime or weak/multiple-signal
 performance; subsequent standalone checks are recorded below.
 
-Remaining acceptance: sustained high-rate
+Remaining acceptance at the standalone checkpoint: sustained high-rate
 input and overload, physical HF reception, other native platforms and actual
 distribution packages. The numerical decoder and localized realtime/recording
 entry points are implemented and have the standalone evidence below.
@@ -109,6 +117,6 @@ the maximum sampled snapshot call took 55.739 microseconds. This is one syntheti
 run on this host, not proof of hardware acquisition losslessness or an indefinite
 performance guarantee. The separate 2 MS/s conversion test covers four seconds.
 
-Windows/macOS native execution, physical HF reception and real release packages
-remain unverified. This development change does not publish or install an online
+At this earlier standalone checkpoint, Windows/macOS native execution, physical HF reception and real release packages
+remained unverified. That development checkpoint did not publish or install an online
 update, and does not reuse the existing 0.2.13 release as a WSPR release.

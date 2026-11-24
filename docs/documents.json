@@ -3,6 +3,11 @@
   "default_language": "en",
   "documents": [
     {
+      "en": "docs/reports/2026-11-24-0.2.15-release-and-update.md",
+      "zh-CN": "docs/reports/2026-11-24-0.2.15-release-and-update.zh-CN.md",
+      "status": "historical"
+    },
+    {
       "en": "docs/wspr.md",
       "zh-CN": "docs/wspr.zh-CN.md",
       "status": "current"

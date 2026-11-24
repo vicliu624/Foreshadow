@@ -2,7 +2,14 @@
 
 English · [简体中文](adsb.zh-CN.md)
 
-## uConsole local deployment (2026-11-24)
+## Current public release: 0.2.15
+
+[0.2.15](releases/0.2.15.md) is published for Windows x64, Debian 13 x64 and ARM64 / uConsole. After a normal public-catalog update, `.42` recovered positioned aircraft through an actual RSPdx-R2 and displayed country/province containment, nearby cities, selected regions, zoom and scale. The [final acceptance](reports/2026-11-24-0.2.15-release-and-update.md) records the sustained-input correction, formal packages, physical counters, images and limits. A nearby city is a reference, not municipal containment. No hardware counter or indefinite losslessness guarantee is established. Full television/media remains in the public packages.
+
+The local-build and early acceptance observations below retain their historical source, inputs, failures and scope; they do not describe the latest public package state.
+
+
+## Historical uConsole local deployment (2026-11-24)
 
 At the owner's request, the tested 0.2.12 build was installed persistently at
 `~/.local/share/SignalScope/local-builds/adsb-20261124`. The desktop/application
@@ -16,7 +23,7 @@ This ADS-B build contains FM and the waveform laboratory but does not contain
 the television panel; its optional full-TV rebuild was stopped when dependency
 download remained unavailable. Existing recordings were not moved or removed.
 
-## Status
+## Early delivery status
 
 Implemented and tested on ARM64 Linux/uConsole, 2026-11-24. This is source-level
 delivery, not a published release or physical RF acceptance claim.

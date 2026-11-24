@@ -10,6 +10,15 @@ Real RF, device queries and explicitly synthetic research cases are labelled sep
 
 [Detailed user guide](09-delivery-and-user-guide.md) · [Documentation index](README.md)
 
+## Public 0.2.15: ADS-B and WSPR, 24 November
+
+These images come from the receiver workstation’s actual installed public English UI. The [acceptance report](reports/2026-11-24-0.2.15-release-and-update.md) records per-image hashes, dimensions, capture methods and input sources. ADS-B uses physical RSPdx-R2 input; the WSPR reference is explicitly independent synthetic input and does not establish physical HF station reception.
+
+![ADS-B public 0.2.15](images/reviews/2026-11-24-0.2.15/06-adsb-map-detail.png)
+
+![WSPR public 0.2.15 — independent synthetic reference](images/reviews/2026-11-24-0.2.15/07-wspr-reference.png)
+
+
 ## 24 November RSPdx-R2 workflow review
 
 The [dated hardware workflow report](reports/2026-11-24-rspdx-r2-workflow-review.md) adds six actual English UI captures: live spectrum/frozen input, window research, reopened channel analysis, paused recording replay, the upgraded toolbox store, and the local source-fix review running an independent research plugin. It distinguishes the public 0.2.13 baseline from the local review source, capture methods, measured software losses and external conditions. These newer captures do not requalify the older television or synthetic cases below.

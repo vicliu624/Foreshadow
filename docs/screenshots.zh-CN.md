@@ -10,6 +10,15 @@
 
 [详细用户指南](09-交付与使用说明.md) · [文档索引](README.zh-CN.md)
 
+## 正式 0.2.15：ADS-B 与 WSPR，11 月 24 日
+
+本组来自接收机工作站实际安装的正式英文界面。[验收报告](reports/2026-11-24-0.2.15-release-and-update.zh-CN.md)记录每张图的哈希、尺寸、截图方式和输入来源。ADS-B 为实体 RSPdx-R2 输入；WSPR 参考图为明确的独立合成录音，不能证明 HF 电台实收。
+
+![ADS-B public 0.2.15](images/reviews/2026-11-24-0.2.15/06-adsb-map-detail.png)
+
+![WSPR public 0.2.15 — independent synthetic reference](images/reviews/2026-11-24-0.2.15/07-wspr-reference.png)
+
+
 ## 11 月 24 日 RSPdx-R2 流程评审
 
 [本次实机流程报告](reports/2026-11-24-rspdx-r2-workflow-review.zh-CN.md)新增六张实际英文界面截图：实时频谱与冻结输入、窗口研究、重新打开的目标信道分析、录制回放暂停、升级后的工具箱和运行独立研究插件的本地修复评审版。报告区分正式 0.2.13 基线与本地评审源码、截图方式、软件丢样计数及外部条件。这组新截图不构成对下列历史电视或合成用例的重新验收。

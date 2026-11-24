@@ -1,0 +1,864 @@
+{
+  "schema": 1,
+  "status": "passed",
+  "release": "v0.2.15",
+  "source_commit": "34983c16700dcbf28aa9e001339e3c8986031afc",
+  "wspr_input_commit": "2ec2c1322338a5b7ccc0b9c5c5f2b64bbc409ae2",
+  "public_release": {
+    "schema": 1,
+    "status": "passed",
+    "release_url": "https://github.com/vicliu624/Foreshadow/releases/tag/v0.2.15",
+    "tag": "v0.2.15",
+    "assets": 22,
+    "public_unauthenticated_api": true,
+    "server_asset_digests": "all match local reviewed files",
+    "latest_catalog": {
+      "packages": 12,
+      "sequence": 1795520330,
+      "key_id": "d66ddd3c8e498e42",
+      "signature": "verified"
+    },
+    "download_checks": [
+      {
+        "name": "catalog.json",
+        "status": 200,
+        "content_length": 12524
+      },
+      {
+        "name": "entries-linux-debian13-arm64.json",
+        "status": 200,
+        "content_length": 5035
+      },
+      {
+        "name": "entries-linux-debian13-x86_64.json",
+        "status": 200,
+        "content_length": 5043
+      },
+      {
+        "name": "entries-windows-x86_64.json",
+        "status": 200,
+        "content_length": 5065
+      },
+      {
+        "name": "foreshadow-0.2.15-source.tar.gz",
+        "status": 200,
+        "content_length": 19381930
+      },
+      {
+        "name": "Foreshadow-debian13-amd64.tar.gz",
+        "status": 200,
+        "content_length": 216665752
+      },
+      {
+        "name": "Foreshadow-debian13-arm64.tar.gz",
+        "status": 200,
+        "content_length": 215760243
+      },
+      {
+        "name": "Foreshadow-windows-x64.zip",
+        "status": 200,
+        "content_length": 259613440
+      },
+      {
+        "name": "org.amc.ams-0.2.15-linux-debian13-arm64.amcpkg",
+        "status": 200,
+        "content_length": 215757294
+      },
+      {
+        "name": "org.amc.ams-0.2.15-linux-debian13-x86_64.amcpkg",
+        "status": 200,
+        "content_length": 216662814
+      },
+      {
+        "name": "org.amc.ams-0.2.15-windows-x86_64.amcpkg",
+        "status": 200,
+        "content_length": 259380478
+      },
+      {
+        "name": "org.amc.receiver.rtlsdr-0.2.15-linux-debian13-arm64.amctbx",
+        "status": 200,
+        "content_length": 20696048
+      },
+      {
+        "name": "org.amc.receiver.rtlsdr-0.2.15-linux-debian13-x86_64.amctbx",
+        "status": 200,
+        "content_length": 20726859
+      },
+      {
+        "name": "org.amc.receiver.rtlsdr-0.2.15-windows-x86_64.amctbx",
+        "status": 200,
+        "content_length": 22904976
+      },
+      {
+        "name": "org.amc.receiver.sdrplay-0.2.15-linux-debian13-arm64.amctbx",
+        "status": 200,
+        "content_length": 20254189
+      },
+      {
+        "name": "org.amc.receiver.sdrplay-0.2.15-linux-debian13-x86_64.amctbx",
+        "status": 200,
+        "content_length": 20312668
+      },
+      {
+        "name": "org.amc.receiver.sdrplay-0.2.15-windows-x86_64.amctbx",
+        "status": 200,
+        "content_length": 21914749
+      },
+      {
+        "name": "org.amc.research.power-report-0.2.15-linux-debian13-arm64.amctbx",
+        "status": 200,
+        "content_length": 19731104
+      },
+      {
+        "name": "org.amc.research.power-report-0.2.15-linux-debian13-x86_64.amctbx",
+        "status": 200,
+        "content_length": 19743833
+      },
+      {
+        "name": "org.amc.research.power-report-0.2.15-windows-x86_64.amctbx",
+        "status": 200,
+        "content_length": 20083590
+      },
+      {
+        "name": "release-qualification.json",
+        "status": 200,
+        "content_length": 21744
+      },
+      {
+        "name": "SHA256SUMS.txt",
+        "status": 200,
+        "content_length": 2342
+      }
+    ],
+    "small_evidence_downloads": "byte-identical"
+  },
+  "normal_update": {
+    "schema": 1,
+    "status": "passed",
+    "method": "Actual Toolbox Center public-catalog application/toolbox updates and health-checked restart",
+    "source_commit": "34983c16700dcbf28aa9e001339e3c8986031afc",
+    "before_version": "0.2.14",
+    "after_version": "0.2.15",
+    "managed_package_versions": {
+      "org.amc.ams": "0.2.15",
+      "org.amc.receiver.rtlsdr": "0.2.15",
+      "org.amc.receiver.sdrplay": "0.2.15",
+      "org.amc.research.power-report": "0.2.15"
+    },
+    "actual_gui_loaded_table": {
+      "status": "passed",
+      "phase": "loaded",
+      "rows": [
+        [
+          "Built-in Analysis and Displays",
+          "0.2.15",
+          "0.2.15",
+          "With Foreshadow",
+          "Preinstalled"
+        ],
+        [
+          "RTL-SDR / AIO2 Support",
+          "0.2.15",
+          "0.2.15",
+          "0.2.15",
+          "Installed"
+        ],
+        [
+          "SDRplay Support",
+          "0.2.15",
+          "0.2.15",
+          "0.2.15",
+          "Installed"
+        ],
+        [
+          "I/Q power report",
+          "0.2.15",
+          "0.2.15",
+          "0.2.15",
+          "Installed"
+        ]
+      ],
+      "executable": "/home/vicliu/Foreshadow-review/2026-11-24-rspdx-r2/review-store/packages/org.amc.ams/0.2.15/bin/signalscope-gui",
+      "source_commit": "34983c16700dcbf28aa9e001339e3c8986031afc",
+      "method": "Actual installed/loaded version table from the running native Toolbox Center",
+      "observed_at": 1795521071.1972997
+    },
+    "entry_files_byte_preserved": {
+      "/home/vicliu/.local/bin/foreshadow": true,
+      "/home/vicliu/.local/share/applications/signalscope.desktop": true
+    },
+    "receiver_and_language_settings_preserved": true,
+    "cold_cli_overrides_stale_parent_store": true,
+    "launcher_distribution_root": "/home/vicliu/Foreshadow-review/2026-11-24-rspdx-r2/review-store",
+    "last_activation": {
+      "nonce": "7f16aaae-540c-4622-bed1-4ac3e0b71b94",
+      "pid": 228340,
+      "requested_version": "0.2.15",
+      "schema": 1,
+      "state": "applied"
+    },
+    "catalog_sequence": 1795520330,
+    "registry_evidence": "/home/vicliu/Foreshadow-review/2026-11-24-rspdx-r2/review-store/registry.json",
+    "network_condition": "Existing Windows reverse forwarding must remain online",
+    "note": "Only after byte-preservation verification, obsolete local-review comments in the preserved launch entry may be retired.",
+    "post_verification_entry_metadata_maintenance": {
+      "/home/vicliu/.local/bin/foreshadow": {
+        "before_sha256": "faaffabee18061a1b5c8b27a2ffb228a3437251d37ef65a9df0d493ffe34ec8d",
+        "after_sha256": "76fd61053f724c2efc22b3965c6faca5e0c9cf901f779e656b337aa818ea12fa",
+        "functional_lines_preserved": true,
+        "change": "Retired obsolete local-review comment after byte-preservation acceptance"
+      },
+      "/home/vicliu/.local/share/applications/signalscope.desktop": {
+        "before_sha256": "6edc1cc853800b95b17e82974c13c3bb6ec4ed5dc564e0641e71ddf925c8a822",
+        "after_sha256": "1fa7fdf6e8d9d9db87a57888ddce736b84b4d33baa9aecd85483a71f64b6edf0",
+        "functional_lines_preserved": true,
+        "change": "Retired obsolete local-review comment after byte-preservation acceptance"
+      }
+    }
+  },
+  "physical_capture_and_research": {
+    "schema": 1,
+    "status": "passed",
+    "version": "0.2.15",
+    "source_commit": "34983c16700dcbf28aa9e001339e3c8986031afc",
+    "sample_pairs": 6000000,
+    "recorder": "Foreshadow 0.2.15",
+    "recording_status": "complete",
+    "capture_result": {
+      "accepted_pairs": 6000000,
+      "actual_bandwidth_hz": 1536000.0,
+      "actual_frequency_hz": 478500000.0,
+      "actual_rate_hz": 2000000.0,
+      "antenna": "Antenna B",
+      "auto_gain": true,
+      "backend": "soapy-sdrplay",
+      "configuration": {
+        "activation_confirmed": true,
+        "actual": {
+          "antenna": "Antenna B",
+          "auto_gain": true,
+          "filter_bandwidth_hz": 1536000.0,
+          "frequency_hz": 478500000.0,
+          "gain_tenths_db": null,
+          "sample_datatype": "ci16_le",
+          "sample_rate_hz": 2000000.0,
+          "settings": {
+            "service_endpoint": "tcp://192.168.31.42:55132"
+          }
+        },
+        "readback_source": "driver",
+        "requested": {
+          "antenna": "Antenna B",
+          "auto_gain": true,
+          "device": 0,
+          "frequency_hz": 478500000,
+          "gain_tenths_db": null,
+          "if_bandwidth_hz": 0.0,
+          "input_mode": "auto",
+          "required_passband_hz": 0.0,
+          "sample_rate_hz": 2000000,
+          "serial": "",
+          "settings": {
+            "service_endpoint": "tcp://192.168.31.42:55132"
+          }
+        }
+      },
+      "continuity": "SoapySDR discontinuity flags; no hardware sample counter exposed",
+      "device": 0,
+      "hardware": "RSPdx-R2",
+      "power": {
+        "clipped_pairs": 0,
+        "dc_i": 2.454157511393229e-06,
+        "dc_q": 1.390045166015625e-06,
+        "mean_power_dbfs": -32.6696623852475,
+        "pairs": 6000000,
+        "power_reference": "mean |(I+jQ)/32768|^2; full input band; not RF dBm"
+      },
+      "read_stats": {
+        "delivered_blocks": 367,
+        "max_read_pairs": 4096,
+        "min_read_pairs": 816,
+        "reads": 2076,
+        "scope": "client_transport_reads",
+        "short_reads": 1709,
+        "timeouts": 1
+      },
+      "rejected_pairs": 0,
+      "requested_rate_hz": 2000000,
+      "service_endpoint": "tcp://192.168.31.42:55132",
+      "startup_readback": {
+        "acquisition_conditions": {
+          "adc_overload": {
+            "capability": "unavailable",
+            "evidence": {
+              "reason_code": "not_exposed_by_provider"
+            },
+            "state": "unknown"
+          },
+          "amplitude_calibration": {
+            "evidence": {},
+            "state": "unknown"
+          },
+          "frequency_calibration": {
+            "evidence": {},
+            "state": "unknown"
+          },
+          "origin": "provider",
+          "schema": "org.amc.acquisition-conditions",
+          "scope": "before_first_samples",
+          "version": 1
+        },
+        "configuration": {
+          "activation_confirmed": true,
+          "actual": {
+            "antenna": "Antenna B",
+            "auto_gain": true,
+            "filter_bandwidth_hz": 1536000.0,
+            "frequency_hz": 478500000.0,
+            "gain_tenths_db": null,
+            "sample_datatype": "ci16_le",
+            "sample_rate_hz": 2000000.0,
+            "settings": {
+              "service_endpoint": "tcp://192.168.31.42:55132"
+            }
+          },
+          "readback_source": "driver",
+          "requested": {
+            "antenna": "Antenna B",
+            "auto_gain": true,
+            "device": 0,
+            "frequency_hz": 478500000,
+            "gain_tenths_db": null,
+            "if_bandwidth_hz": 0.0,
+            "input_mode": "auto",
+            "required_passband_hz": 0.0,
+            "sample_rate_hz": 2000000,
+            "serial": "",
+            "settings": {
+              "service_endpoint": "tcp://192.168.31.42:55132"
+            }
+          }
+        },
+        "filter_bandwidth_hz": 1536000.0,
+        "frequency_hz": 478500000.0,
+        "protocol_version": 2,
+        "sample_rate_hz": 2000000.0
+      },
+      "status": "complete",
+      "transport": "soapy-remote",
+      "transport_budget": {
+        "hardware_sample_loss_count": null,
+        "maximum_payload_bytes": 16384,
+        "requested_socket_window_bytes": 1600000,
+        "server_driver_read_counts": null
+      }
+    },
+    "complex_iq_non_degenerate": true,
+    "historical_replay_and_byte_exact_export": true,
+    "updated_external_power_plugin": true,
+    "new_capture_replay": true,
+    "hardware_losslessness": "not established; service does not expose a hardware sample counter",
+    "raw_logs_directory": "/home/vicliu/Foreshadow-review/2026-11-24-release-0.2.15",
+    "capture_directory": "/home/vicliu/Foreshadow-review/2026-11-24-release-0.2.15/实采-📡-195135"
+  },
+  "replay_ui": {
+    "status": "passed",
+    "version": "0.2.15",
+    "source_commit": "34983c16700dcbf28aa9e001339e3c8986031afc",
+    "paused_progress": "Replaying · Analyzed 8421376 / 30000000 I/Q pairs · Analysis discarded 0 · LoRa 1 channels at 2.000 MS/s",
+    "paused_position_stable": true,
+    "final_progress": "Replay finished · Analyzed 30000000 / 30000000 I/Q pairs · Analysis discarded 0 · LoRa 1 channels at 2.000 MS/s",
+    "input": "Existing physical RSPdx-R2 15-second recording; no synthetic source"
+  },
+  "reopened_analysis": {
+    "status": "passed",
+    "version": "0.2.15",
+    "source_commit": "34983c16700dcbf28aa9e001339e3c8986031afc",
+    "original_samples": 1048576,
+    "channel_samples": 209676,
+    "channel_rate": 400000,
+    "compensated_source_delay_samples": 100,
+    "saved_analysis": "/home/vicliu/Foreshadow-review/2026-11-24-rspdx-r2/live-processed.amc-analysis.json",
+    "analysis_sha256": "93b7cedde685b687eb70455ba051c5ab261cd4c3299d757b8e5064fdbe2f4020",
+    "method": "Existing saved physical captured-window analysis reopened through the installed public native GUI; original source retained",
+    "labels": [
+      "Center frequency",
+      "IF gain reduction (dB)",
+      "Search width",
+      "Clip limit",
+      "Quota",
+      "Source: live SDRplay · Event folder: /home/vi…adow-review/2026-11-24-rspdx-r2/review-events",
+      "2.000 MS/s · Search 478.000–479.000 MHz",
+      "Device capability query unavailable. Open receiver settings to query the connected device.",
+      "Idle",
+      "Full-band level — dBFS · Uncalibrated RF power",
+      "Pre-trigger I/Q stays in memory. Confirmed events are saved up to the configured limit.",
+      "First sample",
+      "Sample count",
+      "LoRa bandwidth",
+      "Spreading factor",
+      "Select an I/Q recording and choose Signal analysis. Plots are generated in the background and the original data is preserved.",
+      "",
+      "Audio stopped",
+      "Broadcast FM · mono output · 48 kHz",
+      "Frequency (MHz)",
+      "",
+      "",
+      "Receiver configuration",
+      "Audio output",
+      "Estimated SNR threshold",
+      "Filtered RF level",
+      "—",
+      "Estimated RF SNR",
+      "—",
+      "PCM sent to output",
+      "-120.0 dBFS",
+      "Queued audio",
+      "about 0 ms",
+      "Audio input discarded: 0 I/Q pairs · Output underruns: 0 · PCM discarded: 0 frames",
+      "Input queue peak 0.00 / 0.00 MiB · Analysis discontinuities 0",
+      "Volume",
+      "50%",
+      "capture.amc-window.json · 2.000 MS/s · 478.500000 MHz · ci16_le",
+      "First file sample",
+      "Samples to load",
+      "Loaded window overview",
+      "Shared time axis / ms · 1048576 source-clock positions · 524.288 ms",
+      "209676 processed samples · 400000 S/s · center 478.875000 MHz. FIR delay: 100 original samples, compensated in timestamps; incomplete support discarded.",
+      "Processed B: 104858 · original position: 191234050 + 0/1 · filtered observation available",
+      "I/Q · normalized components",
+      "Amplitude envelope · normalized",
+      "Phase · rad",
+      "Instantaneous frequency offset · Hz",
+      "Loaded 1048576 samples (524.288 ms); recording contains 1048576 samples. Frequency offsets use the recording center; hardware continuity is not guaranteed by this analysis.",
+      "Offset from source center / kHz",
+      "Full passband / kHz",
+      "Transition on each side / kHz",
+      "Output sample rate / S/s",
+      "Channel first file sample",
+      "Channel input samples",
+      "Recording contains 1048576 stored samples.",
+      "The channel can use a larger recorded range than the loaded original preview. Reads and processing remain bounded; choose a smaller range if the job exceeds its budget. File positions count stored samples, while source gaps retain their own clock positions. Original tracks show the loaded preview.",
+      "Apply the complete configuration to the selected immutable input. Passband and transition must fit the original and output Nyquist bands. The centered FIR discards incomplete support. Each track shows observations on its own clock: an original selection locates the next output-grid point; a processed selection locates the preceding original sample. Exact processed source coordinates remain shown. This operation cannot repair clipping or missing input.",
+      "Stopped",
+      ""
+    ]
+  },
+  "user_data": {
+    "schema": 1,
+    "status": "passed",
+    "files": 12,
+    "hashes": {
+      "/home/vicliu/Foreshadow-review/2026-11-24-rspdx-r2/review-events/fixed-recorder-2s/capture.sigmf-meta": "5f6d80a3a45a591580da494e5afec9667c18dc79c5ae7b31176083919e5a4c74",
+      "/home/vicliu/Foreshadow-review/2026-11-24-rspdx-r2/review-events/fixed-recorder-2s/capture.sigmf-data": "ca8689a9ce9f82d784ec3570302cd6fc8cae058b68793312d8356bfa89b19a5b",
+      "/home/vicliu/Foreshadow-review/2026-11-24-rspdx-r2/review-events/rspdx-15s/capture.sigmf-meta": "a1d4235d7a79041bf76932d09d636a026fb27120e9a0c7ca1daf7a0d867a724a",
+      "/home/vicliu/Foreshadow-review/2026-11-24-rspdx-r2/review-events/rspdx-15s/capture.sigmf-data": "28f800c10770f3dbd5919a246ccb3c43147101be91313778989ac0bf10779fa1",
+      "/home/vicliu/Foreshadow-review/2026-11-24-rspdx-r2/review-events/slice-3s/capture.sigmf-meta": "2bc254eb19c321aad3124121d0a355e056aa822955464f0cdc65dfd50214dcfe",
+      "/home/vicliu/Foreshadow-review/2026-11-24-rspdx-r2/review-events/slice-3s/capture.sigmf-data": "83d6f41c7cc6cb8b4eb9c506c6ec3684cdf40bc7ca905933ec47df5dc42263e6",
+      "/home/vicliu/Foreshadow-review/2026-11-24-rspdx-r2/live-frozen.amc-analysis.json": "51d688adffdb45bbcadc1f99d1b30eeeeb254b29059a26d50b2fc4c6403472dd",
+      "/home/vicliu/Foreshadow-review/2026-11-24-rspdx-r2/live-processed.amc-analysis.json": "93b7cedde685b687eb70455ba051c5ab261cd4c3299d757b8e5064fdbe2f4020",
+      "/home/vicliu/Foreshadow-review/2026-11-24-rspdx-r2/amc-capture-02bb4f6b-2506-48b7-a231-76ad6b3a191a/capture.amc-window.json": "18ab092f6038ffa0ec3c344ccf1640ceac32d861ba7e228cd42b81f1fce82a85",
+      "/home/vicliu/Foreshadow-review/2026-11-24-rspdx-r2/amc-capture-02bb4f6b-2506-48b7-a231-76ad6b3a191a/samples.cf32": "603bb1463fe4d5d4ef3e2796c3a6ec128b4757eb25cc0d202e42d143803a8114",
+      "/home/vicliu/Foreshadow-review/2026-11-24-rspdx-r2/amc-capture-76a7a3d1-ec5a-48da-915b-77fad09a188d/capture.amc-window.json": "5c202a19f6699bca47d797f41ed49a44575603bea369be96244522a9f8f75aa1",
+      "/home/vicliu/Foreshadow-review/2026-11-24-rspdx-r2/amc-capture-76a7a3d1-ec5a-48da-915b-77fad09a188d/samples.cf32": "603bb1463fe4d5d4ef3e2796c3a6ec128b4757eb25cc0d202e42d143803a8114"
+    }
+  },
+  "adsb_actual_rf": {
+    "rows": [
+      [
+        "780650",
+        "",
+        "12100",
+        "256",
+        "Unavailable",
+        "Unavailable"
+      ],
+      [
+        "780BAB",
+        "CES5942",
+        "9050",
+        "154",
+        "24.9991, 102.8273",
+        "Yunnan, People's Republic of China"
+      ],
+      [
+        "780F97",
+        "CSH9416",
+        "10525",
+        "224",
+        "24.9136, 102.7596",
+        "Yunnan, People's Republic of China"
+      ],
+      [
+        "781706",
+        "",
+        "30075",
+        "381",
+        "Unavailable",
+        "Unavailable"
+      ],
+      [
+        "781D38",
+        "",
+        "9275",
+        "165",
+        "Unavailable",
+        "Unavailable"
+      ],
+      [
+        "781DA8",
+        "CES874",
+        "8050",
+        "159",
+        "Unavailable",
+        "Unavailable"
+      ]
+    ],
+    "labels": [
+      "Receiving 1090 MHz",
+      "Targets 6 · Processed 836829184 pairs · Rejected 0 pairs · Discontinuities 0 · Queue 65536/8388608 bytes"
+    ],
+    "source": "Actual public 0.2.15 English ADS-B panel after normal signed-catalog update; physical receiver service; no injected aircraft fixture",
+    "pid": 229193,
+    "columns": 6,
+    "executable": "/home/vicliu/Foreshadow-review/2026-11-24-rspdx-r2/review-store/packages/org.amc.ams/0.2.15/bin/signalscope-gui",
+    "source_commit": "34983c16700dcbf28aa9e001339e3c8986031afc",
+    "observed_at": 1795521582.9958088,
+    "capture_selection_seconds_before_image": 8.051569938659668,
+    "capture_receipt": {
+      "pid": 229193,
+      "started": 1795521411.0479882,
+      "capture_after_seconds": 180,
+      "exit_after_seconds": 240,
+      "settings": "/home/vicliu/Foreshadow-review/2026-11-24-release-0.2.15/capture-settings/05-adsb-workspace",
+      "original_settings_sha256": "057e7d8fade3e7ea08c6e53770fe1aed7fe9a320ca49102433652803d476712e",
+      "source_commit": "34983c16700dcbf28aa9e001339e3c8986031afc",
+      "method": "Actual public installed GUI on receiver workstation; native QWidget::grab via built-in screenshot option; no generated pixels and no greeter/session activation",
+      "output": "/home/vicliu/Foreshadow-review/2026-11-24-release-0.2.15/05-adsb-workspace.png",
+      "diagnostics": "/home/vicliu/Foreshadow-review/2026-11-24-release-0.2.15/05-adsb-workspace.png.diagnostics.json"
+    },
+    "end_of_bounded_observation": {
+      "discontinuities": 0,
+      "error": "",
+      "processed_pairs": 1184350208,
+      "queue_capacity_bytes": 8388608,
+      "queued_bytes": 0,
+      "rejected_pairs": 0
+    }
+  },
+  "adsb_focused_native_capture": {
+    "source": "Actual public 0.2.15 focused English ADS-B workspace; physical receiver service, no injected positions",
+    "source_commit": "34983c16700dcbf28aa9e001339e3c8986031afc",
+    "rows": [
+      [
+        "781077",
+        "",
+        "Unavailable",
+        "529",
+        "Unavailable",
+        "Unavailable"
+      ],
+      [
+        "7822D4",
+        "CSZ8977",
+        "34100",
+        "375",
+        "25.0279, 102.8509",
+        "Yunnan, People's Republic of China"
+      ],
+      [
+        "89647E",
+        "",
+        "Unavailable",
+        "Unavailable",
+        "Unavailable",
+        "Unavailable"
+      ]
+    ],
+    "labels": [
+      "Receiving 1090 MHz",
+      "Targets 3 · Processed 463175680 pairs · Rejected 0 pairs · Discontinuities 0 · Queue 196608/8388608 bytes"
+    ],
+    "selected_address": "7822D4",
+    "selected_position": "25.0279, 102.8509",
+    "selected_area": "Yunnan, People's Republic of China",
+    "capture_receipt": {
+      "pid": 230224,
+      "started": 1795522224.134413,
+      "capture_after_seconds": 100,
+      "exit_after_seconds": 120,
+      "settings": "/home/vicliu/Foreshadow-review/2026-11-24-release-0.2.15/capture-settings/06-adsb-map-detail",
+      "original_settings_sha256": "057e7d8fade3e7ea08c6e53770fe1aed7fe9a320ca49102433652803d476712e",
+      "source_commit": "34983c16700dcbf28aa9e001339e3c8986031afc",
+      "method": "Actual public installed GUI on receiver workstation; native QWidget::grab via built-in screenshot option; no generated pixels and no greeter/session activation",
+      "output": "/home/vicliu/Foreshadow-review/2026-11-24-release-0.2.15/06-adsb-map-detail.png",
+      "diagnostics": "/home/vicliu/Foreshadow-review/2026-11-24-release-0.2.15/06-adsb-map-detail.png.diagnostics.json"
+    },
+    "observed_at": 1795522323.5675035
+  },
+  "wspr_independent_recording": {
+    "status": "passed",
+    "kind": "reference",
+    "public_package": true,
+    "scope": "Normal signed-catalog public update",
+    "rows": [
+      [
+        "K1ABC",
+        "FN42",
+        "37",
+        "14.097118",
+        "2.0",
+        "0.788",
+        "107008"
+      ]
+    ],
+    "labels": [
+      "RF observation center (MHz)",
+      "Lowest-tone offset range (Hz)",
+      "Maximum frame drift (Hz)",
+      "A complete WSPR-2 message lasts 110.592 seconds. Collect a continuous 120-second window, then search every 8 seconds. Synchronization score is not SNR, probability or authentication. The center is an RF frequency, not a USB dial setting.",
+      "Recording decode completed",
+      "Spots 1 · Analyzed windows 2 · Input rejected 0 pairs · Windows rejected 0 · Source gaps 0"
+    ],
+    "executable": "/home/vicliu/Foreshadow-review/2026-11-24-rspdx-r2/review-store/packages/org.amc.ams/0.2.15/bin/signalscope-gui",
+    "source_commit": "34983c16700dcbf28aa9e001339e3c8986031afc",
+    "fixture": {
+      "kind": "Synthetic independent upstream encoder symbols; no physical HF reception",
+      "metadata": "/home/vicliu/Foreshadow-review/2026-11-24-release-0.2.15/评审-WSPR-📡/capture.sigmf-meta",
+      "metadata_sha256": "95057cbc428c07206d89066b3b951bcb48709bb80dc62250ef6cf393d6ad3d08",
+      "data_sha256": "c2c804c39e245b8c5687644ffba67253be43efc4c958d19183646a7b689464f7"
+    }
+  },
+  "wspr_actual_hf": {
+    "status": "observed",
+    "kind": "rf",
+    "public_package": true,
+    "scope": "Normal signed-catalog public update",
+    "rows": [],
+    "labels": [
+      "RF observation center (MHz)",
+      "Lowest-tone offset range (Hz)",
+      "Maximum frame drift (Hz)",
+      "A complete WSPR-2 message lasts 110.592 seconds. Collect a continuous 120-second window, then search every 8 seconds. Synchronization score is not SNR, probability or authentication. The center is an RF frequency, not a USB dial setting.",
+      "Receiving WSPR; waiting for complete observations",
+      "History 120.0/120 s · Spots 0/0 (history expired 0) · Analyzed windows 17 · Input rejected 0 pairs · Windows rejected 0 · Gaps 0"
+    ],
+    "executable": "/home/vicliu/Foreshadow-review/2026-11-24-rspdx-r2/review-store/packages/org.amc.ams/0.2.15/bin/signalscope-gui",
+    "source_commit": "34983c16700dcbf28aa9e001339e3c8986031afc",
+    "physical_hf_decode": "unverified: no decoded physical HF station in this bounded observation",
+    "observation_kind": "Physical RSPdx-R2 HF input; no injected recording/reference",
+    "raw_native_diagnostics": {
+      "available": true,
+      "busy": true,
+      "configuration_wait_pairs_total": 0,
+      "detail": "",
+      "faulted": false,
+      "id": "live-research/wspr-live",
+      "status": {
+        "completed_windows": 20,
+        "decoded_spots_total": 0,
+        "discontinuities": 0,
+        "error": "",
+        "expired_spots": 0,
+        "input_budget_bytes": 16777216,
+        "input_budget_seconds": 240.0,
+        "input_in_flight_bytes": 0,
+        "input_in_flight_seconds": 0.0,
+        "input_rejected_pairs": 0,
+        "processed_pairs": 17367040,
+        "queued_bytes": 0,
+        "queued_input_seconds": 0.0,
+        "queued_memory_bytes": 0,
+        "reception": {
+          "applied": {
+            "activation_confirmed": true,
+            "actual": {
+              "antenna": "Antenna A",
+              "auto_gain": true,
+              "filter_bandwidth_hz": 200000.0,
+              "frequency_hz": 14097100.0,
+              "gain_tenths_db": null,
+              "sample_datatype": "ci16_le",
+              "sample_rate_hz": 62500.0,
+              "settings": {
+                "agc_setpoint": -30,
+                "biasT_ctrl": false,
+                "dabnotch_ctrl": false,
+                "hdr_ctrl": false,
+                "iqcorr_ctrl": true,
+                "rfgain_sel": "0",
+                "rfnotch_ctrl": false,
+                "service_endpoint": "tcp://192.168.31.42:55132"
+              }
+            },
+            "filter_bandwidth_hz": 200000.0,
+            "frequency_hz": 14097100.0,
+            "readback_source": "driver",
+            "requested": {
+              "antenna": "",
+              "auto_gain": true,
+              "device": 0,
+              "frequency_hz": 14097100,
+              "gain_tenths_db": null,
+              "if_bandwidth_hz": 0.0,
+              "input_mode": "auto",
+              "required_passband_hz": 375.0,
+              "sample_rate_hz": 62500,
+              "serial": "[redacted hardware identifier]",
+              "settings": {
+                "agc_setpoint": -30,
+                "biasT_ctrl": false,
+                "dabnotch_ctrl": false,
+                "hdr_ctrl": false,
+                "iqcorr_ctrl": true,
+                "rfgain_sel": "0",
+                "rfnotch_ctrl": false,
+                "service_endpoint": "tcp://192.168.31.42:55132"
+              }
+            },
+            "sample_rate_hz": 62500.0
+          },
+          "detail": "",
+          "diagnostic": {},
+          "generation": 1,
+          "requested": {
+            "antenna": "",
+            "auto_gain": true,
+            "device": 0,
+            "frequency_hz": 14097100,
+            "gain_tenths_db": null,
+            "if_bandwidth_hz": 0.0,
+            "input_mode": "auto",
+            "required_passband_hz": 375.0,
+            "sample_rate_hz": 62500,
+            "serial": "[redacted hardware identifier]",
+            "settings": {
+              "agc_setpoint": -30,
+              "biasT_ctrl": false,
+              "dabnotch_ctrl": false,
+              "hdr_ctrl": false,
+              "iqcorr_ctrl": true,
+              "rfgain_sel": "0",
+              "rfnotch_ctrl": false,
+              "service_endpoint": "tcp://192.168.31.42:55132"
+            }
+          },
+          "state": "receiving"
+        },
+        "rejected_windows": 0,
+        "retained_samples": 45000,
+        "window_budget_bytes": 720000,
+        "window_in_flight_bytes": 0,
+        "window_queue_bytes": 0
+      }
+    },
+    "native_capture": {
+      "pid": 229557,
+      "started": 1795521724.6283357,
+      "capture_after_seconds": 270,
+      "exit_after_seconds": 285,
+      "settings": "/home/vicliu/Foreshadow-review/2026-11-24-release-0.2.15/capture-settings/08-wspr-live",
+      "original_settings_sha256": "057e7d8fade3e7ea08c6e53770fe1aed7fe9a320ca49102433652803d476712e",
+      "source_commit": "34983c16700dcbf28aa9e001339e3c8986031afc",
+      "method": "Actual public installed GUI on receiver workstation; native QWidget::grab via built-in screenshot option; no generated pixels and no greeter/session activation",
+      "output": "/home/vicliu/Foreshadow-review/2026-11-24-release-0.2.15/08-wspr-live.png",
+      "diagnostics": "/home/vicliu/Foreshadow-review/2026-11-24-release-0.2.15/08-wspr-live.png.diagnostics.json"
+    },
+    "bounded_duration_seconds": 285,
+    "local_raw_evidence_sha256": "68c4cc6e4d6cf4047d7dec533a4651f864a4de655a27908b9664f36d08749304",
+    "redacted_fields": [
+      "receiver serial identifiers; full raw evidence retained on the acceptance workstation"
+    ]
+  },
+  "native_module_preflight": {
+    "status": "passed",
+    "scope": "Supplementary actual-uConsole 140-second 2-MS/s WSPR input; new producer linked to the previously rebuilt native library after verifying unchanged WSPR implementation and input protocol source. Combined formal release packages are qualified separately.",
+    "implementation_reference": "2ec2c1322338a5b7ccc0b9c5c5f2b64bbc409ae2",
+    "verified_source_files": {
+      "include/signalscope/backend/iq/sample_format.hpp": "10970d2152c0acd8e9623c02ac7d139074f4772fb466fe5fd450000463005381",
+      "include/signalscope/backend/iq/stream.hpp": "e5a2f08e2b51a7a616cf6e10dbc4534ac425f654eb927708bc061c3731475446",
+      "plugins/wspr/core/channel.cpp": "77ec79c635d7c18d1f7854708b1538e9c49a45999df69a939dca9a5e57ae4c52",
+      "plugins/wspr/core/channel.hpp": "539fb5549e9024934160874d8fe78f8fd0ba736b7d319155bf012c710f565c25",
+      "plugins/wspr/core/fec.cpp": "a5373f152241a518db08841f95910a61f0af43b5d7893f6baa601eab690ea9d0",
+      "plugins/wspr/core/fec.hpp": "1774a0902b4cc2fc155e0fbded1fb053c76c964dc1c56a5261222a25dc363d9f",
+      "plugins/wspr/core/interleave.hpp": "1f6815d4552ca0469533bca26cd264c8e56b9f2687a3f89c24eea74894dda272",
+      "plugins/wspr/core/message.cpp": "8841ba3fc9d43289a5ce03196e2f1d1233260cb1bcecc96c9d81b6aaaf7ebbb4",
+      "plugins/wspr/core/message.hpp": "c9c4f4172f7e227353a4954783be438ec5777e8797579e3fe2d891ebfa454a97",
+      "plugins/wspr/core/search.cpp": "0d65508f37af8482ef3f532ab63f982329e2c343278ee0efa4c9b11a5dbb5d60",
+      "plugins/wspr/core/search.hpp": "1cf392f08c28a1c70b50776aa36e1d8977224fb5c7229d196c70bb73106f63fe",
+      "plugins/wspr/core/sync.hpp": "d923501716530bad2bd13b3a4599ebef17f6f0799a9c4caf150164b729b2dbd3",
+      "plugins/wspr/core/window.cpp": "6b85f1f20ac6d99c40a84622c1d450e2003150c9f86041e9d6df4fd12a72190f",
+      "plugins/wspr/core/window.hpp": "9004178061a69a53de3984a77cef75d8bec965ce5f078934a859fba1f67a4e7d",
+      "plugins/wspr/downconverter.cpp": "b558ec15f5007f530c74a6bc149fce6d77b96ffbab7609aa3c40a20f32aac0f8",
+      "plugins/wspr/downconverter.hpp": "3d511cbd5cfed490ffa003907321ced8228fe976ed97cc6cc8fd0cc91243cc49",
+      "plugins/wspr/live_input.cpp": "2ecaa15abc4125def45d939008a18e1ac7469fa7ba36a037643d9bc01aa8df0b",
+      "plugins/wspr/live_input.hpp": "d65e699bfeb0755d2413d6e2e25531189dccf7773dc424160f9a11356006a8a6",
+      "plugins/wspr/live_panel.cpp": "7219201ebdd457e685874a557108efe9ad114025e5fe190166104714464137d7",
+      "plugins/wspr/live_panel.hpp": "d2dee2d2b5a4f62aab0804cf386b270b5d8fe7997028805cc87108d2892bd927",
+      "plugins/wspr/recording.cpp": "c3a3f6d53c06f161e35313fa5defb3f901fdc25db86859456053ec911ba61a45",
+      "plugins/wspr/recording.hpp": "e7d6a1c4992dfd7108bd2a854fd4528375221fcece83c4e587f2cc09336ce8b8",
+      "plugins/wspr/vendor/wsjtx/fano.c": "72d3e176e75b7714916aed9fbf36f003b7ea5f511f0dd13e96e9ddbc2e159a15",
+      "plugins/wspr/vendor/wsjtx/fano.h": "1955cd1d71d4cfb69cd5a4cc7dd563d239948fa9e302f1cfe4f40e8b5409ff65",
+      "plugins/wspr/vendor/wsjtx/tab.c": "c453b07ac25d30227e4d25c0e134718a1858cf9ab801a1679935925957fcfe54",
+      "src/backend/dsp/channelizer.cpp": "8b4baea61a5af0326c52139475eb25e00fd004464444177974af97c84a8720ed"
+    },
+    "source_comparison": "SHA-256 of C/C++ text with CRLF normalized to LF; pinned upstream archive bytes are validated separately",
+    "raw_output": "input_seconds=20 analyzed_windows=0 rejected_pairs=0\ninput_seconds=40 analyzed_windows=0 rejected_pairs=0\ninput_seconds=60 analyzed_windows=0 rejected_pairs=0\ninput_seconds=80 analyzed_windows=0 rejected_pairs=0\ninput_seconds=100 analyzed_windows=0 rejected_pairs=0\ninput_seconds=120 analyzed_windows=0 rejected_pairs=0\ninput_seconds=140 analyzed_windows=2 rejected_pairs=0\ninput_rate=2000000 input_seconds=140 processed_pairs=280000000 rejected_pairs=0 rejected_windows=0 analyzed_windows=4 decoded_spots=1 retained_spots=1 observed_peak_queue_charge=1048640 observed_peak_window_queue_bytes=0 maximum_snapshot_us=67.48 elapsed_seconds=143.27\n"
+  },
+  "images": [
+    {
+      "file": "docs/images/reviews/2026-11-24-0.2.15/03-replay-paused.png",
+      "sha256": "c915b0804cbec9cef5f04ab539d0f93db5cf7cd4687c6f0593a9b72e5e261ccf",
+      "width": 2558,
+      "height": 1387,
+      "input": "actual installed state / physical capture or replay",
+      "capture_method": "Actual public installed GUI on receiver workstation; native QWidget::grab via built-in screenshot option; no generated pixels and no greeter/session activation"
+    },
+    {
+      "file": "docs/images/reviews/2026-11-24-0.2.15/04-reopened-analysis.png",
+      "sha256": "1435e84bd4db8987a11f565d4808073831fb5595fa1bfb4b45aa2725c6f8b6ab",
+      "width": 2558,
+      "height": 1387,
+      "input": "actual installed state / physical capture or replay",
+      "capture_method": "Actual public installed GUI on receiver workstation; native QWidget::grab via built-in screenshot option; no generated pixels and no greeter/session activation"
+    },
+    {
+      "file": "docs/images/reviews/2026-11-24-0.2.15/05-adsb-workspace.png",
+      "sha256": "6bc24d79a99a003f17a520e6f928492bf5fa02da13b4962a863836c2d2f61e6c",
+      "width": 2558,
+      "height": 1387,
+      "input": "actual installed state / physical capture or replay",
+      "capture_method": "Actual public installed GUI on receiver workstation; native QWidget::grab via built-in screenshot option; no generated pixels and no greeter/session activation"
+    },
+    {
+      "file": "docs/images/reviews/2026-11-24-0.2.15/06-adsb-map-detail.png",
+      "sha256": "92c4f2089907ef480e205293afa5909f7b976764c9de72de933c4f7e5ba084f5",
+      "width": 2558,
+      "height": 1387,
+      "input": "actual installed state / physical capture or replay",
+      "capture_method": "Actual public installed GUI on receiver workstation; native QWidget::grab via built-in screenshot option; no generated pixels and no greeter/session activation"
+    },
+    {
+      "file": "docs/images/reviews/2026-11-24-0.2.15/07-wspr-reference.png",
+      "sha256": "2bfd404abac0c794c205cac1e5c8da69b5e7bacc734fa515a44ac89c74fa826b",
+      "width": 2558,
+      "height": 1387,
+      "input": "synthetic independent WSJT-X symbols",
+      "capture_method": "Actual public installed GUI on receiver workstation; native QWidget::grab via built-in screenshot option; no generated pixels and no greeter/session activation"
+    },
+    {
+      "file": "docs/images/reviews/2026-11-24-0.2.15/08-wspr-live.png",
+      "sha256": "67dde8e8bcc886bceace516fa67b7de6e2b56988ed04ddc3d1d541d6feae775b",
+      "width": 2558,
+      "height": 1387,
+      "input": "actual installed state / physical capture or replay",
+      "capture_method": "Actual public installed GUI on receiver workstation; native QWidget::grab via built-in screenshot option; no generated pixels and no greeter/session activation"
+    }
+  ],
+  "unverified": [
+    "macOS outside release selection",
+    "Physical audio endpoint qualification skipped in CI",
+    "Indefinite or hardware-wide sample losslessness not established",
+    "unverified: no decoded physical HF station in this bounded observation"
+  ]
+}

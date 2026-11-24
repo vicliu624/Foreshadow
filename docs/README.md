@@ -13,6 +13,8 @@ Current documentation describes the source branch. Dated acceptance reports iden
 
 - [GPL adoption and Windows/Linux r3 qualification](reports/2026-11-13-license-adoption-review.md).
 
+**Current release: [0.2.15](releases/0.2.15.md)** · [Formal packages, normal update and ADS-B/WSPR workstation evidence](reports/2026-11-24-0.2.15-release-and-update.md).
+
 ## Start here
 
 - [Product overview and complete workflow](../README.md)
@@ -51,6 +53,8 @@ Current documentation describes the source branch. Dated acceptance reports iden
 | [Recovery and traceable evidence protocol](24-recovery-and-evidence-protocol.md) | current |
 | [PSK / OFDM reception and EVM](25-psk-ofdm-and-evm.md) | current |
 | [Native macOS build and deployment acceptance](26-native-macos-acceptance.md) | current |
+| [ADS-B geography and reception](adsb.md) | current with versioned history |
+| [WSPR live and recording](wspr.md) | current with versioned history |
 
 ## Historical design and research background
 

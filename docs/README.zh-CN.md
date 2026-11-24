@@ -13,6 +13,8 @@ Foreshadow 是以插件驱动的信号研究工作台。接收机、检测、显
 
 - [GPL 落地与 Windows/Linux r3 评审验收](reports/2026-11-13-license-adoption-review.zh-CN.md)。
 
+**当前发布：[0.2.15](releases/0.2.15.zh-CN.md)** · [正式包与正常更新、ADS-B／WSPR 实机证据](reports/2026-11-24-0.2.15-release-and-update.zh-CN.md)。
+
 ## 从这里开始
 
 - [产品概览与完整流程](../README.zh-CN.md)
@@ -51,6 +53,8 @@ Foreshadow 是以插件驱动的信号研究工作台。接收机、检测、显
 | [信号恢复与证据协议规格](24-信号恢复与证据协议规格.md) | 当前说明 |
 | [PSK / OFDM 接收与 EVM](25-PSK与OFDM接收及EVM规格.md) | 当前说明 |
 | [macOS 原生构建与部署验收](26-macOS原生构建与部署验收规格.md) | 当前说明 |
+| [ADS-B 地域与接收](adsb.zh-CN.md) | 当前说明及版本化历史 |
+| [WSPR 实时与录音](wspr.zh-CN.md) | 当前说明及版本化历史 |
 
 ## 历史设计与研究背景
 
