@@ -22,10 +22,46 @@ int main(int argc, char **argv) {
             const auto path = path_from_utf8(arguments.at(at + 1).toStdString());
             const auto request = readJson(path);
             writeJsonAtomically(path.parent_path() / "health.json",
-                                {{"nonce", request.at("nonce")}, {"version", "0.2.1"}, {"pid", processId()}});
+                                {{"nonce", request.at("nonce")}, {"version", request.at("target").at("version")}, {"pid", processId()}});
             QThread::msleep(arguments.contains("--fixture-target-crash") ? 100 : 2500);
             return 0;
         }
+#if defined(__linux__)
+        {
+            const auto home = root / path_from_utf8("用户 launch options 📡");
+            std::filesystem::create_directories(home);
+            runner.setEnvironment("HOME", QString::fromStdString(path_to_utf8(home)));
+            const auto storeRoot = root / "preserve-launch-options";
+            Store store(storeRoot);
+            const auto request = storeRoot / "updates/custom-launch/request.json";
+            const auto desktopEntry = home / ".local/share/applications/signalscope.desktop";
+            Json target = {{"root", path_to_utf8(root)}, {"version", "0.2.1"},
+                           {"executables", {{"gui", path_to_utf8(self)}, {"cli", path_to_utf8(self)}}},
+                           {"gui_sha256", sha256(self)}, {"arguments", Json::array({"--fixture-target"})}};
+            Json transaction = {{"schema", 1}, {"store", path_to_utf8(storeRoot)},
+                                {"application_id", "org.amc.ams"}, {"nonce", "fresh-launch"},
+                                {"parent_pid", std::uint64_t(0)}, {"previous", target}, {"target", target},
+                                {"old_installed", Json::object()}, {"target_installed", Json::object()},
+                                {"launcher", arguments.at(2).toStdString()}, {"health_timeout_seconds", 2}};
+            writeJsonAtomically(request, transaction);
+            runner.run(arguments.at(1), {"--request", QString::fromStdString(path_to_utf8(request))});
+            require(amc_test::read(QString::fromStdString(path_to_utf8(desktopEntry))).contains("Name=Foreshadow"),
+                    "Fresh activation did not create its desktop entry");
+            const QByteArray customEntry = "[Desktop Entry]\nType=Application\nName=Foreshadow\n"
+                                           "Exec=\"/user launch wrapper\" --profile \"user options\"\n"
+                                           "Icon=applications-science\nTerminal=false\n";
+            amc_test::write(QString::fromStdString(path_to_utf8(desktopEntry)), customEntry);
+            transaction["previous"] = target;
+            transaction["target"]["version"] = "0.2.2";
+            transaction["nonce"] = "preserve-launch";
+            writeJsonAtomically(request, transaction);
+            runner.run(arguments.at(1), {"--request", QString::fromStdString(path_to_utf8(request))});
+            require(readJson(storeRoot / "application/current.json").at("version") == "0.2.2" &&
+                    amc_test::read(QString::fromStdString(path_to_utf8(desktopEntry))) == customEntry &&
+                    readJson(storeRoot / "application/bin/signalscope-gui.json").at("role") == "gui",
+                    "Activation discarded custom launch options or failed to update the stable bootstrap");
+        }
+#endif
         if (arguments.contains("--fixture-fail"))
             return 5;
         require(arguments.size() == 3, "Updater/launcher test executables missing");
