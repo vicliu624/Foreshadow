@@ -25,8 +25,8 @@ int main(int argc,char** argv) {
     });
     tool.widget->resize(640,480);tool.widget->show();const auto buttons=tool.widget->findChildren<QPushButton*>();buttons.front()->click();
     QTimer::singleShot(1500,&app,[&]{auto* table=tool.widget->findChild<QTableWidget*>();auto* map=dynamic_cast<adsb::MapView*>(tool.widget->findChild<QWidget*>("adsb-map"));
-        if(!table || table->rowCount()!=1 || !map || !map->hasBackground()){app.exit(1);return;}map->fitAircraft();
-        QTimer::singleShot(50,&app,[&]{if(argc>1 && argv[1][0] && !tool.widget->grab().save(QString::fromUtf8(argv[1]))){app.exit(2);return;}tool.stop();if(tool.busy()){app.exit(3);return;}std::cout<<"ADS-B panel reference reception passed\n";app.exit(0);});
+        if(!table || table->rowCount()!=1 || !map || !map->hasBackground() || !tool.summary || tool.summary().isEmpty()){app.exit(1);return;}map->fitAircraft();
+        QTimer::singleShot(50,&app,[&]{if(argc>1 && argv[1][0] && !tool.widget->grab().save(QString::fromUtf8(argv[1]))){app.exit(2);return;}tool.stop();if(tool.busy() || !tool.summary().isEmpty()){app.exit(3);return;}std::cout<<"ADS-B panel reference reception passed\n";app.exit(0);});
     });
     const auto result=app.exec();delete tool.widget;return result;
 }

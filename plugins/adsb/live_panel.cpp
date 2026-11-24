@@ -36,6 +36,7 @@ public:
     ~Panel() override {++generation_;lease_.reset();}
     LiveResearchTool tool(){LiveResearchTool result;result.widget=this;result.monitorBound=false;
         result.attachReception=[this](ReceptionAcquire acquire){acquire_=std::move(acquire);};result.stop=[this]{stop();};result.busy=[this]{return bool(lease_);};
+        result.summary=[this]{return lease_?status_->text():QString();};
         result.snapshot=[this]{const auto s=input_->snapshot();return Json{{"processed_pairs",s.processed_pairs},{"rejected_pairs",s.rejected_pairs},{"discontinuities",s.discontinuities},{"queued_bytes",s.queued_bytes},{"queue_capacity_bytes",adsb::LiveInput::capacity_bytes},{"error",s.error}};};return result;}
 private:
     QString text(const std::string& key,const Json& arguments=Json::object()) const {Json value={{"label_key",key},{"arguments",arguments}};catalog_.resolve(value);return localizedText(value.at("label"),language_,QString::fromStdString(key));}
