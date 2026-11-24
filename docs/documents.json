@@ -426,6 +426,11 @@
       "en": "docs/repository-transition.md",
       "zh-CN": "docs/repository-transition.zh-CN.md",
       "status": "current"
+    },
+    {
+      "en": "plugins/adsb/map-license.md",
+      "zh-CN": "plugins/adsb/map-license.zh-CN.md",
+      "status": "current"
     }
   ]
 }

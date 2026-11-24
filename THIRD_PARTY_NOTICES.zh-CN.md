@@ -26,6 +26,7 @@ Foreshadow 主程序与自研插件采用 GPL-3.0-or-later。第三方组件保�
 | FFmpeg cd4e96eb314630788b7ff2f9820c395788c023e2 | 当前库配置为 LGPL-2.1-or-later | 只保留一套原生动态解码库，配置 --disable-gpl --disable-nonfree；交付原始源码、cmake/BuildFfmpeg.sh、选项与校验后应用的移植补丁，运行时 -L/-buildconf 为补充证据。PCM 路径排除 Qt 编解码后端及其第二套 FFmpeg。 |
 | dtmb-sdr 2cc94c012128d6fa3e8d6de456b3bb57e51990a9 | MIT | 保留源码、原始版权、PN595/FEC 补丁与采样器声明。 |
 | DRA 提取分支 eb94ceb887b47b6ecfbda9da43273dd65246df1e | 导入代码为 MIT | third_party/dra 保留源码与修改记录；软件版权许可不等于编解码专利清权。 |
+| Natural Earth 1:50m 陆地数据 | 公有领域，记录为 LicenseRef-Natural-Earth-Public-Domain | ADS-B 模块维护[地图声明](plugins/adsb/map-license.zh-CN.md)、原始／处理后数据哈希及转换记录。导入轮廓保留公有领域状态，应用代码继续采用 GPL-3.0-or-later。 |
 | Microsoft Visual C++ 运行时 | Microsoft 运行时／Visual Studio 再分发条款 | Windows CRT 原样分发，不改为 GPL。随 Windows 材料交付原始条款与官方再分发清单；区分 GPL 系统库排除与厂商再分发授权。 |
 
 ## 外部依赖与未决边界

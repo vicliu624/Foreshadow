@@ -1,4 +1,5 @@
 # Shared module rules have no dependency on any of their provider adapters.
+amc_compliance_declaration("${CMAKE_CURRENT_SOURCE_DIR}/licensing.json")
 target_sources(signalscope_dsp PRIVATE
     "${CMAKE_CURRENT_SOURCE_DIR}/live_input.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/recovery.cpp"

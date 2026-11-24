@@ -60,12 +60,12 @@
         {
           "file": "THIRD_PARTY_NOTICES.md",
           "role": "notice",
-          "sha256": "7e7b1b1790e7269774fe9928171f759535ebe5b99418bce8c4ab8364cdf46654"
+          "sha256": "5657dd129da7127fcb798e823fd461740354bcc1960cee4b1fc55f9dae847888"
         },
         {
           "file": "THIRD_PARTY_NOTICES.zh-CN.md",
           "role": "notice",
-          "sha256": "63942fc0d8baefd8accc1fb45907bbf7c49592ea73852857ffc39805933519cb"
+          "sha256": "296cc0cd5ccbf6ab99006a6184c27b1a03b0b179923d50f6e9a9c2e604235335"
         },
         {
           "file": "SOURCE_AND_REPLACEMENT.zh-CN.md",
@@ -500,40 +500,35 @@
       ]
     },
     "openssl": {
-      "version": "3.5.7-1~deb13u2",
+      "version": "3.5.9-1~deb13u1",
       "license": "Apache-2.0",
-      "origin": "Debian openssl",
+      "origin": "https://deb.debian.org/debian/pool/main/o/openssl/openssl_3.5.9-1~deb13u1.dsc",
       "source_required": true,
       "dependencies": [],
       "issues": [],
       "artifacts": [
         {
-          "file": "openssl_3.5.7.orig.tar.gz",
-          "sha256": "a8c0d28a529ca480f9f36cf5792e2cd21984552a3c8e4aa11a24aa31aeac98e8",
-          "origin": "https://deb.debian.org/debian/pool/main/o/openssl/openssl_3.5.7.orig.tar.gz",
+          "file": "openssl_3.5.9-1~deb13u1.dsc",
+          "sha256": "b038dfab5ee111242b7439e07c820d228519273e7fd1f514014b039e929aad9f",
+          "role": "source"
+        },
+        {
+          "file": "openssl_3.5.9.orig.tar.gz",
+          "sha256": "603f5602e2eef00d77fbd429d34dcd5822bb301757a1bc9cdb24c670f1eb859a",
           "role": "source",
           "extract_notices": true
         },
         {
-          "file": "openssl_3.5.7.orig.tar.gz.asc",
-          "sha256": "d3d082bee3f658c31db53af625eceecf29d777c7010394bed5787ebcc98abdf2",
-          "origin": "https://deb.debian.org/debian/pool/main/o/openssl/openssl_3.5.7.orig.tar.gz.asc",
+          "file": "openssl_3.5.9.orig.tar.gz.asc",
+          "sha256": "bdccf2057a7c4ae377b40e832cb8c632ae8b532d4fb64cc7b843066eee748f89",
           "role": "source",
           "extract_notices": false
         },
         {
-          "file": "openssl_3.5.7-1~deb13u2.debian.tar.xz",
-          "sha256": "593a47654ead460a3b609503733f80bef552ff0802799d3b47784faacc50809f",
-          "origin": "https://deb.debian.org/debian/pool/main/o/openssl/openssl_3.5.7-1~deb13u2.debian.tar.xz",
+          "file": "openssl_3.5.9-1~deb13u1.debian.tar.xz",
+          "sha256": "7d5158a87cd24641316b050de419be4ebddb1f180afd7ebaa3bc990036c38ec6",
           "role": "source",
           "extract_notices": true
-        },
-        {
-          "file": "openssl_3.5.7-1~deb13u2.dsc",
-          "sha256": "25904642004d30c5c3da4642a72a7d09f8d9eb6e5ce62dab53c0371114faf8f2",
-          "origin": "https://deb.debian.org/debian/pool/main/o/openssl/openssl_3.5.7-1~deb13u2.dsc",
-          "role": "source",
-          "extract_notices": false
         }
       ],
       "repository_files": [
@@ -947,6 +942,33 @@
           "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
         }
       ]
+    },
+    "natural-earth-map": {
+      "version": "50m-e874b27a",
+      "license": "LicenseRef-Natural-Earth-Public-Domain",
+      "origin": "https://www.naturalearthdata.com/about/terms-of-use/",
+      "source_required": false,
+      "dependencies": [],
+      "issues": [],
+      "artifacts": [],
+      "repository_files": [
+        {
+          "file": "plugins/adsb/map-source.json",
+          "role": "notice",
+          "sha256": "3dbebee0957a14bf3ded1c2bad0043f4e7e299c6682aa6566aa0c0bb6d8c9d40"
+        },
+        {
+          "file": "plugins/adsb/map-license.md",
+          "role": "notice",
+          "sha256": "1d59bee66c06b0433e06617c2f2bf8edbf4f810d3a694b0e76a1e084edce6647"
+        },
+        {
+          "file": "plugins/adsb/map-license.zh-CN.md",
+          "role": "notice",
+          "sha256": "4a6fbd74e7168d587a6ff986f22cab25c2b3584ed9616e9e76bf7b714f9cd253"
+        }
+      ],
+      "display_notice": "Made with Natural Earth. Bundled 1:50m land data is public domain; its original URL, hashes and conversion are retained. Application code remains GPL-3.0-or-later."
     }
   },
   "runtime_rules": [
@@ -1070,7 +1092,7 @@
   "platform": "linux-debian13-x86_64",
   "build_facts": {
     "qt": "6.8.2",
-    "openssl": "3.5.7",
+    "openssl": "3.5.9",
     "application": "0.2.13"
   },
   "packages": {
@@ -1079,6 +1101,7 @@
       "distribution-runtime",
       "dsp-runtime",
       "foreshadow",
+      "natural-earth-map",
       "rtlsdr-runtime",
       "television-runtime"
     ],

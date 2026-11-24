@@ -10,8 +10,8 @@ on:
       platform:
         description: 'Release platforms to validate'
         type: choice
-        default: all
-        options: [all, linux, windows, macos]
+        default: reviewed
+        options: [reviewed, all, linux, windows, macos]
       compliance_bundle_url:
         description: 'HTTPS archive of reviewed corresponding-source materials, with one directory per exact platform'
         required: true
@@ -49,11 +49,26 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: ${{ fromJSON(inputs.platform == 'macos' && '["macos-15"]' || inputs.platform == 'windows' && '["windows-2022"]' || inputs.platform == 'linux' && '["ubuntu-24.04","ubuntu-24.04-arm"]' || '["ubuntu-24.04","ubuntu-24.04-arm","windows-2022","macos-15"]') }}
+        os: ${{ fromJSON(inputs.platform == 'reviewed' && '["windows-2022"]' || inputs.platform == 'macos' && '["macos-15"]' || inputs.platform == 'windows' && '["windows-2022"]' || inputs.platform == 'linux' && '["ubuntu-24.04","ubuntu-24.04-arm"]' || '["ubuntu-24.04","ubuntu-24.04-arm","windows-2022","macos-15"]') }}
     runs-on: ${{ matrix.os }}
-    timeout-minutes: 30
+    timeout-minutes: 90
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Mask temporary source download capability
+        shell: bash
+        run: |
+          python -c 'import json,os; value=json.load(open(os.environ["GITHUB_EVENT_PATH"]))["inputs"]["compliance_bundle_url"]; print("::add-mask::"+value.replace("%","%25").replace("\r","%0D").replace("\n","%0A"))'
+      - name: Fetch reviewed source materials before building
+        shell: bash
+        env:
+          AMC_COMPLIANCE_BUNDLE_URL: ${{ inputs.compliance_bundle_url }}
+          AMC_COMPLIANCE_BUNDLE_SHA256: ${{ inputs.compliance_bundle_sha256 }}
+        run: |
+          python tools/distribution/fetch_compliance_bundle.py \
+            --url "$AMC_COMPLIANCE_BUNDLE_URL" --sha256 "$AMC_COMPLIANCE_BUNDLE_SHA256" --output reviewed-compliance --source-commit "${{ github.sha }}"
       - uses: actions/download-artifact@v4
         with:
           name: television-validation-media
@@ -82,6 +97,13 @@ jobs:
         run: |
           $binaryCache = Join-Path $env:RUNNER_TEMP 'amc-vcpkg-binaries'
           New-Item -ItemType Directory -Force -Path $binaryCache | Out-Null
+          # Match the source/port set recorded in the reviewed Windows materials.
+          git -C $env:VCPKG_INSTALLATION_ROOT fetch --depth 1 origin 177e8175121536d414f405ed8b3099b325a42638
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          git -C $env:VCPKG_INSTALLATION_ROOT checkout --detach 177e8175121536d414f405ed8b3099b325a42638
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          & (Join-Path $env:VCPKG_INSTALLATION_ROOT 'bootstrap-vcpkg.bat') -disableMetrics
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           $vcpkgRevision = git -C $env:VCPKG_INSTALLATION_ROOT rev-parse HEAD
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           "VCPKG_DEFAULT_BINARY_CACHE=$binaryCache" >> $env:GITHUB_ENV
@@ -158,13 +180,11 @@ jobs:
       - name: Build unsigned official toolbox packages
         shell: bash
         run: |
-          python3 tests/licensing_contract_test.py
-          python3 tools/distribution/fetch_compliance_bundle.py \
-            --url "$AMC_COMPLIANCE_BUNDLE_URL" --sha256 "$AMC_COMPLIANCE_BUNDLE_SHA256" --output reviewed-compliance
-          platform=$(python3 -c 'import json; print(json.load(open("stage/share/signalscope/compliance/build-facts.json"))["platform"])')
-          python3 tools/distribution/compliance.py --stage stage \
+          python tests/licensing_contract_test.py
+          platform=$(python -c 'import json; print(json.load(open("stage/share/signalscope/compliance/build-facts.json"))["platform"])')
+          python tools/distribution/compliance.py --stage stage \
             --materials "reviewed-compliance/materials/$platform" --source-commit "${{ github.sha }}"
-          python3 tools/distribution/package_release.py --stage stage --output release-packages \
+          python tools/distribution/package_release.py --stage stage --output release-packages \
             --base-url "https://github.com/${{ github.repository }}/releases/download/$AMC_RELEASE_TAG" --release-tag "$AMC_RELEASE_TAG" \
             --source-commit "${{ github.sha }}"
         env:
@@ -185,7 +205,7 @@ jobs:
           fi
           for entries in release-packages/entries-*.json; do
             "$verifier" "$entries" "$cli"
-            python3 tools/distribution/qualify_packages.py --entries "$entries" --output "$RUNNER_TEMP/qualified-packages"
+            python tools/distribution/qualify_packages.py --entries "$entries" --output "$RUNNER_TEMP/qualified-packages"
           done
       - name: Upload unsigned catalog entries and packages
         uses: actions/upload-artifact@v4
@@ -245,6 +265,7 @@ jobs:
             if (!(Test-Path "$bin/$runtime")) { throw "Archived MSVC runtime missing: $runtime" }
           }
           $cmake = (Get-Command cmake).Source
+          $python = (Get-Command python).Source
           $env:Path = "$bin;$env:SystemRoot\System32;$env:SystemRoot"
           $env:QT_PLUGIN_PATH = ""
           $env:QT_QPA_PLATFORM_PLUGIN_PATH = ""
@@ -256,7 +277,7 @@ jobs:
           $env:SIGNALSCOPE_RECEIVER_PLUGIN_PATH = "$env:RUNNER_TEMP/qualified-packages/org.amc.receiver.sdrplay/receiver"
           $baseRuntimePath = $env:PATH
           $env:PATH = "$env:SIGNALSCOPE_RECEIVER_PLUGIN_PATH;$baseRuntimePath"
-          python tests/with_receiver_service.py build-ci/plugins/receivers/Release/amc-test-receiver-service.exe build-ci/test-plugins/Release build-ci/Release/soapy_backend_test.exe "$bin/signalscope.exe" build-ci/test-plugins/Release
+          & $python tests/with_receiver_service.py build-ci/plugins/receivers/Release/amc-test-receiver-service.exe build-ci/test-plugins/Release build-ci/Release/soapy_backend_test.exe "$bin/signalscope.exe" build-ci/test-plugins/Release
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           $env:SIGNALSCOPE_RECEIVER_PLUGIN_PATH = ""
           $env:PATH = $baseRuntimePath
@@ -283,7 +304,7 @@ jobs:
 
   debian:
     needs: validation-inputs
-    if: inputs.platform == 'all' || inputs.platform == 'linux'
+    if: inputs.platform == 'reviewed' || inputs.platform == 'all' || inputs.platform == 'linux'
     name: Debian 13 (${{ matrix.arch }})
     strategy:
       fail-fast: false
@@ -291,10 +312,12 @@ jobs:
         include:
           - runner: ubuntu-24.04
             arch: amd64
+            profile: linux-debian13-x86_64
           - runner: ubuntu-24.04-arm
             arch: arm64
+            profile: linux-debian13-arm64
     runs-on: ${{ matrix.runner }}
-    timeout-minutes: 30
+    timeout-minutes: 90
     container: debian:13-slim
     env:
       LANG: C.UTF-8
@@ -303,8 +326,21 @@ jobs:
         run: |
           test "$(dpkg --print-architecture)" = "${{ matrix.arch }}"
           apt-get update
-          apt-get install -y --no-install-recommends ca-certificates git build-essential cmake pkg-config qt6-base-dev qt6-multimedia-dev qt6-serialport-dev qt6-tools-dev qt6-l10n-tools qt6-translations-l10n libfftw3-dev libvolk-dev librtlsdr-dev libsoapysdr-dev libssl-dev libarchive-dev python3 fonts-noto-cjk nasm
+          apt-get install -y --no-install-recommends ca-certificates git build-essential cmake pkg-config qt6-base-dev qt6-multimedia-dev qt6-serialport-dev qt6-svg-dev qt6-tools-dev qt6-l10n-tools qt6-translations-l10n libfftw3-dev libvolk-dev librtlsdr-dev libsoapysdr-dev libssl-dev libarchive-dev python3 fonts-noto-cjk nasm
       - uses: actions/checkout@v4
+      - name: Mask temporary source download capability
+        run: |
+          python3 -c 'import json,os; value=json.load(open(os.environ["GITHUB_EVENT_PATH"]))["inputs"]["compliance_bundle_url"]; print("::add-mask::"+value.replace("%","%25").replace("\r","%0D").replace("\n","%0A"))'
+      - name: Fetch and verify reviewed Debian SDK source identities
+        env:
+          AMC_COMPLIANCE_BUNDLE_URL: ${{ inputs.compliance_bundle_url }}
+          AMC_COMPLIANCE_BUNDLE_SHA256: ${{ inputs.compliance_bundle_sha256 }}
+        run: |
+          python3 tools/distribution/fetch_compliance_bundle.py \
+            --url "$AMC_COMPLIANCE_BUNDLE_URL" --sha256 "$AMC_COMPLIANCE_BUNDLE_SHA256" --output reviewed-compliance --source-commit "${{ github.sha }}"
+          python3 tools/distribution/verify_debian_sdk.py \
+            --materials "reviewed-compliance/materials/${{ matrix.profile }}" \
+            --output "$RUNNER_TEMP/debian-sdk-sources.json"
       - uses: actions/download-artifact@v4
         with:
           name: television-validation-media
@@ -324,20 +360,16 @@ jobs:
           if-no-files-found: warn
       - name: Fetch independent media validation inputs
         run: python3 tools/validation/fetch_television_references.py "$RUNNER_TEMP/television-references"
-      - name: Verify the Debian archive after extraction
+      - name: Stage Debian application and toolboxes
         run: |
           cmake --install build-ci --component SignalScope --prefix "$PWD/stage"
           cmake --install build-ci --component ResearchExamples --prefix "$PWD/stage"
-          archive="Foreshadow-debian13-${{ matrix.arch }}.tar.gz"
-          tar -czf "$archive" -C stage .
-          unpacked="$RUNNER_TEMP/Foreshadow 发布验收 📡"
-          mkdir -p "$unpacked"
-          tar -xzf "$archive" -C "$unpacked"
-          env -u SOAPY_SDR_PLUGIN_PATH cmake "-DAMC_CLI=$unpacked/bin/signalscope" -P tests/check_packaged_receivers.cmake
-          cmake "-DAMC_STAGE=$unpacked" "-DAMC_TEST_BIN=$PWD/build-ci" "-DAMC_MEDIA_REFERENCES=$RUNNER_TEMP/television-references" -P tests/check_desktop_package.cmake
       - name: Build unsigned official toolbox packages
         shell: bash
         run: |
+          python3 tests/licensing_contract_test.py
+          python3 tools/distribution/compliance.py --stage stage \
+            --materials "reviewed-compliance/materials/${{ matrix.profile }}" --source-commit "${{ github.sha }}"
           python3 tools/distribution/package_release.py --stage stage --output release-packages \
             --base-url "https://github.com/${{ github.repository }}/releases/download/$AMC_RELEASE_TAG" --release-tag "$AMC_RELEASE_TAG" \
             --source-commit "${{ github.sha }}"
@@ -356,7 +388,26 @@ jobs:
           fi
           for entries in release-packages/entries-*.json; do
             "$verifier" "$entries" "$cli"
+            python3 tools/distribution/qualify_packages.py --entries "$entries" --output "$RUNNER_TEMP/qualified-packages"
           done
+      - name: Verify the qualified Debian base archive after extraction
+        run: |
+          archive="Foreshadow-debian13-${{ matrix.arch }}.tar.gz"
+          python3 tools/distribution/portable_archive.py --root "$RUNNER_TEMP/qualified-packages/org.amc.ams" --output "$archive"
+          unpacked="$RUNNER_TEMP/Foreshadow 发布验收 📡"
+          mkdir -p "$unpacked"
+          tar -xzf "$archive" -C "$unpacked"
+          env -u SOAPY_SDR_PLUGIN_PATH cmake "-DAMC_CLI=$unpacked/bin/signalscope" -P tests/check_packaged_receivers.cmake
+          SIGNALSCOPE_RECEIVER_PLUGIN_PATH="$RUNNER_TEMP/qualified-packages/org.amc.receiver.sdrplay/receiver" \
+            python3 tests/with_receiver_service.py build-ci/plugins/receivers/amc-test-receiver-service build-ci/test-plugins \
+              build-ci/soapy_backend_test "$unpacked/bin/signalscope" build-ci/test-plugins
+          cmake "-DAMC_STAGE=$unpacked" "-DAMC_TEST_BIN=$PWD/build-ci" "-DAMC_RESEARCH_ROOT=$RUNNER_TEMP/qualified-packages/org.amc.research.power-report/research" "-DAMC_OPTIONAL_RECEIVER_ROOT=$RUNNER_TEMP/qualified-packages/org.amc.receiver.sdrplay/receiver" "-DAMC_MEDIA_REFERENCES=$RUNNER_TEMP/television-references" -P tests/check_desktop_package.cmake
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: debian-sdk-sources-${{ matrix.arch }}
+          path: ${{ runner.temp }}/debian-sdk-sources.json
+          if-no-files-found: warn
       - name: Upload unsigned catalog entries and packages
         uses: actions/upload-artifact@v4
         with:

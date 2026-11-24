@@ -107,10 +107,10 @@ The paced live-input probe processed all 60,000,000 pairs over 30 seconds at
 2 MS/s, recovered 3000/3000 frames, rejected zero pairs and reported zero gaps;
 queue high water was 40,000 bytes. This is bounded synthetic software evidence.
 
-Unverified qualification: physical RF decoding, long-term hardware/sample-loss
+At this development checkpoint, unverified qualification included physical RF decoding, long-term hardware/sample-loss
 behavior, formal release archives and Windows/macOS runtime/package behavior.
 These are not implied by the Linux source build or copied-binary path checks.
-In particular, repository-reviewed material profiles currently cover Windows
+At that checkpoint, repository-reviewed material profiles covered Windows
 x86_64 and Debian x86_64, not `linux-debian13-arm64`. The uConsole's OpenSSL
 package is `3.5.7-1~deb13u3+rpt1`, differing from the reviewed x86_64 source
 revision. Relabelling that profile is not package qualification.
@@ -119,9 +119,17 @@ including the application, receiver modules, existing private helpers, ADS-B
 catalogs and map assets. The installed application passed provider creation.
 The actual `package_release.py` attempt stopped at missing
 `share/foreshadow/compliance/inventory.json`; no qualified archive was produced.
-Final distribution acceptance remains blocked on corresponding reviewed
+At that checkpoint, final distribution acceptance was blocked on corresponding reviewed
 platform/dependency materials. Do not substitute a copied executable directory
 or an unsigned ad-hoc archive for that gate.
+
+The [0.2.13 release preparation](releases/0.2.13.md) adds a distinct
+`linux-debian13-arm64` profile for the generic Debian 13 hosted SDK, including
+OpenSSL 3.5.9 source materials and an installed-SDK source-identity gate. The
+uConsole's Raspberry Pi OpenSSL 3.5.7 runtime remains a separate compatibility
+target. Its local build is not relabelled as the hosted build. Final archive
+and device qualification are recorded with the release assets; macOS is outside
+this release's acceptance scope. Physical RF decoding remains unverified.
 
 Build `adsb_stream_probe` explicitly and run it to measure 30 seconds of 2 MS/s
 input with 100 known frames per source second. It reports elapsed time, frame

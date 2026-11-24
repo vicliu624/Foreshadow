@@ -1,0 +1,1122 @@
+{
+  "schema": 1,
+  "application_id": "org.amc.ams",
+  "components": {
+    "foreshadow": {
+      "version": "0.2.13",
+      "license": "GPL-3.0-or-later",
+      "origin": "Frozen Foreshadow Git commit",
+      "source_required": true,
+      "dependencies": [
+        "json"
+      ],
+      "issues": [],
+      "artifacts": [
+        {
+          "first_party": true
+        }
+      ],
+      "repository_files": [
+        {
+          "file": "LICENSE",
+          "role": "notice",
+          "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903"
+        },
+        {
+          "file": "LICENSING.md",
+          "role": "notice",
+          "sha256": "35c78507ff117544de27a31d387b68c078ae49e9edf7ed32396ff3b3391365f1"
+        },
+        {
+          "file": "SOURCE_AND_REPLACEMENT.md",
+          "role": "build",
+          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+        },
+        {
+          "file": "COPYRIGHT.md",
+          "role": "notice",
+          "sha256": "fdf49105abc7330ff26e26d38218af6038a089e5508d2b1462b9621c0611c4d9"
+        },
+        {
+          "file": "COPYRIGHT.zh-CN.md",
+          "role": "notice",
+          "sha256": "4e0cdf0cdd1b2b7b333e31df1219ca8c5ff77f41e3056ed0e966eb8c47944920"
+        },
+        {
+          "file": "BRANDING.md",
+          "role": "notice",
+          "sha256": "523aefbc504d6e9e71538f2cf2eddaca7a71a2c39451b87402e57fa0003c9f2f"
+        },
+        {
+          "file": "BRANDING.zh-CN.md",
+          "role": "notice",
+          "sha256": "cae99d738da99d352505394396b06123dcbc00df6059ab8d189e81bd81808977"
+        },
+        {
+          "file": "LICENSING.zh-CN.md",
+          "role": "notice",
+          "sha256": "6b3d7324d593c745699bdd26681f0eefdae4d6ce323b02f7cf976102c2c81923"
+        },
+        {
+          "file": "THIRD_PARTY_NOTICES.md",
+          "role": "notice",
+          "sha256": "5657dd129da7127fcb798e823fd461740354bcc1960cee4b1fc55f9dae847888"
+        },
+        {
+          "file": "THIRD_PARTY_NOTICES.zh-CN.md",
+          "role": "notice",
+          "sha256": "296cc0cd5ccbf6ab99006a6184c27b1a03b0b179923d50f6e9a9c2e604235335"
+        },
+        {
+          "file": "SOURCE_AND_REPLACEMENT.zh-CN.md",
+          "role": "build",
+          "sha256": "4b5b40681e1566e02d0479aa91db362dc3493d800c930af04dda8c7c16318e92"
+        }
+      ],
+      "display_notice": "Foreshadow and its first-party plugins are free software under GNU GPL version 3 or, at your option, any later version. Imported code retains its original copyright and license."
+    },
+    "json": {
+      "version": "3.12.0",
+      "license": "MIT",
+      "origin": "https://github.com/nlohmann/json/releases/download/v3.12.0/json.tar.xz",
+      "source_required": true,
+      "dependencies": [],
+      "issues": [],
+      "artifacts": [
+        {
+          "file": "json.tar.xz",
+          "sha256": "42f6e95cad6ec532fd372391373363b62a14af6d771056dbfc86160e6dfff7aa",
+          "origin": "https://github.com/nlohmann/json/releases/download/v3.12.0/json.tar.xz",
+          "role": "source",
+          "extract_notices": true
+        }
+      ],
+      "repository_files": [
+        {
+          "file": "SOURCE_AND_REPLACEMENT.md",
+          "role": "build",
+          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+        }
+      ]
+    },
+    "kissfft": {
+      "version": "131.1.0",
+      "license": "BSD-3-Clause",
+      "origin": "https://github.com/mborgerding/kissfft/archive/refs/tags/131.1.0.tar.gz",
+      "source_required": true,
+      "dependencies": [],
+      "issues": [],
+      "artifacts": [
+        {
+          "file": "kissfft.tar.gz",
+          "sha256": "76c1aac87ddb7258f34b08a13f0eebf9e53afa299857568346aa5c82bcafaf1a",
+          "origin": "https://github.com/mborgerding/kissfft/archive/refs/tags/131.1.0.tar.gz",
+          "role": "source",
+          "extract_notices": true
+        }
+      ],
+      "repository_files": [
+        {
+          "file": "SOURCE_AND_REPLACEMENT.md",
+          "role": "build",
+          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+        }
+      ]
+    },
+    "ffmpeg": {
+      "version": "cd4e96eb314630788b7ff2f9820c395788c023e2",
+      "license": "LGPL-2.1-or-later",
+      "origin": "https://codeload.github.com/FFmpeg/FFmpeg/tar.gz/cd4e96eb314630788b7ff2f9820c395788c023e2",
+      "source_required": true,
+      "dependencies": [],
+      "issues": [],
+      "artifacts": [
+        {
+          "file": "ffmpeg_native.tar.gz",
+          "sha256": "e3976ef0636e9c12d68c193abc4898ab50f05be3a4996026abc60c18be7447d4",
+          "origin": "https://codeload.github.com/FFmpeg/FFmpeg/tar.gz/cd4e96eb314630788b7ff2f9820c395788c023e2",
+          "role": "source",
+          "extract_notices": true
+        }
+      ],
+      "repository_files": [
+        {
+          "file": "SOURCE_AND_REPLACEMENT.md",
+          "role": "build",
+          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+        },
+        {
+          "file": "cmake/BuildFfmpeg.sh",
+          "role": "build",
+          "sha256": "157b68766cb7ec98a9c314e057da80800bdd6df7457cf825e4e4f641c32f0ed1"
+        },
+        {
+          "file": "cmake/MediaDecoder.cmake",
+          "role": "build",
+          "sha256": "586cfb20533acc7c8a498e596f390c05299d3120e3f8aabfa9f3c6ec279b69e8"
+        },
+        {
+          "file": "LICENSES/LGPL-2.1-or-later.txt",
+          "role": "notice",
+          "sha256": "5df07007198989c622f5d41de8d703e7bef3d0e79d62e24332ee739a452af62a"
+        }
+      ],
+      "display_notice": "This package uses FFmpeg under LGPL-2.1-or-later, configured without GPL or nonfree features. Original notices, source and build/replacement material accompany this copy."
+    },
+    "dtmb-sdr": {
+      "version": "2cc94c012128d6fa3e8d6de456b3bb57e51990a9",
+      "license": "MIT",
+      "origin": "https://github.com/ningzichun/dtmb-sdr/archive/2cc94c012128d6fa3e8d6de456b3bb57e51990a9.tar.gz",
+      "source_required": true,
+      "dependencies": [],
+      "issues": [],
+      "artifacts": [
+        {
+          "file": "dtmb_decoder.tar.gz",
+          "sha256": "87ecbf94ae4873bcc65c3a284ab4e2bfeecf26f2f8135a2f0ff2d98af8338c41",
+          "origin": "https://github.com/ningzichun/dtmb-sdr/archive/2cc94c012128d6fa3e8d6de456b3bb57e51990a9.tar.gz",
+          "role": "source",
+          "extract_notices": true
+        }
+      ],
+      "repository_files": [
+        {
+          "file": "SOURCE_AND_REPLACEMENT.md",
+          "role": "build",
+          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+        },
+        {
+          "file": "cmake/DtmbReceiver.cmake",
+          "role": "build",
+          "sha256": "a20d9a6286bc4e9bb336dfd9d7881a3bc9bfa80ec75494787b2738c262c3f9ce"
+        },
+        {
+          "file": "third_party/dtmb-patches/pn595.json",
+          "role": "build",
+          "sha256": "69288fe613df1f47d0ab353f2c3adff7f09a582bc088f3fe54efa784987a7cf5"
+        },
+        {
+          "file": "third_party/dtmb-patches/fec-eof.json",
+          "role": "build",
+          "sha256": "751df4e1238b3c42a7fa145483a8f0460934d6f6e1545f3410f9fc8baaadd3da"
+        },
+        {
+          "file": "third_party/dtmb-sampler-LICENSE",
+          "role": "notice",
+          "sha256": "2245ae0e78dda1d1475ae16d5f67702794bd2f28de68d9e5f149c3c78f60c90f"
+        }
+      ]
+    },
+    "dra": {
+      "version": "eb94ceb887b47b6ecfbda9da43273dd65246df1e",
+      "license": "MIT",
+      "origin": "https://github.com/maliwen2015/ffmpeg_cavs_dra",
+      "source_required": true,
+      "dependencies": [],
+      "issues": [],
+      "artifacts": [
+        {
+          "first_party": true
+        }
+      ],
+      "repository_files": [
+        {
+          "file": "third_party/dra/LICENSE",
+          "role": "notice",
+          "sha256": "cac0ae34bd88bc4347c3901c3d6e9715ee64ae9b2ec8e027b0892ecd67db98f4"
+        },
+        {
+          "file": "third_party/dra/UPSTREAM.md",
+          "role": "build",
+          "sha256": "969b20e93c020ffa08a6afdb81d129d280028f17c78fb8d4213d46746e8af115"
+        }
+      ]
+    },
+    "qt-base": {
+      "version": "6.8.2+dfsg-9+deb13u2",
+      "license": "LGPL-3.0-only AND LicenseRef-Qt-ThirdParty",
+      "origin": "Debian qt6-base",
+      "source_required": true,
+      "dependencies": [],
+      "issues": [],
+      "artifacts": [
+        {
+          "file": "qt6-base_6.8.2+dfsg.orig.tar.xz",
+          "sha256": "e0dddfea4dabb8ae4ad9224d674bef21cd101a6a5126fe988e3af69b251260b8",
+          "origin": "https://deb.debian.org/debian/pool/main/q/qt6-base/qt6-base_6.8.2+dfsg.orig.tar.xz",
+          "role": "source",
+          "extract_notices": true
+        },
+        {
+          "file": "qt6-base_6.8.2+dfsg-9+deb13u2.debian.tar.xz",
+          "sha256": "d06a727b594206cbc5f0447fb202c64c9d190cf03032bf9618c46f8bd4fd9506",
+          "origin": "https://deb.debian.org/debian/pool/main/q/qt6-base/qt6-base_6.8.2+dfsg-9+deb13u2.debian.tar.xz",
+          "role": "source",
+          "extract_notices": true
+        },
+        {
+          "file": "qt6-base_6.8.2+dfsg-9+deb13u2.dsc",
+          "sha256": "fd3d4e1ad5bb96dbdaf212f9edabf4dfc08b4f39b321e9325e9b5ab83826f1f8",
+          "origin": "https://deb.debian.org/debian/pool/main/q/qt6-base/qt6-base_6.8.2+dfsg-9+deb13u2.dsc",
+          "role": "source",
+          "extract_notices": false
+        }
+      ],
+      "repository_files": [
+        {
+          "file": "SOURCE_AND_REPLACEMENT.md",
+          "role": "build",
+          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+        }
+      ],
+      "display_notice": "This application uses Qt under LGPL-3.0-only. Qt copyright notices, the LGPL/GPL texts, corresponding source and instructions for replacing the shared libraries accompany this copy. Other Qt third-party code retains its applicable terms."
+    },
+    "qt-multimedia": {
+      "version": "6.8.2-8",
+      "license": "LGPL-3.0-only",
+      "origin": "Debian qt6-multimedia",
+      "source_required": true,
+      "dependencies": [],
+      "issues": [],
+      "artifacts": [
+        {
+          "file": "qt6-multimedia_6.8.2.orig.tar.xz",
+          "sha256": "34f561fdc07b158bcc4ad040b596fc6086c48908060e854b473b557e4feb1569",
+          "origin": "https://deb.debian.org/debian/pool/main/q/qt6-multimedia/qt6-multimedia_6.8.2.orig.tar.xz",
+          "role": "source",
+          "extract_notices": true
+        },
+        {
+          "file": "qt6-multimedia_6.8.2-8.debian.tar.xz",
+          "sha256": "ef170ab6544f726edeb170ef56e26aec725fa3b4d1ad6c0bd6cd846bbc69c86b",
+          "origin": "https://deb.debian.org/debian/pool/main/q/qt6-multimedia/qt6-multimedia_6.8.2-8.debian.tar.xz",
+          "role": "source",
+          "extract_notices": true
+        },
+        {
+          "file": "qt6-multimedia_6.8.2-8.dsc",
+          "sha256": "31b5b5e57704254494253c766cd711fa27fad2d448e1a002b667a5590fdb9cd3",
+          "origin": "https://deb.debian.org/debian/pool/main/q/qt6-multimedia/qt6-multimedia_6.8.2-8.dsc",
+          "role": "source",
+          "extract_notices": false
+        }
+      ],
+      "repository_files": [
+        {
+          "file": "SOURCE_AND_REPLACEMENT.md",
+          "role": "build",
+          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+        }
+      ]
+    },
+    "qt-svg": {
+      "version": "6.8.2-3",
+      "license": "LGPL-3.0-only",
+      "origin": "Debian qt6-svg",
+      "source_required": true,
+      "dependencies": [],
+      "issues": [],
+      "artifacts": [
+        {
+          "file": "qt6-svg_6.8.2.orig.tar.xz",
+          "sha256": "aa2579f21ca66d19cbcf31d87e9067e07932635d36869c8239d4decd0a9dc1fa",
+          "origin": "https://deb.debian.org/debian/pool/main/q/qt6-svg/qt6-svg_6.8.2.orig.tar.xz",
+          "role": "source",
+          "extract_notices": true
+        },
+        {
+          "file": "qt6-svg_6.8.2-3.debian.tar.xz",
+          "sha256": "eaa5a6791cbee3fccf3678d906111a91ef3834b8e4a7dd6025d937cf60c36dce",
+          "origin": "https://deb.debian.org/debian/pool/main/q/qt6-svg/qt6-svg_6.8.2-3.debian.tar.xz",
+          "role": "source",
+          "extract_notices": true
+        },
+        {
+          "file": "qt6-svg_6.8.2-3.dsc",
+          "sha256": "b552bf0efcdb81c914ffec2069461a3fec50a99dd7b78b8bdcaf026f2cc7c87a",
+          "origin": "https://deb.debian.org/debian/pool/main/q/qt6-svg/qt6-svg_6.8.2-3.dsc",
+          "role": "source",
+          "extract_notices": false
+        }
+      ],
+      "repository_files": [
+        {
+          "file": "SOURCE_AND_REPLACEMENT.md",
+          "role": "build",
+          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+        }
+      ]
+    },
+    "qt-serialport": {
+      "version": "6.8.2-3",
+      "license": "LGPL-3.0-only",
+      "origin": "Debian qt6-serialport",
+      "source_required": true,
+      "dependencies": [],
+      "issues": [],
+      "artifacts": [
+        {
+          "file": "qt6-serialport_6.8.2.orig.tar.xz",
+          "sha256": "ed17e02361e989f149f58d021ab8cd66f21db4cdfb8cde0a462017e6ac1e3be7",
+          "origin": "https://deb.debian.org/debian/pool/main/q/qt6-serialport/qt6-serialport_6.8.2.orig.tar.xz",
+          "role": "source",
+          "extract_notices": true
+        },
+        {
+          "file": "qt6-serialport_6.8.2-3.debian.tar.xz",
+          "sha256": "2a24f8e03501d141ab4206b6a120ae61d0477b9a4fd471c2592998c821a95961",
+          "origin": "https://deb.debian.org/debian/pool/main/q/qt6-serialport/qt6-serialport_6.8.2-3.debian.tar.xz",
+          "role": "source",
+          "extract_notices": true
+        },
+        {
+          "file": "qt6-serialport_6.8.2-3.dsc",
+          "sha256": "bf9244f0a1e4c661073faf17c69d2266438caaff6068c8dac397a0c3f3713ed0",
+          "origin": "https://deb.debian.org/debian/pool/main/q/qt6-serialport/qt6-serialport_6.8.2-3.dsc",
+          "role": "source",
+          "extract_notices": false
+        }
+      ],
+      "repository_files": [
+        {
+          "file": "SOURCE_AND_REPLACEMENT.md",
+          "role": "build",
+          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+        }
+      ]
+    },
+    "qt-translations": {
+      "version": "6.8.2-2",
+      "license": "BSD-3-Clause",
+      "origin": "Debian qt6-translations",
+      "source_required": true,
+      "dependencies": [],
+      "issues": [],
+      "artifacts": [
+        {
+          "file": "qt6-translations_6.8.2.orig.tar.xz",
+          "sha256": "d2106e8a580bfd77702c4c1840299288d344902b0e2c758ca813ea04c6d6a3d1",
+          "origin": "https://deb.debian.org/debian/pool/main/q/qt6-translations/qt6-translations_6.8.2.orig.tar.xz",
+          "role": "source",
+          "extract_notices": true
+        },
+        {
+          "file": "qt6-translations_6.8.2-2.debian.tar.xz",
+          "sha256": "47d3ed4198b261a48c251dd389b23017587bc60e1fa44908a20991b01e59f71e",
+          "origin": "https://deb.debian.org/debian/pool/main/q/qt6-translations/qt6-translations_6.8.2-2.debian.tar.xz",
+          "role": "source",
+          "extract_notices": true
+        },
+        {
+          "file": "qt6-translations_6.8.2-2.dsc",
+          "sha256": "cc30eaced2d218324bf5bab33be46c3374f3ac07cedb69d26cbd3ca13218cbfa",
+          "origin": "https://deb.debian.org/debian/pool/main/q/qt6-translations/qt6-translations_6.8.2-2.dsc",
+          "role": "source",
+          "extract_notices": false
+        }
+      ],
+      "repository_files": [
+        {
+          "file": "SOURCE_AND_REPLACEMENT.md",
+          "role": "build",
+          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+        }
+      ]
+    },
+    "fftw": {
+      "version": "3.3.10-2",
+      "license": "GPL-2.0-or-later",
+      "origin": "Debian fftw3",
+      "source_required": true,
+      "dependencies": [],
+      "issues": [],
+      "artifacts": [
+        {
+          "file": "fftw3_3.3.10.orig.tar.gz",
+          "sha256": "56c932549852cddcfafdab3820b0200c7742675be92179e59e6215b340e26467",
+          "origin": "https://deb.debian.org/debian/pool/main/f/fftw3/fftw3_3.3.10.orig.tar.gz",
+          "role": "source",
+          "extract_notices": true
+        },
+        {
+          "file": "fftw3_3.3.10-2.debian.tar.xz",
+          "sha256": "369066d9b28af25ac779ad23cce78be8dad3896bcbeb80de30d3d36b7a94fd67",
+          "origin": "https://deb.debian.org/debian/pool/main/f/fftw3/fftw3_3.3.10-2.debian.tar.xz",
+          "role": "source",
+          "extract_notices": true
+        },
+        {
+          "file": "fftw3_3.3.10-2.dsc",
+          "sha256": "58bdea9754119c591f95e373c1c85ff2b6861383b20bf3bb1e81af9c76a51d71",
+          "origin": "https://deb.debian.org/debian/pool/main/f/fftw3/fftw3_3.3.10-2.dsc",
+          "role": "source",
+          "extract_notices": false
+        }
+      ],
+      "repository_files": [
+        {
+          "file": "SOURCE_AND_REPLACEMENT.md",
+          "role": "build",
+          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+        }
+      ]
+    },
+    "volk": {
+      "version": "3.2.0-2",
+      "license": "LGPL-3.0-or-later",
+      "origin": "Debian volk",
+      "source_required": true,
+      "dependencies": [],
+      "issues": [],
+      "artifacts": [
+        {
+          "file": "volk_3.2.0.orig.tar.gz",
+          "sha256": "5433b07537223e4ead30fed85ff9e915740e3738ff358d74eff39e483818b986",
+          "origin": "https://deb.debian.org/debian/pool/main/v/volk/volk_3.2.0.orig.tar.gz",
+          "role": "source",
+          "extract_notices": true
+        },
+        {
+          "file": "volk_3.2.0-2.debian.tar.xz",
+          "sha256": "4b206370b2914c9c2742b5d336d9405db531ae22d8fed10ea10c581ee0a2a7e1",
+          "origin": "https://deb.debian.org/debian/pool/main/v/volk/volk_3.2.0-2.debian.tar.xz",
+          "role": "source",
+          "extract_notices": true
+        },
+        {
+          "file": "volk_3.2.0-2.dsc",
+          "sha256": "4523a0ed0aef9af9a248894bcef8a486d188a2decefdfce0303f3b376ad749d8",
+          "origin": "https://deb.debian.org/debian/pool/main/v/volk/volk_3.2.0-2.dsc",
+          "role": "source",
+          "extract_notices": false
+        }
+      ],
+      "repository_files": [
+        {
+          "file": "SOURCE_AND_REPLACEMENT.md",
+          "role": "build",
+          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+        }
+      ]
+    },
+    "openssl": {
+      "version": "3.5.9-1~deb13u1",
+      "license": "Apache-2.0",
+      "origin": "https://deb.debian.org/debian/pool/main/o/openssl/openssl_3.5.9-1~deb13u1.dsc",
+      "source_required": true,
+      "dependencies": [],
+      "issues": [],
+      "artifacts": [
+        {
+          "file": "openssl_3.5.9-1~deb13u1.dsc",
+          "sha256": "b038dfab5ee111242b7439e07c820d228519273e7fd1f514014b039e929aad9f",
+          "role": "source"
+        },
+        {
+          "file": "openssl_3.5.9.orig.tar.gz",
+          "sha256": "603f5602e2eef00d77fbd429d34dcd5822bb301757a1bc9cdb24c670f1eb859a",
+          "role": "source",
+          "extract_notices": true
+        },
+        {
+          "file": "openssl_3.5.9.orig.tar.gz.asc",
+          "sha256": "bdccf2057a7c4ae377b40e832cb8c632ae8b532d4fb64cc7b843066eee748f89",
+          "role": "source",
+          "extract_notices": false
+        },
+        {
+          "file": "openssl_3.5.9-1~deb13u1.debian.tar.xz",
+          "sha256": "7d5158a87cd24641316b050de419be4ebddb1f180afd7ebaa3bc990036c38ec6",
+          "role": "source",
+          "extract_notices": true
+        }
+      ],
+      "repository_files": [
+        {
+          "file": "SOURCE_AND_REPLACEMENT.md",
+          "role": "build",
+          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+        }
+      ]
+    },
+    "libarchive": {
+      "version": "3.7.4-4+deb13u1",
+      "license": "BSD-2-Clause AND BSD-3-Clause AND LicenseRef-libarchive-file-notices",
+      "origin": "Debian libarchive",
+      "source_required": true,
+      "dependencies": [],
+      "issues": [],
+      "artifacts": [
+        {
+          "file": "libarchive_3.7.4.orig.tar.xz",
+          "sha256": "f887755c434a736a609cbd28d87ddbfbe9d6a3bb5b703c22c02f6af80a802735",
+          "origin": "https://deb.debian.org/debian/pool/main/liba/libarchive/libarchive_3.7.4.orig.tar.xz",
+          "role": "source",
+          "extract_notices": true
+        },
+        {
+          "file": "libarchive_3.7.4.orig.tar.xz.asc",
+          "sha256": "400b72233b64fae8d93a180f7330d0015a48fe93cdfb56329190b4d1a099d816",
+          "origin": "https://deb.debian.org/debian/pool/main/liba/libarchive/libarchive_3.7.4.orig.tar.xz.asc",
+          "role": "source",
+          "extract_notices": false
+        },
+        {
+          "file": "libarchive_3.7.4-4+deb13u1.debian.tar.xz",
+          "sha256": "72da9703b642c6c9bc0432704f1ad14919c57f743336396b5f8aefaf9bf79874",
+          "origin": "https://deb.debian.org/debian/pool/main/liba/libarchive/libarchive_3.7.4-4+deb13u1.debian.tar.xz",
+          "role": "source",
+          "extract_notices": true
+        },
+        {
+          "file": "libarchive_3.7.4-4+deb13u1.dsc",
+          "sha256": "0579aa62c9b547a520fd3af48382b1b071c75dde75643c5063fc5f5dcb80545b",
+          "origin": "https://deb.debian.org/debian/pool/main/liba/libarchive/libarchive_3.7.4-4+deb13u1.dsc",
+          "role": "source",
+          "extract_notices": false
+        }
+      ],
+      "repository_files": [
+        {
+          "file": "SOURCE_AND_REPLACEMENT.md",
+          "role": "build",
+          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+        }
+      ]
+    },
+    "rtlsdr": {
+      "version": "2.0.2-2",
+      "license": "GPL-2.0-or-later",
+      "origin": "Debian rtl-sdr",
+      "source_required": true,
+      "dependencies": [
+        "libusb"
+      ],
+      "issues": [],
+      "artifacts": [
+        {
+          "file": "rtl-sdr_2.0.2.orig.tar.xz",
+          "sha256": "b40e5113231fbda333f2c69dd576c3dded54cf5a98f3750a0d4042cc870e792a",
+          "origin": "https://deb.debian.org/debian/pool/main/r/rtl-sdr/rtl-sdr_2.0.2.orig.tar.xz",
+          "role": "source",
+          "extract_notices": true
+        },
+        {
+          "file": "rtl-sdr_2.0.2-2.debian.tar.xz",
+          "sha256": "5e130d9f82a94c564d1a0405013671c2aaa6382b5c9e7e1939c5357b45e2f822",
+          "origin": "https://deb.debian.org/debian/pool/main/r/rtl-sdr/rtl-sdr_2.0.2-2.debian.tar.xz",
+          "role": "source",
+          "extract_notices": true
+        },
+        {
+          "file": "rtl-sdr_2.0.2-2.dsc",
+          "sha256": "c61787f9aabbd8319e7c54f017c622f443a4c82e377e9d03a2144945fc68750d",
+          "origin": "https://deb.debian.org/debian/pool/main/r/rtl-sdr/rtl-sdr_2.0.2-2.dsc",
+          "role": "source",
+          "extract_notices": false
+        }
+      ],
+      "repository_files": [
+        {
+          "file": "SOURCE_AND_REPLACEMENT.md",
+          "role": "build",
+          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+        }
+      ]
+    },
+    "libusb": {
+      "version": "1.0.28-1",
+      "license": "LGPL-2.1-or-later",
+      "origin": "Debian libusb-1.0",
+      "source_required": true,
+      "dependencies": [],
+      "issues": [],
+      "artifacts": [
+        {
+          "file": "libusb-1.0_1.0.28.orig.tar.bz2",
+          "sha256": "966bb0d231f94a474eaae2e67da5ec844d3527a1f386456394ff432580634b29",
+          "origin": "https://deb.debian.org/debian/pool/main/libu/libusb-1.0/libusb-1.0_1.0.28.orig.tar.bz2",
+          "role": "source",
+          "extract_notices": true
+        },
+        {
+          "file": "libusb-1.0_1.0.28.orig.tar.bz2.asc",
+          "sha256": "a92679aa89b24339f554c767cee6e4fb0c16802aef50f1280284f05edbf65d19",
+          "origin": "https://deb.debian.org/debian/pool/main/libu/libusb-1.0/libusb-1.0_1.0.28.orig.tar.bz2.asc",
+          "role": "source",
+          "extract_notices": false
+        },
+        {
+          "file": "libusb-1.0_1.0.28-1.debian.tar.xz",
+          "sha256": "4057d38b4b0766f1de2957f25c98e9e447748c08ba75bc15eb29094b67829f89",
+          "origin": "https://deb.debian.org/debian/pool/main/libu/libusb-1.0/libusb-1.0_1.0.28-1.debian.tar.xz",
+          "role": "source",
+          "extract_notices": true
+        },
+        {
+          "file": "libusb-1.0_1.0.28-1.dsc",
+          "sha256": "be92b66ffc1784d592a78bf4ae1c5f5776fd3cd96ebbc677341cc71956d3611b",
+          "origin": "https://deb.debian.org/debian/pool/main/libu/libusb-1.0/libusb-1.0_1.0.28-1.dsc",
+          "role": "source",
+          "extract_notices": false
+        }
+      ],
+      "repository_files": [
+        {
+          "file": "SOURCE_AND_REPLACEMENT.md",
+          "role": "build",
+          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+        }
+      ]
+    },
+    "soapysdr": {
+      "version": "0.8.1-5",
+      "license": "BSL-1.0",
+      "origin": "Debian soapysdr",
+      "source_required": true,
+      "dependencies": [],
+      "issues": [],
+      "artifacts": [
+        {
+          "file": "soapysdr_0.8.1.orig.tar.gz",
+          "sha256": "a508083875ed75d1090c24f88abef9895ad65f0f1b54e96d74094478f0c400e6",
+          "origin": "https://deb.debian.org/debian/pool/main/s/soapysdr/soapysdr_0.8.1.orig.tar.gz",
+          "role": "source",
+          "extract_notices": true
+        },
+        {
+          "file": "soapysdr_0.8.1-5.debian.tar.xz",
+          "sha256": "6ff3eb931536fab2ce2d8a24710b4c7b23ae7ef4e6c6da4ddab796ee42d2cb5c",
+          "origin": "https://deb.debian.org/debian/pool/main/s/soapysdr/soapysdr_0.8.1-5.debian.tar.xz",
+          "role": "source",
+          "extract_notices": true
+        },
+        {
+          "file": "soapysdr_0.8.1-5.dsc",
+          "sha256": "792573aa997204102b39fdc9ffd46ab03bb699976bc417609c508a472efe7bf7",
+          "origin": "https://deb.debian.org/debian/pool/main/s/soapysdr/soapysdr_0.8.1-5.dsc",
+          "role": "source",
+          "extract_notices": false
+        }
+      ],
+      "repository_files": [
+        {
+          "file": "SOURCE_AND_REPLACEMENT.md",
+          "role": "build",
+          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+        }
+      ]
+    },
+    "desktop-runtime": {
+      "version": "0.2.13",
+      "license": "See selected component licenses",
+      "origin": "Foreshadow package assembly",
+      "source_required": false,
+      "dependencies": [
+        "qt-base",
+        "qt-multimedia",
+        "qt-svg",
+        "qt-serialport",
+        "qt-translations"
+      ],
+      "issues": [],
+      "artifacts": [],
+      "repository_files": [
+        {
+          "file": "LICENSE",
+          "role": "notice",
+          "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903"
+        },
+        {
+          "file": "LICENSING.md",
+          "role": "notice",
+          "sha256": "35c78507ff117544de27a31d387b68c078ae49e9edf7ed32396ff3b3391365f1"
+        },
+        {
+          "file": "SOURCE_AND_REPLACEMENT.md",
+          "role": "build",
+          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+        }
+      ]
+    },
+    "distribution-runtime": {
+      "version": "0.2.13",
+      "license": "See selected component licenses",
+      "origin": "Foreshadow package assembly",
+      "source_required": false,
+      "dependencies": [
+        "openssl",
+        "libarchive"
+      ],
+      "issues": [],
+      "artifacts": [],
+      "repository_files": [
+        {
+          "file": "LICENSE",
+          "role": "notice",
+          "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903"
+        },
+        {
+          "file": "LICENSING.md",
+          "role": "notice",
+          "sha256": "35c78507ff117544de27a31d387b68c078ae49e9edf7ed32396ff3b3391365f1"
+        },
+        {
+          "file": "SOURCE_AND_REPLACEMENT.md",
+          "role": "build",
+          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+        }
+      ]
+    },
+    "dsp-runtime": {
+      "version": "0.2.13",
+      "license": "See selected component licenses",
+      "origin": "Foreshadow package assembly",
+      "source_required": false,
+      "dependencies": [
+        "kissfft",
+        "fftw",
+        "volk"
+      ],
+      "issues": [],
+      "artifacts": [],
+      "repository_files": [
+        {
+          "file": "LICENSE",
+          "role": "notice",
+          "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903"
+        },
+        {
+          "file": "LICENSING.md",
+          "role": "notice",
+          "sha256": "35c78507ff117544de27a31d387b68c078ae49e9edf7ed32396ff3b3391365f1"
+        },
+        {
+          "file": "SOURCE_AND_REPLACEMENT.md",
+          "role": "build",
+          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+        }
+      ]
+    },
+    "television-runtime": {
+      "version": "0.2.13",
+      "license": "See selected component licenses",
+      "origin": "Foreshadow package assembly",
+      "source_required": false,
+      "dependencies": [
+        "ffmpeg",
+        "dtmb-sdr",
+        "dra",
+        "kissfft",
+        "fftw"
+      ],
+      "issues": [],
+      "artifacts": [],
+      "repository_files": [
+        {
+          "file": "LICENSE",
+          "role": "notice",
+          "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903"
+        },
+        {
+          "file": "LICENSING.md",
+          "role": "notice",
+          "sha256": "35c78507ff117544de27a31d387b68c078ae49e9edf7ed32396ff3b3391365f1"
+        },
+        {
+          "file": "SOURCE_AND_REPLACEMENT.md",
+          "role": "build",
+          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+        }
+      ]
+    },
+    "rtlsdr-runtime": {
+      "version": "0.2.13",
+      "license": "See selected component licenses",
+      "origin": "Foreshadow package assembly",
+      "source_required": false,
+      "dependencies": [
+        "rtlsdr"
+      ],
+      "issues": [],
+      "artifacts": [],
+      "repository_files": [
+        {
+          "file": "LICENSE",
+          "role": "notice",
+          "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903"
+        },
+        {
+          "file": "LICENSING.md",
+          "role": "notice",
+          "sha256": "35c78507ff117544de27a31d387b68c078ae49e9edf7ed32396ff3b3391365f1"
+        },
+        {
+          "file": "SOURCE_AND_REPLACEMENT.md",
+          "role": "build",
+          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+        }
+      ]
+    },
+    "soapy-runtime": {
+      "version": "0.2.13",
+      "license": "See selected component licenses",
+      "origin": "Foreshadow package assembly",
+      "source_required": false,
+      "dependencies": [
+        "soapysdr",
+        "soapyremote"
+      ],
+      "issues": [],
+      "artifacts": [],
+      "repository_files": [
+        {
+          "file": "LICENSE",
+          "role": "notice",
+          "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903"
+        },
+        {
+          "file": "LICENSING.md",
+          "role": "notice",
+          "sha256": "35c78507ff117544de27a31d387b68c078ae49e9edf7ed32396ff3b3391365f1"
+        },
+        {
+          "file": "SOURCE_AND_REPLACEMENT.md",
+          "role": "build",
+          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+        }
+      ],
+      "display_notice": "The optional receiver client uses the independent SoapyRemote network protocol. No SDRplay API, local hardware driver, or receiver service binary is included. Install the receiver service and vendor software separately on the receiver computer."
+    },
+    "research-runtime": {
+      "version": "0.2.13",
+      "license": "See selected component licenses",
+      "origin": "Foreshadow package assembly",
+      "source_required": false,
+      "dependencies": [],
+      "issues": [],
+      "artifacts": [],
+      "repository_files": [
+        {
+          "file": "LICENSE",
+          "role": "notice",
+          "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903"
+        },
+        {
+          "file": "LICENSING.md",
+          "role": "notice",
+          "sha256": "35c78507ff117544de27a31d387b68c078ae49e9edf7ed32396ff3b3391365f1"
+        },
+        {
+          "file": "SOURCE_AND_REPLACEMENT.md",
+          "role": "build",
+          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+        }
+      ]
+    },
+    "soapyremote": {
+      "version": "0.5.4-bd10a2e4a916bf66f0faa36dca7f043d4268138c",
+      "license": "BSL-1.0",
+      "origin": "https://github.com/pothosware/SoapyRemote/tree/bd10a2e4a916bf66f0faa36dca7f043d4268138c",
+      "source_required": true,
+      "dependencies": [],
+      "issues": [],
+      "artifacts": [
+        {
+          "file": "soapyremote.tar.gz",
+          "sha256": "c225d0608ad299053f850fbe8e4ac227f4f920054fde8c422b31eb6d084289bd",
+          "origin": "https://codeload.github.com/pothosware/SoapyRemote/tar.gz/bd10a2e4a916bf66f0faa36dca7f043d4268138c",
+          "role": "source",
+          "extract_notices": true
+        }
+      ],
+      "repository_files": [
+        {
+          "file": "cmake/RemoteReceiver.cmake",
+          "role": "build",
+          "sha256": "2fa24491c3c409debdf56ed1c01674ca10523c7cbfe465d9cd86eb0c2f9fe57f"
+        },
+        {
+          "file": "SOURCE_AND_REPLACEMENT.md",
+          "role": "build",
+          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+        }
+      ]
+    },
+    "natural-earth-map": {
+      "version": "50m-e874b27a",
+      "license": "LicenseRef-Natural-Earth-Public-Domain",
+      "origin": "https://www.naturalearthdata.com/about/terms-of-use/",
+      "source_required": false,
+      "dependencies": [],
+      "issues": [],
+      "artifacts": [],
+      "repository_files": [
+        {
+          "file": "plugins/adsb/map-source.json",
+          "role": "notice",
+          "sha256": "3dbebee0957a14bf3ded1c2bad0043f4e7e299c6682aa6566aa0c0bb6d8c9d40"
+        },
+        {
+          "file": "plugins/adsb/map-license.md",
+          "role": "notice",
+          "sha256": "1d59bee66c06b0433e06617c2f2bf8edbf4f810d3a694b0e76a1e084edce6647"
+        },
+        {
+          "file": "plugins/adsb/map-license.zh-CN.md",
+          "role": "notice",
+          "sha256": "4a6fbd74e7168d587a6ff986f22cab25c2b3584ed9616e9e76bf7b714f9cd253"
+        }
+      ],
+      "display_notice": "Made with Natural Earth. Bundled 1:50m land data is public domain; its original URL, hashes and conversion are retained. Application code remains GPL-3.0-or-later."
+    }
+  },
+  "runtime_rules": [
+    {
+      "component": "foreshadow",
+      "pattern": "bin/signalscope-benchmark-lora"
+    },
+    {
+      "component": "foreshadow",
+      "pattern": "bin/signalscope-compare-lora-audit"
+    },
+    {
+      "component": "foreshadow",
+      "pattern": "bin/signalscope-generate-pluto-iq"
+    },
+    {
+      "component": "foreshadow",
+      "pattern": "bin/signalscope-gui"
+    },
+    {
+      "component": "foreshadow",
+      "pattern": "bin/signalscope-launcher-gui"
+    },
+    {
+      "component": "foreshadow",
+      "pattern": "bin/signalscope-launcher"
+    },
+    {
+      "component": "foreshadow",
+      "pattern": "bin/signalscope-media"
+    },
+    {
+      "component": "foreshadow",
+      "pattern": "bin/signalscope-pager-status"
+    },
+    {
+      "component": "foreshadow",
+      "pattern": "bin/signalscope-toolboxes"
+    },
+    {
+      "component": "foreshadow",
+      "pattern": "bin/signalscope-update"
+    },
+    {
+      "component": "foreshadow",
+      "pattern": "bin/signalscope"
+    },
+    {
+      "component": "foreshadow",
+      "pattern": "research-plugins/power-report/amc-power-report"
+    },
+    {
+      "component": "foreshadow",
+      "pattern": "libexec/signalscope/dtmb/amc-dtmb-demap"
+    },
+    {
+      "component": "foreshadow",
+      "pattern": "libexec/signalscope/dtmb/amc-dtmb-fec"
+    },
+    {
+      "component": "foreshadow",
+      "pattern": "libexec/signalscope/dtmb/amc-dtmb-frontend"
+    },
+    {
+      "component": "foreshadow",
+      "pattern": "libexec/signalscope/dtmb/amc-dtmb-resample"
+    },
+    {
+      "component": "foreshadow",
+      "pattern": "lib/signalscope/receivers/amc-receiver-rtlsdr.so"
+    },
+    {
+      "component": "foreshadow",
+      "pattern": "lib/signalscope/receivers/amc-receiver-sdrplay.so"
+    },
+    {
+      "component": "foreshadow",
+      "pattern": "receiver/amc-receiver-rtlsdr.so"
+    },
+    {
+      "component": "foreshadow",
+      "pattern": "receiver/amc-receiver-sdrplay.so"
+    },
+    {
+      "component": "foreshadow",
+      "pattern": "research/amc-power-report"
+    },
+    {
+      "component": "foreshadow",
+      "pattern": "libexec/signalscope/dtmb/amc-dtmb-recover"
+    },
+    {
+      "component": "foreshadow",
+      "pattern": "libexec/signalscope/dtmb/amc-dtmb-demod"
+    },
+    {
+      "component": "foreshadow",
+      "pattern": "libexec/signalscope/dtmb/amc-dtmb-fec"
+    },
+    {
+      "component": "ffmpeg",
+      "pattern": "lib/libavcodec.so*"
+    },
+    {
+      "component": "ffmpeg",
+      "pattern": "lib/libavformat.so*"
+    },
+    {
+      "component": "ffmpeg",
+      "pattern": "lib/libavutil.so*"
+    },
+    {
+      "component": "ffmpeg",
+      "pattern": "lib/libswresample.so*"
+    },
+    {
+      "component": "ffmpeg",
+      "pattern": "lib/libswscale.so*"
+    }
+  ],
+  "platform": "linux-debian13-arm64",
+  "build_facts": {
+    "qt": "6.8.2",
+    "openssl": "3.5.9",
+    "application": "0.2.13"
+  },
+  "packages": {
+    "org.amc.ams": [
+      "desktop-runtime",
+      "distribution-runtime",
+      "dsp-runtime",
+      "foreshadow",
+      "natural-earth-map",
+      "rtlsdr-runtime",
+      "television-runtime"
+    ],
+    "org.amc.receiver.rtlsdr": [
+      "foreshadow",
+      "rtlsdr-runtime"
+    ],
+    "org.amc.receiver.sdrplay": [
+      "foreshadow",
+      "soapy-runtime"
+    ],
+    "org.amc.research.power-report": [
+      "foreshadow",
+      "research-runtime"
+    ]
+  },
+  "review_notes": "Expected native Debian 13 ARM64 SDK source identities are checked against the delivered .dsc files by verify_debian_sdk.py. ARM64 build, archive and transaction qualification is required; x64 results are not ARM64 evidence. Compatibility on the RPi-modified uConsole runtime is qualified separately from the generic Debian SDK."
+}

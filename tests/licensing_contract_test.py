@@ -12,9 +12,51 @@ from compliance import DIRECTORY, attach, digest, dump, prepare, validate, valid
 from collect_materials import collect
 from package_release import compose_application
 from portable_archive import export
+from verify_debian_sdk import verify as verify_debian_sdk
+from fetch_compliance_bundle import verify_source_commits
 
 
 class ComplianceContract(unittest.TestCase):
+    def test_material_bundle_cannot_mix_source_commits_between_platforms(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            dump(root / 'platform-one/materials.json', {'source_commit': 'frozen-source'})
+            dump(root / 'platform-two/materials.json', {'source_commit': 'frozen-source'})
+            verify_source_commits(root, 'frozen-source')
+            dump(root / 'platform-two/materials.json', {'source_commit': 'another-source'})
+            with self.assertRaisesRegex(ValueError, 'source commit mismatch'):
+                verify_source_commits(root, 'frozen-source')
+        with tempfile.TemporaryDirectory() as directory:
+            with self.assertRaisesRegex(ValueError, 'no platform material inventories'):
+                verify_source_commits(Path(directory), 'frozen-source')
+
+    def test_independent_sdk_source_identity_rejects_missing_wrong_and_mixed_versions(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            descriptor = root / 'new-provider.dsc'
+            descriptor.write_text('Format: 3.0 (quilt)\nSource: independent-sdk\nVersion: 7.2-3\n', encoding='utf-8')
+            dump(root / 'materials.json', {'schema': 1, 'components': {
+                'arbitrary-provider': {'materials': [{'path': descriptor.name, 'role': 'source',
+                                                     'sha256': digest(descriptor)}]}}})
+            self.assertEqual(verify_debian_sdk(root, {'independent-sdk': {'7.2-3'}}),
+                             {'independent-sdk': '7.2-3'})
+            for installed in ({}, {'independent-sdk': {'7.2-2'}},
+                              {'independent-sdk': {'7.2-3', '7.2-2'}}):
+                with self.assertRaisesRegex(ValueError, 'SDK source mismatch'):
+                    verify_debian_sdk(root, installed)
+
+    def test_sdk_source_identity_does_not_accept_an_altered_descriptor(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            descriptor = root / 'different-source.dsc'
+            descriptor.write_text('Source: different-sdk\nVersion: 1.0\n', encoding='utf-8')
+            dump(root / 'materials.json', {'schema': 1, 'components': {
+                'another-provider': {'materials': [{'path': descriptor.name, 'role': 'source',
+                                                   'sha256': digest(descriptor)}]}}})
+            descriptor.write_text('Source: different-sdk\nVersion: 2.0\n', encoding='utf-8')
+            with self.assertRaisesRegex(ValueError, 'checksum mismatch'):
+                verify_debian_sdk(root, {'different-sdk': {'2.0'}})
+
     def setUp(self):
         self.temporary = tempfile.TemporaryDirectory(prefix='许可 📡 ')
         self.addCleanup(self.temporary.cleanup)

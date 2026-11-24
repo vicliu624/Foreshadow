@@ -130,9 +130,18 @@ The television provider plays the redistributable synthetic test stream, with mu
 
 ![Foreshadow Toolbox Center](docs/images/toolbox-center.png)
 
+### ADS-B aircraft workspace
+
+![English ADS-B workspace on the receiver-connected uConsole](docs/reports/assets/2026-11-24-adsb-workspace.png)
+
+The bundled [1090 MHz ADS-B module](docs/adsb.md) provides continuous PPM/CRC processing,
+DF17/DF18 evidence, an aircraft list and an offline Natural Earth map. This screenshot
+shows the idle workspace, not successful RF reception. Physical 1090 MHz decoding
+remains unverified; synthetic decoder and input-continuity results have separate scope.
+
 ## Installation
 
-This new repository initially publishes source only. Windows/Linux binary downloads will be released separately through [GitHub Releases](https://github.com/vicliu624/Foreshadow/releases). Until then, use the source build instructions below; historical review packages are not presented as a new public binary release. For a future binary installation, extract the complete archive and keep runtime libraries, resources, receiver modules and notices together.
+Qualified Windows x64, Debian 13 x64 and Debian 13 ARM64 downloads are published through [GitHub Releases](https://github.com/vicliu624/Foreshadow/releases). Read the release's attached qualification and source/material manifests for the exact available platforms and remaining limits. If a release is still being prepared, use the source build instructions below. Extract the complete archive and keep runtime libraries, resources, receiver modules and notices together. See the [0.2.13 release notes](docs/releases/0.2.13.md), including the one-time migration from older AMS installations.
 
 **Source-branch capability and published-release capability are different.** This branch includes the waveform laboratory and trained PSK/OFDM work. A published catalog may describe an earlier accepted release; check its notes/version. Existing assets can carry the historical AMS name.
 

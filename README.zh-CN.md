@@ -130,9 +130,17 @@ Foreshadow 在同一桌面工作区中组织接收机、检测、显示和研究
 
 ![Foreshadow 工具箱中心](docs/images/toolbox-center.png)
 
+### ADS-B 航空器工作区
+
+![连接接收机的 uConsole 上的英文 ADS-B 工作区](docs/reports/assets/2026-11-24-adsb-workspace.png)
+
+内置 [1090 MHz ADS-B 模块](docs/adsb.zh-CN.md)提供连续 PPM/CRC 处理、DF17/DF18 证据、
+航空器列表及 Natural Earth 离线地图。截图展示空闲工作区，不代表射频接收成功。
+物理 1090 MHz 解码仍未验证；合成解码及输入连续性的测试结果具有各自的适用范围。
+
 ## 安装与启动
 
-新仓库本次先公开源码，Windows/Linux 下载包后续通过 [GitHub Releases](https://github.com/vicliu624/Foreshadow/releases) 单独发布。当前请使用后文源码构建说明，不把历史评审包写成新公开二进制。后续使用下载包时须完整解压，保留运行库、资源、接收机模块和依赖通知的相对位置。
+通过 [GitHub Releases](https://github.com/vicliu624/Foreshadow/releases)发布经验证的 Windows x64、Debian 13 x64 和 Debian 13 ARM64 下载包。实际提供的平台及剩余限制，以相应发布附带的验收和源码／材料清单为准；若该版本仍在准备，请使用后文源码构建说明。下载包须完整解压，保留运行库、资源、接收机模块和依赖通知的相对位置。另见 [0.2.13 发布说明](docs/releases/0.2.13.zh-CN.md)，其中包含旧 AMS 安装的一次性迁移步骤。
 
 **源码分支与正式发布的功能状态分开。** 本分支已包含波形实验室和训练式 PSK/OFDM。线上签名目录可能仍指向此前验收版本，请核对版本与发布说明；已有资产也可能使用历史名称 AMS。
 

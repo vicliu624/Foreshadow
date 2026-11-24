@@ -61,12 +61,12 @@
         {
           "file": "THIRD_PARTY_NOTICES.md",
           "role": "notice",
-          "sha256": "7e7b1b1790e7269774fe9928171f759535ebe5b99418bce8c4ab8364cdf46654"
+          "sha256": "5657dd129da7127fcb798e823fd461740354bcc1960cee4b1fc55f9dae847888"
         },
         {
           "file": "THIRD_PARTY_NOTICES.zh-CN.md",
           "role": "notice",
-          "sha256": "63942fc0d8baefd8accc1fb45907bbf7c49592ea73852857ffc39805933519cb"
+          "sha256": "296cc0cd5ccbf6ab99006a6184c27b1a03b0b179923d50f6e9a9c2e604235335"
         },
         {
           "file": "SOURCE_AND_REPLACEMENT.zh-CN.md",
@@ -374,7 +374,7 @@
         {
           "file": "THIRD_PARTY_NOTICES.md",
           "role": "notice",
-          "sha256": "7e7b1b1790e7269774fe9928171f759535ebe5b99418bce8c4ab8364cdf46654"
+          "sha256": "5657dd129da7127fcb798e823fd461740354bcc1960cee4b1fc55f9dae847888"
         }
       ]
     },
@@ -901,6 +901,33 @@
           "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
         }
       ]
+    },
+    "natural-earth-map": {
+      "version": "50m-e874b27a",
+      "license": "LicenseRef-Natural-Earth-Public-Domain",
+      "origin": "https://www.naturalearthdata.com/about/terms-of-use/",
+      "source_required": false,
+      "dependencies": [],
+      "issues": [],
+      "artifacts": [],
+      "repository_files": [
+        {
+          "file": "plugins/adsb/map-source.json",
+          "role": "notice",
+          "sha256": "3dbebee0957a14bf3ded1c2bad0043f4e7e299c6682aa6566aa0c0bb6d8c9d40"
+        },
+        {
+          "file": "plugins/adsb/map-license.md",
+          "role": "notice",
+          "sha256": "1d59bee66c06b0433e06617c2f2bf8edbf4f810d3a694b0e76a1e084edce6647"
+        },
+        {
+          "file": "plugins/adsb/map-license.zh-CN.md",
+          "role": "notice",
+          "sha256": "4a6fbd74e7168d587a6ff986f22cab25c2b3584ed9616e9e76bf7b714f9cd253"
+        }
+      ],
+      "display_notice": "Made with Natural Earth. Bundled 1:50m land data is public domain; its original URL, hashes and conversion are retained. Application code remains GPL-3.0-or-later."
     }
   },
   "runtime_rules": [
@@ -1145,6 +1172,7 @@
       "distribution-runtime",
       "dsp-runtime",
       "foreshadow",
+      "natural-earth-map",
       "rtlsdr-runtime",
       "television-runtime"
     ],

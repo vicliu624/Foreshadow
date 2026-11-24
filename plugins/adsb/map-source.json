@@ -3,5 +3,6 @@
   "source_sha256": "e874b27a51d146452be360cafb3cc50c86001074a67d534113e6534682f9826b",
   "license": "public-domain",
   "terms": "https://www.naturalearthdata.com/about/terms-of-use/",
-  "processing": "50m land polygon rings, coordinates rounded to five decimal places"
+  "processing": "50m land polygon rings, coordinates rounded to five decimal places",
+  "processed_sha256": "b6bc4b6c24fbc9650abfe87d6606a6feabaa65e2acd8f8cfb70a25a264cd0fe6"
 }

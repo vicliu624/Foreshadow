@@ -28,6 +28,7 @@ contains its own applicable materials.
 | FFmpeg `cd4e96eb314630788b7ff2f9820c395788c023e2` | LGPL-2.1-or-later for the configured library build | One native shared decoder set; `--disable-gpl --disable-nonfree`. The original source, `cmake/BuildFfmpeg.sh`, configure options and checked local portability patches accompany it. Runtime `-L`/`-buildconf` are additional evidence. Qt codec backends and their separate FFmpeg runtime are excluded from the reviewed PCM path. |
 | dtmb-sdr `2cc94c012128d6fa3e8d6de456b3bb57e51990a9` | MIT | Source, original copyright, PN595/FEC patches and sampler notice retained. |
 | DRA extracted fork `eb94ceb887b47b6ecfbda9da43273dd65246df1e` | MIT for the imported code | Vendored source and local changes are in `third_party/dra`; software copyright terms do not establish codec patent rights. |
+| Natural Earth 1:50m land data | Public domain, recorded as `LicenseRef-Natural-Earth-Public-Domain` | The ADS-B module owns its [map notice](plugins/adsb/map-license.md), original/processed data hashes and conversion record. The imported contours keep their public-domain status; application code remains GPL-3.0-or-later. |
 | Microsoft Visual C++ runtime | Microsoft runtime/Visual Studio redistribution terms | Unmodified Windows CRT files retain their vendor terms and are not relicensed GPL. Original runtime terms and the official redistribution list accompany Windows materials; the GPL System Libraries exclusion is recorded separately from the vendor's redistribution grant. |
 
 ## External and unresolved boundaries
