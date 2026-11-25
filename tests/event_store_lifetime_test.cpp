@@ -38,18 +38,20 @@ int main(int argc,char** argv) {
         // Qt may restrict child inheritance to standard I/O. Check the actual
         // CRT file handle as well, so its whitelist cannot hide an inheritable lock.
         bool found=false,inheritable=false;
-        const auto expected=std::filesystem::absolute(root/".store.lock").make_preferred().native();
+        const auto metadata=CreateFileW((root/".store.lock").c_str(),0,
+            FILE_SHARE_READ|FILE_SHARE_WRITE|FILE_SHARE_DELETE,nullptr,OPEN_EXISTING,0,nullptr);
+        require(metadata!=INVALID_HANDLE_VALUE,"Cannot inspect recording lock identity");
+        BY_HANDLE_FILE_INFORMATION expected{};
+        const auto identified=GetFileInformationByHandle(metadata,&expected);CloseHandle(metadata);
+        require(identified,"Cannot read recording lock identity");
         const auto previous=_set_thread_local_invalid_parameter_handler(
             [](const wchar_t*,const wchar_t*,const wchar_t*,unsigned,uintptr_t){});
-        std::wstring name(32768,L'\0');
         for(int fd=0;fd<_getmaxstdio();++fd) {
             const auto native=_get_osfhandle(fd);if(native<0)continue;
             const auto handle=reinterpret_cast<HANDLE>(native);
-            const auto length=GetFinalPathNameByHandleW(handle,name.data(),static_cast<DWORD>(name.size()),0);
-            if(!length || length>=name.size())continue;
-            auto actual=name.substr(0,length);
-            if(actual.starts_with(L"\\\\?\\"))actual.erase(0,4);
-            if(CompareStringOrdinal(actual.c_str(),-1,expected.c_str(),-1,TRUE)!=CSTR_EQUAL)continue;
+            BY_HANDLE_FILE_INFORMATION actual{};
+            if(!GetFileInformationByHandle(handle,&actual) || actual.dwVolumeSerialNumber!=expected.dwVolumeSerialNumber ||
+                actual.nFileIndexHigh!=expected.nFileIndexHigh || actual.nFileIndexLow!=expected.nFileIndexLow)continue;
             found=true;DWORD flags=0;
             inheritable=!GetHandleInformation(handle,&flags) || (flags&HANDLE_FLAG_INHERIT)!=0;
         }

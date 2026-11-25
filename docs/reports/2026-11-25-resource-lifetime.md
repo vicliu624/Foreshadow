@@ -29,7 +29,9 @@ process notification can carry only startup diagnostics, and Windows text output
 uses CRLF. The corrected test waits for a complete stdout readiness line until a
 deadline, normalizes its line ending and retains diagnostics on failure. It
 directly checks the native CRT lock handle's inheritance flag, because Qt can
-restrict child inheritance independently. Removing `_O_NOINHERIT` made that
+restrict child inheritance independently. The handle is matched by volume/file
+identity so Windows short paths and junctions do not change the assertion.
+Removing `_O_NOINHERIT` made that
 native assertion fail; restoring it passed all 64 lock/recording/replay cycles
 with 148 handles before and after. This is separate from the original production
 defects and does not waive the frozen-source formal release gates.
