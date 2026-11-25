@@ -78,7 +78,7 @@ Open **Plugins → Toolbox Center** to inspect packages and activation, **Module
 
 ## Screenshots
 
-These are English native application views captured on the receiver-connected Linux workstation. Synthetic inputs demonstrate research workflows; physical RF captures are labelled separately. The [gallery](docs/screenshots.md) records each capture's source and scope.
+The core research views were captured on the receiver-connected Linux workstation, using the English native application. Synthetic inputs demonstrate research workflows; physical RF captures are labelled separately. The latest uConsole update capture is identified below. The [gallery](docs/screenshots.md) records each capture's source and scope.
 
 ### Linked waveforms and measurements
 
@@ -144,29 +144,37 @@ The bundled [ADS-B provider](docs/adsb.md) displays actual aircraft positions, c
 
 Open **View → WSPR reception and decoding** for the bundled [WSPR provider](docs/wspr.md). **Receive WSPR** acquires its own reception demand; **Open I/Q recording** uses the same engine for files. This is the receiver workstation's actual installed English UI, with explicitly synthetic input generated from independent WSJT-X symbols, recovering K1ABC/FN42/37 dBm. Results retain lowest-tone frequency, drift, synchronization score and source-sample location. The score is not SNR; unknown callsign hashes remain unresolved. Physical HF observations and synthetic references have separate evidence. WSPR-15 and automatic WSPRnet upload are not implemented.
 
+### 0.2.16 normal update on uConsole
+
+![Actual uConsole after normal update, with installed and loaded versions at 0.2.16](docs/images/reviews/2026-11-25-0.2.16/01-uconsole-updated-toolboxes.png)
+
+The actual English uConsole desktop after public-catalog installation and a health-checked restart. This is separate from the receiver-workstation captures; that workstation's foreground update and new screenshots await operator unlock. See the [release/update report](docs/reports/2026-11-25-0.2.16-release-and-update.md).
+
 ## Installation
 
-**[Foreshadow 0.2.15 is published](https://github.com/vicliu624/Foreshadow/releases/tag/v0.2.15)** with qualified Windows x64, Debian 13 x64 and Debian 13 ARM64 packages.
+**[Foreshadow 0.2.16 is published](https://github.com/vicliu624/Foreshadow/releases/tag/v0.2.16)** with qualified Windows x64, Debian 13 x64 and Debian 13 ARM64 packages.
 
 | Qualified portable application | Download |
 |---|---|
-| Windows x64 | [Foreshadow-windows-x64.zip](https://github.com/vicliu624/Foreshadow/releases/download/v0.2.15/Foreshadow-windows-x64.zip) |
-| Debian 13 x64 | [Foreshadow-debian13-amd64.tar.gz](https://github.com/vicliu624/Foreshadow/releases/download/v0.2.15/Foreshadow-debian13-amd64.tar.gz) |
-| Debian 13 ARM64 / uConsole | [Foreshadow-debian13-arm64.tar.gz](https://github.com/vicliu624/Foreshadow/releases/download/v0.2.15/Foreshadow-debian13-arm64.tar.gz) |
+| Windows x64 | [Foreshadow-windows-x64.zip](https://github.com/vicliu624/Foreshadow/releases/download/v0.2.16/Foreshadow-windows-x64.zip) |
+| Debian 13 x64 | [Foreshadow-debian13-amd64.tar.gz](https://github.com/vicliu624/Foreshadow/releases/download/v0.2.16/Foreshadow-debian13-amd64.tar.gz) |
+| Debian 13 ARM64 / uConsole | [Foreshadow-debian13-arm64.tar.gz](https://github.com/vicliu624/Foreshadow/releases/download/v0.2.16/Foreshadow-debian13-arm64.tar.gz) |
 
-Extract the complete archive into a new directory and keep runtime libraries, resources, receiver modules and notices together. The base includes RTL-SDR; the SDRplay service client and Power Report toolbox are separate downloads through **Plugins → Toolbox Center**. Check [SHA256SUMS](https://github.com/vicliu624/Foreshadow/releases/download/v0.2.15/SHA256SUMS.txt), the [qualification record](https://github.com/vicliu624/Foreshadow/releases/download/v0.2.15/release-qualification.json), and the [release notes](docs/releases/0.2.15.md). The earlier [one-time migration instructions](docs/releases/0.2.13.md) still apply to older AMS installations.
+Extract the complete archive into a new directory and keep runtime libraries, resources, receiver modules and notices together. The base includes RTL-SDR; the SDRplay service client and Power Report toolbox are separate downloads through **Plugins → Toolbox Center**. Check [SHA256SUMS](https://github.com/vicliu624/Foreshadow/releases/download/v0.2.16/SHA256SUMS.txt), the [qualification record](https://github.com/vicliu624/Foreshadow/releases/download/v0.2.16/release-qualification.json), and the [release notes](docs/releases/0.2.16.md). The earlier [one-time migration instructions](docs/releases/0.2.13.md) still apply to older AMS installations.
 
-The 0.2.15 downloads include the waveform laboratory, trained PSK/OFDM work, ADS-B offline geography and WSPR live/recording modules. Each release records its own platform and feature evidence; use that version's qualification record when evaluating a download. Historical reports and older assets can carry the AMS name.
+The 0.2.16 downloads include the waveform laboratory, trained PSK/OFDM work, ADS-B offline geography and WSPR live/recording modules. Each release records its own platform and feature evidence; use that version's qualification record when evaluating a download. Historical reports and older assets can carry the AMS name.
 
 | Platform | Entry in a new installation | Host conditions |
 |---|---|---|
 | Windows x64 | `bin/signalscope-gui.exe` | Distributed Qt/media runtimes plus the intended hardware driver |
 | Linux | `bin/signalscope-gui` | Matching CPU/distribution baseline, USB access, and device-specific API/service |
-| macOS, historical/source builds | `Foreshadow.app` | No macOS package is published or accepted for 0.2.15; older packages use `AMS.app` |
+| macOS, historical/source builds | `Foreshadow.app` | No macOS package is published or accepted for 0.2.16; older packages use `AMS.app` |
 
 `signalscope`, `signalscope-gui`, and `signalscope-toolboxes` remain compatibility command names. **Foreshadow is the product name.** The source repository is now [vicliu624/Foreshadow](https://github.com/vicliu624/Foreshadow), initialized with a new Git history. See [repository transition](docs/repository-transition.md) for historical evidence and release scope.
 
 Latest native Mac acceptance used Intel x86_64, macOS 14.3.1, Qt 6.8.3, and deployment target 14.0. This does not qualify every macOS version or Apple Silicon; see [platform evidence](docs/reports/2026-11-12-native-macos-deployment.md).
+
+0.2.16 fixes remote logging resource retention and recording-lock inheritance. Update both the application and **SDRplay Support**, then restart; the logging fixes ship in that separate receiver toolbox.
 
 ## Start without hardware
 
@@ -394,17 +402,19 @@ See the [source map](src/README.md), [architecture](docs/03-architecture-and-int
 
 Tests cover independent transmitter truth, negative cases, budgets, discontinuities, cancellation, source mapping, independent providers, resource-only languages/fallback, persistence, native UI, and real package transactions. Build success or a screenshot alone is not feature acceptance.
 
-The [0.2.15 formal build](https://github.com/vicliu624/Foreshadow/actions/runs/45378748549) uses frozen source `34983c16700dcbf28aa9e001339e3c8986031afc`:
+The [0.2.16 formal build](https://github.com/vicliu624/Foreshadow/actions/runs/45543592669) uses frozen source `d33e438c0c2ca8c693dd4905c6ce2392aec5bcd8`:
 
 | Published platform | Full CTest | Actual archive and runtime acceptance |
 |---|---|---|
-| Windows x64 | 127 passed, 2 audio-device skips, 0 failed | Actual archives, independent toolboxes, AVS+/DRA, Chinese/non-BMP paths and provider discovery passed |
-| Debian 13 x64 | 128 passed, 2 audio-device skips, 0 failed | Actual archives, independent toolboxes, AVS+/DRA, Chinese/non-BMP paths and provider discovery passed |
-| Debian 13 ARM64 / uConsole | 128 passed, 2 audio-device skips, 0 failed | Actual archives, independent toolboxes, AVS+/DRA, Chinese/non-BMP paths and provider discovery passed |
+| Windows x64 | 129 passed, 2 audio-device skips, 0 failed | Actual archives, independent toolboxes, AVS+/DRA, Chinese/non-BMP paths and provider discovery passed |
+| Debian 13 x64 | 130 passed, 2 audio-device skips, 0 failed | Actual archives, independent toolboxes, AVS+/DRA, Chinese/non-BMP paths and provider discovery passed |
+| Debian 13 ARM64 / uConsole | 130 passed, 2 audio-device skips, 0 failed | Actual archives, independent toolboxes, AVS+/DRA, Chinese/non-BMP paths and provider discovery passed |
 
-The [qualification record](https://github.com/vicliu624/Foreshadow/releases/download/v0.2.15/release-qualification.json) contains source, SDK identities, hashes and unverified items. The [workstation report](docs/reports/2026-11-24-0.2.15-release-and-update.md) records `.42` normally updating four packages through the public signed catalog, restart health, preserved data/settings, fresh capture, GUI pause/resume replay, reopened analysis, physical ADS-B positions and independent WSPR reference decoding. Catalog and trust-key compatibility are preserved.
+The [qualification record](https://github.com/vicliu624/Foreshadow/releases/download/v0.2.16/release-qualification.json) contains source/SDK identities, package hashes, native runtime results and explicit limits. The [release and update report](docs/reports/2026-11-25-0.2.16-release-and-update.md) distinguishes isolated archive validation from normal installed-desktop upgrades. The receiver workstation's original desktop upgrade is pending operator unlock; its actual 0.2.16 archives already passed physical capture, recording, replay, historical export and external Power Report checks in an isolated directory.
 
-Sixty-second ADS-B and 140-second WSPR sustained 2 MS/s regressions are part of all three formal platform suites. The delivered production source completely rebuilt and installed on the unchanged Qt 6.8.2/OpenSSL 3.5.7 receiver workstation; this is not a byte-identical reproduction of the hosted OpenSSL 3.5.9 SDK build. All 27 publisher material contracts passed, with original WSJT-X notices, GPL and source in every platform. HF observations without a decoded station, unavailable physical-audio endpoints and excluded macOS acceptance remain explicit. Bounded software/physical observations do not establish indefinite hardware losslessness.
+Resource checks reuse the client process: 64 recording/replay cycles, 32 rejected/successful constructions and 16 deliberate logging reconnects require unchanged native resource counts. Actual packaged Linux clients also pass 32 probe/stream cycles. On the RSPdx-R2 workstation, the packaged client completed 12 physical device cycles plus 60 seconds at 2 MS/s (120 million pairs), followed by a new six-million-pair recording and byte-exact historical export. All 26 original data files retained their hashes. These are bounded observations, not attribution of the restarted overnight process or an indefinite hardware-losslessness guarantee.
+
+Sixty-second ADS-B and 140-second WSPR sustained 2 MS/s regressions remain in all three formal suites. The production source rebuilt and installed on the unchanged Qt 6.8.2/OpenSSL 3.5.7 receiver workstation; this is not a byte-identical reproduction of the hosted OpenSSL 3.5.9 SDK build. All 27 publisher material contracts passed. Original notices, corresponding sources and BSL-1.0 local client patch recipes accompany the applicable packages. Physical audio output and macOS acceptance remain outside the verified scope. The earlier [0.2.15 workstation report](docs/reports/2026-11-24-0.2.15-release-and-update.md) preserves the actual ADS-B position and WSPR reference screenshots and observations for that version.
 
 The [0.2.12 r4 qualification](docs/reports/2026-11-14-receiver-service-review.md)
 records the earlier Windows/Linux service architecture and actual archives:
@@ -460,6 +470,6 @@ Packaged builds expose **Help → Licenses and source**. Every application and i
 
 The [r4 service qualification](docs/reports/2026-11-14-receiver-service-review.md) records the independent base/client, four passing mechanical archive gates on each platform, clean first-party source rebuilds, Qt replacement probes, physical service capture and current review entry points. The [r3 licensing qualification](docs/reports/2026-11-13-license-adoption-review.md) remains historical evidence of the superseded in-process arrangement.
 
-The [free/open-source codec patent assessment](docs/codec-patent-assessment.md) separates free downloads, royalty rates and permission. The published 0.2.15 base retains full television functionality; publication does not resolve the existing specific patent assessment or create a new grant. The SDRplay client is a separate published package. The dated [release preparation](docs/reports/2026-11-14-public-release-preparation.md) records earlier decisions; mechanical material validation is not patent clearance.
+The [free/open-source codec patent assessment](docs/codec-patent-assessment.md) separates free downloads, royalty rates and permission. The published 0.2.16 base retains full television functionality; publication does not resolve the existing specific patent assessment or create a new grant. The SDRplay client is a separate published package. The dated [release preparation](docs/reports/2026-11-14-public-release-preparation.md) records earlier decisions; mechanical material validation is not patent clearance.
 
 ![Licenses and source, rendered on the receiver workstation](docs/images/receiver-service-licenses.png)

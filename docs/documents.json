@@ -3,6 +3,11 @@
   "default_language": "en",
   "documents": [
     {
+      "en": "docs/reports/2026-11-25-0.2.16-release-and-update.md",
+      "zh-CN": "docs/reports/2026-11-25-0.2.16-release-and-update.zh-CN.md",
+      "status": "historical"
+    },
+    {
       "en": "docs/releases/0.2.16.md",
       "zh-CN": "docs/releases/0.2.16.zh-CN.md",
       "status": "current"

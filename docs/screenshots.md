@@ -2,13 +2,19 @@
 
 English · [简体中文](screenshots.zh-CN.md)
 
-All showcase images below were captured from the **receiver-connected Linux workstation**, using the actual **English native UI**. The original set is from 13 November 2026; the separately labelled service set is from 14 November. They are application captures, without mockups or generated imagery. Panels were arranged through the normal workspace controls.
+The core research images below were captured from the **receiver-connected Linux workstation**, using the actual **English native UI**. The original set is from 13 November 2026; the separately labelled service set is from 14 November. The newer uConsole update view is explicitly identified separately. All are application captures, without mockups or generated imagery. Panels were arranged through the normal workspace controls.
 
 Display and research providers supply the views below; the generic workspace hosts their panels. The [plugin guide](plugins.md) maps functionality to its owner and distribution form.
 
 Real RF, device queries and explicitly synthetic research cases are labelled separately. The first research images use the native build; receiver settings, FM, television and Toolbox Center use the staged package built from the same frozen source. Hashes and dimensions are in [image provenance](images/provenance.json). Historical Mac/release images remain in their dated reports and are not substituted for this capture set.
 
 [Detailed user guide](09-delivery-and-user-guide.md) · [Documentation index](README.md)
+
+## Public 0.2.16: normal uConsole update, 25 November
+
+![Actual uConsole after the normal 0.2.16 update](images/reviews/2026-11-25-0.2.16/01-uconsole-updated-toolboxes.png)
+
+Actual English ARM64 desktop after fetching the public signed catalog, installing the application/toolboxes and passing restart health checks. Installed and loaded versions are 0.2.16. All 201 original data files retained their hashes. This is not a physical-reception demonstration or a receiver-workstation capture; the latter's original desktop awaits operator unlock. See the [release/update evidence](reports/2026-11-25-0.2.16-release-and-update.md) and [image provenance](images/reviews/2026-11-25-0.2.16/provenance.json).
 
 ## Public 0.2.15: ADS-B and WSPR, 24 November
 

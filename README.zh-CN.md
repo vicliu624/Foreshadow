@@ -78,7 +78,7 @@ Foreshadow 在同一桌面工作区中组织接收机、检测、显示和研究
 
 ## 核心功能截图
 
-以下均为连接接收机的 Linux 工作站上的英文原生应用截图。合成输入用于演示研究流程，真实 RF 画面另行标注。[截图集](docs/screenshots.zh-CN.md)说明每张图片的采集方式和证据范围。
+核心研究图来自连接接收机的 Linux 工作站，使用实际英文原生应用。合成输入用于演示研究流程，真实 RF 画面另行标注；最新 uConsole 更新截图在下方单独说明。[截图集](docs/screenshots.zh-CN.md)记录每张图片的采集方式和证据范围。
 
 ### 波形与测量
 
@@ -144,29 +144,37 @@ Foreshadow 在同一桌面工作区中组织接收机、检测、显示和研究
 
 通过 **View → WSPR reception and decoding** 打开内置 [WSPR 提供者](docs/wspr.zh-CN.md)。**Receive WSPR** 申请自己的接收需求；**Open I/Q recording** 使用相同内核解析文件。上图来自接收机电脑实际正式英文界面，输入明确为独立 WSJT-X 符号生成的合成录音，结果为 K1ABC／FN42／37 dBm。表格提供最低音调频率、漂移、同步分数和源样本位置；同步分数不是 SNR，未知呼号哈希不猜测。HF 实际接收与合成参考分别留证，不提供 WSPR-15 或自动 WSPRnet 上传。
 
+### uConsole 的 0.2.16 正常更新
+
+![uConsole 正常更新后的实际界面，安装与加载版本均为 0.2.16](docs/images/reviews/2026-11-25-0.2.16/01-uconsole-updated-toolboxes.png)
+
+图片来自通过公开目录安装并完成重启健康检查后的实际英文 uConsole 桌面，与接收机工作站截图分别标注；后者的前台升级和新截图仍等待用户解锁。详见[发布／更新报告](docs/reports/2026-11-25-0.2.16-release-and-update.zh-CN.md)。
+
 ## 安装与启动
 
-**[Foreshadow 0.2.15 已正式发布](https://github.com/vicliu624/Foreshadow/releases/tag/v0.2.15)**，提供已验收的 Windows x64、Debian 13 x64 和 Debian 13 ARM64 下载包。
+**[Foreshadow 0.2.16 已正式发布](https://github.com/vicliu624/Foreshadow/releases/tag/v0.2.16)**，提供已验收的 Windows x64、Debian 13 x64 和 Debian 13 ARM64 下载包。
 
 | 已验收便携包 | 下载 |
 |---|---|
-| Windows x64 | [Foreshadow-windows-x64.zip](https://github.com/vicliu624/Foreshadow/releases/download/v0.2.15/Foreshadow-windows-x64.zip) |
-| Debian 13 x64 | [Foreshadow-debian13-amd64.tar.gz](https://github.com/vicliu624/Foreshadow/releases/download/v0.2.15/Foreshadow-debian13-amd64.tar.gz) |
-| Debian 13 ARM64 / uConsole | [Foreshadow-debian13-arm64.tar.gz](https://github.com/vicliu624/Foreshadow/releases/download/v0.2.15/Foreshadow-debian13-arm64.tar.gz) |
+| Windows x64 | [Foreshadow-windows-x64.zip](https://github.com/vicliu624/Foreshadow/releases/download/v0.2.16/Foreshadow-windows-x64.zip) |
+| Debian 13 x64 | [Foreshadow-debian13-amd64.tar.gz](https://github.com/vicliu624/Foreshadow/releases/download/v0.2.16/Foreshadow-debian13-amd64.tar.gz) |
+| Debian 13 ARM64 / uConsole | [Foreshadow-debian13-arm64.tar.gz](https://github.com/vicliu624/Foreshadow/releases/download/v0.2.16/Foreshadow-debian13-arm64.tar.gz) |
 
-请完整解压到新目录，保留运行库、资源、接收机模块和依赖通知的相对位置。基础包包含 RTL-SDR，独立 SDRplay 服务客户端和 Power Report 工具箱通过 **Plugins → Toolbox Center** 获取。另见 [SHA256SUMS](https://github.com/vicliu624/Foreshadow/releases/download/v0.2.15/SHA256SUMS.txt)、[验收记录](https://github.com/vicliu624/Foreshadow/releases/download/v0.2.15/release-qualification.json)和[发布说明](docs/releases/0.2.15.zh-CN.md)。此前的[一次性迁移步骤](docs/releases/0.2.13.zh-CN.md)仍适用于旧 AMS 安装。
+请完整解压到新目录，保留运行库、资源、接收机模块和依赖通知的相对位置。基础包包含 RTL-SDR，独立 SDRplay 服务客户端和 Power Report 工具箱通过 **Plugins → Toolbox Center** 获取。另见 [SHA256SUMS](https://github.com/vicliu624/Foreshadow/releases/download/v0.2.16/SHA256SUMS.txt)、[验收记录](https://github.com/vicliu624/Foreshadow/releases/download/v0.2.16/release-qualification.json)和[发布说明](docs/releases/0.2.16.zh-CN.md)。此前的[一次性迁移步骤](docs/releases/0.2.13.zh-CN.md)仍适用于旧 AMS 安装。
 
-0.2.15 下载包包含波形实验室、训练式 PSK/OFDM、离线地域 ADS-B 地图与 WSPR 实时／录音模块。每个版本分别记录平台与功能证据，评估下载包时请查阅对应版本的验收记录；历史报告和旧资产可能使用 AMS 名称。
+0.2.16 下载包包含波形实验室、训练式 PSK/OFDM、离线地域 ADS-B 地图与 WSPR 实时／录音模块。每个版本分别记录平台与功能证据，评估下载包时请查阅对应版本的验收记录；历史报告和旧资产可能使用 AMS 名称。
 
 | 平台 | 新构建安装目录入口 | 外部条件 |
 |---|---|---|
 | Windows x64 | `bin/signalscope-gui.exe` | 随包 Qt/媒体运行库及目标硬件驱动 |
 | Linux | `bin/signalscope-gui` | CPU/发行版基线匹配、USB 权限和设备 API/服务 |
-| macOS，历史／源码构建 | `Foreshadow.app` | 0.2.15 未发布或验收 macOS 包；旧包为 `AMS.app` |
+| macOS，历史／源码构建 | `Foreshadow.app` | 0.2.16 未发布或验收 macOS 包；旧包为 `AMS.app` |
 
 `signalscope`、`signalscope-gui`、`signalscope-toolboxes` 保留为兼容命令名。**产品名为 Foreshadow**，源码仓库现为 [vicliu624/Foreshadow](https://github.com/vicliu624/Foreshadow)，采用全新 Git 历史。历史证据及发布范围见[仓库迁移说明](docs/repository-transition.zh-CN.md)。
 
 最近的原生 Mac 验收环境为 Intel x86_64、macOS 14.3.1、Qt 6.8.3，部署下限 14.0。它不等于所有 macOS 或 Apple Silicon 已通过，见[平台证据](docs/reports/2026-11-12-macOS原生部署与接收流程验收.md)。
+
+0.2.16 修复远程日志资源保留和录制锁继承问题。请同时更新主程序与 **SDRplay Support** 再重启；日志修复位于独立接收机工具箱。
 
 ## 没有接收机也可以开始
 
@@ -394,17 +402,19 @@ flowchart LR
 
 测试覆盖独立发射真值、反例、预算、不连续、取消、源映射、独立提供者、资源语言/回退、持久化、原生界面和真实包事务。构建或截图成功不能单独作为功能验收。
 
-[0.2.15 正式构建](https://github.com/vicliu624/Foreshadow/actions/runs/45378748549)对应冻结源码 `34983c16700dcbf28aa9e001339e3c8986031afc`：
+[0.2.16 正式构建](https://github.com/vicliu624/Foreshadow/actions/runs/45543592669)对应冻结源码 `d33e438c0c2ca8c693dd4905c6ce2392aec5bcd8`：
 
 | 正式平台 | 完整 CTest | 实际归档与运行验收 |
 |---|---|---|
-| Windows x64 | 127 通过，2 项因声音设备跳过，0 失败 | 实际归档、独立工具箱、AVS+/DRA、中文／非 BMP 路径与提供者发现均通过 |
-| Debian 13 x64 | 128 通过，2 项因声音设备跳过，0 失败 | 实际归档、独立工具箱、AVS+/DRA、中文／非 BMP 路径与提供者发现均通过 |
-| Debian 13 ARM64 / uConsole | 128 通过，2 项因声音设备跳过，0 失败 | 实际归档、独立工具箱、AVS+/DRA、中文／非 BMP 路径与提供者发现均通过 |
+| Windows x64 | 129 通过，2 项因声音设备跳过，0 失败 | 实际归档、独立工具箱、AVS+/DRA、中文／非 BMP 路径与提供者发现均通过 |
+| Debian 13 x64 | 130 通过，2 项因声音设备跳过，0 失败 | 实际归档、独立工具箱、AVS+/DRA、中文／非 BMP 路径与提供者发现均通过 |
+| Debian 13 ARM64 / uConsole | 130 通过，2 项因声音设备跳过，0 失败 | 实际归档、独立工具箱、AVS+/DRA、中文／非 BMP 路径与提供者发现均通过 |
 
-[验收记录](https://github.com/vicliu624/Foreshadow/releases/download/v0.2.15/release-qualification.json)包含源码、SDK、哈希与未验证项。[本次实机报告](docs/reports/2026-11-24-0.2.15-release-and-update.zh-CN.md)记录 `.42` 从公开签名目录正常升级四个包、重启健康检查、旧数据／设置保留、新实采、GUI 暂停／恢复回放、旧分析重开、ADS-B 实际位置和 WSPR 独立参考解码。目录与公钥保持兼容。
+[验收记录](https://github.com/vicliu624/Foreshadow/releases/download/v0.2.16/release-qualification.json)包含源码／SDK 身份、包哈希、原生运行结果及明确限制。[发布与更新报告](docs/reports/2026-11-25-0.2.16-release-and-update.zh-CN.md)区分隔离归档验证与已安装桌面的正常升级。接收机工作站的原桌面升级仍等待用户解锁；同机独立目录中的实际 0.2.16 包已通过实体采集、录制、回放、历史导出和外部 Power Report 检查。
 
-ADS-B 六十秒、WSPR 一百四十秒的 2 MS/s 持续输入回归属于三个正式平台的完整测试。交付生产源码在接收机电脑使用未升级的 Qt 6.8.2／OpenSSL 3.5.7 完整重建并安装；这不是托管 OpenSSL 3.5.9 构建的字节复现。27 项发布材料契约通过，WSJT-X 原始声明、GPL 与源码覆盖三个平台。HF 未解出电台的观察、缺少实体声音设备的跳过及 macOS 未验收均明确保留；有限软件／实机观察不构成任意时长无损保证。
+资源检查复用客户端进程：64 轮录制／回放、32 轮创建拒绝／成功及 16 轮故意日志断线恢复均要求原生资源计数不增长。实际 Linux 接收机包另通过 32 轮探测／采集。RSPdx-R2 工作站的实际客户端包完成 12 轮实体设备操作及 60 秒、2 MS/s 的采集（1.2 亿对 I/Q），随后完成新的 600 万对录制和历史数据逐字节一致导出；原有 26 个数据文件哈希均保留。这些是有界观察，不能唯一归因已重启的昨夜进程，也不构成无限期硬件无损保证。
+
+ADS-B 六十秒、WSPR 一百四十秒的 2 MS/s 持续输入回归仍属于三个正式平台的完整测试。生产源码在接收机电脑使用未升级的 Qt 6.8.2／OpenSSL 3.5.7 重建并安装；这不是托管 OpenSSL 3.5.9 SDK 构建的字节复现。27 项发布材料契约通过，相应包提供原始声明、对应源码及 BSL-1.0 客户端本地补丁配方。实体声音输出与 macOS 验收仍不在已验证范围。此前 [0.2.15 实机报告](docs/reports/2026-11-24-0.2.15-release-and-update.zh-CN.md)保留该版本实际 ADS-B 位置、WSPR 参考截图及观察。
 
 [0.2.12 r4 验收](docs/reports/2026-11-14-receiver-service-review.zh-CN.md)记录此前 Windows/Linux 服务架构及真实归档：
 
@@ -457,6 +467,6 @@ ADS-B 六十秒、WSPR 一百四十秒的 2 MS/s 持续输入回归属于三个�
 
 [r4 服务验收](docs/reports/2026-11-14-receiver-service-review.zh-CN.md)记录独立基础包／客户端、两平台各四包的机械材料门禁通过、第一方源码干净重建、Qt 替换、实体服务采集及当前评审入口。[r3 许可落地验收](docs/reports/2026-11-13-license-adoption-review.zh-CN.md)保留为已替代的进程内方案历史证据。
 
-[免费开源编解码专利评估](docs/codec-patent-assessment.zh-CN.md)区分免费下载、版税与许可。已发布的 0.2.15 基础包保留完整电视功能；发布本身不解决现有具体专利评估，也不构成新授权。SDRplay 客户端已作为独立包发布。带日期的[发布准备报告](docs/reports/2026-11-14-public-release-preparation.zh-CN.md)记录此前决策，机械材料验收不等于专利清权。
+[免费开源编解码专利评估](docs/codec-patent-assessment.zh-CN.md)区分免费下载、版税与许可。已发布的 0.2.16 基础包保留完整电视功能；发布本身不解决现有具体专利评估，也不构成新授权。SDRplay 客户端已作为独立包发布。带日期的[发布准备报告](docs/reports/2026-11-14-public-release-preparation.zh-CN.md)记录此前决策，机械材料验收不等于专利清权。
 
 ![接收机工作站原生渲染的许可证与源码窗口](docs/images/receiver-service-licenses.png)

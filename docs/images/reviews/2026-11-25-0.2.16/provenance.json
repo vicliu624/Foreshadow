@@ -1,0 +1,19 @@
+{
+  "schema": 1,
+  "capture_date": "2026-11-25",
+  "source_commit": "d33e438c0c2ca8c693dd4905c6ce2392aec5bcd8",
+  "host": "vicliu-pi",
+  "platform": "Debian 13 ARM64 / native Qt Wayland on uConsole",
+  "ui_language": "en",
+  "capture_method": "grim; original pixels, no editing or generated imagery",
+  "scope": "Normal published catalog update and health-checked restart; not physical receiver reception",
+  "images": [
+    {
+      "file": "docs/images/reviews/2026-11-25-0.2.16/01-uconsole-updated-toolboxes.png",
+      "input": "normally-updated-installed-package-ui",
+      "width": 1280,
+      "height": 720,
+      "sha256": "4c3d5a9195145466b8ce763fc02df389b4c1ff66f445e84bf5e0c29ce25ef8f1"
+    }
+  ]
+}
