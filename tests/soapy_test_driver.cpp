@@ -2,6 +2,7 @@
 #include <SoapySDR/Registry.hpp>
 #include <SoapySDR/Version.h>
 #include <SoapySDR/Errors.hpp>
+#include <SoapySDR/Logger.hpp>
 #include <algorithm>
 #include <atomic>
 #include <chrono>
@@ -122,7 +123,10 @@ public:
         return static_cast<int>(count);
     }
 };
-SoapySDR::KwargsList find(const SoapySDR::Kwargs&){return {{{"driver","sdrplay"},{"serial","AMC_TEST"}}};}
+SoapySDR::KwargsList find(const SoapySDR::Kwargs& args){
+    if(args.count("amc_test_log_marker"))SoapySDR::log(SOAPY_SDR_INFO,"FORESHADOW_RESOURCE_LOG_READY");
+    return {{{"driver","sdrplay"},{"serial","AMC_TEST"}}};
+}
 SoapySDR::Device* make(const SoapySDR::Kwargs& args){
     if(args.count("amc_test_reject_make"))throw std::runtime_error("Deliberately rejected remote construction");
     if(deviceClaimed || !releasedCleanly)throw std::runtime_error("The previous SDRplay stream did not release cleanly");

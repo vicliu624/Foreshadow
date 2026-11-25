@@ -25,7 +25,12 @@ test server and is not distributed with the client.
 `remote_resource_lifetime` uses a real independent upstream server, an independent
 test receiver and a TCP relay that deliberately disconnects only the logging
 channel. It checks native descriptor/handle counts during rejected and successful
-construction, repeated log recovery, and final unsubscribe. The receiver backend
+construction, repeated log recovery, and final unsubscribe. The resource
+test confirms log delivery with a real forwarded marker before sampling. A fully
+closed warmup excludes process-wide WinSock initialization from the baseline;
+the resource comparisons still require exact equality without an allowance.
+The test links through the receiver SDK interface target so imported dependency
+scope is preserved on Windows as well as Linux. The receiver backend
 contract also repeats successful, canceled, consumer-failed and activation-failed
 streams in one process. These checks do not establish an overnight hardware
 qualification or identify the cause of an already restarted process.

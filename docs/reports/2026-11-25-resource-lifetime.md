@@ -15,6 +15,15 @@ on `.42`. They do not replace the installed 0.2.15 release, alter its signed
 catalog, or open the physical RSPdx-R2. No Windows/macOS runtime acceptance or
 overnight hardware soak is claimed by this report.
 
+A subsequent native Windows MSVC client preflight reproduced failure with the
+original unpatched dependency and passed with the reviewed patches. After a
+fully closed WinSock warmup and confirmed real log delivery, both 32 construction
+cycles and 16 recovery cycles ended at their baseline of 150 handles. Counts
+require exact equality. The formal Windows test link also uses the existing
+receiver SDK interface target to preserve imported dependency scope. This is
+source-level client verification, separate from full release-archive acceptance;
+macOS and overnight physical operation remain unverified.
+
 ## Confirmed defects and corrections
 
 | Defect | Before correction on native Linux | Correction |

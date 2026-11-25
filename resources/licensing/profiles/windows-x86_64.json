@@ -928,12 +928,12 @@
         {
           "file": "third_party/soapyremote-patches/README.md",
           "role": "build",
-          "sha256": "b0dd2a4b19b1b0d2741e266d9c46047408202c3134402fc08ab1f0533220e311"
+          "sha256": "d63d35d4b50712d1ae03fbe62c75d51649b09792edfd0a81de2c515e0386f0d4"
         },
         {
           "file": "third_party/soapyremote-patches/README.zh-CN.md",
           "role": "build",
-          "sha256": "061bda8b158194e79ccfa423a33fe1a0bd4cf39f8a471d7de972f84ec126ed06"
+          "sha256": "67dcf1285fed9312c253472a2dfba2df535de2d774bd94d828d0f29b787082db"
         }
       ]
     },

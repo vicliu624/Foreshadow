@@ -418,7 +418,7 @@ if(TARGET Qt6::Core)
         RUNTIME_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/test-plugins")
     add_executable(soapy_backend_test soapy_backend_test.cpp)
     add_executable(remote_resource_test remote_resource_test.cpp)
-    target_link_libraries(remote_resource_test PRIVATE amc_remote_client SoapySDRRemoteCommon SoapySDR Qt6::Core)
+    target_link_libraries(remote_resource_test PRIVATE amc_remote_client SoapySDRRemoteCommon signalscope_soapy_driver Qt6::Core)
     target_include_directories(remote_resource_test PRIVATE "$<TARGET_PROPERTY:amc_remote_client,INCLUDE_DIRECTORIES>")
     target_include_directories(remote_resource_test PRIVATE "${PROJECT_SOURCE_DIR}/include")
     add_test(NAME remote_resource_lifetime COMMAND "${Python3_EXECUTABLE}" -X utf8 "${CMAKE_CURRENT_SOURCE_DIR}/with_receiver_service.py"
