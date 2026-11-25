@@ -2,11 +2,14 @@
 #include "signalscope/backend/iq/path.hpp"
 #include "resource_count.hpp"
 #include <QCoreApplication>
+#include <QDeadlineTimer>
 #include <QProcess>
 #include <QTemporaryDir>
 #include <iostream>
 #ifdef __linux__
 #include <fcntl.h>
+#elif defined(_WIN32)
+#include <io.h>
 #endif
 using namespace signalscope;
 void require(bool ok,const char* message){if(!ok)throw std::runtime_error(message);}
@@ -31,10 +34,44 @@ int main(int argc,char** argv) {
             }
         }
         require(found,"Active recording store did not hold its lock");
+#elif defined(_WIN32)
+        // Qt may restrict child inheritance to standard I/O. Check the actual
+        // CRT file handle as well, so its whitelist cannot hide an inheritable lock.
+        bool found=false,inheritable=false;
+        const auto expected=std::filesystem::absolute(root/".store.lock").make_preferred().native();
+        const auto previous=_set_thread_local_invalid_parameter_handler(
+            [](const wchar_t*,const wchar_t*,const wchar_t*,unsigned,uintptr_t){});
+        std::wstring name(32768,L'\0');
+        for(int fd=0;fd<_getmaxstdio();++fd) {
+            const auto native=_get_osfhandle(fd);if(native<0)continue;
+            const auto handle=reinterpret_cast<HANDLE>(native);
+            const auto length=GetFinalPathNameByHandleW(handle,name.data(),static_cast<DWORD>(name.size()),0);
+            if(!length || length>=name.size())continue;
+            auto actual=name.substr(0,length);
+            if(actual.starts_with(L"\\\\?\\"))actual.erase(0,4);
+            if(CompareStringOrdinal(actual.c_str(),-1,expected.c_str(),-1,TRUE)!=CSTR_EQUAL)continue;
+            found=true;DWORD flags=0;
+            inheritable=!GetHandleInformation(handle,&flags) || (flags&HANDLE_FLAG_INHERIT)!=0;
+        }
+        _set_thread_local_invalid_parameter_handler(previous);
+        require(found,"Active recording store did not hold its native file handle");
+        require(!inheritable,"Recording lock is inheritable by child executables");
 #endif
         QProcess child;
         child.start(QCoreApplication::applicationFilePath(),{"--child"});
-        require(child.waitForStarted(3000) && child.waitForReadyRead(3000) && child.readLine()=="ready\n","Child process did not become ready");
+        require(child.waitForStarted(3000),"Child process did not start");
+        QDeadlineTimer deadline(3000);
+        QByteArray diagnostics;
+        while(!child.canReadLine() && child.state()==QProcess::Running && !deadline.hasExpired()) {
+            child.waitForReadyRead(static_cast<int>(deadline.remainingTime()));
+            diagnostics+=child.readAllStandardError();
+        }
+        const auto ready=child.readLine().trimmed();
+        if(ready!="ready") {
+            std::cerr<<"Child state="<<child.state()<<" exit="<<child.exitCode()<<" error="<<child.errorString().toStdString()
+                     <<" stdout="<<ready.toHex().toStdString()<<" stderr="<<diagnostics.toStdString()<<'\n';
+            throw std::runtime_error("Child process did not become ready");
+        }
         store.reset();
         {EventStore reopened(root,cfg,policy);}
         require(child.state()==QProcess::Running,"The lock was only released by stopping the child");

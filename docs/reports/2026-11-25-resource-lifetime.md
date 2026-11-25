@@ -12,7 +12,7 @@ implementation defects from attribution of that particular incident.
 The working changes are based on `9bfeb363b5489018e0c6e293ddc5d9e826d387da`.
 Tests use an isolated source/build tree under the existing local runner account
 on `.42`. They do not replace the installed 0.2.15 release, alter its signed
-catalog, or open the physical RSPdx-R2. No Windows/macOS runtime acceptance or
+catalog, or open the physical RSPdx-R2. No full Windows/macOS release-archive acceptance or
 overnight hardware soak is claimed by this report.
 
 A subsequent native Windows MSVC client preflight reproduced failure with the
@@ -23,6 +23,16 @@ require exact equality. The formal Windows test link also uses the existing
 receiver SDK interface target to preserve imported dependency scope. This is
 source-level client verification, separate from full release-archive acceptance;
 macOS and overnight physical operation remain unverified.
+
+The Windows recording preflight also reproduced a test-harness failure: a first
+process notification can carry only startup diagnostics, and Windows text output
+uses CRLF. The corrected test waits for a complete stdout readiness line until a
+deadline, normalizes its line ending and retains diagnostics on failure. It
+directly checks the native CRT lock handle's inheritance flag, because Qt can
+restrict child inheritance independently. Removing `_O_NOINHERIT` made that
+native assertion fail; restoring it passed all 64 lock/recording/replay cycles
+with 148 handles before and after. This is separate from the original production
+defects and does not waive the frozen-source formal release gates.
 
 ## Confirmed defects and corrections
 
