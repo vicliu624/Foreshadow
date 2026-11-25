@@ -22,3 +22,7 @@ cmake/RemoteReceiver.cmake text eol=lf
 /third_party/dra/UPSTREAM*.md text eol=lf
 /third_party/dtmb-sampler-LICENSE text eol=lf
 /third_party/dtmb-patches/*.json text eol=lf
+/cmake/PatchPinnedSource.cmake text eol=lf
+/cmake/PatchDtmbSource.cmake text eol=lf
+/third_party/soapyremote-patches/*.json text eol=lf
+/third_party/soapyremote-patches/README*.md text eol=lf

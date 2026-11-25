@@ -3,6 +3,21 @@
   "default_language": "en",
   "documents": [
     {
+      "en": "docs/releases/0.2.16.md",
+      "zh-CN": "docs/releases/0.2.16.zh-CN.md",
+      "status": "current"
+    },
+    {
+      "en": "docs/reports/2026-11-25-resource-lifetime.md",
+      "zh-CN": "docs/reports/2026-11-25-resource-lifetime.zh-CN.md",
+      "status": "historical"
+    },
+    {
+      "en": "third_party/soapyremote-patches/README.md",
+      "zh-CN": "third_party/soapyremote-patches/README.zh-CN.md",
+      "status": "current"
+    },
+    {
       "en": "docs/reports/2026-11-24-0.2.15-release-and-update.md",
       "zh-CN": "docs/reports/2026-11-24-0.2.15-release-and-update.zh-CN.md",
       "status": "historical"

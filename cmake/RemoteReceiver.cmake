@@ -5,18 +5,25 @@ FetchContent_Declare(soapyremote
   URL_HASH SHA256=c225d0608ad299053f850fbe8e4ac227f4f920054fde8c422b31eb6d084289bd
   SOURCE_SUBDIR foreshadow-client-assembly)
 FetchContent_MakeAvailable(soapyremote)
+include("${PROJECT_SOURCE_DIR}/cmake/PatchPinnedSource.cmake")
+set(amc_remote_patched "${PROJECT_BINARY_DIR}/remote-client-patched")
+foreach(unit Settings LogAcceptor)
+  amc_patch_pinned_source("${soapyremote_SOURCE_DIR}/client/${unit}.cpp"
+    "${amc_remote_patched}/${unit}.cpp"
+    "${PROJECT_SOURCE_DIR}/third_party/soapyremote-patches/${unit}.json")
+endforeach()
 set(SOAPY_REMOTE_VERSION "0.5.4-bd10a2e4")
 set(ENABLE_AVAHI OFF)
 add_subdirectory("${soapyremote_SOURCE_DIR}/common" "${soapyremote_BINARY_DIR}/common" EXCLUDE_FROM_ALL)
 add_library(amc_remote_client OBJECT
   "${soapyremote_SOURCE_DIR}/client/Registration.cpp"
-  "${soapyremote_SOURCE_DIR}/client/Settings.cpp"
+  "${amc_remote_patched}/Settings.cpp"
   "${soapyremote_SOURCE_DIR}/client/Streaming.cpp"
-  "${soapyremote_SOURCE_DIR}/client/LogAcceptor.cpp"
+  "${amc_remote_patched}/LogAcceptor.cpp"
   "${soapyremote_SOURCE_DIR}/client/ClientStreamData.cpp"
   "${soapyremote_SOURCE_DIR}/client/DiscoverServers.cpp")
 target_link_libraries(amc_remote_client PRIVATE SoapySDR SoapySDRRemoteCommon)
-target_include_directories(amc_remote_client PRIVATE "${soapyremote_SOURCE_DIR}/common")
+target_include_directories(amc_remote_client PRIVATE "${soapyremote_SOURCE_DIR}/common" "${soapyremote_SOURCE_DIR}/client")
 target_link_libraries(amc-receiver-sdrplay PRIVATE amc_remote_client SoapySDRRemoteCommon)
 if(MSVC)
   target_compile_definitions(SoapySDRRemoteCommon PRIVATE NOMINMAX)

@@ -1,0 +1,18 @@
+{
+  "upstream_commit": "bd10a2e4a916bf66f0faa36dca7f043d4268138c",
+  "license": "BSL-1.0",
+  "replacements": [
+    {
+      "before": "#include <stdexcept>",
+      "after": "#include <stdexcept>\n#include <memory>"
+    },
+    {
+      "before": "    _logAcceptor = new SoapyLogAcceptor(url, _sock, timeoutUs);",
+      "after": "    std::unique_ptr<SoapyLogAcceptor> logAcceptor(new SoapyLogAcceptor(url, _sock, timeoutUs));"
+    },
+    {
+      "before": "    if (protIt != args.end()) _defaultStreamProt = protIt->second;",
+      "after": "    if (protIt != args.end()) _defaultStreamProt = protIt->second;\n\n    // Transfer ownership only after all remote construction steps succeed.\n    _logAcceptor = logAcceptor.release();"
+    }
+  ]
+}

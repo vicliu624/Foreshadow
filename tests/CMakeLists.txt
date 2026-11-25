@@ -405,6 +405,10 @@ if(TARGET Qt6::Core)
   target_link_libraries(live_modulation_test PRIVATE nlohmann_json::nlohmann_json Qt6::Core)
   add_test(NAME live_fsk_pipeline COMMAND live_modulation_test $<TARGET_FILE:signalscope>
            ${CMAKE_CURRENT_SOURCE_DIR}/fixtures/lora-edge-high-sfd-transition)
+  add_executable(event_store_lifetime_test event_store_lifetime_test.cpp)
+  target_link_libraries(event_store_lifetime_test PRIVATE signalscope_core Qt6::Core)
+  add_test(NAME event_store_resource_lifetime COMMAND event_store_lifetime_test)
+  set_tests_properties(event_store_resource_lifetime PROPERTIES TIMEOUT 20)
   if(TARGET signalscope_soapy_driver)
     find_package(Python3 COMPONENTS Interpreter REQUIRED)
     add_library(soapy_test_driver MODULE soapy_test_driver.cpp)
@@ -413,6 +417,14 @@ if(TARGET Qt6::Core)
         LIBRARY_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/test-plugins"
         RUNTIME_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/test-plugins")
     add_executable(soapy_backend_test soapy_backend_test.cpp)
+    add_executable(remote_resource_test remote_resource_test.cpp)
+    target_link_libraries(remote_resource_test PRIVATE amc_remote_client SoapySDRRemoteCommon SoapySDR Qt6::Core)
+    target_include_directories(remote_resource_test PRIVATE "$<TARGET_PROPERTY:amc_remote_client,INCLUDE_DIRECTORIES>")
+    target_include_directories(remote_resource_test PRIVATE "${PROJECT_SOURCE_DIR}/include")
+    add_test(NAME remote_resource_lifetime COMMAND "${Python3_EXECUTABLE}" -X utf8 "${CMAKE_CURRENT_SOURCE_DIR}/with_receiver_service.py"
+      $<TARGET_FILE:amc-test-receiver-service> $<TARGET_FILE_DIR:soapy_test_driver>
+      "${Python3_EXECUTABLE}" -X utf8 "${CMAKE_CURRENT_SOURCE_DIR}/remote_resource_faults.py" $<TARGET_FILE:remote_resource_test>)
+    set_tests_properties(remote_resource_lifetime PROPERTIES TIMEOUT 90)
     target_link_libraries(soapy_backend_test PRIVATE signalscope_receivers Qt6::Core)
     add_test(NAME sdrplay_backend_contract COMMAND "${Python3_EXECUTABLE}" -X utf8 "${CMAKE_CURRENT_SOURCE_DIR}/with_receiver_service.py"
         $<TARGET_FILE:amc-test-receiver-service> $<TARGET_FILE_DIR:soapy_test_driver> $<TARGET_FILE:soapy_backend_test>

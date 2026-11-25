@@ -24,10 +24,10 @@ class StoreLock {
 public:
     explicit StoreLock(const std::filesystem::path& path) {
 #ifdef _WIN32
-        if(_wsopen_s(&fd_,path.c_str(),_O_CREAT|_O_RDWR,_SH_DENYRW,_S_IREAD|_S_IWRITE)!=0)
+        if(_wsopen_s(&fd_,path.c_str(),_O_CREAT|_O_RDWR|_O_NOINHERIT,_SH_DENYRW,_S_IREAD|_S_IWRITE)!=0)
             throw OperationError(ErrorCode::event_store_unavailable,"The event store is in use or could not be locked");
 #else
-        fd_=::open(path.c_str(),O_CREAT|O_RDWR|O_NOFOLLOW,0600);
+        fd_=::open(path.c_str(),O_CREAT|O_RDWR|O_NOFOLLOW|O_CLOEXEC,0600);
         if(fd_<0) throw OperationError(ErrorCode::event_store_unavailable,"Could not open the event store lock");
         if(flock(fd_,LOCK_EX|LOCK_NB)!=0) { ::close(fd_); fd_=-1; throw OperationError(ErrorCode::event_store_unavailable,"The event store is in use"); }
 #endif

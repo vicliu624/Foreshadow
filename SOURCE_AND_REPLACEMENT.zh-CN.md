@@ -52,7 +52,11 @@ Windows 在 x64 Native Tools 命令行使用本机路径，传入
 `-DCMAKE_TOOLCHAIN_FILE=.../scripts/buildsystems/vcpkg.cmake`、交付的 triplet 与
 `-DSoapySDR_DIR=.../share/soapysdr`。原生 FFmpeg 还需要 Bash、Make、NASM；
 `cmake/MediaDecoder.cmake` 和 `cmake/BuildFfmpeg.sh` 保留精确解码器集合及移植补丁。
-`cmake/DtmbReceiver.cmake` 应用附带的 DTMB 声明式补丁。生产构建不需要 PyMuPDF、
+`cmake/DtmbReceiver.cmake` 应用附带的 DTMB 声明式补丁。
+`cmake/RemoteReceiver.cmake` 将附带的
+[SoapyRemote 客户端生命周期修改](third_party/soapyremote-patches/README.zh-CN.md)
+应用到当前构建目录的私有副本。重建该客户端时，需要同时保留原始上游归档、两份补丁
+清单以及 `cmake/PatchPinnedSource.cmake`。生产构建不需要 PyMuPDF、
 外部标准 PDF 或 RF 采集。这里的复现指源码／构建对应及功能重建，不保证编译时间戳
 与签名逐字节相同。
 

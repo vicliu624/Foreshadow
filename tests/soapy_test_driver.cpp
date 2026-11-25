@@ -123,7 +123,8 @@ public:
     }
 };
 SoapySDR::KwargsList find(const SoapySDR::Kwargs&){return {{{"driver","sdrplay"},{"serial","AMC_TEST"}}};}
-SoapySDR::Device* make(const SoapySDR::Kwargs&){
+SoapySDR::Device* make(const SoapySDR::Kwargs& args){
+    if(args.count("amc_test_reject_make"))throw std::runtime_error("Deliberately rejected remote construction");
     if(deviceClaimed || !releasedCleanly)throw std::runtime_error("The previous SDRplay stream did not release cleanly");
     return new Fake;
 }

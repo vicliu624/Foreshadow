@@ -3,7 +3,7 @@
   "application_id": "org.amc.ams",
   "components": {
     "foreshadow": {
-      "version": "0.2.15",
+      "version": "0.2.16",
       "license": "GPL-3.0-or-later",
       "origin": "Frozen Foreshadow Git commit",
       "source_required": true,
@@ -30,7 +30,7 @@
         {
           "file": "SOURCE_AND_REPLACEMENT.md",
           "role": "build",
-          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+          "sha256": "3e26354698d9a8a0c9bbe9b5b5a6f77cc1b50d585af63fb391075f332dec521b"
         },
         {
           "file": "COPYRIGHT.md",
@@ -70,7 +70,7 @@
         {
           "file": "SOURCE_AND_REPLACEMENT.zh-CN.md",
           "role": "build",
-          "sha256": "4b5b40681e1566e02d0479aa91db362dc3493d800c930af04dda8c7c16318e92"
+          "sha256": "7c2aa69373e0e831054b7987819eab411414f3e8120fb72678e06b5273065910"
         }
       ],
       "display_notice": "Foreshadow and its first-party plugins are free software under GNU GPL version 3 or, at your option, any later version. Imported code retains its original copyright and license."
@@ -95,7 +95,7 @@
         {
           "file": "SOURCE_AND_REPLACEMENT.md",
           "role": "build",
-          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+          "sha256": "3e26354698d9a8a0c9bbe9b5b5a6f77cc1b50d585af63fb391075f332dec521b"
         }
       ]
     },
@@ -119,7 +119,7 @@
         {
           "file": "SOURCE_AND_REPLACEMENT.md",
           "role": "build",
-          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+          "sha256": "3e26354698d9a8a0c9bbe9b5b5a6f77cc1b50d585af63fb391075f332dec521b"
         }
       ]
     },
@@ -143,7 +143,7 @@
         {
           "file": "SOURCE_AND_REPLACEMENT.md",
           "role": "build",
-          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+          "sha256": "3e26354698d9a8a0c9bbe9b5b5a6f77cc1b50d585af63fb391075f332dec521b"
         },
         {
           "file": "cmake/BuildFfmpeg.sh",
@@ -183,7 +183,7 @@
         {
           "file": "SOURCE_AND_REPLACEMENT.md",
           "role": "build",
-          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+          "sha256": "3e26354698d9a8a0c9bbe9b5b5a6f77cc1b50d585af63fb391075f332dec521b"
         },
         {
           "file": "cmake/DtmbReceiver.cmake",
@@ -204,6 +204,16 @@
           "file": "third_party/dtmb-sampler-LICENSE",
           "role": "notice",
           "sha256": "2245ae0e78dda1d1475ae16d5f67702794bd2f28de68d9e5f149c3c78f60c90f"
+        },
+        {
+          "file": "cmake/PatchDtmbSource.cmake",
+          "role": "build",
+          "sha256": "dd4ea85a4f29273a986cbc74fe04c68af31322f88129aeea54b121516bdfcfd0"
+        },
+        {
+          "file": "cmake/PatchPinnedSource.cmake",
+          "role": "build",
+          "sha256": "b5b2e6d356ef75b101bf55cf7fc845463a18c26d3891097e2199dd81871b08d1"
         }
       ]
     },
@@ -266,7 +276,7 @@
         {
           "file": "SOURCE_AND_REPLACEMENT.md",
           "role": "build",
-          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+          "sha256": "3e26354698d9a8a0c9bbe9b5b5a6f77cc1b50d585af63fb391075f332dec521b"
         }
       ],
       "display_notice": "This application uses Qt under LGPL-3.0-only. Qt copyright notices, the LGPL/GPL texts, corresponding source and instructions for replacing the shared libraries accompany this copy. Other Qt third-party code retains its applicable terms."
@@ -305,7 +315,7 @@
         {
           "file": "SOURCE_AND_REPLACEMENT.md",
           "role": "build",
-          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+          "sha256": "3e26354698d9a8a0c9bbe9b5b5a6f77cc1b50d585af63fb391075f332dec521b"
         }
       ]
     },
@@ -343,7 +353,7 @@
         {
           "file": "SOURCE_AND_REPLACEMENT.md",
           "role": "build",
-          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+          "sha256": "3e26354698d9a8a0c9bbe9b5b5a6f77cc1b50d585af63fb391075f332dec521b"
         }
       ]
     },
@@ -381,7 +391,7 @@
         {
           "file": "SOURCE_AND_REPLACEMENT.md",
           "role": "build",
-          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+          "sha256": "3e26354698d9a8a0c9bbe9b5b5a6f77cc1b50d585af63fb391075f332dec521b"
         }
       ]
     },
@@ -419,7 +429,7 @@
         {
           "file": "SOURCE_AND_REPLACEMENT.md",
           "role": "build",
-          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+          "sha256": "3e26354698d9a8a0c9bbe9b5b5a6f77cc1b50d585af63fb391075f332dec521b"
         }
       ]
     },
@@ -457,7 +467,7 @@
         {
           "file": "SOURCE_AND_REPLACEMENT.md",
           "role": "build",
-          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+          "sha256": "3e26354698d9a8a0c9bbe9b5b5a6f77cc1b50d585af63fb391075f332dec521b"
         }
       ]
     },
@@ -495,7 +505,7 @@
         {
           "file": "SOURCE_AND_REPLACEMENT.md",
           "role": "build",
-          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+          "sha256": "3e26354698d9a8a0c9bbe9b5b5a6f77cc1b50d585af63fb391075f332dec521b"
         }
       ]
     },
@@ -535,7 +545,7 @@
         {
           "file": "SOURCE_AND_REPLACEMENT.md",
           "role": "build",
-          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+          "sha256": "3e26354698d9a8a0c9bbe9b5b5a6f77cc1b50d585af63fb391075f332dec521b"
         }
       ]
     },
@@ -580,7 +590,7 @@
         {
           "file": "SOURCE_AND_REPLACEMENT.md",
           "role": "build",
-          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+          "sha256": "3e26354698d9a8a0c9bbe9b5b5a6f77cc1b50d585af63fb391075f332dec521b"
         }
       ]
     },
@@ -620,7 +630,7 @@
         {
           "file": "SOURCE_AND_REPLACEMENT.md",
           "role": "build",
-          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+          "sha256": "3e26354698d9a8a0c9bbe9b5b5a6f77cc1b50d585af63fb391075f332dec521b"
         }
       ]
     },
@@ -665,7 +675,7 @@
         {
           "file": "SOURCE_AND_REPLACEMENT.md",
           "role": "build",
-          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+          "sha256": "3e26354698d9a8a0c9bbe9b5b5a6f77cc1b50d585af63fb391075f332dec521b"
         }
       ]
     },
@@ -703,12 +713,12 @@
         {
           "file": "SOURCE_AND_REPLACEMENT.md",
           "role": "build",
-          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+          "sha256": "3e26354698d9a8a0c9bbe9b5b5a6f77cc1b50d585af63fb391075f332dec521b"
         }
       ]
     },
     "desktop-runtime": {
-      "version": "0.2.15",
+      "version": "0.2.16",
       "license": "See selected component licenses",
       "origin": "Foreshadow package assembly",
       "source_required": false,
@@ -735,12 +745,12 @@
         {
           "file": "SOURCE_AND_REPLACEMENT.md",
           "role": "build",
-          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+          "sha256": "3e26354698d9a8a0c9bbe9b5b5a6f77cc1b50d585af63fb391075f332dec521b"
         }
       ]
     },
     "distribution-runtime": {
-      "version": "0.2.15",
+      "version": "0.2.16",
       "license": "See selected component licenses",
       "origin": "Foreshadow package assembly",
       "source_required": false,
@@ -764,12 +774,12 @@
         {
           "file": "SOURCE_AND_REPLACEMENT.md",
           "role": "build",
-          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+          "sha256": "3e26354698d9a8a0c9bbe9b5b5a6f77cc1b50d585af63fb391075f332dec521b"
         }
       ]
     },
     "dsp-runtime": {
-      "version": "0.2.15",
+      "version": "0.2.16",
       "license": "See selected component licenses",
       "origin": "Foreshadow package assembly",
       "source_required": false,
@@ -794,12 +804,12 @@
         {
           "file": "SOURCE_AND_REPLACEMENT.md",
           "role": "build",
-          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+          "sha256": "3e26354698d9a8a0c9bbe9b5b5a6f77cc1b50d585af63fb391075f332dec521b"
         }
       ]
     },
     "television-runtime": {
-      "version": "0.2.15",
+      "version": "0.2.16",
       "license": "See selected component licenses",
       "origin": "Foreshadow package assembly",
       "source_required": false,
@@ -826,12 +836,12 @@
         {
           "file": "SOURCE_AND_REPLACEMENT.md",
           "role": "build",
-          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+          "sha256": "3e26354698d9a8a0c9bbe9b5b5a6f77cc1b50d585af63fb391075f332dec521b"
         }
       ]
     },
     "rtlsdr-runtime": {
-      "version": "0.2.15",
+      "version": "0.2.16",
       "license": "See selected component licenses",
       "origin": "Foreshadow package assembly",
       "source_required": false,
@@ -854,12 +864,12 @@
         {
           "file": "SOURCE_AND_REPLACEMENT.md",
           "role": "build",
-          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+          "sha256": "3e26354698d9a8a0c9bbe9b5b5a6f77cc1b50d585af63fb391075f332dec521b"
         }
       ]
     },
     "soapy-runtime": {
-      "version": "0.2.15",
+      "version": "0.2.16",
       "license": "See selected component licenses",
       "origin": "Foreshadow package assembly",
       "source_required": false,
@@ -883,13 +893,13 @@
         {
           "file": "SOURCE_AND_REPLACEMENT.md",
           "role": "build",
-          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+          "sha256": "3e26354698d9a8a0c9bbe9b5b5a6f77cc1b50d585af63fb391075f332dec521b"
         }
       ],
       "display_notice": "The optional receiver client uses the independent SoapyRemote network protocol. No SDRplay API, local hardware driver, or receiver service binary is included. Install the receiver service and vendor software separately on the receiver computer."
     },
     "research-runtime": {
-      "version": "0.2.15",
+      "version": "0.2.16",
       "license": "See selected component licenses",
       "origin": "Foreshadow package assembly",
       "source_required": false,
@@ -910,7 +920,7 @@
         {
           "file": "SOURCE_AND_REPLACEMENT.md",
           "role": "build",
-          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+          "sha256": "3e26354698d9a8a0c9bbe9b5b5a6f77cc1b50d585af63fb391075f332dec521b"
         }
       ]
     },
@@ -934,12 +944,37 @@
         {
           "file": "cmake/RemoteReceiver.cmake",
           "role": "build",
-          "sha256": "2fa24491c3c409debdf56ed1c01674ca10523c7cbfe465d9cd86eb0c2f9fe57f"
+          "sha256": "6efbf744f9099a6ff46c9bcea1135663e3fd9351906b00e91c5cbdd49af86006"
         },
         {
           "file": "SOURCE_AND_REPLACEMENT.md",
           "role": "build",
-          "sha256": "86052e383931362936bcb0c64c1cf532fbb132a756d16631d16b20a26c5b5197"
+          "sha256": "3e26354698d9a8a0c9bbe9b5b5a6f77cc1b50d585af63fb391075f332dec521b"
+        },
+        {
+          "file": "cmake/PatchPinnedSource.cmake",
+          "role": "build",
+          "sha256": "b5b2e6d356ef75b101bf55cf7fc845463a18c26d3891097e2199dd81871b08d1"
+        },
+        {
+          "file": "third_party/soapyremote-patches/Settings.json",
+          "role": "build",
+          "sha256": "11a0d218ad34cf0ce49446e692799c7a7e19e35ce8d8d9d6c07b5dde891fe239"
+        },
+        {
+          "file": "third_party/soapyremote-patches/LogAcceptor.json",
+          "role": "build",
+          "sha256": "49bf446a792531a890e917156b742a76909b9a47b57d232d92acd8f211152c0d"
+        },
+        {
+          "file": "third_party/soapyremote-patches/README.md",
+          "role": "build",
+          "sha256": "b0dd2a4b19b1b0d2741e266d9c46047408202c3134402fc08ab1f0533220e311"
+        },
+        {
+          "file": "third_party/soapyremote-patches/README.zh-CN.md",
+          "role": "build",
+          "sha256": "061bda8b158194e79ccfa423a33fe1a0bd4cf39f8a471d7de972f84ec126ed06"
         }
       ]
     },
@@ -1129,7 +1164,7 @@
   "build_facts": {
     "qt": "6.8.2",
     "openssl": "3.5.9",
-    "application": "0.2.15"
+    "application": "0.2.16"
   },
   "packages": {
     "org.amc.ams": [

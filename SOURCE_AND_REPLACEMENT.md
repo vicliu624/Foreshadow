@@ -70,6 +70,10 @@ triplet and `-DSoapySDR_DIR=.../share/soapysdr`. The native FFmpeg build also
 needs Bash, Make and NASM; see `cmake/MediaDecoder.cmake` and
 `cmake/BuildFfmpeg.sh` for the exact configured decoder set and local portability
 patches. `cmake/DtmbReceiver.cmake` applies the delivered declarative DTMB patches.
+`cmake/RemoteReceiver.cmake` applies the delivered
+[SoapyRemote client lifetime changes](third_party/soapyremote-patches/README.md)
+to private build-tree copies. Keep the original upstream archive, both patch
+manifests, and `cmake/PatchPinnedSource.cmake` when rebuilding that client.
 Production builds do not need PyMuPDF, the external standard PDF or RF captures.
 Reproducibility here means source/build correspondence and a functional rebuild;
 it does not promise byte-identical compiler timestamps or signatures.

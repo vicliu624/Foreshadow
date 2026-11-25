@@ -6,6 +6,7 @@
 #include <QJsonObject>
 #include <QTemporaryDir>
 #include <cmath>
+#include "resource_count.hpp"
 
 using namespace amc_test;
 
@@ -74,6 +75,25 @@ void checkStreamRecovery(const QString& plugin) {
     const auto stopped=receiver.stream(cfg,receive,[&]{return std::chrono::steady_clock::now()-started>std::chrono::milliseconds(150);},{});
     require(stopped.at("status")=="cancelled" && accepted>0 && stopped.at("accepted_pairs")==accepted,
             "Cancelling a continuous service stream lost the accepted prefix or failed to release it");
+    const auto baseline=openResourceCount();
+    for(int cycle=0;cycle<32;++cycle) {
+        cfg.seconds=.003;cfg.frequency=cycle%4==3?473'000'000:470'000'000;accepted=0;
+        bool failed=false;Json result;
+        try {
+            result=receiver.stream(cfg,[&](auto bytes,auto first){
+                if(cycle%4==1)throw std::runtime_error("Deliberate consumer failure");
+                receive(bytes,first);
+            },[&]{return cycle%4==2;},{});
+        }catch(const OperationError& error){
+            require(cycle%4==3 && error.code()==ErrorCode::receiver_stream,"Unexpected repeated stream operation failure");failed=true;
+        }catch(const std::runtime_error& error){
+            require(cycle%4==1 && std::string(error.what())=="Deliberate consumer failure","Unexpected repeated stream consumer failure");failed=true;
+        }
+        require(failed==(cycle%4==1 || cycle%4==3),"Repeated stream fault did not follow the expected path");
+        if(!failed)require(result.at("status")== (cycle%4==2?"cancelled":"complete"),"Unexpected repeated stream result");
+        require(openResourceCount()==baseline,"Repeated service streams retained descriptors or handles");
+    }
+    std::cout<<"{\"receiver_resource_cycles\":32,\"baseline\":"<<baseline<<",\"final\":"<<openResourceCount()<<"}\n";
 }
 
 int main(int argc,char** argv) {

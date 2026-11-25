@@ -1,0 +1,26 @@
+{
+  "upstream_commit": "bd10a2e4a916bf66f0faa36dca7f043d4268138c",
+  "license": "BSL-1.0",
+  "replacements": [
+    {
+      "before": "#include <cassert>",
+      "after": "#include <cassert>\n#include <atomic>"
+    },
+    {
+      "before": "    sig_atomic_t done;",
+      "after": "    std::atomic<bool> done;"
+    },
+    {
+      "before": "    client = SoapyRPCSocket();",
+      "after": "    // A failed handler still owns its socket and joinable thread.\n    if (thread != nullptr)\n    {\n        done = true;\n        thread->join();\n        delete thread;\n        thread = nullptr;\n    }\n    client.close();"
+    },
+    {
+      "before": "    delete thread;\n    client.close();",
+      "after": "    delete thread;\n    thread = nullptr;\n    client.close();"
+    },
+    {
+      "before": "        //first time, or error occurred\n        if (data.done) data.activate();\n\n        //no subscribers, erase\n        if (data.useCount == 0) handlers.erase(it++);\n\n        //next element\n        else ++it;",
+      "after": "        // An unsubscribe must not create a new forwarding connection.\n        if (data.useCount == 0) handlers.erase(it++);\n        else\n        {\n            if (data.done) data.activate();\n            ++it;\n        }"
+    }
+  ]
+}
